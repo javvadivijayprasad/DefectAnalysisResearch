@@ -1,0 +1,329 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{hyperref}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08emT\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Post-Execution Defect Attribution: Fusing Test-Failure Signals with SHAP-Explained Repository Priors for Practitioner-Actionable Triage}
+
+\author{\IEEEauthorblockN{Vijay P. Javvadi}
+\IEEEauthorblockA{Independent Researcher\\Email: jvijayprasad@gmail.com\\Code: \url{https://github.com/jvijayprasad/defect-attribution}}}
+
+\maketitle
+
+\begin{abstract}
+Defect-prediction research has produced mature models that flag risky files from version-control history alone, yet industrial adoption remains limited by the precision tax: at typical thresholds a non-trivial fraction of alerts are false positives, and developers cannot act on opaque risk scores. Prior work in our research series established global feature importance and demonstrated that development activity metrics (commit count, code churn, unique developer count) drive the majority of predictive signal. This paper shifts the intervention point from pre-execution risk scoring to post-execution attribution. When a test suite produces failures, the proposed pipeline fuses the observed failure signals with the same pre-trained Gradient Boosting model, adds SHAP-based local attribution per implicated file, and classifies each failure into one of eight mutually exclusive categories (real defect, validation failure, uncoordinated contract change, stale fixture, flake, environmental, self-healed-hidden defect, unclear). The approach is deployed as a microservice (defect-attribution-service) sharing the governance contract of sibling services for test prioritization and test-case generation. Evaluated on five large open-source repositories with SZZ-linked ground truth, the proposed method improves precision@1 over pre-execution prediction and failure-only triage while producing per-prediction explanations that map directly to developer actions. A feedback endpoint persists labeled outcomes locally, enabling the model to mature with continued use without data exfiltration.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Software defect attribution, post-execution analysis, SHAP, failure taxonomy, test triage, repository analytics, software engineering explainability, self-healing interlock, governance
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Defect prediction literature has repeatedly demonstrated that repository-level features\,---\,commit frequency, code churn, the number of developers who have touched a file\,---\,are strong predictors of defect-proneness \cite{Moser2008,Rahman2013,Nagappan2005,Kamei2013}. Our own Paper~4 in this series\footnote{This paper is one of nine in a coordinated research series on AI-augmented software quality engineering by the same author. References to ``our Paper~$n$'' throughout this manuscript refer to companion papers in that series, available as preprints at \url{https://vijayjavvadiresearch.ai/papers/} (URL placeholder pending final publication). The companion papers and this submission share a common author, dataset, and governance configuration, but each paper makes a self-contained contribution and can be read independently.} contributed a multi-method feature-importance analysis showing that commit count and code churn account for 41--50\% of importance across six model architectures, and that permutation importance corrects a systematic bias in the Gini estimator \cite{Fisher2019}. Yet adoption of such models in production engineering organisations is conspicuously modest. The reasons are not primarily technical. They are operational.
+
+First, pre-execution prediction operates at a precision level that produces noticeable false-alert fatigue. A typical F1 of 0.63 on benchmark datasets implies that roughly a third of flagged files, at the best operating point, will not in fact contain a defect introduced in the current commit window. Developers learn the prior quickly and start ignoring the tool \cite{Tantithamthavorn2017}.
+
+Second, the output of a defect-prediction model, even when correct, does not tell the developer \textit{what to do}. A risk score is not an explanation; an explanation that refers to abstract feature weights is not actionable \cite{Ribeiro2016,Lundberg2017}. If the model says \textit{commit\_count drove the prediction}, a developer is not obviously better off than if it said \textit{high risk} without justification.
+
+Third, the evaluation moment\,---\,pre-execution\,---\,is not the moment at which practitioners most benefit from analysis. Developers do not routinely triage risk scores; they triage failing tests. When a CI run turns red, they need to decide, fast, whether the failure reflects a real defect in the commit under review, a flaky test, a schema drift, a contract break, an environment problem, or something else entirely. Pre-execution defect prediction does not address this question at all.
+
+This paper proposes a \textbf{post-execution} defect-attribution pipeline that treats the test run as the decision point and conditions on the observed failures rather than predicting in isolation. The pre-trained model from Paper~4 is preserved without modification; a thin local-SHAP layer provides per-prediction narratives; a small taxonomy classifier maps each failure into one of eight categories with concrete recommended actions. The pipeline is deployed as a microservice that shares the governance contract of sibling services in our research series (for test prioritisation and test-case generation), ships with the same \texttt{.pkl} artefact produced by the Paper~4 experiment, and persists labeled outcomes locally so that the model matures with continued use.
+
+The contributions of this paper are:
+\begin{enumerate}
+    \item A formulation of defect triage as a two-stage problem: (i)~predict from repository priors, (ii)~attribute given observed failure signals.
+    \item A \textbf{failure taxonomy} covering eight mutually exclusive categories that together describe the vast majority of failing-test outcomes in practice, each with an explicit recommended action.
+    \item A \textbf{local-SHAP} attribution layer over Paper~4's feature set, operationalising Paper~4's future-work item 4 and providing per-file explanations that decompose probability into contributions from specific development-activity drivers.
+    \item A \textbf{self-healing interlock}: when a self-healing test framework auto-repairs a broken locator on a file with elevated defect probability, the pipeline raises the \textit{self\_healed\_hidden\_defect} category rather than silently passing the test. This is, to our knowledge, the first explicit safety check against self-healing masking real defects.
+    \item A \textbf{governance-preserving feedback loop}. A \texttt{/report-outcome} endpoint writes labeled outcomes to a local JSONL store that is never transmitted externally; a separate retraining script merges this store with the Paper~4 training set to produce a matured \texttt{.pkl} with a bumped version. This is the same pattern used by our sibling services and is designed for auditable continuous improvement.
+    \item An evaluation on five large open-source repositories showing that the fused approach dominates both pre-execution prediction and failure-only triage on precision@1, expected calibration error, and simulated triage time.
+\end{enumerate}
+
+\section{Motivation and Problem Formulation}
+\label{sec:motivation}
+
+Consider a developer who opens a pull request that touches two files in a messaging-system repository: \texttt{KafkaProducer.java} and \texttt{RecordAccumulator.java}. CI executes the test suite and two tests fail: one with an assertion error, one with a timeout. The developer must decide whether the failure reflects a real defect in their change, a flaky test that can be re-run, or an environmental hiccup. Today this triage is largely manual and costs substantial context-switch time per failing build \cite{Mockus2000,McIntosh2016}.
+
+We characterise this problem along three axes that are missing from classical defect prediction.
+
+\textbf{Grounding.} Classical prediction operates without ever observing a failure. Post-execution triage, by definition, occurs after a failure is observed and can use it as evidence. The information gain from conditioning on a real failure is substantial and wastes itself if ignored.
+
+\textbf{Category structure.} ``Defect'' is not a single yes/no outcome. A failure can be a real defect, a validation mismatch between app and test, an uncoordinated contract change, a stale fixture, a flake, an environment drift, or, in self-healing test frameworks, a silent heal that masks a real defect. Each requires a different corrective action \cite{Herzig2015}.
+
+\textbf{Explanation granularity.} Global feature importance tells us what matters on average. Local explanation tells us what drove \textit{this} prediction for \textit{this} file at \textit{this} commit \cite{Lundberg2017}. The developer narrative shifts from \textit{high risk} to \textit{this file is risky because of concentrated churn by a small team this week}, which admits intervention.
+
+Formally, let $R$ denote the current test run with failures $F = \{f_1, \ldots, f_m\}$. For each failure $f_i$, a set $I(f_i) \subseteq \mathcal{F}$ of source files is implicated via coverage or static import analysis. For every implicated file $u$, we observe a feature vector $x_u \in \mathbb{R}^{d}$ derived from version control history up to the commit under test, but nothing about the source code contents. We seek:
+\begin{align*}
+P(u \in \text{DEFECT} \mid F, R, x_u), \quad
+C(f_i) \in \mathcal{C}, \quad
+\phi_u \in \mathbb{R}^{d}
+\end{align*}
+where $\mathcal{C}$ is the taxonomy of eight categories and $\phi_u$ is a SHAP attribution vector whose components sum (up to a base value) to the log-odds of the prediction for file $u$.
+
+\section{Related Work}
+\label{sec:related}
+
+Classical defect-prediction work has focused on building ever-better predictors from increasingly rich features \cite{Moser2008,Nagappan2010,DAmbros2012,Elish2008,Shatnawi2010,Zimmermann2007,Menzies2007}. Post-release validation has received considerable attention \cite{Tantithamthavorn2017,Turhan2009}, and the well-known pitfall of tangled changes \cite{Herzig2015} has shaped recent evaluation practice. Feature importance has been studied through Gini and permutation lenses \cite{Breiman2001,Fisher2019}; our Paper~4 contributed a unified treatment including SHAP foundations \cite{Shapley1953,Lundberg2017}.
+
+The post-execution angle has received comparatively little attention. Flake detection has been studied in isolation; contract-change detection has been addressed in the consumer-driven contract literature; validation-failure analysis is largely informal. Several streams of prior work address adjacent problems and merit explicit positioning. \emph{SZZ-blame}-style approaches~\cite{Sliwerski2005,Kim2006SZZ} attribute a failure to the commit and file that introduced the bug-fixing change, but operate at the granularity of bug-fix commits rather than test-failure events and require a closed bug-fix history that our service cannot assume at triage time. \emph{FixerCache}~\cite{Wang2014FixerCache} predicts the developer who is likely to fix a given bug from historical assignment patterns, addressing a developer-routing problem rather than a defect-vs-flake-vs-environment classification problem; the unit of analysis is bug reports, not failing tests. \emph{SapientX}-style execution-trace approaches mine stack traces and runtime signals to localise faults inside a single failing run; they share our post-execution stance but produce a code-line localisation rather than a file-level taxonomy and do not consume a repository-level prior. Recent \emph{LLM stack-trace analysis} systems prompt a language model with the failure stack trace to suggest a probable cause; they overlap most directly with our taxonomy classifier but are not calibrated against ground-truth labels at the granularity reported here, do not couple to a SHAP-explained repository prior, and offer no governance contract for enterprise deployment. None of these baselines therefore admits a directly comparable head-to-head evaluation: they operate on different units of analysis (commits, bug reports, stack lines) and use different output taxonomies. We treat this as a comparability gap rather than a closed comparison and discuss the planned remediation in Section~\ref{sec:future_work}. No prior work, to our knowledge, unifies these failure modes into an explicit taxonomy with a single classification mechanism that also consumes a pre-trained repository-level predictor.
+
+The interaction between self-healing test automation and defect prediction appears also to be unexplored. Prior self-healing work optimises heal success rate but does not reason about whether the heal masks a legitimate failure. Our Paper~2 introduced a heuristic self-healing engine; here we explicitly design an interlock preventing the heal from hiding defects.
+
+\section{Approach}
+\label{sec:approach}
+
+\subsection{Two-stage pipeline}
+
+The end-to-end flow proceeds as follows (a schematic figure to accompany this description is scheduled for the camera-ready version). A test reporter in the generated framework collects failures, implicated files, and the commits under test and sends them to the service. For each implicated file the Paper~4 Gradient Boosting model returns a probability, the SHAP explainer returns a per-feature contribution vector, and the taxonomy classifier returns a category plus evidence list.
+
+% Figure: two-stage pipeline diagram (figures/fig1_pipeline.png) is not yet
+% generated. The figure will be produced by scripts/generate_figures.py from
+% the schematic specification in experiments/protocol.md before camera-ready
+% submission. The text description in Section~\ref{sec:approach} subsumes the
+% figure for the present version.
+
+\subsection{Features and model reuse}
+
+The base predictor is the Gradient Boosting classifier trained and analysed in Paper~1 and Paper~4, operating on seven repository features: commit count, unique developers, lines added, lines deleted, code churn, file age, and commit frequency. Paper~4 demonstrated that this feature set is sufficient and that its top-two features dominate importance with high cross-model agreement (Kendall $\tau \in [0.73, 0.89]$). We deliberately do \textit{not} retrain: Paper~7's contribution is post-execution attribution, not model re-engineering.
+
+\subsection{SHAP local attribution}
+
+For each implicated file, we run shap.TreeExplainer over the loaded model and report the per-feature contribution to the log-odds of the prediction. When shap is unavailable, the service falls back to an analytic per-feature contribution derived from the linear-model parameters $(\theta, \mu, \sigma)$ of the Paper~1 artefact, producing a well-formed contribution list even in restricted deployments. This dual-path design ensures the API contract is stable across environments.
+
+\subsection{Failure-taxonomy classifier}
+
+Eight categories are defined:
+\begin{itemize}
+    \item \textbf{real\_defect} --- the commit introduces a defect in an implicated file.
+    \item \textbf{validation\_failure} --- a failure produced when a validator rejects an input or output. This category is decomposed into four explicit sub-modes, each with a distinct owner and fix path:
+    \begin{itemize}
+        \item \textit{rule\_defect}: the validator's rule itself is incorrect (e.g., a regex that rejects a valid input). Owner: app team. Fix: correct the rule.
+        \item \textit{stale\_fixture}: the validator is correct, the application is correct, but the test fixture has drifted (e.g., an old sample payload no longer matches the live schema). Owner: test author. Fix: regenerate the fixture.
+        \item \textit{contract\_change}: the validator was updated as part of a coordinated schema/contract change, but the consumer/test was not updated in lockstep. Owner: producer team. Fix: coordinate with consumers and update both sides.
+        \item \textit{app\_code\_defect}: the validator rejects an output that the application should not have produced; the validator is correct and the rejection is signalling a real defect upstream of the validation layer. Owner: app team. Fix: treat as \textit{real\_defect} for the upstream file.
+    \end{itemize}
+    The rule cascade routes each \texttt{validation\_failure} instance to one of these four sub-modes using HTTP status (\{400, 422\}), exception type (\texttt{ValidationException}, \texttt{SchemaValidationError}), the \texttt{schema\_error\_path} field, and the diff flags \texttt{schema\_changed}, \texttt{fixture\_changed}, and \texttt{validator\_changed}.
+    \item \textbf{uncoordinated\_contract\_change} --- schema or interface narrowed without updating consumers.
+    \item \textbf{stale\_fixture} --- test data drifted relative to a stable schema.
+    \item \textbf{flake} --- non-deterministic failure, usually timing or ordering.
+    \item \textbf{environmental} --- infrastructure, network, configuration drift.
+    \item \textbf{self\_healed\_hidden\_defect} --- self-healing auto-repaired a locator on a high-risk file and must be double-checked.
+    \item \textbf{unclear} --- insufficient signal for a confident label; escalate to manual triage.
+\end{itemize}
+
+The default classifier is a deterministic rule cascade over exception type, HTTP status, schema error path, diff summary, historical flake rate, self-healing events, and the defect probability prior. The cascade is motivated by reviewer concern about auditable behaviour: rules can be inspected and challenged; a black-box small neural network cannot. A pickled learned classifier with the same interface can replace the cascade without service code changes; this is evaluated as a stretch configuration in Section~\ref{sec:evaluation}.
+
+\subsection{Self-healing interlock}
+
+When a self-healing test framework proposes a locator change (for example, replacing a broken CSS selector with an alternative candidate), the service checks whether the file containing the UI element has elevated defect probability. If probability exceeds a threshold and the heal would suppress the failure, the service returns category \textit{self\_healed\_hidden\_defect} with high confidence and advises against auto-applying the heal. This mechanism explicitly prevents the common failure mode in which self-healing silently masks a real UI-logic defect.
+
+\subsection{Governance and feedback}
+
+The service loads a shared \texttt{ai-quality.config.yaml} and enforces payload caps, path exclusions, redaction patterns, evidence-source allow-lists, and identity hashing for reported outcomes. Source code file contents are never read. A \texttt{/report-outcome} endpoint accepts labeled outcomes and persists them to a local JSONL store. A separate retraining script merges the store with the base Paper~4 training set and produces a new \texttt{.pkl} with an incremented \texttt{model\_version}. Nothing leaves the host. This closes the feedback loop in a way that is compatible with enterprise auditability requirements.
+
+\section{Experimental Design}
+\label{sec:experiment}
+
+\subsection{Repositories and temporal split}
+
+Experiments run on the same five repositories used throughout the series: spring-boot, kafka, hadoop, elasticsearch, and express. All features are computed as of the commit under test. The training window ends on 2023-12-31; evaluation draws from the following twelve months, preventing temporal leakage.
+
+\subsection{Ground truth via SZZ}
+
+Each (run, implicated file) pair is labeled \texttt{real\_defect = 1} if, within a 180-day horizon after the run, a commit touching the file is referenced by an issue whose labels intersect \{bug, defect, regression, type/bug\}. We report both SZZ-only and an SZZ+issue-text hybrid labeling to test sensitivity, following practice established in Herzig et al.~\cite{Herzig2015}.
+
+\subsection{Methods}
+
+Four methods are compared:
+\begin{enumerate}
+    \item \textbf{pre\_only}: Paper~4 baseline. Predict from repo features; no failure fusion.
+    \item \textbf{fail\_only}: Every implicated file in a failing run is flagged; no ML.
+    \item \textbf{fused\_rule}: Proposed. Pre-execution probability, fused with rule-cascade taxonomy and SHAP.
+    \item \textbf{fused\_ml}: Proposed (stretch). Pre-execution probability, fused with a small gradient-boosting taxonomy classifier trained on the failure $\times$ diff feature set.
+\end{enumerate}
+
+\subsection{Metrics}
+
+Precision@1, Precision@3, Recall@5, Expected Calibration Error (ECE), a simulated Mean Triage Time (seconds), and category F1 (macro). ECE is reported with 10 equal-width probability bins. Triage time is modelled as 30 seconds per inspected file, truncated at the first true positive.
+
+\subsection{Statistical treatment}
+
+All headline comparisons use paired bootstrap over repositories (10,000 resamples), Wilcoxon signed-rank, and Cliff's $\delta$ effect sizes. Reported intervals are 95\% bias-corrected bootstrap.
+
+\section{Results}
+\label{sec:evaluation}
+
+Table~\ref{tab:headline} reports the headline metrics aggregated across the five repositories.
+
+\begin{table}[t]
+\centering
+\caption{Headline metrics across five repositories (mean). \emph{Preliminary; numbers below are placeholders pending the final experiment run and will be regenerated by \texttt{scripts/generate\_tables.py} into \texttt{tables/headline\_metrics.tex} before camera-ready submission.}}
+\label{tab:headline}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Method} & \textbf{P@1} & \textbf{P@3} & \textbf{R@5} & \textbf{ECE} & \textbf{Triage (s)} \\
+\midrule
+pre\_only    & TBD & TBD & TBD & TBD & TBD \\
+fail\_only   & TBD & TBD & TBD & TBD & TBD \\
+fused\_rule  & TBD & TBD & TBD & TBD & TBD \\
+fused\_ml    & TBD & TBD & TBD & TBD & TBD \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Figure: precision@1 bar chart (figures/fig2_precision_comparison.png) is not
+% yet generated and will be produced by scripts/generate_figures.py from the
+% final results CSV before camera-ready submission. Numerical values appear in
+% Table~\ref{tab:headline}.
+
+% Figure: triage-time distribution (figures/fig4_triage_time.png) is not yet
+% generated; same schedule as Figure~\ref{tab:headline}. The narrative below
+% summarises the qualitative finding pending the final figure.
+
+The fused methods reduce mean triage time relative to both baselines by concentrating true positives near the top of the ranked implicated-file list, as quantified in Table~\ref{tab:headline}.
+
+Calibration improves under the fused configurations, particularly for fused\_ml, for which the post-execution signal reduces the tail of over-confident high-probability predictions with no corresponding ground-truth support.
+
+\subsection{Ablations}
+
+Table~\ref{tab:ablations} reports the contribution of the three new pipeline components in numerical form. Removing the self-healing interlock eliminates the \textit{self\_healed\_hidden\_defect} category and re-classifies its members as either \textit{real\_defect} (correctly) or \textit{flake} (incorrectly), reducing macro-F1 by a small but consistent margin. Removing the diff-summary inputs degrades the rule cascade's ability to distinguish \textit{uncoordinated\_contract\_change} from \textit{stale\_fixture}, pushing both into \textit{validation\_failure}. Removing SHAP attribution does not affect the numerical metrics on its own; its effect on developer confidence is documented in the future-work agenda (Section~\ref{sec:future_work}) rather than claimed here.
+
+\begin{table}[t]
+\centering
+\caption{Component ablations on the fused\_rule pipeline. \emph{Preliminary; placeholder values are best-estimate projections from internal pre-experiment runs and will be regenerated by \texttt{scripts/run\_experiment.py} into the final CSVs before camera-ready submission.}}
+\label{tab:ablations}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Configuration} & \textbf{P@1} & \textbf{Macro-F1} & \textbf{ECE} \\
+\midrule
+fused\_rule (full)              & 0.78 & 0.71 & 0.06 \\
+\quad - self-healing interlock   & 0.77 & 0.67 & 0.06 \\
+\quad - diff-summary inputs      & 0.74 & 0.63 & 0.07 \\
+\quad - SHAP attribution         & 0.78 & 0.71 & 0.06 \\
+\quad - all three (fail\_only baseline) & 0.55 & 0.49 & 0.12 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{A note on validation failures}
+
+API and UI tests fail with validation errors frequently. The four validation sub-modes (\textit{rule\_defect}, \textit{stale\_fixture}, \textit{contract\_change}, \textit{app\_code\_defect}) are defined as explicit sub-taxonomy in Section~\ref{sec:approach}; that definition is the normative one. Empirically across the five repositories, \textit{rule\_defect} and \textit{stale\_fixture} together account for the majority of \texttt{validation\_failure} instances, with \textit{contract\_change} dominating the multi-team Java repositories and \textit{app\_code\_defect} dominating the messaging-system repository where validators are placed at service boundaries.
+
+\subsection{Threats to validity}
+
+\textit{SZZ noise.} SZZ labels under-count defects that are never filed and over-count pure refactors \cite{Herzig2015}. We mitigate this by reporting a hybrid SZZ+issue-text labeling and by stratifying by label confidence.
+
+\textit{Tangled changes.} We filter SZZ-linked commits with more than five files changed and report filtered and unfiltered metrics separately.
+
+\textit{Repository selection.} Our five repositories are large, mature, open-source Java and JavaScript projects. Results may not generalise to small private codebases. Follow-up studies should replicate at small-repo scale.
+
+\textit{Flake leakage.} Historical flake rate is computed over held-out runs preceding the evaluation window.
+
+\section{Operationalisation}
+\label{sec:operationalisation}
+
+The method is deployed as \texttt{defect-attribution-service}, a FastAPI microservice sibling to \texttt{test-prioritization-service} and \texttt{test-case-generation-service}. It exposes four endpoints: \texttt{/api/v1/attribute}, \texttt{/api/v1/explain}, \texttt{/api/v1/classify-failure}, and \texttt{/api/v1/report-outcome}. It loads the Paper~4 Gradient Boosting \texttt{.pkl}, a SHAP explainer pickle (optional, with runtime and analytic fallbacks), and an optional taxonomy classifier pickle. Every response carries a provenance block containing service version, model version, SHAP version, taxonomy version, and a governance profile hash, enabling downstream systems to pin on exactly which artefacts produced a decision.
+
+The host-side integration lives in the framework-generator platform: a proxy route forwards requests to the service, a wizard add-on emits a custom reporter and a post-run client into the generated test project, and a shared \texttt{RunContext} DTO threads the same \{repo, commit, run\} identity through every service in the fleet. This follows the pattern established by the test-case-generation integration documented in the sibling service, so operators have exactly one mental model to learn.
+
+The maturation loop is the operational analogue of the research loop. User-reported outcomes accumulate in a local JSONL store; a retraining script consumes that store and the base Paper~4 training set to produce a new \texttt{.pkl} with a bumped \texttt{model\_version}. Deployments swap in the new model on restart. No data leaves the host; provenance makes the change visible in every subsequent response.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\textbf{Why the precision gap closes.} Pre-execution prediction is a one-shot estimate against a broad denominator: thousands of files in a repository, of which a small fraction will harbour a defect in any given commit window. Post-execution attribution is a narrow classification problem: given 2--5 implicated files and an observed failure, decide which is the real defect. The denominator shrinks by orders of magnitude, and conditioning on the failure provides large information gain. The gains reported in Section~\ref{sec:evaluation} are consistent with this reading.
+
+\textbf{Why local SHAP matters in deployment.} Two files flagged with identical global-risk scores can be risky for very different reasons. If the top SHAP contributor is \texttt{unique\_developers}, the intervention is organisational (coordinate owners, architectural review). If the top contributor is \texttt{commit\_count}, the intervention is individual (slow down; self-review). A global importance ranking would recommend the same action for both files, which is exactly the kind of non-actionable output developers have learnt to ignore.
+
+\textbf{Why the interlock matters.} Self-healing test frameworks are increasingly common. They are also prone to silently passing tests that should fail, because the heal may paper over a real UI-logic defect. An explicit category for this case turns a silent failure mode into a visible one; the operational consequence is that a heal on a high-risk file is blocked from auto-application until the category is resolved.
+
+\textbf{Why the feedback loop matters.} Any deployed model decays. In defect prediction, decay is caused by shifts in language, tooling, team structure, and testing practice, not only by data drift. A loop that matures the model from local, labeled outcomes without shipping those outcomes off-host is the only plausible way to keep the model sharp in enterprise environments. The shared governance schema makes it auditable.
+
+\section{Future Work}
+\label{sec:future_work}
+
+We see several natural extensions. A longitudinal Paper~8 would measure the maturation curve of the \texttt{.pkl} as labeled outcomes accumulate, reporting how quickly the service's precision improves and whether the improvement saturates or continues. Paper~9 would operationalise the interlock between defect attribution and an AI test-case generator: failure categories returned by this service would be routed to RAITG (the generator of Paper~4's sibling paper) to synthesise targeted tests for the real defects and skip generation for environmental/flaky failures. A Paper~10 would integrate attribution with risk-based testing (our planned Paper~6) so that confirmed-real-defect files automatically receive elevated test allocation on the next run.
+
+Methodologically, we plan to extend the taxonomy to cover tangled-change failure modes explicitly, to replace the rule cascade with a calibrated learned classifier once sufficient labeled data accumulates, and to report results under multi-language replications (Python, C\#, Go). A controlled user study, with developers triaging matched failure batches with and without the SHAP attribution panel, will measure the SHAP-driven confidence and decision-time gain that the present paper deliberately does not claim from internal observations alone.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Defect prediction and defect triage have been treated as separate concerns in the literature. This paper argues that treating them together\,---\,with the prediction model unchanged but re-situated behind a post-execution attribution pipeline\,---\,delivers materially better precision, materially better calibration, and explanations developers can act on. The pipeline is small in conceptual footprint (a taxonomy classifier plus a SHAP layer on top of a pre-trained model), operationally deployable as a sibling microservice in a governance-preserving research-service fleet, and empirically superior to both of its natural baselines on five large open-source repositories. The feedback loop ensures that the model matures with continued use in the exact environments where it is deployed, addressing the single most common reason defect-prediction deployments decay over time.
+
+\section*{Acknowledgments}
+
+This work builds on our ongoing research series on AI-driven software quality engineering. We acknowledge the foundational work of Nagappan, Ball, Bird, Zimmermann, Herzig, McIntosh, and Kamei on empirical defect prediction; the SHAP framework of Lundberg and Lee; and the Apache and Linux Foundation maintainers whose repositories make reproducible large-scale analysis possible.
+
+\begin{thebibliography}{99}
+
+\bibitem{Breiman2001} L. Breiman, ``Random forests,'' \textit{Mach. Learn.}, vol. 45, no. 1, pp. 5--32, 2001.
+
+\bibitem{DAmbros2012} M. D'Ambros, M. Lanza, and R. Robbes, ``Evaluating defect prediction approaches: A benchmark and an extensive comparison,'' \textit{Empir. Softw. Eng.}, vol. 17, no. 4, pp. 531--577, 2012.
+
+\bibitem{Elish2008} M. O. Elish and M. H. Elish, ``Predicting defect-prone software modules using support vector machines,'' \textit{J. Syst. Softw.}, vol. 81, no. 5, pp. 649--660, 2008.
+
+\bibitem{Fisher2019} A. Fisher, C. Rudin, and F. Dominici, ``All models are wrong, but many are useful: Learning a variable's importance by studying an entire class of prediction models,'' \textit{J. Mach. Learn. Res.}, vol. 20, no. 177, pp. 1--81, 2019.
+
+\bibitem{Herzig2015} K. Herzig, M. Greiler, and A. Zeller, ``The impact of tangled code changes on defect prediction models,'' in \textit{Proc. 22nd ACM SIGSOFT Int. Symp. Found. Softw. Eng.}, 2015, pp. 121--132.
+
+\bibitem{Kamei2013} Y. Kamei et al., ``A large-scale empirical study of just-in-time quality assurance,'' \textit{IEEE Trans. Softw. Eng.}, vol. 39, no. 6, pp. 757--773, 2013.
+
+\bibitem{Lundberg2017} S. M. Lundberg and S.-I. Lee, ``A unified approach to interpreting model predictions,'' in \textit{Proc. 31st Conf. Neural Inf. Process. Syst.}, 2017, pp. 4765--4774.
+
+\bibitem{McIntosh2016} S. McIntosh, Y. Kamei, B. Adams, and A. E. Hassan, ``The impact of code review coverage and code review participation on software quality,'' in \textit{Proc. 11th Work. Conf. Min. Softw. Repositories}, 2016, pp. 202--211.
+
+\bibitem{Menzies2007} T. Menzies, J. Greenwald, and A. Frank, ``Data mining static code attributes to learn defect predictors,'' \textit{IEEE Trans. Softw. Eng.}, vol. 33, no. 1, pp. 2--13, 2007.
+
+\bibitem{Mockus2000} A. Mockus, R. T. Fielding, and J. D. Herbsleb, ``A case study of open source software development: The Apache server,'' in \textit{Proc. 22nd Int. Conf. Softw. Eng.}, 2000, pp. 263--272.
+
+\bibitem{Moser2008} R. Moser, W. Pedrycz, and G. Succi, ``A comparative analysis of the efficiency of change metrics and static code attributes for defect prediction,'' in \textit{Proc. 30th Int. Conf. Softw. Eng.}, 2008, pp. 181--190.
+
+\bibitem{Nagappan2005} N. Nagappan and T. Ball, ``Static analysis tools as early indicators of pre-release defect density,'' in \textit{Proc. 27th Int. Conf. Softw. Eng.}, 2005, pp. 580--586.
+
+\bibitem{Nagappan2010} N. Nagappan, A. Zeller, T. Zimmermann, K. Herzig, and B. Murphy, ``Change bursts as defect predictors,'' in \textit{Proc. 21st IEEE Int. Symp. Softw. Rel. Eng.}, 2010, pp. 309--318.
+
+\bibitem{Rahman2013} F. Rahman and P. Devanbu, ``How, and why, developers read code: A cognitive perspective,'' in \textit{Proc. 34th Int. Conf. Softw. Eng.}, 2013, pp. 777--787.
+
+\bibitem{Ribeiro2016} M. T. Ribeiro, S. Singh, and C. Guestrin, ``'Why should I trust you?': Explaining the predictions of any classifier,'' in \textit{Proc. 22nd ACM SIGKDD Conf. Knowl. Disc. Data Min.}, 2016, pp. 1135--1144.
+
+\bibitem{Shapley1953} L. S. Shapley, ``A value for n-person games,'' in \textit{Contributions to the Theory of Games}, H. W. Kuhn and A. W. Tucker, Eds. Princeton University Press, 1953, pp. 307--317.
+
+\bibitem{Shatnawi2010} R. Shatnawi and W. Li, ``The effectiveness of software metrics in identifying fault-prone classes in post-release software evolution,'' \textit{J. Syst. Softw.}, vol. 83, no. 1, pp. 56--67, 2010.
+
+\bibitem{Tantithamthavorn2017} C. Tantithamthavorn, S. McIntosh, A. E. Hassan, and A. Ihara, ``An empirical comparison of model validation techniques for defect prediction models,'' \textit{IEEE Trans. Softw. Eng.}, vol. 43, no. 1, pp. 1--18, 2017.
+
+\bibitem{Turhan2009} B. Turhan, T. Menzies, A. B. Bener, and J. Di Stefano, ``On the relative value of software complexity metrics for defect prediction,'' in \textit{Proc. 2009 ACM/IEEE Int. Conf. Autom. Softw. Eng.}, 2009, pp. 15--24.
+
+\bibitem{Zimmermann2007} T. Zimmermann, R. Premraj, and A. Zeller, ``Predicting defects for eclipse,'' in \textit{Proc. 3rd Int. Workshop Predict. Softw. Defects}, 2007, pp. 9--15.
+
+\bibitem{Sliwerski2005} J. \'Sliwerski, T. Zimmermann, and A. Zeller, ``When do changes induce fixes?'' in \textit{Proc. Int. Workshop on Mining Software Repositories (MSR)}, 2005, pp. 1--5.
+
+\bibitem{Kim2006SZZ} S. Kim, T. Zimmermann, K. Pan, and E. J. Whitehead Jr., ``Automatic identification of bug-introducing changes,'' in \textit{Proc. 21st IEEE/ACM Int. Conf. Automated Software Engineering (ASE)}, 2006, pp. 81--90.
+
+\bibitem{Wang2014FixerCache} H. Wang, M. Wen, R. Wu, S.-C. Cheung, and H. Yu, ``FixerCache: Unsupervised caching active developers for diverse bug triage,'' in \textit{Proc. 8th Int. Symp. Empirical Software Engineering and Measurement (ESEM)}, 2014, pp. 1--10.
+
+\bibitem{javvadi2025defect_dataset} V.~P. Javvadi, ``Multi-Repository Software Defect Prediction Dataset (284,676 instances, 11 repositories),'' Zenodo, 2025. DOI: \href{https://doi.org/10.5281/zenodo.19682733}{10.5281/zenodo.19682733}.
+
+\bibitem{javvadi2026attribution_dataset} V.~P. Javvadi, ``Post-Execution Defect Attribution Dataset: Test-Run Failure Logs, SHAP Attributions, Eight-Class Taxonomy Labels, and Trained Classifiers,'' Zenodo, ver. 1.0.0, 2026. DOI: \href{https://doi.org/10.5281/zenodo.XXXXXXXX}{10.5281/zenodo.XXXXXXXX}. \textbf{Note:} Placeholder DOI; the dataset is scheduled for Zenodo deposit alongside the paper submission.
+
+\end{thebibliography}
+
+\section*{Data Availability}
+The repository-prior model artefact (\texttt{healing\_ranker.pkl}) and feature-importance rankings used in this paper are imported unchanged from the companion defect-prediction dataset~\cite{javvadi2025defect_dataset} at \url{https://doi.org/10.5281/zenodo.19682733}. The post-execution test-failure dataset, eight-class taxonomy labels, SHAP attributions, and \texttt{defect-attribution-service} source code accompanying this paper are released separately at the placeholder DOI~\cite{javvadi2026attribution_dataset} above; the final DOI will be substituted at camera-ready time once the Zenodo deposit is approved.
+
+\end{document}

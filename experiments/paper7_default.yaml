@@ -1,0 +1,85 @@
+# Paper 7 default experiment configuration.
+#
+# This file is the single source of truth for one end-to-end experiment
+# run. Change it, version-control it, attach the hash to every result file
+# so the CSV → figure → table pipeline is fully reproducible.
+
+experiment_id: paper7-default-v1
+random_seed: 42
+
+repositories:
+  - name: spring-boot
+    path: datasets/repos/spring-boot
+    language: java
+  - name: kafka
+    path: datasets/repos/kafka
+    language: java
+  - name: hadoop
+    path: datasets/repos/hadoop
+    language: java
+  - name: elasticsearch
+    path: datasets/repos/elasticsearch
+    language: java
+  - name: express
+    path: datasets/repos/express
+    language: javascript
+
+# Temporal split — the most critical knob. We train on history, predict
+# on the future. Any experiment that shuffles temporally leaks.
+temporal_split:
+  train_end_iso: "2023-12-31T23:59:59Z"
+  evaluation_window_months: 12
+
+# SZZ labeling: a "real defect" is any implicated file that is modified
+# by a commit referenced in a bug-labeled issue within horizon_days of
+# the failing run.
+labeling:
+  method: szz
+  horizon_days: 180
+  bug_label_aliases:
+    - bug
+    - defect
+    - regression
+    - type/bug
+
+# Methods under evaluation.
+methods:
+  - id: pre_only
+    name: "Pre-execution only (Paper 4 baseline)"
+    uses_failure_signal: false
+    uses_shap: false
+    taxonomy: none
+  - id: fail_only
+    name: "Failure-only triage"
+    uses_failure_signal: true
+    uses_shap: false
+    taxonomy: none
+  - id: fused_rule
+    name: "Fused + rule-cascade taxonomy (proposed)"
+    uses_failure_signal: true
+    uses_shap: true
+    taxonomy: rule_cascade
+  - id: fused_ml
+    name: "Fused + ML taxonomy (proposed, stretch)"
+    uses_failure_signal: true
+    uses_shap: true
+    taxonomy: gradient_boosting
+
+# Metrics reported per method per repo.
+metrics:
+  - precision_at_1
+  - precision_at_3
+  - recall_at_5
+  - expected_calibration_error
+  - mean_triage_time_seconds
+  - category_f1_macro
+
+model_paths:
+  defect_predictor_pkl: ../defect-attribution-service/models/defect_predictor.pkl
+
+governance_config_path: ../defect-attribution-service/ai-quality.config.yaml
+
+output:
+  tables_dir: tables
+  figures_dir: figures
+  results_dir: results
