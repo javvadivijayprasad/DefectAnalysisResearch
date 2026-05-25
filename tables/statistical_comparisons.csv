@@ -1,0 +1,7 @@
+method_a,method_b,metric,mean_a,mean_b,diff_mean,paired_t_stat,paired_t_p,wilcoxon_stat,wilcoxon_p,cohens_d,sig_0p01
+pre_only,fail_only,prec_at_1,0.9398,0.652,0.2878,44.8283,0.0,125857.0,0.0,0.7645,True
+pre_only,fused_rule,prec_at_1,0.9398,0.939,0.0008,1.8902,0.058776,4.0,0.058782,0.0035,False
+pre_only,fused_ml,prec_at_1,0.9398,0.9443,-0.0045,-2.7717,0.005594,1632.0,0.005603,-0.0193,True
+fail_only,fused_rule,prec_at_1,0.652,0.939,-0.287,-44.7004,0.0,126656.0,0.0,-0.7613,True
+fail_only,fused_ml,prec_at_1,0.652,0.9443,-0.2923,-45.5087,0.0,121939.0,0.0,-0.782,True
+fused_rule,fused_ml,prec_at_1,0.939,0.9443,-0.0053,-3.2025,0.00137,1717.0,0.001374,-0.0228,True

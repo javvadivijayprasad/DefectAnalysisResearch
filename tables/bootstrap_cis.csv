@@ -1,0 +1,5 @@
+method,metric,mean,ci_lo,ci_hi,n_boot
+pre_only,prec_at_1,0.9398,0.9337,0.9455,1000
+fail_only,prec_at_1,0.652,0.6398,0.6635,1000
+fused_rule,prec_at_1,0.939,0.9328,0.9445,1000
+fused_ml,prec_at_1,0.9443,0.9387,0.9498,1000

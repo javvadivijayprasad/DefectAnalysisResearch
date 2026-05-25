@@ -1,0 +1,117 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{nagappan2005,moser2008,rahman2013,kamei2013}
+\citation{sliwerski2005}
+\citation{bird2009,herzig2013}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}{Introduction}{section.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {I-}0a}Contributions.}{1}{paragraph.1.0.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{II}{1}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Defect Prediction and Risk Scoring}{1}{subsection.2.1}\protected@file@percent }
+\citation{fisher2019}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}SZZ and Bug-Fix Linking}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Calibration in ML}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}Methodology}{2}{section.3}\protected@file@percent }
+\newlabel{sec:methodology}{{III}{2}{Methodology}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Substrate Data}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Synthetic Failure-Event Sampling}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Four Methods}{2}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Train/Test Split for \texttt  {fused\_ml}}{2}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Metrics}{2}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-F}}Statistical Treatment}{2}{subsection.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Results}{2}{section.4}\protected@file@percent }
+\newlabel{sec:results}{{IV}{2}{Results}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Headline Comparison}{2}{subsection.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Headline attribution-method comparison on 6{,}000 events ($n = 32{,}908$ row predictions). Source: \texttt  {tables/headline\_metrics.csv}.}}{3}{table.1}\protected@file@percent }
+\newlabel{tab:headline}{{I}{3}{Headline attribution-method comparison on 6{,}000 events ($n = 32{,}908$ row predictions). Source: \texttt {tables/headline\_metrics.csv}}{table.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {IV-A}0a}Fused-ML attains the highest precision@1, but the margin is small.}{3}{paragraph.4.1.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {IV-A}0b}Fail-only collapses to 0.6520.}{3}{paragraph.4.1.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {IV-A}0c}Fused-rule is essentially identical to pre-only on precision@1 (0.9390 vs 0.9398).}{3}{paragraph.4.1.0.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Precision@k and Recall@5 across the four attribution methods on 6{,}000 events.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:prec}{{1}{3}{Precision@k and Recall@5 across the four attribution methods on 6{,}000 events}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Bootstrap Confidence Intervals}{3}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Statistical Significance}{3}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces 1{,}000-resample bootstrap CIs on precision@1. Source: \texttt  {tables/bootstrap\_cis.csv}.}}{3}{table.2}\protected@file@percent }
+\newlabel{tab:boot}{{II}{3}{1{,}000-resample bootstrap CIs on precision@1. Source: \texttt {tables/bootstrap\_cis.csv}}{table.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Pairwise statistical comparisons on precision@1 (6{,}000 paired events). Source: \texttt  {tables/statistical\_comparisons.csv}.}}{4}{table.3}\protected@file@percent }
+\newlabel{tab:stats}{{III}{4}{Pairwise statistical comparisons on precision@1 (6{,}000 paired events). Source: \texttt {tables/statistical\_comparisons.csv}}{table.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Calibration Analysis}{4}{section.5}\protected@file@percent }
+\newlabel{sec:calibration}{{V}{4}{Calibration Analysis}{section.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Expected Calibration Error (ECE) by method, computed over all 32{,}908 row predictions with 10 bins. Source: \texttt  {tables/headline\_metrics.csv}.}}{4}{table.4}\protected@file@percent }
+\newlabel{tab:ece}{{IV}{4}{Expected Calibration Error (ECE) by method, computed over all 32{,}908 row predictions with 10 bins. Source: \texttt {tables/headline\_metrics.csv}}{table.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {V-}0a}Why calibration matters for triage.}{4}{paragraph.5.0.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {V-}0b}Why the ML method calibrates better.}{4}{paragraph.5.0.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Reliability Diagram}{4}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Expected Calibration Error by method (lower is better). Fused\_ml's 0.0157 is the lowest of the four methods.}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:ece}{{2}{4}{Expected Calibration Error by method (lower is better). Fused\_ml's 0.0157 is the lowest of the four methods}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Reliability diagram (left) and score distribution (right). fused\_ml hugs the diagonal across all bins; pre\_only and fused\_rule over-estimate at low probabilities.}}{4}{figure.3}\protected@file@percent }
+\newlabel{fig:reliability}{{3}{4}{Reliability diagram (left) and score distribution (right). fused\_ml hugs the diagonal across all bins; pre\_only and fused\_rule over-estimate at low probabilities}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Multi-Seed Sensitivity}{4}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:multiseed}{{\mbox  {V-B}}{4}{Multi-Seed Sensitivity}{subsection.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Feature Ablation}{4}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:ablation}{{\mbox  {V-C}}{4}{Feature Ablation}{subsection.5.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Multi-seed ECE values (lower is better). Source: \texttt  {results/multi\_seed\_summary.json}.}}{5}{table.5}\protected@file@percent }
+\newlabel{tab:multiseed}{{V}{5}{Multi-seed ECE values (lower is better). Source: \texttt {results/multi\_seed\_summary.json}}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Feature ablation: precision@1 and ECE for fused\_ml with progressively larger feature subsets. Source: \texttt  {tables/feature\_ablation.csv}.}}{5}{table.6}\protected@file@percent }
+\newlabel{tab:ablation}{{VI}{5}{Feature ablation: precision@1 and ECE for fused\_ml with progressively larger feature subsets. Source: \texttt {tables/feature\_ablation.csv}}{table.6}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {V-C}0a}What this means for practitioners.}{5}{paragraph.5.3.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Per-Repository Analysis}{5}{section.6}\protected@file@percent }
+\newlabel{sec:per_repo}{{VI}{5}{Per-Repository Analysis}{section.6}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VI-}0a}Fail\_only collapses on low-defect-rate repositories.}{5}{paragraph.6.0.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VI-}0b}Fused\_ml is best on every repository.}{5}{paragraph.6.0.0.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Per-repository precision@1. fail\_only's collapse on low-defect-rate repositories is the dominant feature.}}{5}{figure.4}\protected@file@percent }
+\newlabel{fig:per_repo}{{4}{5}{Per-repository precision@1. fail\_only's collapse on low-defect-rate repositories is the dominant feature}{figure.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Per-repository precision@1 by method (1{,}200 events per repository). Source: \texttt  {tables/per\_repo\_metrics.csv}.}}{6}{table.7}\protected@file@percent }
+\newlabel{tab:per_repo}{{VII}{6}{Per-repository precision@1 by method (1{,}200 events per repository). Source: \texttt {tables/per\_repo\_metrics.csv}}{table.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Discussion}{6}{section.7}\protected@file@percent }
+\newlabel{sec:discussion}{{VII}{6}{Discussion}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-A}}Self-Healing Interlock Activations}{6}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-B}}Practical Implications}{6}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-C}}Sensitivity to Event-Sample Size}{6}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:event_sensitivity}{{\mbox  {VII-C}}{6}{Sensitivity to Event-Sample Size}{subsection.7.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-D}}Per-Repository Attribution Quality}{6}{subsection.7.4}\protected@file@percent }
+\newlabel{sec:per_repo_attribution}{{\mbox  {VII-D}}{6}{Per-Repository Attribution Quality}{subsection.7.4}{}}
+\citation{bird2009,herzig2013}
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Sensitivity of precision@1 to event-sample size. Numbers are mean of 5 random subsamples per size; CI is 95\,\% bootstrap. Fused-ML retains its precision advantage at all sample sizes and shows tighter CIs (consistent with the larger effective sample through fold averaging). Source: \texttt  {results/sample\_size\_sensitivity.csv}.}}{7}{table.8}\protected@file@percent }
+\newlabel{tab:event_sens}{{VIII}{7}{Sensitivity of precision@1 to event-sample size. Numbers are mean of 5 random subsamples per size; CI is 95\,\% bootstrap. Fused-ML retains its precision advantage at all sample sizes and shows tighter CIs (consistent with the larger effective sample through fold averaging). Source: \texttt {results/sample\_size\_sensitivity.csv}}{table.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IX}{\ignorespaces Per-repository precision@1 and ECE for the fused-ML method. Repositories with the most extreme defect-rate skew (Spring Boot, 9.5\,\%; Hadoop, 17.0\,\%) show calibration degradation, with ECE inflated by 1.5--2$\times $ relative to higher-defect-rate repositories. The fused-ML method retains its precision advantage over the pre-only baseline at every repository. Source: \texttt  {results/per\_repo\_attribution.csv}.}}{7}{table.9}\protected@file@percent }
+\newlabel{tab:per_repo_attr}{{IX}{7}{Per-repository precision@1 and ECE for the fused-ML method. Repositories with the most extreme defect-rate skew (Spring Boot, 9.5\,\%; Hadoop, 17.0\,\%) show calibration degradation, with ECE inflated by 1.5--2$\times $ relative to higher-defect-rate repositories. The fused-ML method retains its precision advantage over the pre-only baseline at every repository. Source: \texttt {results/per\_repo\_attribution.csv}}{table.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Threats to Validity}{7}{section.8}\protected@file@percent }
+\newlabel{sec:threats}{{VIII}{7}{Threats to Validity}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-A}}Construct Validity}{7}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VIII-A}0a}Failure events are synthesized.}{7}{paragraph.8.1.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VIII-A}0b}Real defect labels inherit Paper A's limitations.}{7}{paragraph.8.1.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VIII-A}0c}Sampling bias inflates absolute precision@1.}{7}{paragraph.8.1.0.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-B}}Internal Validity}{7}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VIII-B}0a}Train/test split granularity.}{7}{paragraph.8.2.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VIII-B}0b}Hyperparameter selection.}{7}{paragraph.8.2.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-C}}External Validity}{7}{subsection.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VIII-C}0a}Five repositories.}{7}{paragraph.8.3.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VIII-C}0b}Diff features are sampled.}{7}{paragraph.8.3.0.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-D}}Conclusion Validity}{7}{subsection.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {VIII-D}0a}Effect sizes are small.}{7}{paragraph.8.4.0.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {X}{\ignorespaces Per-repository defect rates: synthetic-event sample vs population. Source: \texttt  {tables/synthetic\_validation.csv}.}}{8}{table.10}\protected@file@percent }
+\newlabel{tab:val_repo}{{X}{8}{Per-repository defect rates: synthetic-event sample vs population. Source: \texttt {tables/synthetic\_validation.csv}}{table.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Synthetic-Event Validation Appendix}{8}{section.9}\protected@file@percent }
+\newlabel{sec:validation}{{IX}{8}{Synthetic-Event Validation Appendix}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IX-A}}Per-Repository Defect Rate}{8}{subsection.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IX-B}}Per-Feature Distribution}{8}{subsection.9.2}\protected@file@percent }
+\bibstyle{IEEEtran}
+\bibdata{references}
+\bibcite{nagappan2005}{1}
+\bibcite{moser2008}{2}
+\bibcite{rahman2013}{3}
+\bibcite{kamei2013}{4}
+\bibcite{sliwerski2005}{5}
+\bibcite{bird2009}{6}
+\bibcite{herzig2013}{7}
+\bibcite{fisher2019}{8}
+\@writefile{lot}{\contentsline {table}{\numberline {XI}{\ignorespaces Per-feature means: population vs synthetic events. Source: \texttt  {tables/feature\_distribution\_validation.csv}.}}{9}{table.11}\protected@file@percent }
+\newlabel{tab:val_feat}{{XI}{9}{Per-feature means: population vs synthetic events. Source: \texttt {tables/feature\_distribution\_validation.csv}}{table.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {X}Conclusion}{9}{section.10}\protected@file@percent }
+\newlabel{sec:conclusion}{{X}{9}{Conclusion}{section.10}{}}
+\@writefile{toc}{\contentsline {section}{References}{9}{section*.3}\protected@file@percent }
+\gdef \@abspage@last{9}

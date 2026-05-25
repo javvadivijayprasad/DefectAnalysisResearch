@@ -1,0 +1,56 @@
+{
+  "42": {
+    "pre_only": {
+      "prec_at_1": 0.9423,
+      "ece": 0.0955
+    },
+    "fail_only": {
+      "prec_at_1": 1.0,
+      "ece": 0.3575
+    },
+    "fused_rule": {
+      "prec_at_1": 0.9437,
+      "ece": 0.0925
+    },
+    "fused_ml": {
+      "prec_at_1": 0.9487,
+      "ece": 0.0166
+    }
+  },
+  "7": {
+    "pre_only": {
+      "prec_at_1": 0.9397,
+      "ece": 0.0929
+    },
+    "fail_only": {
+      "prec_at_1": 1.0,
+      "ece": 0.3587
+    },
+    "fused_rule": {
+      "prec_at_1": 0.9407,
+      "ece": 0.0864
+    },
+    "fused_ml": {
+      "prec_at_1": 0.944,
+      "ece": 0.0184
+    }
+  },
+  "123": {
+    "pre_only": {
+      "prec_at_1": 0.94,
+      "ece": 0.0959
+    },
+    "fail_only": {
+      "prec_at_1": 1.0,
+      "ece": 0.3549
+    },
+    "fused_rule": {
+      "prec_at_1": 0.9417,
+      "ece": 0.0896
+    },
+    "fused_ml": {
+      "prec_at_1": 0.939,
+      "ece": 0.0177
+    }
+  }
+}

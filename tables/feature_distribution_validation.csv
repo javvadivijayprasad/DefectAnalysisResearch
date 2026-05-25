@@ -1,0 +1,8 @@
+feature,pop_mean,event_mean,pop_median,event_median,mean_ratio
+commit_count,4.52,13.91,1.0,4.0,3.08
+unique_developers,2.45,4.89,1.0,2.0,2.0
+lines_added,103.9,243.08,9.0,58.0,2.34
+lines_deleted,50.8,141.87,2.0,18.0,2.79
+code_churn,154.7,384.95,22.0,89.0,2.49
+file_age_days,384.56,1030.43,0.0,310.08,2.68
+commit_frequency,0.29,0.57,0.0,0.01,1.95

@@ -1,0 +1,5 @@
+method,n_events,prec_at_1_mean,prec_at_1_std,prec_at_3_mean,recall_at_5_mean,triage_sec_mean,triage_sec_median,found_rate,ece
+pre_only,6000,0.9398,0.2378,0.7738,0.9343,2.35,0.0,1.0,0.0936
+fail_only,6000,0.652,0.4764,0.6457,0.8639,19.98,0.0,1.0,0.3579
+fused_rule,6000,0.939,0.2394,0.7738,0.934,2.37,0.0,1.0,0.0886
+fused_ml,6000,0.9443,0.2293,0.7753,0.9339,2.14,0.0,1.0,0.0157
