@@ -1,0 +1,62 @@
+# YAML 1.2
+cff-version: 1.2.0
+message: "If you use this software or reproduce these results, please cite using these metadata."
+title: "Post-Execution Defect Attribution — Reproducibility Bundle"
+abstract: >
+  Reproducibility bundle for the post-execution defect-attribution
+  manuscript: synthetic failure-event generator, four-method
+  evaluation pipeline (gradient boosting, calibrated XGBoost,
+  feature-importance, and a fused-feature classifier), calibration
+  analysis (Expected Calibration Error), bootstrap statistics,
+  reliability-diagram scripts, and the seven result tables.
+  Independent re-evaluation in approximately 4-8 hours on commodity
+  hardware. The substrate dataset (296,457 file instances) is the
+  companion deposit at DOI 10.5281/zenodo.19682732.
+type: dataset
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2026-06-16
+authors:
+  - family-names: "Javvadi"
+    given-names: "Vijay Prasad"
+    orcid: "https://orcid.org/0009-0004-1192-6906"
+    affiliation: "Independent Researcher, Plainsboro, NJ, USA"
+    email: "vijay@vijayjavvadiresearch.ai"
+identifiers:
+  - description: "Archived release on Zenodo (analysis pipeline)"
+    type: doi
+    value: "10.5281/zenodo.20723929"
+  - description: "Companion substrate dataset (Paper A)"
+    type: doi
+    value: "10.5281/zenodo.19682732"
+  - description: "Research Square preprint of the companion manuscript"
+    type: doi
+    value: "10.21203/rs.3.rs-10119526/v1"
+repository-code: "https://github.com/javvadivijayprasad/DefectAnalysisReserch"
+url: "https://doi.org/10.5281/zenodo.20723929"
+keywords:
+  - defect attribution
+  - defect prediction
+  - calibration
+  - expected calibration error
+  - test triage
+  - empirical software engineering
+  - fused classifier
+preferred-citation:
+  type: dataset
+  title: "Post-Execution Defect Attribution — Reproducibility Bundle"
+  authors:
+    - family-names: "Javvadi"
+      given-names: "Vijay Prasad"
+      orcid: "https://orcid.org/0009-0004-1192-6906"
+      affiliation: "Independent Researcher, Plainsboro, NJ, USA"
+  year: 2026
+  version: "1.0.0"
+  doi: "10.5281/zenodo.20723929"
+  url: "https://doi.org/10.5281/zenodo.20723929"
+  notes: >
+    Companion peer-reviewed manuscript "Post-Execution Defect
+    Attribution: An Empirical Comparison of Four Methods on 6,000
+    Synthetic Failure Events" is currently under review at Springer
+    Empirical Software Engineering (manuscript ID EMSE-S-26-00920),
+    with a Research Square preprint at DOI 10.21203/rs.3.rs-10119526/v1.
