@@ -1,0 +1,7 @@
+Highlights
+
+- 1,323 real bugs from Defects4J + BugsInPy under leave-one-project-out CV
+- Fused-ML method is worse than pre-only baseline on real data (-2.95 pp)
+- Rule-based fusion best at 78.0% precision@1; only +0.30 pp over pre-only
+- Calibration excellent: ECE 0.021-0.063 across all three ranking methods
+- Reverses the fused-ML advantage previously reported on synthetic events

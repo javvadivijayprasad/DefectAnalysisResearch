@@ -1,0 +1,54 @@
+{
+  "corpus": {
+    "total_rows": 6988,
+    "total_events": 1323,
+    "total_repos": 33,
+    "real_defect_fraction": 0.2311
+  },
+  "methods": [
+    {
+      "method": "pre_only",
+      "n_events": 1323,
+      "n_rows": 6988,
+      "p1_mean": 0.777,
+      "p3_mean": 0.3627,
+      "r5_mean": 0.9696,
+      "mrr_mean": 0.8556,
+      "triage_s_mean": 4.56,
+      "ece_10bin": 0.0209
+    },
+    {
+      "method": "fail_only",
+      "n_events": 1323,
+      "n_rows": 6988,
+      "p1_mean": 0.2494,
+      "p3_mean": 0.2654,
+      "r5_mean": 0.8872,
+      "mrr_mean": 0.4978,
+      "triage_s_mean": 8.74,
+      "ece_10bin": 0.7689
+    },
+    {
+      "method": "fused_rule",
+      "n_events": 1323,
+      "n_rows": 6988,
+      "p1_mean": 0.78,
+      "p3_mean": 0.3624,
+      "r5_mean": 0.9691,
+      "mrr_mean": 0.8571,
+      "triage_s_mean": 4.56,
+      "ece_10bin": 0.0626
+    },
+    {
+      "method": "fused_ml",
+      "n_events": 1323,
+      "n_rows": 6988,
+      "p1_mean": 0.7475,
+      "p3_mean": 0.3483,
+      "r5_mean": 0.9494,
+      "mrr_mean": 0.828,
+      "triage_s_mean": 5.09,
+      "ece_10bin": 0.0326
+    }
+  ]
+}

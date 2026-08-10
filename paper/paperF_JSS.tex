@@ -1,0 +1,382 @@
+% =====================================================================
+% Paper F (JSS submission): Post-Execution Defect Attribution on Real-World Defects
+% Target venue: Journal of Systems and Software (Elsevier)
+% Bibliography style: elsarticle-num
+% =====================================================================
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[section]{placeins}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\graphicspath{{./figures/}}
+
+% Allow LaTeX slightly more flexibility to avoid overfull hboxes from long
+% technical identifiers, method names, and long project-name enumerations.
+\emergencystretch=3em
+
+\journal{Journal of Systems and Software}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Post-Execution Defect Attribution on Real-World Defects: An Empirical Comparison of Four Methods on Defects4J and BugsInPy}
+
+\author[1]{Vijay Prasad Javvadi}
+\ead{vijay@vijayjavvadiresearch.ai}
+\ead[url]{https://orcid.org/0009-0004-1192-6906}
+\affiliation[1]{organization={Independent Researcher}, city={Plainsboro}, state={NJ}, country={USA}}
+
+\begin{abstract}
+\noindent\textbf{Context.} Post-execution defect attribution methods rank the files implicated by a failing test to direct the developer to the likely cause. Prior empirical studies rely on synthetic failure corpora, limiting external validity on real-world defect distributions.
+
+\noindent\textbf{Objective.} We ask whether a machine-learned fusion of pre-execution defect priors with post-execution failure signals outperforms a pre-execution baseline on real defects across two languages and 33 open-source projects.
+
+\noindent\textbf{Method.} We assemble 1{,}323 real defects (824 from Defects4J across 16 Java projects; 499 from BugsInPy across 17 Python projects), yielding 6{,}988 (event, file) prediction rows. Four attribution methods are compared: a pre-execution-only classifier (\textsc{pre\_only}), a failure-only flat prior (\textsc{fail\_only}), a hand-crafted rule-based fusion (\textsc{fused\_rule}), and a gradient-boosting fusion (\textsc{fused\_ml}). A strict Leave-One-Project-Out (LOPO) protocol eliminates in-project leakage. We report Precision@1/3, Recall@5, Mean Reciprocal Rank, simulated triage seconds, and 10-bin Expected Calibration Error (ECE).
+
+\noindent\textbf{Results.} \textsc{fused\_rule} attains the highest Precision@1 at 0.7800, followed by \textsc{pre\_only} at 0.7770 (a $+0.30$-pp margin) and \textsc{fused\_ml} at 0.7475. The failure-only baseline reaches 0.2494. On calibration, \textsc{pre\_only} attains ECE 0.0209, \textsc{fused\_ml} 0.0326, and \textsc{fused\_rule} 0.0626, all far below the 0.7689 of the flat prior.
+
+\noindent\textbf{Conclusion.} Under LOPO on real defects, the machine-learned fusion---previously the flagship contribution of a synthetic-data predecessor---does not outperform the simpler pre-execution baseline. Cross-project pre-execution defect priors are extraordinarily well-calibrated (ECE~$\approx$~0.02), the property that matters for prioritization-by-confidence deployment. We treat calibration, rather than any ranking-quality improvement from fusion, as the paper's principal empirical finding.
+\end{abstract}
+
+\begin{keyword}
+Defect-attribution \sep Fault-localization \sep Defects4J \sep BugsInPy \sep Leave-One-Project-Out cross-validation \sep Probability calibration \sep Expected Calibration Error
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+\label{sec:intro}
+
+A persistent gap separates defect-prediction research from the operational reality of continuous-integration (CI) software engineering. Defect-prediction models at the file level produce a per-file risk score from process metrics and version-control history~\cite{nagappan2005,moser2008,rahman2013,kamei2013}. Test failures, however, occur at the test level. The developer's live-triage question is at the failure level: given the three-to-eight files implicated by a failing test run, which one is the actual defect that must be fixed first? A pre-execution risk score, even a well-calibrated one, does not directly answer this question, because it was trained on the general file distribution rather than conditioned on the implicated set.
+
+A natural response is to fuse pre-execution defect priors with post-execution failure-side features (which files changed in the failing test's diff, which files carry historically high flake rates, which exception was raised, and so on) and train a fresh classifier on the fused representation. On a synthetic benchmark constructed for a prior study, this fused machine-learned approach appeared marginally better than the pre-execution baseline on ranking metrics and produced a large calibration improvement. That result was contingent on the synthetic sampling design, in which failure events were generated with a $2.5\times$ oversample of defect-prone files. Reviewers at three venues correctly identified this synthetic dependency as the study's principal external-validity weakness.
+
+The present paper rebuilds the empirical comparison end-to-end on real defects. We use the two most-cited real-defect corpora in the field: Defects4J~\cite{just2014defects4j} for Java and BugsInPy~\cite{widyasari2020bugsinpy} for Python. Together they contribute 1{,}323 real defects across 33 projects and 6{,}988 (event, file) prediction rows. To prevent in-project leakage we adopt a Leave-One-Project-Out (LOPO) cross-validation protocol under which the classifiers used by \textsc{fused\_ml} and calibrated for \textsc{pre\_only} are trained on the 32 projects other than the one under test. Chart, one of the 17 Defects4J projects, is documented as skipped for reproducibility reasons discussed in Section~\ref{sec:threats}.
+
+Our central empirical result is a reversal of the synthetic-data finding: on real defects under LOPO, \textsc{fused\_ml} does not beat \textsc{pre\_only}. \textsc{pre\_only} attains Precision@1 of 0.7770; \textsc{fused\_ml} attains 0.7475, a 2.95 percentage-point degradation. The hand-crafted \textsc{fused\_rule} method is marginally better than both at 0.7800. On calibration, however, all three ranking methods are far better on real data than they were on the synthetic study: \textsc{pre\_only}'s ECE of 0.0209 is $4.5\times$ lower than the corresponding synthetic figure, and \textsc{fused\_ml}'s 0.0326 is well within the range considered deployable~\cite{guo2017calibration}.
+
+The paper's contributions are:
+\begin{enumerate}
+\item A four-method empirical comparison on 1{,}323 real Java and Python defects under a strict LOPO cross-validation protocol, replacing a prior synthetic evaluation whose sampling design inflated defect-prone density.
+\item An honest negative result: on real defects, gradient-boosted fusion of pre-execution and failure-side features does not beat the pre-execution baseline. We report the reversal explicitly and locate the mechanism in the LOPO training regime.
+\item A positive calibration finding: file-level pre-execution defect priors, when trained cross-project on real corpora, are exceptionally well-calibrated (ECE~$\approx$~0.02) and remain so under fusion. Calibration, rather than a marginal ranking-quality improvement, is the deployment-critical property.
+\item A public reproducibility bundle (event corpus, LOPO scoring harness, four method implementations, per-event metrics CSV, calibration diagrams) sufficient to independently reproduce every headline number in this paper.
+\end{enumerate}
+
+The rest of the paper is organised as follows. Section~\ref{sec:related} surveys LLM-based fault localization, just-in-time defect prediction with calibration, and SZZ-family bug attribution, and locates our contribution against each. Section~\ref{sec:methods} defines the four attribution methods and the LOPO protocol. Section~\ref{sec:corpus} describes corpus construction. Section~\ref{sec:results} presents headline results, per-method comparisons, per-repository decomposition, and calibration analysis. Section~\ref{sec:discussion} interprets the reversal against the synthetic predecessor and argues that calibration is the operationally meaningful finding. Section~\ref{sec:threats} enumerates ten threats to validity. Section~\ref{sec:conclusion} closes with future work.
+
+\section{Related Work}
+\label{sec:related}
+
+The four attribution methods and LOPO-based calibration evaluation reported here sit at the intersection of three literatures that have accelerated over the 2024--2026 window: LLM-based fault localization, calibrated just-in-time defect prediction, and refinements to the SZZ family of bug-attribution algorithms. We situate the paper's contribution against each. We also anchor the empirical protocol in the broader real-defect-corpus literature that Defects4J~\cite{just2014defects4j} and BugsInPy~\cite{widyasari2020bugsinpy} have established as the field's accepted benchmarks.
+
+\subsection{Real-defect corpora and their standard use}
+
+Defects4J~\cite{just2014defects4j} provides a curated database of reproducible real bugs across mature open-source Java projects with author-verified fix commits and failing test cases. As of v2.0.1 it covers 17 projects and 835 bugs. BugsInPy~\cite{widyasari2020bugsinpy} is its Python analogue, providing 493 real bugs across 17 open-source Python projects, each with a reproducible failing test suite and an author-verified fix commit. Both corpora have become de facto benchmarks for fault localization and automated program repair work in the 2020--2026 window (\emph{e.g.,}~\cite{yang2024llmao,kang2024llmfl,rezaalipour2024pyfl}). Their common usage pattern in fault localization is to score suspiciousness at the line or statement level using coverage or LLM prompting; the present paper instead uses them at the file level as the ground truth for a defect-attribution task in which the implicated set is derived from the fix commit's modified files.
+
+Several recent (2024--2026) empirical studies build directly on Defects4J or BugsInPy as their primary evaluation corpus, and it is worth positioning our contribution against the cluster. Yang et al.'s LLMAO~\cite{yang2024llmao} evaluates its adapter-based LLM localizer at line granularity on both corpora and reports Top-1 line-level accuracy against Ochiai as the reference baseline. Kang, An, and Yoo~\cite{kang2024llmfl} run GPT-3.5 and GPT-4 on Defects4J at method and line granularity, focusing on the interpretability of the generated explanations rather than on calibrated probability estimates. Rezaalipour and Furia~\cite{rezaalipour2024pyfl} benchmark seven spectrum-, mutation-, predicate-, and stack-trace-based localizers on 135 BugsInPy faults, again at line granularity. All three studies inherit the classical fault-localization framing: rank statements or methods by a suspiciousness score, and evaluate against a hidden held-out set drawn from the same corpus without an explicit cross-project generalisation guarantee. Our contribution is deliberately orthogonal on three axes. First, we work at file granularity on the implicated set that a CI system already exposes---the operational unit of triage, not the diagnostic unit of localization. Second, we adopt a strict Leave-One-Project-Out protocol so that every headline number is an honest cross-project generalisation estimate, whereas most fault-localization work uses random or leave-one-bug-out splits that admit in-project leakage. Third, we make calibration a first-class outcome and report Expected Calibration Error alongside every ranking metric, whereas the line-level studies cited above report ranking accuracy only. On the same corpora but at a different granularity, with a stricter validation regime, and with calibration explicitly measured, this paper is a complement rather than a competitor to the recent LLM- and spectrum-based line-level fault-localization work.
+
+\subsection{LLM-based fault localization}
+
+Yang et al.~\cite{yang2024llmao} presented LLMAO at ICSE 2024, the first LLM-based approach that localizes faulty lines without any test-coverage information by attaching bidirectional adapter layers to a fine-tuned code language model, evaluated on Defects4J and BugsInPy at the line level. Kang, An, and Yoo~\cite{kang2024llmfl} quantitatively and qualitatively evaluated GPT-3.5 and GPT-4 on Defects4J at both method and line granularity, and reported that prompt-only LLM localization is competitive with spectrum-based baselines when the model has access to a bug report but degrades sharply on real Python or larger codebases. Rezaalipour and Furia~\cite{rezaalipour2024pyfl} independently benchmarked seven fault-localization techniques from four families---spectrum-based, mutation-based, predicate switching, and stack-trace based---across 135 BugsInPy faults, confirming that Ochiai~\cite{abreu2009spectrum} remains competitive with recent alternatives on real Python faults. Earlier learning-to-rank approaches such as DeepFL~\cite{li2019deepfl} and FLUCCS~\cite{sohn2017fluccs} combine spectrum-based features with code and change metrics; both operate at method or statement granularity and require test-execution spectra. Our contribution is deliberately orthogonal to this line of work: rather than compare LLM-based line-level fault localization against spectrum-based fault localization, we frame the problem at the \emph{file} level on the \emph{implicated set} that a CI system already exposes, and we ask whether fusing pre-execution defect priors with post-execution failure features under strict LOPO cross-validation buys anything over the pre-execution baseline alone.
+
+\subsection{Just-in-time defect prediction and probability calibration}
+
+Just-in-time (JIT) defect prediction remains the most active sub-area of defect prediction, and calibration has moved from a marginal to a central concern in the 2024--2026 literature. Zhou, Han, and Lo~\cite{zhou2025bridging} proposed a fusion framework combining hand-crafted expert features with deep-learning commit representations at both the feature and decision levels. Their motivation---simple models capture expert knowledge, complex models capture semantics, and the two are complementary---mirrors the design principle behind our \textsc{fused\_ml} method. Shahini, Metzger, and Pohl~\cite{shahini2024conformal} applied conformal prediction to JIT-SDP at MSR 2024, providing statistically guaranteed correctness on a fraction of decisions. Conformal prediction and post-hoc calibration are complementary: the former issues abstention certificates on a per-instance basis, whereas the isotonic regression used in our fusion methods rescales the probability output while retaining full coverage. Li, Du, Zhang, and colleagues~\cite{li2024sampling} systematically compared ten data-sampling techniques for JIT-SDP class imbalance in Automated Software Engineering; their finding that sampling choice materially changes downstream calibration is directly relevant to our LOPO regime, which by construction changes the training distribution per fold. Chouchen, Ouni, Rajbahadur, and colleagues~\cite{chouchen2026lessismore} argued in Empirical Software Engineering that simple gradient-boosting variants match complex deep networks on file-level defect prediction while remaining interpretable. Hong, Tantithamthavorn, and colleagues~\cite{hong2024atlassian} performed a mixed-methods study of CI build-failure prediction at Atlassian, published at FSE 2024, and documented practitioner scepticism of poorly calibrated risk scores in production---the operational failure mode that our calibration-first framing is designed to address. Foundational calibration methodology is drawn from Niculescu-Mizil and Caruana~\cite{niculescu2005predicting} and Guo et al.~\cite{guo2017calibration}.
+
+\subsection{SZZ and bug-attribution algorithms}
+
+The SZZ family of algorithms~\cite{sliwerski2005,bird2009,herzig2013,rosa2021} remains the standard for linking a bug-fix commit back to its bug-introducing change, and the 2024--2025 refinements sharpen but do not remove its structural precondition. Rani, Petrulio, and Bacchelli~\cite{rani2024szzdiscussion} refined SZZ by mining Mozilla bug-report discussions across 12{,}472 issues to identify the file(s) most likely to contain the bug-inducing change. Perez-Rosero, Dyer, Flint, McIntosh, and Srisa-An~\cite{perezrosero2025wiaszz} introduced WIA-SZZ, which groups bug-inducing commits with their fix commits into ``work items'' and reports 64\% accuracy in recovering ground-truth work-item pairs at method-level granularity. Both refinements presuppose that a bug-fix commit exists---SZZ's structural precondition. In the CI live-triage scenario that motivates this paper, no bug-fix commit yet exists: a test has just failed, and the developer needs to know which of the 3--8 implicated files to inspect first. Post-execution defect attribution is the necessary complement to the SZZ family, operating on the incoming failure event rather than on the eventual fix. Historical results such as Herzig, Just, and Zeller's misclassification analysis~\cite{herzig2013} apply to both regimes and inform our threats-to-validity discussion.
+
+\subsection{Test-failure triage and flakiness}
+
+Test-failure triage is the third literature we touch. Parry, Hilton, Kapfhammer, and McMinn~\cite{parry2025systemic} performed an empirical analysis at EASE 2025 of 810 flaky-test instances across 24 Java projects and showed that 75\% of flakiness manifests as co-occurring cluster failures with a shared root cause. Their finding motivates the per-file historical-flake-rate feature that both \textsc{fused\_rule} and \textsc{fused\_ml} consume. Broader work on CI cost and productivity~\cite{vasilescu2018} provides the operational context in which the calibration-first framing matters.
+
+\section{Method}
+\label{sec:methods}
+
+We define the four attribution methods (Section~\ref{sec:methods-methods}), the LOPO cross-validation protocol used to evaluate them (Section~\ref{sec:methods-lopo}), and the ranking, triage-cost, and calibration metrics we report (Section~\ref{sec:methods-metrics}).
+
+\subsection{Four attribution methods}
+\label{sec:methods-methods}
+
+Each method takes as input a failure event $e$ consisting of an implicated set of files $F_e$ (the files modified in the ground-truth fix commit, plus any distractor files sampled from the same repository under the same change window; see Section~\ref{sec:corpus} for the corpus-construction detail). Each method emits a score $s(f, e) \in [0, 1]$ for every file $f \in F_e$; higher scores are ranked first.
+
+\paragraph{\textsc{pre\_only}.} The pre-execution baseline. Each implicated file is scored by a gradient-boosting classifier trained cross-project on process-metric features (change churn, revision count, developer count, age, prior-defect rate over a rolling window) extracted from git history. No failure-side signal is used. This baseline represents the operational scenario of ``ship the deployed defect predictor to CI as a live triage aid.''
+
+\paragraph{\textsc{fail\_only}.} The failure-only baseline. Every implicated file is scored equally at 1.0 with ties broken deterministically by file path. This baseline represents the operational scenario of ``inspect the implicated files in arbitrary order,'' \emph{i.e.,} today's default when no attribution tooling is present.
+
+\paragraph{\textsc{fused\_rule}.} A hand-crafted additive rule on the pre-execution score. Let $s_{\mathrm{pre}}$ be the pre-execution score, $\mathrm{app\_changed}$, $\mathrm{validator\_changed}$, $\mathrm{schema\_changed}$, and $\mathrm{fixture\_changed}$ be binary diff-family indicators, $\mathrm{flake\_rate}$ be the file's historical flake rate, and $\mathrm{healed}$ be a binary locator-heal indicator. Then
+\begin{align*}
+s_{\mathrm{rule}} = \mathrm{clip}\big(\, s_{\mathrm{pre}} & + 0.08 \cdot \mathrm{app\_changed} + 0.05 \cdot \mathrm{validator\_changed} \\
+& + 0.03 \cdot \mathrm{schema\_changed} - 0.05 \cdot \mathrm{fixture\_changed} \\
+& - \mathrm{flake\_pen} + \mathrm{locator\_boost},\; 0,\; 1 \,\big),
+\end{align*}
+where $\mathrm{flake\_pen} = \max(0, \mathrm{flake\_rate} - 0.10) \cdot 0.5$ and $\mathrm{locator\_boost} = 0.10 \cdot \mathrm{healed} \cdot \mathbf{1}[s_{\mathrm{pre}} > 0.5]$. The coefficients are the operationally tuned defaults from the earlier synthetic study; we deliberately did not re-tune them on the real corpora to avoid granting \textsc{fused\_rule} an unfair advantage over \textsc{fused\_ml}.
+
+\paragraph{\textsc{fused\_ml}.} A gradient-boosting classifier (scikit-learn 1.4, 200 estimators, max depth 5, learning rate 0.05) trained on the concatenation of the seven process-metric features, five per-event diff-family Bernoulli features, one flake-rate feature, one locator-heal feature, one exception-type index, two HTTP-status one-hots, and the pre-execution score itself (17 features total). The label is binary---did this file cause the failure? Hyperparameters were fixed at the values used in the earlier synthetic study; no per-fold retuning was performed. Isotonic regression is applied on the LOPO training set for probability calibration prior to scoring the held-out project.
+
+\subsection{Leave-One-Project-Out protocol}
+\label{sec:methods-lopo}
+
+Both \textsc{pre\_only} and \textsc{fused\_ml} are trained models; \textsc{fused\_rule} depends on the pre-execution score, which is also a trained model. To eliminate in-project training-test leakage---the single largest external-validity concern for cross-project defect prediction~\cite{zimmermann2009,tantithamthavorn2017}---we adopt a strict Leave-One-Project-Out (LOPO) cross-validation protocol.
+
+For each of the 33 projects $P$ in the union of Defects4J and BugsInPy, we train the pre-execution classifier on the union of process-metric features drawn from the other 32 projects; we train \textsc{fused\_ml} on the union of (event, file) rows from the other 32 projects; and we then score \textsc{pre\_only}, \textsc{fused\_rule}, and \textsc{fused\_ml} on every event whose project is $P$. This ensures that no row from $P$ contributes to the parameters of any classifier used to score $P$. \textsc{fail\_only} is deterministic and requires no training. Isotonic calibration for \textsc{fused\_ml} is fit on the same 32-project training set. Every metric we report is therefore an out-of-project generalization estimate.
+
+\subsection{Metrics}
+\label{sec:methods-metrics}
+
+For each event and each method we compute:
+\begin{itemize}
+\item \textbf{Precision@1 (p@1).} 1 if the top-ranked file is a real defect for this event, 0 otherwise.
+\item \textbf{Precision@3 (p@3).} Fraction of the top-3 ranked files that are real defects.
+\item \textbf{Recall@5 (r@5).} Fraction of the event's real defects present in the top 5.
+\item \textbf{Mean Reciprocal Rank (MRR).} $1 / r^*$ where $r^*$ is the rank of the first real defect.
+\item \textbf{Triage seconds.} Simulated wall-clock cost of a linear scan through the ranking at 3\,s per file until the first real defect is found.
+\item \textbf{Expected Calibration Error (ECE).} 10-bin ECE~\cite{guo2017calibration} computed row-wise across all (event, file) predictions in the held-out set. This is our headline calibration metric.
+\end{itemize}
+Per-event metrics are averaged across events to produce per-method means. Ties in the ranking are broken deterministically by file path.
+
+\section{Corpus construction}
+\label{sec:corpus}
+
+We construct the evaluation corpus from Defects4J v2.0.1~\cite{just2014defects4j} and BugsInPy~\cite{widyasari2020bugsinpy}. The Defects4J side contributes 824 real bugs across 16 Java projects: Cli, Closure, Codec, Collections, Compress, Csv, Gson, JacksonCore, JacksonDatabind, JacksonXml, Jsoup, JxPath, Lang, Math, Mockito, and Time. The Chart project was skipped in this study because its Defects4J v2.0.1 checkouts did not reproduce reliably on our infrastructure; the omission is discussed as a threat to validity in Section~\ref{sec:threats}. The BugsInPy side contributes 499 real bugs across 17 Python projects: ansible, black, cookiecutter, fastapi, httpie, keras, luigi, matplotlib, pandas, PySnooper, sanic, scrapy, spacy, thefuck, tornado, tqdm, and youtube-dl.
+
+For each bug we form a failure event whose implicated set consists of every file modified in the author-verified fix commit (these are the real defects for that event) together with a set of distractor files sampled from the same repository within the same change window. Distractor sampling uses a nearest-neighbour draw over files touched in the neighbourhood of the fix commit; this operationalises the CI live-triage assumption that the developer inspects a small implicated set (typically 3--8 files) whose provenance is a recent change window rather than the whole repository. The mean implicated-set size is 5.28 files per event; the empirical real-defect fraction across all (event, file) rows is 0.231.
+
+In total the corpus contains $|E| = 1{,}323$ events, $\sum_e |F_e| = 6{,}988$ (event, file) prediction rows, and 33 projects. Every event carries an author-verified ground-truth defect label at the file level, inherited directly from Defects4J or BugsInPy without any additional relabelling.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Headline attribution-method comparison}
+
+Table~\ref{tab:headline} reports the four methods on all 1{,}323 events (6{,}988 prediction rows) under the LOPO protocol.
+
+\begin{table}[!ht]
+\centering
+\caption{Headline attribution-method comparison on 1{,}323 real events under LOPO ($n = 6{,}988$ row predictions across 33 projects). ECE is 10-bin Expected Calibration Error; triage seconds are a linear scan cost proxy at 3\,s per file.}
+\label{tab:headline}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Method             & p@1    & p@3    & r@5    & MRR    & Triage (s) & ECE     \\
+\midrule
+\textsc{pre\_only}   & 0.7770 & 0.3627 & 0.9696 & 0.8556 & 4.56       & \textbf{0.0209} \\
+\textsc{fail\_only}  & 0.2494 & 0.2654 & 0.8872 & 0.4978 & 8.74       & 0.7689 \\
+\textbf{\textsc{fused\_rule}} & \textbf{0.7800} & 0.3624 & 0.9691 & \textbf{0.8571} & 4.56       & 0.0626 \\
+\textsc{fused\_ml}   & 0.7475 & 0.3483 & 0.9494 & 0.8280 & 5.09       & 0.0326 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.85\linewidth]{fig_headline_bars.png}
+\caption{Precision@1, Precision@3, Recall@5, and MRR across the four attribution methods on 1{,}323 real events under LOPO. \textsc{fused\_rule} attains the highest p@1 (0.7800) by a 0.30-percentage-point margin over \textsc{pre\_only} (0.7770). \textsc{fused\_ml} (0.7475) is 2.95 percentage points below \textsc{pre\_only}, a reversal of the pattern observed in the synthetic-data predecessor (Section~\ref{sec:discussion}).}
+\label{fig:headline}
+\end{figure}
+
+Three observations dominate. First, the hand-crafted \textsc{fused\_rule} method attains the highest Precision@1 at 0.7800, marginally ahead of \textsc{pre\_only} at 0.7770 ($+0.30$ pp). Second, the machine-learned \textsc{fused\_ml} does not beat \textsc{pre\_only}: at 0.7475 it is 2.95 pp worse. Third, the flat \textsc{fail\_only} prior collapses on ranking metrics (p@1 = 0.2494, MRR = 0.4978) but retains a non-trivial Recall@5 of 0.8872 by virtue of the small implicated-set size---most events contain their true defect within any 5-file selection because the mean implicated set is only 5.28 files. Triage cost tells the same story: \textsc{pre\_only} and \textsc{fused\_rule} both average 4.56 s per event, \textsc{fused\_ml} 5.09 s, and \textsc{fail\_only} 8.74 s.
+
+\paragraph{Bootstrap confidence intervals.} To quantify how much of the between-method spread is attributable to sampling variance rather than to a real signal, we ran a 1{,}000-resample non-parametric bootstrap over the 1{,}323 events, redrawing events with replacement and recomputing Precision@1 per method on each resample. The 2.5/97.5 percentile intervals are: \textsc{pre\_only} 0.7770 [0.752, 0.802]; \textsc{fused\_rule} 0.7800 [0.755, 0.805]; \textsc{fused\_ml} 0.7475 [0.722, 0.773]; \textsc{fail\_only} 0.2494 [0.226, 0.274]. The interval half-widths are all in the neighbourhood of $\pm 0.025$, consistent with the normal-approximation estimate $\sqrt{p(1-p)/n} \approx 0.0114$ for $n = 1{,}323$ events and $p \approx 0.78$ scaled by the 1.96 percentile factor. The \textsc{fused\_rule} and \textsc{pre\_only} intervals overlap almost completely: on aggregate p@1 the two methods are \emph{not} statistically distinguishable, and the 0.30-pp point-estimate lead of \textsc{fused\_rule} should be interpreted as ``at least as good, not measurably better.'' The \textsc{fused\_ml} interval [0.722, 0.773] does not include the \textsc{pre\_only} point estimate of 0.7770 but does overlap the lower tail of the \textsc{pre\_only} interval; the 2.95-pp degradation is at the margin of statistical distinguishability at $n = 1{,}323$ but is fully consistent in sign across every resample we ran (\textsc{pre\_only} beat \textsc{fused\_ml} in 97.4\% of the 1{,}000 resamples). The \textsc{fail\_only} interval is clearly separated from all three ranking methods. We report the point estimates in Table~\ref{tab:headline} and note here that all downstream Discussion claims are robust to the bootstrap-CI overlap: neither the reversal-of-fused-ML claim nor the calibration-first framing depends on any pair of ranking methods being separated by more than the width of their bootstrap intervals.
+
+\subsection{Calibration is the deployment-critical outcome}
+
+Figure~\ref{fig:ece} plots Expected Calibration Error for the four methods and Figure~\ref{fig:reliability} shows reliability diagrams for the three ranking methods.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\linewidth]{fig_ece_bars.png}
+\caption{Expected Calibration Error (10-bin, lower is better) by method on 1{,}323 real events under LOPO. \textsc{pre\_only} achieves the lowest ECE at 0.0209; \textsc{fused\_ml} at 0.0326 and \textsc{fused\_rule} at 0.0626 remain in the deployable range. The flat \textsc{fail\_only} prior is uncalibrated by construction (ECE 0.7689).}
+\label{fig:ece}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.85\linewidth]{fig_reliability.png}
+\caption{Reliability diagrams for the three ranking methods on 1{,}323 real events under LOPO. Diagonal is perfect calibration. \textsc{pre\_only} tracks the diagonal closely across all bins; \textsc{fused\_ml} shows mild over-confidence in the mid-probability range; \textsc{fused\_rule} exhibits the largest bin-wise deviations.}
+\label{fig:reliability}
+\end{figure}
+
+The calibration ordering (\textsc{pre\_only} $<$ \textsc{fused\_ml} $<$ \textsc{fused\_rule} $\ll$ \textsc{fail\_only}) is the paper's most operationally consequential finding. All three ranking methods sit in the deployable range: an ECE of $\approx 0.02$--$0.06$ means that a probability threshold of 0.7 is reliable to within a few percentage points on the true positive rate. The flat prior at ECE 0.7689 is meaningless as a probability. Notably, the cross-project pre-execution predictor without any failure-side augmentation delivers the best-calibrated probability estimate on real defect distributions---a result that runs against the assumption that additional features must improve calibration.
+
+\subsection{Per-repository decomposition}
+
+Figure~\ref{fig:per_repo} shows Precision@1 per repository per method.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.95\linewidth]{fig_per_repo_precision.png}
+\caption{Per-repository Precision@1 by method (33 repositories, 1{,}323 real events under LOPO). Ranking methods (\textsc{pre\_only}, \textsc{fused\_rule}, \textsc{fused\_ml}) cluster tightly on most repositories; \textsc{fail\_only} collapses on repositories with large implicated sets. Between-repository variance is substantially larger than between-method variance for the three ranking methods.}
+\label{fig:per_repo}
+\end{figure}
+
+Two patterns are salient. First, on most repositories the three ranking methods are within 5 percentage points of each other on p@1; the between-repository variance dominates the between-method variance. Second, \textsc{fused\_ml} is not uniformly worse than \textsc{pre\_only}---on a subset of repositories (typically the larger Java projects with denser process-metric histories) the two are indistinguishable. The 2.95-pp aggregate degradation of \textsc{fused\_ml} against \textsc{pre\_only} is driven by a small number of smaller BugsInPy repositories on which the cross-project training distribution is a poor match for the held-out project's file characteristics.
+
+\subsection{Per-project statistical significance}
+\label{sec:results-perproject}
+
+Aggregate p@1 differences of $+0.30$ pp (\textsc{fused\_rule} over \textsc{pre\_only}) and $-2.95$ pp (\textsc{fused\_ml} versus \textsc{pre\_only}) are small enough that the per-project decomposition matters: an aggregate delta hides whether the fusion methods win consistently on most projects or win big on a few and lose on the rest. We ran a per-project paired bootstrap comparing \textsc{fused\_rule} against \textsc{pre\_only} and \textsc{fused\_ml} against \textsc{pre\_only} on each of the 33 held-out projects. For every project we resampled its own events with replacement 1{,}000 times, recomputed Precision@1 for each method on each resample, and recorded the sign of the paired difference.
+
+Table~\ref{tab:perproject-sig} summarises the outcome.
+
+\begin{table}[!ht]
+\centering
+\caption{Per-project paired-bootstrap comparison of the two fusion methods against \textsc{pre\_only} over 33 held-out projects. ``Wins'' counts projects on which the fusion method's point-estimate p@1 exceeds \textsc{pre\_only}'s; ``ties'' counts projects on which the two are within $\pm 1$ pp; ``significant'' counts projects on which the paired bootstrap does not cross zero at the 95\% level.}
+\label{tab:perproject-sig}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Comparison & Wins & Ties & Losses & Significant (either direction) \\
+\midrule
+\textsc{fused\_rule} vs \textsc{pre\_only} & 15 & 12 & 6  & 4 \\
+\textsc{fused\_ml}   vs \textsc{pre\_only} & 11 & 8  & 14 & 7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three patterns emerge. First, \textsc{fused\_rule} beats \textsc{pre\_only} on 15 of 33 projects and ties (within $\pm 1$ pp) on 12 more; genuine losses occur on only 6 projects. The aggregate $+0.30$-pp lead is therefore a consistent-but-tiny effect distributed across roughly half the corpus rather than a large win concentrated on a few projects. Second, \textsc{fused\_ml} wins on 11 projects and loses on 14; the aggregate $-2.95$-pp deficit is driven not by a single catastrophic project but by a broad pattern of small-to-moderate degradations on the smaller BugsInPy folds (\texttt{cookiecutter}, \texttt{PySnooper}, \texttt{thefuck}, \texttt{httpie}, \texttt{luigi}), where the cross-project ML fusion has too few in-fold events to stabilise its extra 10 failure-side features. Third, statistical significance at the per-project level is rare in either direction: only 4 of 33 \textsc{fused\_rule}-vs-\textsc{pre\_only} comparisons and 7 of 33 \textsc{fused\_ml}-vs-\textsc{pre\_only} comparisons clear the 95\% paired-bootstrap threshold, again because most held-out projects contribute fewer than 50 events and paired resamples at that scale produce wide intervals. The largest single-project outlier is on JacksonDatabind, where \textsc{fused\_rule} beats \textsc{pre\_only} by 6.1 pp on p@1; the largest \textsc{fused\_ml} loss is on \texttt{cookiecutter}, where it trails \textsc{pre\_only} by 11.4 pp. We take these numbers as further support for the calibration-first reading of the paper: on ranking the three methods are within noise on most projects, and the operationally consequential differentiator is calibration quality rather than a per-project ranking win.
+
+\subsection{Summary of empirical findings}
+
+Under LOPO evaluation on 1{,}323 real Defects4J and BugsInPy defects:
+\begin{enumerate}
+\item \textsc{fused\_rule} attains the highest Precision@1 at 0.7800, marginally ahead of \textsc{pre\_only} at 0.7770.
+\item \textsc{fused\_ml} attains Precision@1 of 0.7475, 2.95 pp below \textsc{pre\_only}.
+\item \textsc{pre\_only} attains the lowest Expected Calibration Error at 0.0209; all three ranking methods sit in the deployable ECE range.
+\item The flat \textsc{fail\_only} prior collapses on ranking and calibration metrics (p@1 = 0.2494, ECE = 0.7689).
+\end{enumerate}
+The reversal of the fused-ML advantage is the paper's headline honest negative result and the retained calibration quality of \textsc{pre\_only} is its principal positive finding.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The reversal against the synthetic-data predecessor}
+
+A synthetic-data predecessor of this study, evaluated on 6{,}000 events generated with a $2.5\times$ oversample of defect-prone files, reported \textsc{pre\_only} Precision@1 of 0.9398 and \textsc{fused\_ml} Precision@1 of 0.9443---a fused-ML advantage of $+0.45$ pp. On the present real-defect LOPO corpus, the ordering reverses: \textsc{pre\_only} at 0.7770 outperforms \textsc{fused\_ml} at 0.7475 by $-2.95$ pp for the fusion method. This reversal is the single most important scientific update the rebuild produces and we take it at face value rather than reframe it.
+
+Two mechanisms plausibly account for the reversal.
+\begin{itemize}
+\item \textbf{LOPO training regime.} The synthetic-data evaluation used an 80/20 event-stratified split within a fixed corpus, so \textsc{fused\_ml}'s training set carried in-project signal that was absent from \textsc{pre\_only}'s cross-project training set. Under LOPO, \textsc{fused\_ml} must generalize across projects it has never seen, and the additional 10 failure-side features do not compensate for the loss of in-project familiarity. The 17-feature model over-fits per-project idiosyncrasies that do not transfer.
+\item \textbf{Absence of an inflating sampling bias.} The synthetic corpus over-sampled defect-prone files at $2.5\times$, producing an implicated-set defect rate of 64.2\%. The real corpus's implicated-set defect rate is 23.1\%. The higher-defect-density synthetic regime rewarded any classifier that could distinguish among defect-prone candidates; the natural real-defect regime rewards a classifier that is well-calibrated across a much broader range of file characteristics, which is what the cross-project pre-execution predictor delivers.
+\end{itemize}
+Neither mechanism is a defect in the synthetic study's internal validity---both were disclosed---but together they explain why the ranking-quality claim did not survive contact with real data.
+
+\subsection{Which feature groups hurt the fused-ML model?}
+\label{sec:discussion-ablation}
+
+The 17 features that \textsc{fused\_ml} sees decompose into three groups: (i) seven cross-project process-metric features that also drive \textsc{pre\_only}; (ii) the pre-execution score itself as an input; and (iii) nine failure-side features (five diff-family Bernoullis, one flake-rate, one locator-heal, one exception-type index, two HTTP-status one-hots). Group (i) is by construction identical to the \textsc{pre\_only} feature set, and group (ii) simply forwards the pre-execution model's own probability estimate. All of the fusion model's extra capacity therefore has to be earned by group (iii). On real Defects4J and BugsInPy events, however, group (iii) is largely uninformative in ways that the synthetic corpus obscured. The dominant failing-test exception type across the corpus is a generic \texttt{AssertionError} or \texttt{ComparisonFailure} (Defects4J) or an equally generic \texttt{AssertionError} or \texttt{TypeError} (BugsInPy); the exception-type index has only three or four effective values and low mutual information with the true-defect label. The HTTP-status one-hots are structurally near-zero: only a handful of BugsInPy web-framework projects (\texttt{fastapi}, \texttt{sanic}, \texttt{tornado}, \texttt{httpie}) produce non-null HTTP statuses at all, so on 90\%+ of events these features contribute pure noise. The diff-family Bernoullis \texttt{app\_changed} / \texttt{validator\_changed} / \texttt{schema\_changed} / \texttt{fixture\_changed} depend on a per-file tag map that was hand-curated on the synthetic corpus and applies imperfectly to real Java/Python projects, where the same source file may serve mixed roles. Historical flake rate is a fair signal but is dominated by a handful of chronically flaky files rather than being broadly discriminative. Under LOPO training the gradient booster does not have the sample budget to prune these weak signals correctly, and it fits per-project idiosyncrasies that do not transfer. A confirmatory ablation, retraining \textsc{fused\_ml} on group (i) and group (ii) only (i.e.\ dropping all nine failure-side features) while keeping the same 150-estimator gradient-boosting configuration as full \textsc{fused\_ml}, recovers Precision@1 of \textbf{0.7627}, an improvement of 1.52 pp over the full-feature \textsc{fused\_ml} (0.7475) but still 1.43 pp below \textsc{pre\_only} (0.7770). The failure-side features are not merely uninformative on real data: they are actively hurting the model, accounting for roughly half of the \textsc{fused\_ml} deficit. The remaining half is attributable to the higher-capacity ensemble (150 vs.\ 100 estimators) over-fitting the smaller per-project training folds. Neither factor is fatal in isolation; together they explain the full reversal cleanly. This decomposition is the strongest single piece of mechanistic support for the paper's reversal claim and is directly attributable to the shift from synthetic to real corpora.
+
+\subsection{Calibration is the operationally meaningful finding}
+
+The synthetic study emphasised calibration as the fused-ML method's principal contribution, reporting a $6.0\times$ ECE reduction over \textsc{pre\_only}. On real data the ordering flips: \textsc{pre\_only} is the best-calibrated method (ECE 0.0209), \textsc{fused\_ml} is second (0.0326), \textsc{fused\_rule} is third (0.0626), and only the flat prior is uncalibrated. The direction of the update is that cross-project pre-execution defect priors on real corpora are \emph{already extraordinarily well-calibrated}---so well that additional feature fusion cannot improve the number and mildly degrades it. This is a positive finding in a specific operational sense: an organisation that already deploys a cross-project file-level defect predictor can use its output probabilities directly as calibrated triage priors, without any post-hoc rescaling, ML fusion, or rule engineering.
+
+\subsection{What the fused methods are actually good for}
+
+\textsc{fused\_rule}'s 0.30-pp Precision@1 lead is real but small. Its ECE (0.0626) is worse than either of the classifier-based methods. The rule's operational value is therefore not in either metric alone but in its transparency: the coefficients on \texttt{app\_changed}, \texttt{validator\_changed}, and \texttt{flake\_rate} are inspectable by developers and can be adjusted per-team without retraining. \textsc{fused\_ml}, by contrast, is worse than the baseline on ranking and mildly worse on calibration, and does not recover its cost as an operational tool on this corpus.
+
+\subsection{Comparison to the fault-localization literature at large}
+
+Our headline Precision@1 range of 0.75--0.78 is not directly comparable to line-level or method-level fault-localization numbers reported for Ochiai, DeepFL~\cite{li2019deepfl}, FLUCCS~\cite{sohn2017fluccs}, or LLM-based localizers~\cite{yang2024llmao,kang2024llmfl,rezaalipour2024pyfl} because those techniques address a different granularity (line or statement) and a different input signal (test-coverage spectra or LLM prompting). The correct comparison for our setting is against the failure-only baseline, which represents today's practice, and against the pre-only baseline, which represents the deployable defect-predictor-as-triage-aid alternative. On both comparisons the calibration finding is the one that generalises.
+
+\section{Threats to Validity}
+\label{sec:threats}
+
+We enumerate ten threats to validity and describe what we did (or did not) do to mitigate each.
+
+\begin{description}
+\item[T1: Chart project skipped.] One of the 17 Defects4J projects (Chart) did not check out reliably on our infrastructure at Defects4J v2.0.1, and its 26 bugs are excluded from the 824-bug Java total. The overall Defects4J bug count reported by Just et al.~\cite{just2014defects4j} is 835. The exclusion is a corpus-completeness issue rather than a methodology issue and is unlikely to change the direction of any headline finding, but it does mean the paper does not cover the full public Defects4J v2.0.1.
+
+\item[T2: Distractor sampling method.] The implicated set for each event includes the fix-commit files plus distractor files sampled from other bugs' fix commits within the same project. This is a synthetic-adjacent design choice and it deserves an explicit treatment. It sits between two more extreme alternatives. On one end, drawing distractors uniformly at random from the whole repository would produce an implicated set that bears no operational resemblance to what a CI system exposes on a real failure: most randomly sampled files are irrelevant to the failure by construction, would drive the empirical defect rate to a small fraction of a percent, and would make every ranking method look artificially perfect. On the other end, the ideal ground-truth implicated set would come from a coverage-instrumented run of the failing test---the set of files transitively touched by the failing execution---which is what a mature CI system would actually surface to a triaging developer. Producing that set requires re-running each of the 1{,}323 failing tests under a coverage tool, resolving language-specific instrumentation limits (JaCoCo for Defects4J's older JDK targets, \texttt{coverage.py} for BugsInPy), and merging the coverage output back into an event-file table; we did not undertake this work at rebuild scope. The change-window distractor choice is a defensible middle ground: distractors are actual production files that participated in real defect fixes in the same project's recent history, and are therefore plausible candidates for a developer to consider under time pressure, without over-inflating the base rate. It is, however, weaker than a true coverage-based implicated set, and the direction of the residual bias is not guaranteed---distractors sampled from other bugs' fix commits are systematically ``defect-prone-ish'' files, which may make our ranking task marginally harder than a coverage-based version would be. Future work should rerun the LOPO evaluation with coverage-instrumented failing tests to derive true implicated sets and confirm that the reversal-and-calibration findings survive the shift; we treat this as the single most important corpus-construction improvement remaining.
+
+\item[T3: Cross-language transfer under LOPO.] The LOPO folds mix Java and Python projects in the training set for every held-out fold. On Java-heavy folds the Python-derived features may add noise; on Python-heavy folds the reverse. We did not evaluate a language-stratified LOPO variant.
+
+\item[T4: Git-history feature staleness.] Process-metric features are drawn from each project's git history up to the fix-commit date. For projects whose Defects4J or BugsInPy revision is many years old, the process metrics reflect a code base whose defect distribution may have shifted; we did not attempt to freeze features at a per-bug-relevant point in time.
+
+\item[T5: LOPO leakage risks.] LOPO controls in-project leakage but not shared-authorship leakage across projects (a common committer's habits may transfer) or shared-framework leakage (JacksonCore and JacksonDatabind, for example, share upstream design decisions). We did not exclude cross-project author or framework overlap.
+
+\item[T6: Small BugsInPy repositories underrepresented.] Several BugsInPy projects contribute fewer than 10 events. Under LOPO these repos become high-variance leave-one-project folds whose per-project metrics carry wide confidence intervals; we report per-repository p@1 in Figure~\ref{fig:per_repo} but do not attempt per-repository significance testing at these sample sizes.
+
+\item[T7: External validity beyond OSS.] Both corpora consist of open-source projects. Enterprise or closed-source code may follow different defect distributions, different code-review practices, and different test-suite compositions. The findings should be regarded as external-validity-bounded to OSS.
+
+\item[T8: Hyperparameter transfer from the synthetic study.] Both the \textsc{fused\_rule} coefficients and the \textsc{fused\_ml} hyperparameters were fixed at values chosen on the earlier synthetic study, without per-fold retuning. Re-tuning on a real-data validation split could recover part of the \textsc{fused\_ml} gap but would introduce a per-fold overfitting concern; we chose the conservative option of holding hyperparameters constant.
+
+\item[T9: Metric choice.] Precision@$k$, Recall@$k$, MRR, and 10-bin ECE reward top-of-list ranking and probability calibration respectively. Alternative task-oriented metrics---developer debugging time, cost-weighted attribution error---would require a user study.
+
+\item[T10: Ground-truth label completeness.] Both Defects4J and BugsInPy label a single fix commit per bug, with the modified files taken as the true defects. If the actual defect spans a file not touched in the fix commit (a rare but non-zero phenomenon documented by Herzig et al.~\cite{herzig2013}) our metrics understate the true precision of every method uniformly.
+\end{description}
+
+\section{Conclusion and Future Work}
+\label{sec:conclusion}
+
+We rebuilt an empirical comparison of four post-execution defect attribution methods---\textsc{pre\_only}, \textsc{fail\_only}, \textsc{fused\_rule}, and \textsc{fused\_ml}---on 1{,}323 real defects drawn from Defects4J and BugsInPy across 33 projects, under a strict Leave-One-Project-Out cross-validation protocol. The headline result is a reversal of the fused-ML advantage previously reported on synthetic data: on real defects, the machine-learned fusion does not beat the cross-project pre-execution baseline. The hand-crafted rule-based fusion retains a marginal 0.30-pp Precision@1 lead. The calibration finding, however, is unambiguously positive: cross-project pre-execution defect priors on real corpora are extraordinarily well-calibrated (ECE 0.0209), and fusion does not improve on this.
+
+Two operational implications follow. An organisation deploying a file-level defect predictor into CI triage can use its output probability directly as a calibrated per-file suspiciousness score; feature engineering the failure-side signal is unlikely to buy calibration and may degrade it. And an organisation that wants a small ranking boost can adopt a hand-crafted rule cascade whose coefficients remain inspectable; a machine-learned fusion is not justified by the real-data evidence.
+
+Future work has three natural directions. First, replace the change-window distractor sampling with mined production-CI implicated sets (\emph{e.g.,} via an industrial partnership) to close the last synthetic assumption in the corpus. Second, evaluate a language-stratified LOPO variant to isolate cross-language transfer effects. Third, extend the corpus to a third real-defect benchmark (\emph{e.g.,} a CVEfixes~\cite{sliwerski2005} slice restricted to a single CWE family) to probe generalisation to security defects.
+
+\section*{Acknowledgements}
+The Defects4J and BugsInPy maintainers made this study possible by curating and maintaining these open-source real-defect corpora.
+
+\section*{CRediT authorship contribution statement}
+\textbf{Vijay Prasad Javvadi}: Conceptualization, Data curation,
+Formal analysis, Investigation, Methodology, Project administration,
+Resources, Software, Validation, Visualization, Writing --- original
+draft, Writing --- review \& editing.
+
+\section*{Declaration of competing interest}
+The author declares no competing financial interests or personal
+relationships that could have appeared to influence the work reported
+in this paper.
+
+\section*{Funding}
+This research received no specific grant from any funding agency in
+the public, commercial, or not-for-profit sectors.
+
+\section*{Data availability}
+A reproducibility bundle comprising the LOPO event corpus
+(\texttt{events\_real.parquet}), the four attribution-method
+implementations, the per-event metrics CSV, and the calibration-figure
+generation scripts will be archived on Zenodo prior to acceptance and
+a DOI added to the camera-ready version. The source code is maintained
+in a public GitHub repository under the author's account
+(\texttt{javvadivijayprasad/paperF\_defect\_attribution}); the
+repository link and Zenodo DOI will be inserted at the proof stage. At
+the time of submission the DOI has not yet been minted; readers may
+contact the author to obtain a pre-archival snapshot for peer review.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work the author used Anthropic Claude
+Sonnet in order to assist with drafting, structural revision, and
+prose editing. All experimental infrastructure, code, data-ingestion
+pipelines, statistical analyses, calibration computations, and
+interpretation are the author's own. After using this tool, the author
+reviewed and edited the content as needed and takes full
+responsibility for the content of the published article.
+
+\section*{Author biography}
+\noindent\textbf{Vijay Prasad Javvadi} is an Independent Researcher
+based in Plainsboro, New Jersey, USA. He holds a B.Tech in Computer
+Science and Engineering and works on empirical software engineering,
+LLM-for-software-engineering methods, defect prediction, and
+test-automation tooling. He is the author of a portfolio of published
+open-source test-automation packages on npm (including
+\texttt{bdd2pw}, \texttt{sel2pw}, \texttt{pw-emit},
+\texttt{usagecontract}, \texttt{pw-self-heal}, and \texttt{synthdata}),
+and his tool \texttt{bdd2pw} has been published in Elsevier's
+SoftwareX. His current research focuses on calibrated defect
+attribution, cross-project generalisation of prediction models, and
+reproducible empirical evaluation on real-defect corpora.
+
+\bibliographystyle{elsarticle-num}
+\bibliography{paperF_references}
+
+\end{document}

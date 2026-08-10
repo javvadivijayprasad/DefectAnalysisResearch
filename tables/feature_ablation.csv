@@ -1,7 +1,0 @@
-variant,n_extra_features,prec_at_1,ece
-pre_only_baseline,1,0.9383,0.0159
-pre + diff,6,0.9383,0.0151
-pre + flake,2,0.9392,0.0184
-pre + locator,2,0.9383,0.0159
-pre + exception,4,0.9383,0.0182
-full fused_ml,11,0.9383,0.0167

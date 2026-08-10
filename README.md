@@ -1,72 +1,128 @@
-# Paper 7 — Post-Execution Defect Attribution
+# Paper F Reproducibility Bundle v2.0.0
 
-Research repository for **"Post-Execution Defect Attribution: Fusing Test-Failure Signals with SHAP-Explained Repository Priors for Practitioner-Actionable Triage."**
+**Post-Execution Defect Attribution on Real-World Defects: An Empirical Comparison of Four Methods on Defects4J and BugsInPy**
 
-Seventh paper in the AI-driven software quality engineering research series. Builds directly on Paper 4 (feature importance + SHAP integration) and forms the research foundation for `defect-attribution-service`.
+This archive is the reproducibility bundle for the companion paper (submitted
+to the *Journal of Systems and Software*, Elsevier). It ships every artifact
+needed to reproduce the empirical results: the 1,323-defect event corpus
+assembled from Defects4J v2.0.1 and BugsInPy, the leave-one-project-out (LOPO)
+experiment harness, the four attribution methods evaluated (`pre_only`,
+`fail_only`, `fused_rule`, `fused_ml`), the generated figures, and the compiled
+manuscript.
 
-## Research question
+**This is v2.0.0**, a major real-data rebuild of the v1.0.0 synthetic-only
+release. See [`CHANGELOG.md`](CHANGELOG.md) for a full diff.
 
-Given a test failure, which of the implicated files is a *real defect*, and which category of failure is it — real defect, validation failure, uncoordinated contract change, stale fixture, flake, environmental, or self-healed-hidden defect? Paper 4 proved repository features predict defect risk; this paper proves that fusing those features with post-execution failure signals collapses the false-positive rate and returns explanations developers can act on.
+## Citation
 
-## Contributions
+If you use this bundle please cite both the archived artifact and the paper:
 
-1. A **two-stage pipeline** (predict → confirm) in which the second stage conditions on observed failure signals rather than predicting in isolation.
-2. A **failure-category taxonomy** (eight mutually exclusive categories) with a rule-cascade classifier that operates on exception type, HTTP status, schema/fixture/config diffs, historical flake rate, and the defect-probability prior.
-3. **SHAP local attribution** per implicated file, producing per-prediction narratives (Paper 4 future-work item 4 operationalised).
-4. A **governance-preserving feedback loop** (the `.pkl` matures with each user run without exfiltrating data) — the same pattern used by sibling services.
-5. An evaluation against **SZZ-labeled ground truth** on five repositories (spring-boot, kafka, hadoop, elasticsearch, express) showing precision@1 improvements vs. pre-execution prediction and vs. failure-only triage.
+```bibtex
+@dataset{javvadi2026paperF_bundle,
+  author       = {Javvadi, Vijay Prasad},
+  title        = {{Post-Execution Defect Attribution on Real-World
+                   Defects — Reproducibility Bundle v2.0.0}},
+  year         = {2026},
+  publisher    = {Zenodo},
+  version      = {v2.0.0},
+  doi          = {[ZENODO-DOI-HERE]},
+  url          = {https://doi.org/[ZENODO-DOI-HERE]}
+}
 
-## Directory layout
+@article{javvadi2026paperF,
+  author  = {Javvadi, Vijay Prasad},
+  title   = {Post-Execution Defect Attribution on Real-World Defects: An
+             Empirical Comparison of Four Methods on Defects4J and BugsInPy},
+  journal = {Journal of Systems and Software},
+  year    = {2026},
+  doi     = {[PAPER-DOI-HERE]}
+}
+```
+
+The concept DOI (all versions) is `10.5281/zenodo.20723929`; the version DOI
+for v2.0.0 is assigned upon publication and replaces `[ZENODO-DOI-HERE]` above.
+
+## Directory tree
 
 ```
-Defect analysis paper/
-├── paper7_defect_attribution.tex      # canonical IEEE source
-├── references.bib                     # bibliography (extends Paper 4)
-├── compile_all.bat                    # Windows build
-├── compile_all.sh                     # macOS / Linux build
-├── datasets/                          # labeled SZZ + failure datasets (see datasets/README.md)
-├── experiments/                       # experiment protocol docs + designs
+zenodo_bundle_v2.0.0/
+├── README.md                    (this file)
+├── LICENSE                      (CC-BY-4.0)
+├── CITATION.cff                 (Zenodo citation metadata)
+├── CHANGELOG.md
+├── requirements.txt
+├── paper/
+│   ├── paperF_JSS.pdf
+│   ├── paperF_JSS.tex
+│   ├── paperF_references.bib
+│   ├── cover_letter_JSS.pdf
+│   └── highlights.txt
 ├── scripts/
-│   ├── build_dataset.py               # construct labeled dataset from repo history
-│   ├── run_experiment.py              # run baselines + proposed method
-│   ├── generate_figures.py            # figures referenced in the paper
-│   └── generate_tables.py             # tables referenced in the paper
-├── notebooks/                         # exploratory analysis
-├── figures/                           # PNG outputs
-├── tables/                            # CSV outputs → LaTeX tables
-└── results/                           # per-run JSON outputs
+│   ├── build_real_events.py
+│   ├── run_real_experiment.py
+│   └── generate_real_figures.py
+├── datasets/
+│   ├── README.md                (schema documentation)
+│   ├── real_events.parquet      (1,323 events, 6,988 rows)
+│   ├── real_events_d4j.parquet  (824 Defects4J events)
+│   ├── real_events_bip.parquet  (499 BugsInPy events)
+│   └── real_events_smoke.parquet (smoke-test sample)
+├── results/
+│   ├── summary_real.json
+│   ├── per_event_metrics_real.csv
+│   ├── per_row_scores_real.csv
+│   └── figures/                 (fig_headline_bars, fig_ece_bars,
+│                                 fig_reliability, fig_per_repo_precision)
+└── docs/
+    ├── REPRODUCIBILITY.md
+    ├── SETUP.md
+    ├── SCHEMA.md
+    ├── QC_JSS_AUDIT.md
+    └── FINALIZE_BUNDLE.md
 ```
 
-## Reproducibility
-
-The experiments consume the same five repositories used in Papers 1–6 and the same `defect_predictor.pkl` produced by Paper 4. No code under test is read at any point — all features derive from git history, test-reporter output, and schema/fixture diffs.
-
-Build the paper:
+## Quick reproduction
 
 ```bash
-pdflatex -interaction=nonstopmode paper7_defect_attribution.tex
-bibtex    paper7_defect_attribution
-pdflatex -interaction=nonstopmode paper7_defect_attribution.tex
-pdflatex -interaction=nonstopmode paper7_defect_attribution.tex
+git clone https://github.com/javvadivijayprasad/DefectAnalysisReserch.git
+cd DefectAnalysisReserch
+git checkout paperF-jss-v1.0
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python3 scripts/run_real_experiment.py    # ~5 min with cached parquet
+python3 scripts/generate_real_figures.py
 ```
 
-Or run `compile_all.bat` (Windows) / `compile_all.sh` (macOS, Linux).
+This reproduces the four figures and `results/summary_real.json` from the
+cached parquet corpus in ~15 minutes. To re-build the corpus from source
+(Defects4J v2.0.1 + BugsInPy) takes ~2 hours.
 
-Run the experiment:
+## Detailed reproduction
 
-```bash
-python scripts/build_dataset.py --repos spring-boot kafka hadoop elasticsearch express
-python scripts/run_experiment.py --config experiments/paper7_default.yaml
-python scripts/generate_figures.py
-python scripts/generate_tables.py
-```
+See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) for step-by-step
+instructions, expected checksum-style outputs, and the fresh-install path.
 
-## Paper 4 lineage
+## Headline results (real data, 1,323 events, LOPO CV)
 
-Paper 4 published global feature importance (commit count, churn, unique developers) at F1 ≈ 0.63 pre-execution. This paper preserves that model unchanged, adds a thin *local* SHAP layer on top, and evaluates a second-stage classifier that fuses its output with post-execution signals. The Paper 4 `.pkl` is loaded verbatim; no retraining is required to reproduce Paper 7's headline results.
+| Method       | p@1    | p@3    | r@5    | MRR    | ECE (10-bin) |
+|--------------|--------|--------|--------|--------|--------------|
+| pre_only     | 0.7770 | 0.3627 | 0.9696 | 0.8556 | 0.0209       |
+| fail_only    | 0.2494 | 0.2654 | 0.8872 | 0.4978 | 0.7689       |
+| fused_rule   | 0.7800 | 0.3624 | 0.9691 | 0.8571 | 0.0626       |
+| fused_ml     | 0.7475 | —      | —      | —      | 0.0330       |
 
-## Service counterpart
+**Ablation**: fused_ml retrained on pre-execution features only recovers
+p@1 = 0.7627 (≈half the fused_ml deficit), confirming that the failure-side
+features actively hurt on real data.
 
-The service implementation lives at `../defect-attribution-service/`. The paper documents the experimental justification; the service delivers the capability to practitioners.
+## License
 
-Feedback from the service (`/report-outcome` → JSONL) can be folded back into the training set via `../defect-attribution-service/scripts/retrain.py`, producing a matured `.pkl` that the service picks up on restart. Longitudinal evaluation of that maturation is the subject of a planned follow-up (Paper 8).
+Creative Commons Attribution 4.0 International (CC-BY-4.0) — see
+[`LICENSE`](LICENSE). Same license as v1.0.0.
+
+## Contact
+
+Vijay Prasad Javvadi
+Independent Researcher, Plainsboro, NJ, USA
+ORCID: <https://orcid.org/0009-0004-1192-6906>
+Email: <vijay@vijayjavvadiresearch.ai>
