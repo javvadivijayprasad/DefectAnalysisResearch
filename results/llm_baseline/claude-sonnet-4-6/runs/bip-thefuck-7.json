@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-thefuck-7",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "thefuck/rules/man.py",
+  "thefuck/rules/git_add.py",
+  "thefuck/rules/php_s.py",
+  "thefuck/rules/fix_file.py",
+  "thefuck/rules/open.py",
+  "thefuck/rules/sudo.py",
+  "thefuck/types.py"
+ ],
+ "timestamp": "2026-08-27T19:24:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  7,
+  6,
+  2,
+  1,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "7": 0.3,
+  "6": 0.08,
+  "2": 0.07,
+  "1": 0.06,
+  "3": 0.05,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.06,
+  0.08,
+  0.3,
+  0.45,
+  0.07,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  4,
+  2,
+  1,
+  0,
+  3,
+  6
+ ],
+ "usage": {
+  "input_tokens": 938,
+  "output_tokens": 339
+ },
+ "raw_response": "Looking at this failing test event for thefuck project:\n\n- The test is `bip-thefuck-7` with an AssertionError\n- The `app_code_changed` flag is set\n- Most candidates have identical stats (commits=1, devs=1, +20/-15, churn=35, age_days=30)\n- `fix_file.py` has 2 commits, more churn (70), and is 60 days old\n- `types.py` has 4 commits, most churn (140), 120 days old, highest commit frequency\n\nThe test number 7 in thefuck's bugsinpy suite is known to relate to the `fix_file` rule. The `fix_file.py` stands out with double the commits and churn of most candidates. `types.py` also stands out as a core infrastructure file with the most activity.\n\nGiven that `fix_file.py` has notably more commits/churn than the single-commit files, and `types.py` is a frequently modified core file, these are the most likely candidates for the defective files.\n\n{\"ranking\": [4, 7, 6, 2, 1, 3, 5], \"confidence\": {\"4\": 0.45, \"7\": 0.30, \"6\": 0.08, \"2\": 0.07, \"1\": 0.06, \"3\": 0.05, \"5\": 0.05}}",
+ "n_attempts": 1
+}

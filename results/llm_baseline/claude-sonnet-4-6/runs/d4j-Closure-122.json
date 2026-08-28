@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-122",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/parsing/JsDocTokenStream.java",
+  "src/com/google/javascript/jscomp/parsing/NullErrorReporter.java",
+  "src/com/google/javascript/jscomp/parsing/Annotation.java",
+  "src/com/google/javascript/jscomp/parsing/ParserRunner.java",
+  "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "src/com/google/javascript/jscomp/parsing/TypeSafeDispatcher.java"
+ ],
+ "timestamp": "2026-08-27T18:59:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  3,
+  1,
+  6,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.55,
+  "4": 0.2,
+  "3": 0.1,
+  "1": 0.08,
+  "6": 0.05,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.03,
+  0.08,
+  0.1,
+  0.2,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  3,
+  2,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 958,
+  "output_tokens": 430
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-122, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError in the Closure compiler's parsing package\n- The test involves JSDoc parsing or IR construction based on the package\n\nAnalyzing the candidates:\n\n1. **JsDocTokenStream.java** - Low commits (12), handles token streaming for JSDoc\n2. **NullErrorReporter.java** - Low commits (12), simple error reporter utility\n3. **Annotation.java** - Medium commits (20), annotation definitions\n4. **ParserRunner.java** - Higher commits (29), orchestrates parsing - frequently modified\n5. **IRFactory.java** - Very high commits (87), most active file, converts AST to IR - this is the most complex and frequently changed file in the parsing pipeline\n6. **TypeSafeDispatcher.java** - Medium commits (12), dispatcher pattern\n\nFor Closure-122 specifically, this is related to JSDoc parsing issues. The IRFactory.java is by far the most frequently modified file (87 commits, 16 devs, highest churn at 3183), making it the most likely candidate for defects. ParserRunner.java is also frequently modified and orchestrates the parsing process.\n\nThe JsDocTokenStream.java has relatively few commits but handles the token stream which could be involved in JSDoc-related assertion errors. However, given the high activity in IRFactory.java and its role in processing parsed content, it's the most likely defective file.\n\n{\"ranking\": [5, 4, 3, 1, 6, 2], \"confidence\": {\"5\": 0.55, \"4\": 0.20, \"3\": 0.10, \"1\": 0.08, \"6\": 0.05, \"2\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-black-2",
+ "repo": "bugsinpy:black",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "blib2to3/pgen2/tokenize.py",
+  "blib2to3/pgen2/driver.py",
+  "blib2to3/pygram.py",
+  "black.py"
+ ],
+ "timestamp": "2026-08-27T19:36:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "1": 0.25,
+  "2": 0.15,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.15,
+  0.05,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 672,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [4, 1, 2, 3], \"confidence\": {\"4\": 0.55, \"1\": 0.25, \"2\": 0.15, \"3\": 0.05}}",
+ "n_attempts": 1
+}

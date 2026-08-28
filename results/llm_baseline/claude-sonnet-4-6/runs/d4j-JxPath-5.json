@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-JxPath-5",
+ "repo": "defects4j:JxPath",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/java/org/apache/commons/jxpath/ri/model/VariablePointer.java",
+  "src/java/org/apache/commons/jxpath/ri/model/NodePointerFactory.java",
+  "src/java/org/apache/commons/jxpath/ri/model/NodeIterator.java",
+  "src/java/org/apache/commons/jxpath/ri/model/NodePointer.java"
+ ],
+ "timestamp": "2026-08-27T19:10:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "4": 0.25,
+  "2": 0.06,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.65,
+  0.04,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 861,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.65, \"4\": 0.25, \"2\": 0.06, \"3\": 0.04}}",
+ "n_attempts": 1
+}

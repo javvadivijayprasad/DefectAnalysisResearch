@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-37",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/Element.java",
+  "src/main/java/org/jsoup/nodes/DataNode.java",
+  "src/main/java/org/jsoup/nodes/DocumentType.java",
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/nodes/TextNode.java",
+  "src/main/java/org/jsoup/nodes/Attribute.java",
+  "src/main/java/org/jsoup/nodes/Node.java"
+ ],
+ "timestamp": "2026-08-27T19:08:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  7,
+  1,
+  4,
+  6,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.08,
+  "3": 0.04,
+  "4": 0.12,
+  "5": 0.45,
+  "6": 0.1,
+  "7": 0.38
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.45,
+  0.1,
+  0.04,
+  0.38,
+  0.08,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  4,
+  6,
+  1,
+  5,
+  3
+ ],
+ "usage": {
+  "input_tokens": 995,
+  "output_tokens": 462
+ },
+ "raw_response": "Looking at this failing test in Jsoup (d4j-Jsoup-37), I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError, suggesting a logic/output mismatch\n- The `app_code_changed` flag indicates application code was modified\n- This is in the `nodes` package of Jsoup\n\nLet me analyze the candidates:\n\n1. **Element.java** - Very high activity (87 commits, 1900 churn), core class, most likely to contain bugs\n2. **Node.java** - High activity (59 commits, 951 churn), base class for all nodes, frequently modified\n3. **TextNode.java** - Moderate activity (30 commits, 309 churn), handles text content\n4. **Attributes.java** - Moderate activity (20 commits, 385 churn), handles attributes\n5. **Attribute.java** - Moderate activity (18 commits, 171 churn)\n6. **DataNode.java** - Lower commits but high recent frequency (0.2373), recently active\n7. **DocumentType.java** - Low activity (4 commits, 56 churn)\n\nFor Jsoup-37 specifically, this test typically relates to text node handling or element output. The TextNode and Node classes are commonly involved in text-related bugs. Element.java is the most frequently changed file and often involved in fixes.\n\nGiven the historical patterns in Jsoup defects, Node.java and TextNode.java are often involved in output/whitespace handling bugs, while Element.java covers a broad range of functionality.\n\n{\"ranking\": [5, 7, 1, 4, 6, 2, 3], \"confidence\": {\"1\": 0.35, \"2\": 0.08, \"3\": 0.04, \"4\": 0.12, \"5\": 0.45, \"6\": 0.10, \"7\": 0.38}}",
+ "n_attempts": 1
+}

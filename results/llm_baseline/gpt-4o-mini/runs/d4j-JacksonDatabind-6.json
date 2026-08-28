@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-6",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/util/ByteBufferBackedOutputStream.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/PrimitiveArrayBuilder.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ByteBufferBackedInputStream.java"
+ ],
+ "timestamp": "2026-08-27T19:33:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  1,
+  6,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.35,
+  "3": 0.05,
+  "4": 0.01,
+  "5": 0.25,
+  "6": 0.19
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.35,
+  0.25,
+  0.01,
+  0.19
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  2,
+  0,
+  1,
+  5,
+  3
+ ],
+ "usage": {
+  "input_tokens": 817,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [2, 5, 1, 6, 3, 4], \"confidence\": {\"1\": 0.15, \"2\": 0.35, \"3\": 0.05, \"4\": 0.01, \"5\": 0.25, \"6\": 0.19}}",
+ "n_attempts": 1
+}

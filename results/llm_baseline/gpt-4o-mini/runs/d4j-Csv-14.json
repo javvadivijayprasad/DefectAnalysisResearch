@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Csv-14",
+ "repo": "defects4j:Csv",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/csv/CSVFormat.java",
+  "src/main/java/org/apache/commons/csv/ExtendedBufferedReader.java",
+  "src/main/java/org/apache/commons/csv/Assertions.java",
+  "src/main/java/org/apache/commons/csv/CSVParser.java"
+ ],
+ "timestamp": "2026-08-27T19:33:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.3,
+  "2": 0.15,
+  "3": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.15,
+  0.3,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 705,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.45, \"4\": 0.30, \"2\": 0.15, \"3\": 0.10}}",
+ "n_attempts": 1
+}

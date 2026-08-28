@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-2",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/distribution/AbstractRealDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/KolmogorovSmirnovDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/MixtureMultivariateRealDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/IntegerDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/PascalDistribution.java"
+ ],
+ "timestamp": "2026-08-27T19:35:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  5,
+  6,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.35,
+  "3": 0.05,
+  "4": 0.05,
+  "5": 0.15,
+  "6": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.15,
+  0.05,
+  0.25,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  3,
+  4,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 817,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [2, 1, 5, 6, 4, 3], \"confidence\": {\"1\": 0.25, \"2\": 0.35, \"3\": 0.05, \"4\": 0.05, \"5\": 0.15, \"6\": 0.15}}",
+ "n_attempts": 1
+}

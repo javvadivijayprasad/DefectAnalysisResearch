@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Mockito-17",
+ "repo": "defects4j:Mockito",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/org/mockito/internal/creation/DelegatingMockitoMethodProxy.java",
+  "src/org/mockito/internal/util/MockUtil.java",
+  "src/org/mockito/internal/creation/MockSettingsImpl.java",
+  "src/org/mockito/internal/creation/MethodInterceptorFilter.java"
+ ],
+ "timestamp": "2026-08-27T19:36:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "4": 0.25,
+  "2": 0.15,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.25,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 694,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.55, \"4\": 0.25, \"2\": 0.15, \"3\": 0.05}}",
+ "n_attempts": 1
+}

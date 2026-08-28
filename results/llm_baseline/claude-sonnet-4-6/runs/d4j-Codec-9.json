@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Codec-9",
+ "repo": "defects4j:Codec",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/codec/binary/Base64InputStream.java",
+  "src/java/org/apache/commons/codec/binary/Base32InputStream.java",
+  "src/java/org/apache/commons/codec/binary/BaseNCodecOutputStream.java",
+  "src/java/org/apache/commons/codec/binary/StringUtils.java",
+  "src/java/org/apache/commons/codec/binary/Base32.java",
+  "src/java/org/apache/commons/codec/binary/Base64.java"
+ ],
+ "timestamp": "2026-08-27T19:00:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  5,
+  3,
+  6,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.75,
+  "1": 0.25,
+  "5": 0.15,
+  "3": 0.12,
+  "6": 0.08,
+  "4": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.03,
+  0.25,
+  0.15,
+  0.75,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  5,
+  1,
+  2,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 957,
+  "output_tokens": 322
+ },
+ "raw_response": "Looking at the candidates:\n\n- File 2 (Base32InputStream.java) has extremely unusual stats: only 2 commits, 1 developer, age_days=1, and commit_freq=2.0000. This strongly suggests it was very recently created/modified - likely as part of the fix commit itself.\n- The test is about Codec binary operations. Base32InputStream being brand new (age_days=1) with a commit_freq of 2.0 is a strong signal it's the defective/fixed file.\n- Base64InputStream (file 1) is related and has moderate activity.\n- Base32.java (file 5) has very high churn and many commits, suggesting it's actively developed and could contain bugs.\n- BaseNCodecOutputStream (file 3) is also related to the binary codec stream infrastructure.\n\nThe age_days=1 for Base32InputStream is the strongest signal - this file was essentially just created or heavily modified, which aligns with a fix commit. The test name \"Codec-9\" suggests a Base32/Base64 streaming issue.\n\n{\"ranking\": [2, 1, 5, 3, 6, 4], \"confidence\": {\"2\": 0.75, \"1\": 0.25, \"5\": 0.15, \"3\": 0.12, \"6\": 0.08, \"4\": 0.03}}",
+ "n_attempts": 1
+}

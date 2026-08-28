@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JxPath-18",
+ "repo": "defects4j:JxPath",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/jxpath/ri/axes/AncestorContext.java",
+  "src/java/org/apache/commons/jxpath/ri/axes/AttributeContext.java",
+  "src/java/org/apache/commons/jxpath/ri/axes/NamespaceContext.java",
+  "src/java/org/apache/commons/jxpath/ri/axes/RootContext.java",
+  "src/java/org/apache/commons/jxpath/ri/axes/SimplePathInterpreter.java",
+  "src/java/org/apache/commons/jxpath/ri/axes/DescendantContext.java"
+ ],
+ "timestamp": "2026-08-27T19:35:08",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  1,
+  6,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "4": 0.25,
+  "1": 0.15,
+  "6": 0.1,
+  "3": 0.03,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.15,
+  0.45,
+  0.25,
+  0.1,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  0,
+  1,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 813,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [5, 4, 1, 6, 3, 2], \"confidence\": {\"5\": 0.45, \"4\": 0.25, \"1\": 0.15, \"6\": 0.10, \"3\": 0.03, \"2\": 0.02}}",
+ "n_attempts": 1
+}

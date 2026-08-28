@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-pandas-135",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "pandas/core/indexes/timedeltas.py",
+  "pandas/tseries/offsets.py",
+  "pandas/core/algorithms.py",
+  "pandas/core/groupby/ops.py"
+ ],
+ "timestamp": "2026-08-27T19:21:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.25,
+  "2": 0.18,
+  "3": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.18,
+  0.45,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 790,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.45, \"4\": 0.25, \"2\": 0.18, \"3\": 0.08}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Jsoup-89",
+ "repo": "defects4j:Jsoup",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/LeafNode.java",
+  "src/main/java/org/jsoup/nodes/Element.java",
+  "src/main/java/org/jsoup/nodes/package-info.java",
+  "src/main/java/org/jsoup/nodes/Attribute.java"
+ ],
+ "timestamp": "2026-08-27T19:34:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.35,
+  "4": 0.15,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.35,
+  0.45,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 694,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [1, 2, 4, 3], \"confidence\": {\"1\": 0.45, \"2\": 0.35, \"4\": 0.15, \"3\": 0.05}}",
+ "n_attempts": 1
+}

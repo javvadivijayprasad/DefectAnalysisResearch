@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-27",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiators.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/SettableBeanProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/SettableAnyProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/KeyDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java"
+ ],
+ "timestamp": "2026-08-27T19:05:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  8,
+  5,
+  6,
+  3,
+  7,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.03,
+  "2": 0.55,
+  "3": 0.07,
+  "4": 0.35,
+  "5": 0.15,
+  "6": 0.1,
+  "7": 0.05,
+  "8": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.2,
+  0.05,
+  0.15,
+  0.1,
+  0.03,
+  0.55,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  6,
+  3,
+  4,
+  7,
+  0,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1153,
+  "output_tokens": 501
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError (likely a deserialization test failing)\n- The flag `app_code_changed` is set\n- This is in the `deser` package\n\nLet me analyze the candidates:\n\n1. `package-info.java` - Only 1 commit, 1 dev, 5 lines added - very unlikely to be a bug fix, probably just documentation\n2. `BasicDeserializerFactory.java` - Very high activity (117 commits, high churn), central factory class for deserializers - very likely candidate\n3. `ValueInstantiators.java` - Low activity, interface/registry class\n4. `BeanDeserializer.java` - High activity, core deserializer - likely candidate\n5. `SettableBeanProperty.java` - Moderate-high activity, property handling\n6. `SettableAnyProperty.java` - Moderate activity\n7. `KeyDeserializers.java` - Low activity\n8. `BuilderBasedDeserializer.java` - Moderate activity, builder pattern deserializer\n\nFor JacksonDatabind-27, this is likely related to a deserialization issue. The `BasicDeserializerFactory` is the most central file for deserializer creation and has the highest activity. `BeanDeserializer` is also a prime candidate. The `BuilderBasedDeserializer` could be relevant if the test involves builder-based deserialization.\n\nGiven the high churn and commit frequency of `BasicDeserializerFactory` and `BeanDeserializer`, these are the most likely defective files.\n\n{\"ranking\": [2, 4, 8, 5, 6, 3, 7, 1], \"confidence\": {\"1\": 0.03, \"2\": 0.55, \"3\": 0.07, \"4\": 0.35, \"5\": 0.15, \"6\": 0.10, \"7\": 0.05, \"8\": 0.20}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-141",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/PureFunctionIdentifier.java",
+  "src/com/google/javascript/jscomp/RemoveConstantExpressionsParallel.java",
+  "src/com/google/javascript/jscomp/SyntheticAst.java",
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/JSModuleGraph.java"
+ ],
+ "timestamp": "2026-08-27T18:59:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "1": 0.45,
+  "2": 0.3,
+  "5": 0.1,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.45,
+  0.1,
+  0.3,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 897,
+  "output_tokens": 507
+ },
+ "raw_response": "Looking at this failing test for Closure-141, I need to reason about which files are likely defective.\n\nKey observations:\n- The test failure is an AssertionError (likely a test assertion failure, not a crash)\n- `app_code_changed` flag is set\n- This is about Closure compiler\n\nAnalyzing candidates:\n\n1. **PureFunctionIdentifier.java** - 3 commits, 3 devs, significant additions (+731/-37), old file (6122 days), low commit frequency. This is a core analysis file that could affect test outcomes.\n\n2. **RemoveConstantExpressionsParallel.java** - Only 1 commit, 1 dev, brand new file (age_days=1), commit_freq=1.0. This is extremely suspicious - a brand new file added in a single commit with very high frequency suggests it was just created, possibly as part of the fix or as the defective change.\n\n3. **SyntheticAst.java** - 2 commits, 2 devs, relatively new (128 days), moderate frequency. Less likely but possible.\n\n4. **NodeUtil.java** - 14 commits, 3 devs, very large file (+2108/-122), old file, moderate commit frequency. NodeUtil is a utility class used everywhere - changes here could easily break tests.\n\n5. **JSModuleGraph.java** - 2 commits, 1 dev, relatively new (26 days), high commit frequency. Could be related.\n\nFor Closure-141, the test likely involves pure function identification or constant expression removal. The brand-new `RemoveConstantExpressionsParallel.java` (age=1 day, single commit) is highly suspicious as a newly introduced file. `NodeUtil.java` with its many changes is also a strong candidate as it's heavily modified and used throughout. `PureFunctionIdentifier.java` is also relevant given the test context.\n\n{\"ranking\": [4, 1, 2, 5, 3], \"confidence\": {\"4\": 0.55, \"1\": 0.45, \"2\": 0.30, \"5\": 0.10, \"3\": 0.05}}",
+ "n_attempts": 1
+}

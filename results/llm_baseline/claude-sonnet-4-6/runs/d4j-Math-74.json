@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Math-74",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java",
+  "src/main/java/org/apache/commons/math/ode/nonstiff/AdamsMoultonIntegrator.java",
+  "src/main/java/org/apache/commons/math/ode/nonstiff/AdamsBashforthIntegrator.java"
+ ],
+ "timestamp": "2026-08-27T19:13:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.72,
+  "3": 0.65,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.72,
+  0.65
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 818,
+  "output_tokens": 304
+ },
+ "raw_response": "Looking at this failing test in defects4j:Math-74, which involves ODE integrators:\n\n- The test name suggests it's related to Adams integrators (Math-74 is known to be about Adams-Moulton integrator)\n- Files 2 and 3 (AdamsMoultonIntegrator and AdamsBashforthIntegrator) have very high commit frequency (1.15 commits/day) and are very young (97 days), suggesting they were recently added/heavily modified\n- Both Adams files have similar commit counts (16 each) and similar churn, suggesting they were developed together\n- The EmbeddedRungeKuttaIntegrator is much older and less frequently modified\n- Math-74 in defects4j is specifically about the Adams-Moulton integrator, but the fix typically involves both Adams integrators since they share common logic\n\nThe Adams integrators (files 2 and 3) are the most likely defective files given:\n1. High recent activity\n2. The test failure is in the Adams integrator domain\n3. Both files were modified together (same commit count, same age, similar churn)\n\n{\"ranking\": [2, 3, 1], \"confidence\": {\"2\": 0.72, \"3\": 0.65, \"1\": 0.05}}",
+ "n_attempts": 1
+}

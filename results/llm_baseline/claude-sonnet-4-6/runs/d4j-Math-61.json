@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-61",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/distribution/ChiSquaredDistribution.java",
+  "src/main/java/org/apache/commons/math/distribution/TDistributionImpl.java",
+  "src/main/java/org/apache/commons/math/distribution/CauchyDistribution.java",
+  "src/main/java/org/apache/commons/math/distribution/PoissonDistributionImpl.java",
+  "src/main/java/org/apache/commons/math/distribution/NormalDistribution.java",
+  "src/main/java/org/apache/commons/math/distribution/BinomialDistribution.java",
+  "src/main/java/org/apache/commons/math/distribution/BetaDistributionImpl.java",
+  "src/main/java/org/apache/commons/math/distribution/HasDensity.java"
+ ],
+ "timestamp": "2026-08-27T19:13:20",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  5,
+  1,
+  6,
+  7,
+  8,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.88,
+  "2": 0.05,
+  "5": 0.04,
+  "1": 0.03,
+  "6": 0.03,
+  "7": 0.02,
+  "8": 0.02,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.88,
+  0.02,
+  0.02,
+  0.03,
+  0.04,
+  0.03,
+  0.01,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  5,
+  4,
+  2,
+  3,
+  7,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1105,
+  "output_tokens": 180
+ },
+ "raw_response": "The failing test is d4j-Math-61, which in the defects4j benchmark corresponds to a bug in `PoissonDistributionImpl`. The fix involves the Poisson distribution implementation throwing an exception or having incorrect behavior. This is a well-known defects4j bug where `PoissonDistributionImpl` has an issue with its constructor or mean validation.\n\n{\"ranking\": [4, 2, 5, 1, 6, 7, 8, 3], \"confidence\": {\"4\": 0.88, \"2\": 0.05, \"5\": 0.04, \"1\": 0.03, \"6\": 0.03, \"7\": 0.02, \"8\": 0.02, \"3\": 0.01}}",
+ "n_attempts": 1
+}

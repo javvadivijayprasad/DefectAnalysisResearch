@@ -1,0 +1,35 @@
+{
+ "event_id": "d4j-Math-90",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 2,
+ "presented_files": [
+  "src/java/org/apache/commons/math/stat/Frequency.java",
+  "src/java/org/apache/commons/math/stat/StatUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:36:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.65,
+  "1": 0.35
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.65
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 611,
+  "output_tokens": 28
+ },
+ "raw_response": "{\"ranking\": [2, 1], \"confidence\": {\"2\": 0.65, \"1\": 0.35}}",
+ "n_attempts": 1
+}

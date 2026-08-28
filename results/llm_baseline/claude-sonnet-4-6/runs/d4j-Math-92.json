@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-92",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/math/util/DefaultTransformer.java",
+  "src/java/org/apache/commons/math/util/ResizableDoubleArray.java",
+  "src/java/org/apache/commons/math/util/TransformerMap.java",
+  "src/java/org/apache/commons/math/util/ContinuedFraction.java",
+  "src/java/org/apache/commons/math/util/MathUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:14:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "5": 0.92,
+  "4": 0.04,
+  "2": 0.02,
+  "3": 0.01,
+  "1": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.01,
+  0.01,
+  0.02,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 907,
+  "output_tokens": 172
+ },
+ "raw_response": "The failing test is d4j-Math-92. In defects4j, Math-92 is related to the `binomialCoefficient` method in `MathUtils.java`, which had an overflow bug. This is a well-known defect in the Apache Commons Math project.\n\n`MathUtils.java` is the most likely defective file - it has the highest number of commits (55), most lines changed, and the binomial coefficient calculation is a classic Math utility function.\n\n{\"ranking\": [5, 4, 2, 3, 1], \"confidence\": {\"5\": 0.92, \"4\": 0.04, \"2\": 0.02, \"3\": 0.01, \"1\": 0.01}}",
+ "n_attempts": 1
+}

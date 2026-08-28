@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-16",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CheckAccidentalSemicolon.java",
+  "src/com/google/javascript/jscomp/CodingConventions.java",
+  "src/com/google/javascript/jscomp/OptimizeCalls.java",
+  "src/com/google/javascript/jscomp/MustBeReachingVariableDef.java",
+  "src/com/google/javascript/jscomp/CompilerInput.java",
+  "src/com/google/javascript/jscomp/ComposeWarningsGuard.java",
+  "src/com/google/javascript/jscomp/ScopedAliases.java"
+ ],
+ "timestamp": "2026-08-27T19:30:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  4,
+  1,
+  6,
+  3,
+  7
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "5": 0.25,
+  "4": 0.15,
+  "1": 0.1,
+  "6": 0.08,
+  "3": 0.05,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.08,
+  0.15,
+  0.1,
+  0.25,
+  0.35,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  4,
+  2,
+  3,
+  1,
+  0,
+  5
+ ],
+ "usage": {
+  "input_tokens": 816,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[2,5,4,1,6,3,7],\"confidence\":{\"2\":0.35,\"5\":0.25,\"4\":0.15,\"1\":0.10,\"6\":0.08,\"3\":0.05,\"7\":0.02}}",
+ "n_attempts": 1
+}

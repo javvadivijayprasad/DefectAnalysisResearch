@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-92",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/ParseSettings.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/nodes/Attribute.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java",
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/nodes/DocumentType.java"
+ ],
+ "timestamp": "2026-08-27T19:10:14",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  6,
+  3,
+  2,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "4": 0.45,
+  "6": 0.35,
+  "3": 0.15,
+  "2": 0.1,
+  "5": 0.08,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.15,
+  0.55,
+  0.1,
+  0.08,
+  0.05,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  0,
+  4,
+  5,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1005,
+  "output_tokens": 471
+ },
+ "raw_response": "Looking at this failing test in Jsoup (d4j-Jsoup-92), I need to reason about which files are likely defective.\n\nThe test involves an AssertionError, and the change topology indicates app code was changed. Let me analyze the candidates:\n\n- **ParseSettings.java** (1): Relatively few commits, handles case normalization for tag/attribute names. This is a key file for how attributes are processed.\n- **Token.java** (2): Handles tokenization, moderate activity.\n- **HtmlTreeBuilder.java** (3): High commit frequency, core HTML parsing logic.\n- **Attribute.java** (4): High commit frequency relative to age, handles individual attribute logic. Very relevant for attribute-related bugs.\n- **XmlTreeBuilder.java** (5): XML parsing, moderate activity.\n- **Attributes.java** (6): High commits and churn, handles attribute collections. Very relevant.\n- **DocumentType.java** (7): Moderate activity, handles DOCTYPE nodes.\n\nFor Jsoup issue 92 (which relates to attribute case normalization/preservation), the most likely files are:\n- **ParseSettings.java**: Directly controls case normalization behavior\n- **Attribute.java**: Individual attribute handling, high churn rate\n- **Attributes.java**: Attribute collection, very high churn\n\nThe bug likely involves how attributes are normalized or preserved in terms of case, pointing strongly to ParseSettings and Attribute/Attributes files. ParseSettings has relatively few commits but is specifically about parse settings including case normalization.\n\nGiven the pattern of the bug (likely attribute case handling), ParseSettings.java and Attribute.java seem most likely, with Attributes.java also being a strong candidate.\n\n{\"ranking\": [1, 4, 6, 3, 2, 5, 7], \"confidence\": {\"1\": 0.55, \"4\": 0.45, \"6\": 0.35, \"3\": 0.15, \"2\": 0.10, \"5\": 0.08, \"7\": 0.05}}",
+ "n_attempts": 1
+}

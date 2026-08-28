@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Time-14",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/joda/time/chrono/LimitChronology.java",
+  "src/main/java/org/joda/time/chrono/GregorianChronology.java",
+  "src/main/java/org/joda/time/chrono/BasicMonthOfYearDateTimeField.java",
+  "src/main/java/org/joda/time/chrono/BaseChronology.java"
+ ],
+ "timestamp": "2026-08-27T19:15:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.82,
+  "1": 0.08,
+  "4": 0.06,
+  "2": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.04,
+  0.08,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 860,
+  "output_tokens": 133
+ },
+ "raw_response": "The test is d4j-Time-14. Based on my knowledge of the Joda-Time defects4j benchmark, Time-14 involves a bug in `BasicMonthOfYearDateTimeField` related to month arithmetic (specifically the `add` method dealing with month-of-year calculations). This is a well-known defect in that file.\n\n{\"ranking\": [3, 1, 4, 2], \"confidence\": {\"3\": 0.82, \"1\": 0.08, \"4\": 0.06, \"2\": 0.04}}",
+ "n_attempts": 1
+}

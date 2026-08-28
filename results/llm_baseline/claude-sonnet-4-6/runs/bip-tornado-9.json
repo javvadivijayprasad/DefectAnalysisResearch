@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-tornado-9",
+ "repo": "bugsinpy:tornado",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "tornado/ioloop.py",
+  "tornado/http1connection.py",
+  "setup.py",
+  "tornado/httputil.py",
+  "tornado/web.py",
+  "tornado/gen.py",
+  "tornado/platform/asyncio.py"
+ ],
+ "timestamp": "2026-08-27T19:25:43",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  4,
+  6,
+  7,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.35,
+  "5": 0.3,
+  "4": 0.15,
+  "6": 0.1,
+  "7": 0.1,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.1,
+  0.55,
+  0.3,
+  0.1,
+  0.35,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  0,
+  2,
+  5,
+  1,
+  6
+ ],
+ "usage": {
+  "input_tokens": 908,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [1, 2, 5, 4, 6, 7, 3], \"confidence\": {\"1\": 0.55, \"2\": 0.35, \"5\": 0.30, \"4\": 0.15, \"6\": 0.10, \"7\": 0.10, \"3\": 0.03}}",
+ "n_attempts": 1
+}

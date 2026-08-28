@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-ansible-5",
+ "repo": "bugsinpy:ansible",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "lib/ansible/galaxy/api.py",
+  "lib/ansible/cli/galaxy.py",
+  "lib/ansible/playbook/collectionsearch.py",
+  "lib/ansible/plugins/lookup/env.py",
+  "lib/ansible/modules/system/pamd.py",
+  "lib/ansible/module_utils/common/validation.py",
+  "lib/ansible/modules/packaging/os/redhat_subscription.py"
+ ],
+ "timestamp": "2026-08-27T19:36:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.25,
+  "3": 0.1,
+  "4": 0.1,
+  "5": 0.1,
+  "6": 0.1,
+  "7": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.1,
+  0.1,
+  0.15,
+  0.1,
+  0.25,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  6,
+  3,
+  1,
+  2,
+  0,
+  4
+ ],
+ "usage": {
+  "input_tokens": 809,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [2, 1, 3, 4, 5, 6, 7], \"confidence\": {\"1\": 0.15, \"2\": 0.25, \"3\": 0.10, \"4\": 0.10, \"5\": 0.10, \"6\": 0.10, \"7\": 0.10}}",
+ "n_attempts": 1
+}

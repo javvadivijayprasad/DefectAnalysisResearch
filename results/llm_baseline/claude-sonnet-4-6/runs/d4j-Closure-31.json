@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-31",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/DiagnosticGroupWarningsGuard.java",
+  "src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java",
+  "src/com/google/javascript/jscomp/LiveVariablesAnalysis.java",
+  "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+  "src/com/google/javascript/jscomp/Result.java",
+  "src/com/google/javascript/jscomp/Compiler.java",
+  "src/com/google/javascript/jscomp/ProcessCommonJSModules.java",
+  "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java"
+ ],
+ "timestamp": "2026-08-27T18:56:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  8,
+  3,
+  2,
+  4,
+  7,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.35,
+  "8": 0.25,
+  "3": 0.2,
+  "2": 0.15,
+  "4": 0.1,
+  "7": 0.08,
+  "1": 0.05,
+  "5": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.05,
+  0.2,
+  0.08,
+  0.15,
+  0.04,
+  0.25,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  2,
+  5,
+  3,
+  7,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1072,
+  "output_tokens": 544
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-31, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError (test assertion failure, not a crash)\n- The `app_code_changed` flag is set\n- I need to consider which files are most likely to contain the bug\n\nLet me analyze the candidates:\n\n1. **Compiler.java** - Very high commit count (144), high churn (4675), many devs. Central file that's frequently modified. High probability of containing bugs.\n\n2. **ReferenceCollectingCallback.java** - High commits (30), high churn (976), relatively recent activity. Deals with reference collection which could affect many analyses.\n\n3. **ExtractPrototypeMemberDeclarations.java** - 20 commits, moderate churn (516). Optimization pass that could have subtle bugs.\n\n4. **InferJSDocInfo.java** - 20 commits, moderate churn (328). JSDoc inference could cause assertion errors.\n\n5. **LiveVariablesAnalysis.java** - 17 commits, moderate churn (343). Analysis pass.\n\n6. **DiagnosticGroupWarningsGuard.java** - 8 commits, low churn (73). Less likely.\n\n7. **Result.java** - 6 commits, low churn (81). Less likely.\n\n8. **ProcessCommonJSModules.java** - Very new file (54 days), only 3 commits but high commit frequency (0.3889). New files often have bugs, but it's very new and might not be related to the test.\n\nFor Closure-31 specifically, this is related to dead code elimination / live variable analysis or similar optimization. The `LiveVariablesAnalysis.java` and `ReferenceCollectingCallback.java` seem relevant. `Compiler.java` is always a strong candidate due to its size and complexity.\n\n{\"ranking\": [6, 8, 3, 2, 4, 7, 1, 5], \"confidence\": {\"6\": 0.35, \"8\": 0.25, \"3\": 0.20, \"2\": 0.15, \"4\": 0.10, \"7\": 0.08, \"1\": 0.05, \"5\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Collections-14",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/java/org/apache/commons/collections/map/TypedSortedMap.java",
+  "src/java/org/apache/commons/collections/map/IdentityMap.java",
+  "src/java/org/apache/commons/collections/map/DefaultedMap.java",
+  "src/java/org/apache/commons/collections/map/CaseInsensitiveMap.java",
+  "src/java/org/apache/commons/collections/map/MultiKeyMap.java",
+  "src/java/org/apache/commons/collections/map/HashedMap.java",
+  "src/java/org/apache/commons/collections/map/LRUMap.java",
+  "src/java/org/apache/commons/collections/map/TypedMap.java"
+ ],
+ "timestamp": "2026-08-27T19:32:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  8,
+  6,
+  7,
+  3,
+  2,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "8": 0.2,
+  "6": 0.15,
+  "7": 0.12,
+  "3": 0.1,
+  "2": 0.08,
+  "4": 0.05,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.12,
+  0.25,
+  0.15,
+  0.05,
+  0.08,
+  0.1,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  3,
+  0,
+  2,
+  7,
+  5,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 894,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [1, 8, 6, 7, 3, 2, 4, 5], \"confidence\": {\"1\": 0.25, \"8\": 0.20, \"6\": 0.15, \"7\": 0.12, \"3\": 0.10, \"2\": 0.08, \"4\": 0.05, \"5\": 0.05}}",
+ "n_attempts": 1
+}

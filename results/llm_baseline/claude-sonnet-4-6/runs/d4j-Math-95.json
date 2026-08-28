@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-95",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/math/distribution/WeibullDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/FDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/BinomialDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/PascalDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/GammaDistribution.java"
+ ],
+ "timestamp": "2026-08-27T19:14:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  3,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "2": 0.75,
+  "4": 0.1,
+  "3": 0.07,
+  "1": 0.05,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.05,
+  0.1,
+  0.07,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 915,
+  "output_tokens": 158
+ },
+ "raw_response": "The test is \"Math-95\" which in defects4j corresponds to a bug in `FDistributionImpl` related to the F-distribution's inverse CDF or similar calculation. The FDistributionImpl has a much older age and lower commit frequency compared to others, suggesting it may have had a long-standing bug. The test name Math-95 is specifically associated with FDistribution issues in the defects4j benchmark.\n\n{\"ranking\": [2, 4, 3, 1, 5], \"confidence\": {\"2\": 0.75, \"4\": 0.10, \"3\": 0.07, \"1\": 0.05, \"5\": 0.03}}",
+ "n_attempts": 1
+}

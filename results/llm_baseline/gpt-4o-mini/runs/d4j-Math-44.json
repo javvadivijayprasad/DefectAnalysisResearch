@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-44",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/ode/SecondOrderDifferentialEquations.java",
+  "src/main/java/org/apache/commons/math/ode/AbstractIntegrator.java",
+  "src/main/java/org/apache/commons/math/ode/SecondaryEquations.java",
+  "src/main/java/org/apache/commons/math/ode/Parameterizable.java",
+  "src/main/java/org/apache/commons/math/ode/JacobianMatrices.java",
+  "src/main/java/org/apache/commons/math/ode/ParameterizedWrapper.java"
+ ],
+ "timestamp": "2026-08-27T19:35:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  6,
+  3,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "6": 0.25,
+  "3": 0.15,
+  "1": 0.1,
+  "4": 0.04,
+  "2": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.01,
+  0.04,
+  0.45,
+  0.25,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  4,
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 799,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [5, 6, 3, 1, 4, 2], \"confidence\": {\"5\": 0.45, \"6\": 0.25, \"3\": 0.15, \"1\": 0.10, \"4\": 0.04, \"2\": 0.01}}",
+ "n_attempts": 1
+}

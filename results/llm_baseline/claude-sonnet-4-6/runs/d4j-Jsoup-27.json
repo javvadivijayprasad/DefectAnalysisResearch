@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-27",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/StringUtil.java",
+  "src/main/java/org/jsoup/helper/HttpConnection.java",
+  "src/main/java/org/jsoup/helper/DescendableLinkedList.java",
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/helper/Validate.java"
+ ],
+ "timestamp": "2026-08-27T19:08:42",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  2,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.88,
+  "4": 0.65,
+  "2": 0.12,
+  "1": 0.08,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.05,
+  0.12,
+  0.88,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  2,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 889,
+  "output_tokens": 323
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- `DescendableLinkedList.java` has an extremely high commit_freq (2.0000) and age_days=1, meaning it was very recently created/modified. This is a strong signal it's a new file introduced in the fix.\n- `DataUtil.java` has high commit count (22) and is the oldest file, suggesting it's a core utility that may have needed fixes.\n- The test failure is an AssertionError, suggesting logic errors in parsing or data handling.\n\nThe `DescendableLinkedList.java` with age_days=1 and commit_freq=2.0 is almost certainly a newly introduced file (part of the fix). This is a very strong signal.\n\n`DataUtil.java` with 22 commits and significant churn is also a likely candidate for being modified in the fix (it likely uses the new DescendableLinkedList).\n\nThe other files (StringUtil, HttpConnection, Validate) are less likely given the nature of the failure and the strong signals from the other two.\n\n{\"ranking\": [3, 4, 2, 1, 5], \"confidence\": {\"3\": 0.88, \"4\": 0.65, \"2\": 0.12, \"1\": 0.08, \"5\": 0.05}}",
+ "n_attempts": 1
+}

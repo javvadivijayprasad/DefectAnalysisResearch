@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Collections-19",
+ "repo": "defects4j:Collections",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/collections/list/SetUniqueList.java",
+  "src/main/java/org/apache/commons/collections/list/GrowthList.java",
+  "src/main/java/org/apache/commons/collections/list/AbstractSerializableListDecorator.java",
+  "src/main/java/org/apache/commons/collections/list/TransformedList.java"
+ ],
+ "timestamp": "2026-08-27T19:01:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.7,
+  "4": 0.2,
+  "2": 0.06,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.7,
+  0.06,
+  0.04,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 856,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.70, \"4\": 0.20, \"2\": 0.06, \"3\": 0.04}}",
+ "n_attempts": 1
+}

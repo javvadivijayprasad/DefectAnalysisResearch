@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-keras-30",
+ "repo": "bugsinpy:keras",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "keras/engine/sequential.py",
+  "keras/backend/cntk_backend.py",
+  "keras/utils/generic_utils.py",
+  "keras/initializers.py",
+  "keras/engine/training.py",
+  "keras/engine/training_generator.py",
+  "keras/utils/np_utils.py",
+  "keras/backend/numpy_backend.py"
+ ],
+ "timestamp": "2026-08-27T19:37:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  2,
+  6,
+  3,
+  4,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.15,
+  "3": 0.05,
+  "4": 0.05,
+  "5": 0.35,
+  "6": 0.15,
+  "7": 0.05,
+  "8": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.15,
+  0.05,
+  0.05,
+  0.05,
+  0.15,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  5,
+  4,
+  6,
+  2,
+  3,
+  7
+ ],
+ "usage": {
+  "input_tokens": 814,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [5, 1, 2, 6, 3, 4, 7, 8], \"confidence\": {\"1\": 0.15, \"2\": 0.15, \"3\": 0.05, \"4\": 0.05, \"5\": 0.35, \"6\": 0.15, \"7\": 0.05, \"8\": 0.05}}",
+ "n_attempts": 1
+}

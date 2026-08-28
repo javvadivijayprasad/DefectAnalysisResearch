@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-85",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/math/analysis/solvers/BrentSolver.java",
+  "src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java",
+  "src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverFactory.java",
+  "src/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java",
+  "src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverImpl.java"
+ ],
+ "timestamp": "2026-08-27T19:36:10",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  4,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "5": 0.25,
+  "4": 0.2,
+  "3": 0.15,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.2,
+  0.35,
+  0.25,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  2,
+  0,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 773,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 5, 4, 3, 2], \"confidence\": {\"1\": 0.35, \"5\": 0.25, \"4\": 0.20, \"3\": 0.15, \"2\": 0.05}}",
+ "n_attempts": 1
+}

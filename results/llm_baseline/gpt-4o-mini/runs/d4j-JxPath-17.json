@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-JxPath-17",
+ "repo": "defects4j:JxPath",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java",
+  "src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java",
+  "src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributePointer.java",
+  "src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributePointer.java"
+ ],
+ "timestamp": "2026-08-27T19:35:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "3": 0.3,
+  "1": 0.15,
+  "2": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.15,
+  0.3,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 719,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [4, 3, 1, 2], \"confidence\": {\"4\": 0.45, \"3\": 0.30, \"1\": 0.15, \"2\": 0.10}}",
+ "n_attempts": 1
+}

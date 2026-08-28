@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-50",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/analysis/solvers/DifferentiableUnivariateRealSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/AbstractPolynomialSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/PolynomialSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/AllowedSolution.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/MullerSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/RiddersSolver.java"
+ ],
+ "timestamp": "2026-08-27T19:35:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  1,
+  3,
+  7,
+  8,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.25,
+  "5": 0.22,
+  "1": 0.15,
+  "3": 0.14,
+  "7": 0.1,
+  "8": 0.08,
+  "2": 0.04,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.15,
+  0.14,
+  0.25,
+  0.04,
+  0.22,
+  0.08,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  2,
+  3,
+  0,
+  6,
+  1,
+  5,
+  4
+ ],
+ "usage": {
+  "input_tokens": 922,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[4,5,1,3,7,8,2,6],\"confidence\":{\"4\":0.25,\"5\":0.22,\"1\":0.15,\"3\":0.14,\"7\":0.10,\"8\":0.08,\"2\":0.04,\"6\":0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-91",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+  "src/java/org/apache/commons/math/fraction/BigFractionFormat.java",
+  "src/java/org/apache/commons/math/fraction/AbstractFormat.java",
+  "src/java/org/apache/commons/math/fraction/BigFraction.java",
+  "src/java/org/apache/commons/math/fraction/Fraction.java",
+  "src/java/org/apache/commons/math/fraction/ProperBigFractionFormat.java"
+ ],
+ "timestamp": "2026-08-27T19:14:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  1,
+  6,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "5": 0.85,
+  "4": 0.1,
+  "1": 0.05,
+  "6": 0.04,
+  "2": 0.02,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.85,
+  0.1,
+  0.05,
+  0.02,
+  0.02,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  5,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 959,
+  "output_tokens": 352
+ },
+ "raw_response": "Looking at this failing test for Math-91, which involves fractions and an AssertionError.\n\nThe test is likely related to `Fraction.compareTo()` or similar comparison method, which is a common defect in Math-91 (it's a known defect where `Fraction.compareTo` doesn't handle negative fractions correctly).\n\nKey observations:\n- `Fraction.java` (candidate 5) has the most commits (22) and highest churn (1877), indicating it's heavily modified and likely contains the bug\n- The defect in Math-91 is specifically about `Fraction.compareTo()` method\n- `BigFraction.java` (candidate 4) is very new (age_days=1) with high activity, suggesting it was recently added as part of a refactoring\n- `FractionFormat.java` (candidate 1) has significant history but the test failure is about comparison, not formatting\n- Candidates 2, 3, 6 are either new files or formatting-related\n\nThe Math-91 defect is specifically in `Fraction.java`'s `compareTo` method, where it incorrectly computes the comparison by using subtraction (which can overflow) instead of proper comparison.\n\n{\"ranking\": [5, 4, 1, 6, 2, 3], \"confidence\": {\"5\": 0.85, \"4\": 0.10, \"1\": 0.05, \"6\": 0.04, \"2\": 0.02, \"3\": 0.02}}",
+ "n_attempts": 1
+}

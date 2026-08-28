@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-80",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/parser/ParseErrorList.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java"
+ ],
+ "timestamp": "2026-08-27T19:09:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  4,
+  8,
+  6,
+  7,
+  5,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.05,
+  "3": 0.45,
+  "4": 0.2,
+  "5": 0.08,
+  "6": 0.15,
+  "7": 0.1,
+  "8": 0.18
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.18,
+  0.2,
+  0.45,
+  0.25,
+  0.05,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  3,
+  2,
+  0,
+  1,
+  7,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1061,
+  "output_tokens": 469
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError in Jsoup's parser\n- The `app_code_changed` flag is set\n- File 6 (`package-info.java`) has age_days=1 and commit_freq=1.0000, which is extremely suspicious - it was just created/modified very recently (essentially at the time of the fix commit)\n- However, `package-info.java` is typically just documentation and unlikely to fix a bug\n\nLooking at the other candidates:\n- `CharacterReader.java` (3) has significant churn and is a core parsing component\n- `Tag.java` (1) has high commits and churn, frequently modified\n- `TreeBuilder.java` (4) has high churn and is central to parsing\n- `Tokeniser.java` (8) is also a core component\n\nFor Jsoup issue 80 (d4j-Jsoup-80), this relates to parsing behavior. The `CharacterReader` is often involved in character-level parsing bugs. The `TreeBuilder` handles the tree construction logic.\n\nThe `package-info.java` with age_days=1 strongly suggests it was added as part of the fix commit (perhaps adding package documentation alongside the actual fix). The actual bug fix is likely in one of the core parser files.\n\nGiven the high churn and commit frequency of `CharacterReader.java` and `Tag.java`, and considering that Jsoup-80 type issues often relate to tag handling or character reading, I'll rank accordingly.\n\n{\"ranking\": [3, 1, 4, 8, 6, 7, 5, 2], \"confidence\": {\"1\": 0.25, \"2\": 0.05, \"3\": 0.45, \"4\": 0.20, \"5\": 0.08, \"6\": 0.15, \"7\": 0.10, \"8\": 0.18}}",
+ "n_attempts": 1
+}

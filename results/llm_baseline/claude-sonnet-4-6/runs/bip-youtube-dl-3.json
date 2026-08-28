@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-youtube-dl-3",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "youtube_dl/extractor/npo.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/arte.py"
+ ],
+ "timestamp": "2026-08-27T19:25:57",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "2": 0.7,
+  "3": 0.1,
+  "4": 0.65
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.65,
+  0.65,
+  0.7
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 795,
+  "output_tokens": 331
+ },
+ "raw_response": "Looking at the failing test for youtube-dl (bip-youtube-dl-3), I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError\n- Files 1, 2, and 4 all have identical statistics (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833), suggesting they may have been changed together in the same commit\n- File 3 (utils.py) has much higher activity, suggesting it's a core utility file that's frequently modified\n\nThe identical statistics for files 1, 2, and 4 strongly suggest they were all part of the same fix commit. The `jsinterp.py` file is particularly relevant for AssertionError failures in youtube-dl as it handles JavaScript interpretation which can have assertion-based validation. The extractor files (npo.py, arte.py) could also be part of a coordinated fix.\n\nGiven that files 1, 2, and 4 share identical commit statistics, they were likely all changed in the same fix commit. File 3 (utils.py) with its much higher churn is likely a distractor.\n\n{\"ranking\": [2, 1, 4, 3], \"confidence\": {\"1\": 0.65, \"2\": 0.70, \"3\": 0.10, \"4\": 0.65}}",
+ "n_attempts": 1
+}

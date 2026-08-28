@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-67",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/MessageBundle.java",
+  "src/com/google/javascript/jscomp/ExternExportsPass.java",
+  "src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+  "src/com/google/javascript/jscomp/TypeInferencePass.java",
+  "src/com/google/javascript/jscomp/ObjectPropertyStringPostprocess.java"
+ ],
+ "timestamp": "2026-08-27T19:31:17",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  4,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.35,
+  "3": 0.25,
+  "4": 0.2,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.1,
+  0.2,
+  0.1,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  2,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 730,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [2, 3, 4, 1, 5], \"confidence\": {\"1\": 0.10, \"2\": 0.35, \"3\": 0.25, \"4\": 0.20, \"5\": 0.10}}",
+ "n_attempts": 1
+}

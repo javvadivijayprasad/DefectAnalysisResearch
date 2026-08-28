@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-76",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/OptimizeCalls.java",
+  "src/com/google/javascript/jscomp/JsMessageVisitor.java",
+  "src/com/google/javascript/jscomp/PrepareAst.java",
+  "src/com/google/javascript/jscomp/LinkedFlowScope.java",
+  "src/com/google/javascript/jscomp/NodeIterators.java",
+  "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+  "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java",
+  "src/com/google/javascript/jscomp/DiagnosticGroupWarningsGuard.java"
+ ],
+ "timestamp": "2026-08-27T18:57:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  6,
+  3,
+  1,
+  4,
+  2,
+  5,
+  8
+ ],
+ "llm_confidence_presented": {
+  "7": 0.45,
+  "6": 0.3,
+  "3": 0.15,
+  "1": 0.12,
+  "4": 0.08,
+  "2": 0.06,
+  "5": 0.05,
+  "8": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.15,
+  0.08,
+  0.05,
+  0.12,
+  0.06,
+  0.03,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  6,
+  3,
+  5,
+  7,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1066,
+  "output_tokens": 498
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-76, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure compiler issue #76\n\nLet me analyze the candidates:\n\n1. **OptimizeCalls.java** - Very recent (120 days), high commit frequency (0.29), small but active file\n2. **JsMessageVisitor.java** - Moderate age, large additions (+844)\n3. **PrepareAst.java** - High commit frequency (0.296), significant changes, relatively recent\n4. **LinkedFlowScope.java** - Moderate activity\n5. **NodeIterators.java** - Lower activity\n6. **DefaultPassConfig.java** - Extremely high commit frequency (1.12), massive churn (2992), very active - this is a central configuration file that wires passes together\n7. **DeadAssignmentsElimination.java** - Very old file (6122 days), moderate commits, this is a specific optimization pass\n8. **DiagnosticGroupWarningsGuard.java** - Low activity\n\nFor Closure-76, which relates to dead assignment elimination (a common Closure compiler bug category), `DeadAssignmentsElimination.java` is a strong candidate despite its age. `DefaultPassConfig.java` is frequently changed and controls which passes run. `PrepareAst.java` with high commit frequency is also suspicious.\n\nThe combination of `DeadAssignmentsElimination.java` (specific algorithm that could cause AssertionError) and `DefaultPassConfig.java` (pass configuration) seems most likely for this type of bug.\n\n{\"ranking\": [7, 6, 3, 1, 4, 2, 5, 8], \"confidence\": {\"7\": 0.45, \"6\": 0.30, \"3\": 0.15, \"1\": 0.12, \"4\": 0.08, \"2\": 0.06, \"5\": 0.05, \"8\": 0.03}}",
+ "n_attempts": 1
+}

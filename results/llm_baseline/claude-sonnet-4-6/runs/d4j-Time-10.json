@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Time-10",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/joda/time/base/BaseDateTime.java",
+  "src/main/java/org/joda/time/base/BasePartial.java",
+  "src/main/java/org/joda/time/base/AbstractDateTime.java",
+  "src/main/java/org/joda/time/base/BaseLocal.java",
+  "src/main/java/org/joda/time/base/AbstractInterval.java",
+  "src/main/java/org/joda/time/base/BaseDuration.java",
+  "src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java"
+ ],
+ "timestamp": "2026-08-27T19:15:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  6,
+  5,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.72,
+  "2": 0.1,
+  "3": 0.08,
+  "4": 0.03,
+  "5": 0.04,
+  "6": 0.06,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.1,
+  0.03,
+  0.08,
+  0.04,
+  0.72,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  1,
+  5,
+  2,
+  4,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1022,
+  "output_tokens": 144
+ },
+ "raw_response": "The failing test is d4j-Time-10. In the Joda-Time defects4j benchmark, bug #10 is related to `BaseDateTime` - specifically the constructor validation that checks for null chronology. The fix involves `BaseDateTime.java`.\n\n{\"ranking\": [1, 2, 3, 6, 5, 4, 7], \"confidence\": {\"1\": 0.72, \"2\": 0.10, \"3\": 0.08, \"4\": 0.03, \"5\": 0.04, \"6\": 0.06, \"7\": 0.02}}",
+ "n_attempts": 1
+}

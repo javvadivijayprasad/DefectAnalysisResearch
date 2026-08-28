@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-53",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/Parser.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "src/main/java/org/jsoup/parser/Tag.java"
+ ],
+ "timestamp": "2026-08-27T19:09:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  4,
+  3,
+  6,
+  8,
+  7,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "5": 0.4,
+  "4": 0.25,
+  "3": 0.15,
+  "6": 0.1,
+  "8": 0.07,
+  "7": 0.05,
+  "2": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.55,
+  0.25,
+  0.1,
+  0.07,
+  0.15,
+  0.01,
+  0.4
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  0,
+  2,
+  4,
+  5,
+  3,
+  7,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1066,
+  "output_tokens": 459
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an `AssertionError` in the parser package\n- The `app_code_changed` flag is set\n- This is Jsoup-53, which is related to HTML parsing\n\nFor Jsoup defect #53, this is typically related to tokenization/parsing issues. Let me analyze the candidates:\n\n1. **Tokeniser.java** - Core tokenizer, frequently modified (20 commits), directly involved in parsing\n2. **package-info.java** - Just a package descriptor, very unlikely to cause test failures\n3. **Parser.java** - High activity (62 commits), main parser entry point\n4. **HtmlTreeBuilderState.java** - High churn (2155), handles HTML tree building states\n5. **TokeniserState.java** - Highest churn (2459), handles tokenizer states - very likely involved in parsing bugs\n6. **TreeBuilder.java** - Significant churn, tree building logic\n7. **TokenQueue.java** - Older file, token queue operations\n8. **Tag.java** - High activity, tag handling\n\nFor Jsoup-53 specifically, the issue is typically related to tokenization of malformed HTML or specific character handling. The `Tokeniser.java` and `TokeniserState.java` are the most likely candidates for tokenization-related `AssertionError`s. `HtmlTreeBuilderState.java` is also a strong candidate given its high churn and role in state management.\n\n{\"ranking\": [1, 5, 4, 3, 6, 8, 7, 2], \"confidence\": {\"1\": 0.55, \"5\": 0.40, \"4\": 0.25, \"3\": 0.15, \"6\": 0.10, \"8\": 0.07, \"7\": 0.05, \"2\": 0.01}}",
+ "n_attempts": 1
+}

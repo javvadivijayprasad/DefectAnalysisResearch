@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonCore-8",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java",
+  "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+  "src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java",
+  "src/main/java/com/fasterxml/jackson/core/util/MinimalPrettyPrinter.java",
+  "src/main/java/com/fasterxml/jackson/core/util/package-info.java",
+  "src/main/java/com/fasterxml/jackson/core/util/Instantiatable.java",
+  "src/main/java/com/fasterxml/jackson/core/util/JsonParserDelegate.java"
+ ],
+ "timestamp": "2026-08-27T19:04:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  4,
+  5,
+  7,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.72,
+  "3": 0.55,
+  "4": 0.5,
+  "5": 0.35,
+  "7": 0.25,
+  "1": 0.1,
+  "2": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.25,
+  0.5,
+  0.72,
+  0.55,
+  0.35,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  4,
+  2,
+  0,
+  1,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1052,
+  "output_tokens": 591
+ },
+ "raw_response": "Looking at this failing test in JacksonCore, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is in the `util` package of JacksonCore\n\nLet me analyze the candidates:\n\n1. **JsonParserSequence.java** - Low commits (4), relatively young file (721 days), low churn. Could be relevant for parser sequence issues.\n\n2. **TextBuffer.java** - High commits (16), very old file (5343 days), high churn. Core utility, but less likely for this specific issue.\n\n3. **DefaultPrettyPrinter.java** - High commits (16), moderate age, high commit frequency (0.1005). Active file.\n\n4. **MinimalPrettyPrinter.java** - Moderate commits (6), younger file (430 days), high commit frequency (0.0977). Active file.\n\n5. **package-info.java** - Only 1 commit, age_days=1 (brand new!), commit_freq=1.0. This is suspicious - a brand new file added in the same timeframe as the fix.\n\n6. **Instantiatable.java** - Only 2 commits, very young (58 days), high commit frequency (0.2414). This is a new interface that was likely added as part of a fix.\n\n7. **JsonParserDelegate.java** - High commits (17), old file, high commit frequency (0.1054). Very active file.\n\nThe `Instantiatable.java` (new interface, 58 days old, 2 commits) and `package-info.java` (brand new, 1 day old) suggest these were added together. `DefaultPrettyPrinter.java` and `MinimalPrettyPrinter.java` with high commit frequencies likely implement this new interface. `JsonParserDelegate.java` is also very active.\n\nThe fix likely involved adding the `Instantiatable` interface and having `DefaultPrettyPrinter` and/or `MinimalPrettyPrinter` implement it.\n\n{\"ranking\": [6, 3, 4, 5, 7, 1, 2], \"confidence\": {\"6\": 0.72, \"3\": 0.55, \"4\": 0.50, \"5\": 0.35, \"7\": 0.25, \"1\": 0.10, \"2\": 0.08}}",
+ "n_attempts": 1
+}

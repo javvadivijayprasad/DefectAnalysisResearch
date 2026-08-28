@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Lang-45",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/IllegalClassException.java",
+  "src/java/org/apache/commons/lang/WordUtils.java",
+  "src/java/org/apache/commons/lang/ArrayUtils.java",
+  "src/java/org/apache/commons/lang/IncompleteArgumentException.java",
+  "src/java/org/apache/commons/lang/SerializationException.java",
+  "src/java/org/apache/commons/lang/Entities.java",
+  "src/java/org/apache/commons/lang/CharSet.java",
+  "src/java/org/apache/commons/lang/SystemUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:11:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  3,
+  8,
+  7,
+  1,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "2": 0.82,
+  "6": 0.06,
+  "3": 0.04,
+  "8": 0.03,
+  "7": 0.02,
+  "1": 0.01,
+  "4": 0.01,
+  "5": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.01,
+  0.01,
+  0.04,
+  0.01,
+  0.06,
+  0.02,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  6,
+  2,
+  7,
+  1,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1059,
+  "output_tokens": 156
+ },
+ "raw_response": "The test is \"Lang-45\" which in defects4j is known to be related to `WordUtils` (specifically the `abbreviate` method causing a StringIndexOutOfBoundsException or similar AssertionError). WordUtils has the highest relevance here.\n\n{\"ranking\": [2, 6, 3, 8, 7, 1, 4, 5], \"confidence\": {\"2\": 0.82, \"6\": 0.06, \"3\": 0.04, \"8\": 0.03, \"7\": 0.02, \"1\": 0.01, \"4\": 0.01, \"5\": 0.01}}",
+ "n_attempts": 1
+}

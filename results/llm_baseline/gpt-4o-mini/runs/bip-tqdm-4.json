@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-tqdm-4",
+ "repo": "bugsinpy:tqdm",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "tqdm/_tqdm.py",
+  "tqdm/_main.py",
+  "tqdm/utils.py",
+  "tqdm/std.py",
+  "tqdm/contrib/__init__.py"
+ ],
+ "timestamp": "2026-08-27T19:40:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.15,
+  "3": 0.15,
+  "4": 0.1,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.1,
+  0.05,
+  0.15,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 697,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 4, 5], \"confidence\": {\"1\": 0.55, \"2\": 0.15, \"3\": 0.15, \"4\": 0.10, \"5\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-32",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/extractor/npo.py",
+  "youtube_dl/postprocessor/ffmpeg.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/clipsyndicate.py",
+  "youtube_dl/extractor/minhateca.py",
+  "youtube_dl/extractor/mtv.py",
+  "youtube_dl/extractor/metacritic.py"
+ ],
+ "timestamp": "2026-08-27T19:26:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  4,
+  5,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "3": 0.65,
+  "2": 0.08,
+  "1": 0.07,
+  "4": 0.07,
+  "5": 0.07,
+  "6": 0.07,
+  "7": 0.07
+ },
+ "confidence_by_corpus_row": [
+  0.07,
+  0.65,
+  0.07,
+  0.07,
+  0.07,
+  0.08,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  4,
+  5,
+  3,
+  1,
+  6
+ ],
+ "usage": {
+  "input_tokens": 950,
+  "output_tokens": 466
+ },
+ "raw_response": "Looking at this failing test event, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n1. The failure is an `AssertionError` in youtube-dl\n2. Files 1, 2, 4, 5, 6, 7 all have identical statistics (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833) - this is suspicious and suggests they may be \"distractor\" files with artificially similar stats\n3. `youtube_dl/utils.py` (file 3) has much higher activity (commits=33, devs=11, high churn) indicating it's a core utility file that gets frequently modified\n4. The `app_code_changed` flag is set, indicating application code was changed\n5. An `AssertionError` in youtube-dl often relates to utility functions or core processing logic\n\nThe fact that `utils.py` has dramatically different statistics (much more active development) compared to the other candidates suggests it's the most likely defective file. The other files all have identical stats which is unusual and suggests they're distractors.\n\nHowever, the identical stats for files 1, 2, 4, 5, 6, 7 could also mean they were all touched in the same commit. But typically a fix commit would target specific files.\n\nGiven that `utils.py` is the most actively developed file and `AssertionError` often comes from assertion statements in utility code, I'll rank it highest. Among the others, `ffmpeg.py` (postprocessor) and the extractors are less likely to cause assertion errors in core tests.\n\n{\"ranking\": [3, 2, 1, 4, 5, 6, 7], \"confidence\": {\"3\": 0.65, \"2\": 0.08, \"1\": 0.07, \"4\": 0.07, \"5\": 0.07, \"6\": 0.07, \"7\": 0.07}}",
+ "n_attempts": 1
+}

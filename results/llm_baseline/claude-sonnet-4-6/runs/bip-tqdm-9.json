@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-tqdm-9",
+ "repo": "bugsinpy:tqdm",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "tqdm/contrib/__init__.py",
+  "tqdm/utils.py",
+  "tqdm/_main.py",
+  "tqdm/std.py",
+  "tqdm/_tqdm.py"
+ ],
+ "timestamp": "2026-08-27T19:25:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "5": 0.25,
+  "2": 0.12,
+  "3": 0.08,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.08,
+  0.55,
+  0.12,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  0,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 826,
+  "output_tokens": 465
+ },
+ "raw_response": "Looking at this failing test event for tqdm, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n1. Files 1-4 all have identical statistics (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833) - this suggests they were all part of the same commit batch, possibly a refactoring.\n2. File 5 (`tqdm/_tqdm.py`) has much higher activity (commits=6, devs=2, churn=210, age_days=180, commit_freq=0.5000) - this is an older, more frequently modified file.\n\nThe test is `bip-tqdm-9` with an AssertionError. In tqdm's history, there was a major refactoring where `_tqdm.py` was split/reorganized into `std.py` and other modules. The `tqdm/std.py` file is the core implementation file that would contain the main `tqdm` class logic.\n\nGiven that:\n- `tqdm/std.py` is the primary implementation file (the core tqdm class moved here during refactoring)\n- `tqdm/_tqdm.py` is the legacy file that might have compatibility issues\n- The AssertionError suggests a logic bug in the core implementation\n- Files 1-4 being in the same commit suggests a coordinated change\n\nThe most likely defective file is `tqdm/std.py` (file 4) as it contains the core implementation. `tqdm/_tqdm.py` (file 5) could also be involved as it's the legacy wrapper. `tqdm/utils.py` (file 2) could contain utility functions that affect behavior.\n\n{\"ranking\": [4, 5, 2, 3, 1], \"confidence\": {\"4\": 0.55, \"5\": 0.25, \"2\": 0.12, \"3\": 0.08, \"1\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-103",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/java/org/apache/commons/math/distribution/TDistribution.java",
+  "src/java/org/apache/commons/math/distribution/NormalDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/PoissonDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/Distribution.java",
+  "src/java/org/apache/commons/math/distribution/PascalDistribution.java",
+  "src/java/org/apache/commons/math/distribution/NormalDistribution.java",
+  "src/java/org/apache/commons/math/distribution/WeibullDistribution.java"
+ ],
+ "timestamp": "2026-08-27T19:14:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  1,
+  5,
+  3,
+  7,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.82,
+  "6": 0.15,
+  "1": 0.05,
+  "5": 0.04,
+  "3": 0.03,
+  "7": 0.02,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.05,
+  0.03,
+  0.04,
+  0.02,
+  0.01,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  3,
+  5,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1018,
+  "output_tokens": 249
+ },
+ "raw_response": "The failing test is d4j-Math-103. In the defects4j Math dataset, bug 103 is related to the NormalDistribution implementation - specifically the `cumulativeProbability` method in `NormalDistributionImpl` which had an issue with handling extreme values (returning NaN instead of 0 or 1).\n\nThe `NormalDistributionImpl.java` file has very high churn (1773) and many commits (19), suggesting it's been actively modified. The `NormalDistribution.java` interface also has high activity. The bug in Math-103 is specifically about `NormalDistributionImpl.cumulativeProbability` throwing an exception or returning wrong values for extreme inputs.\n\n{\"ranking\": [2, 6, 1, 5, 3, 7, 4], \"confidence\": {\"2\": 0.82, \"6\": 0.15, \"1\": 0.05, \"5\": 0.04, \"3\": 0.03, \"7\": 0.02, \"4\": 0.01}}",
+ "n_attempts": 1
+}

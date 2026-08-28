@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Codec-6",
+ "repo": "defects4j:Codec",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/codec/binary/StringUtils.java",
+  "src/java/org/apache/commons/codec/binary/BinaryCodec.java",
+  "src/java/org/apache/commons/codec/binary/Base64InputStream.java",
+  "src/java/org/apache/commons/codec/binary/Base64OutputStream.java",
+  "src/java/org/apache/commons/codec/binary/Hex.java",
+  "src/java/org/apache/commons/codec/binary/Base64.java"
+ ],
+ "timestamp": "2026-08-27T19:00:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  4,
+  1,
+  5,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.72,
+  "3": 0.18,
+  "4": 0.12,
+  "1": 0.05,
+  "5": 0.04,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.18,
+  0.04,
+  0.03,
+  0.12,
+  0.05,
+  0.72
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  5,
+  2,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 959,
+  "output_tokens": 177
+ },
+ "raw_response": "The failing test is in the Codec project's binary package. The test name \"d4j-Codec-6\" corresponds to a Base64-related bug in defects4j. Base64.java is the most heavily modified file with the highest churn (4545) and commit frequency (0.1754), making it the most likely candidate for a defect. Base64InputStream and Base64OutputStream are also related to Base64 functionality and could be involved.\n\n{\"ranking\": [6, 3, 4, 1, 5, 2], \"confidence\": {\"6\": 0.72, \"3\": 0.18, \"4\": 0.12, \"1\": 0.05, \"5\": 0.04, \"2\": 0.03}}",
+ "n_attempts": 1
+}

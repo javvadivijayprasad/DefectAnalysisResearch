@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-9",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Segment.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/RotationOrder.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubPlane.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Vector3DFormat.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Vector3D.java"
+ ],
+ "timestamp": "2026-08-27T19:35:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  6,
+  8,
+  7,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "1": 0.25,
+  "2": 0.15,
+  "6": 0.1,
+  "8": 0.08,
+  "7": 0.04,
+  "5": 0.02,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.01,
+  0.1,
+  0.08,
+  0.02,
+  0.25,
+  0.04,
+  0.15,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  3,
+  4,
+  6,
+  1,
+  5,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 937,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[3,1,2,6,8,7,5,4],\"confidence\":{\"3\":0.35,\"1\":0.25,\"2\":0.15,\"6\":0.10,\"8\":0.08,\"7\":0.04,\"5\":0.02,\"4\":0.01}}",
+ "n_attempts": 1
+}

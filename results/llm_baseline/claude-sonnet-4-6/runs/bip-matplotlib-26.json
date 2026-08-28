@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-matplotlib-26",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "lib/matplotlib/axes/_base.py",
+  "examples/userdemo/colormap_normalizations_symlognorm.py",
+  "lib/matplotlib/axis.py",
+  "lib/matplotlib/markers.py",
+  "lib/matplotlib/path.py",
+  "lib/matplotlib/axes/_axes.py",
+  "lib/matplotlib/collections.py",
+  "lib/matplotlib/figure.py"
+ ],
+ "timestamp": "2026-08-27T19:18:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  1,
+  8,
+  7,
+  5,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.55,
+  "3": 0.35,
+  "1": 0.25,
+  "8": 0.08,
+  "7": 0.07,
+  "5": 0.07,
+  "4": 0.06,
+  "2": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.08,
+  0.06,
+  0.07,
+  0.07,
+  0.04,
+  0.25,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  6,
+  5,
+  4,
+  7,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 976,
+  "output_tokens": 97
+ },
+ "raw_response": "{\"ranking\": [6, 3, 1, 8, 7, 5, 4, 2], \"confidence\": {\"6\": 0.55, \"3\": 0.35, \"1\": 0.25, \"8\": 0.08, \"7\": 0.07, \"5\": 0.07, \"4\": 0.06, \"2\": 0.04}}",
+ "n_attempts": 1
+}

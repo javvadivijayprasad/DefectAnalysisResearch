@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Cli-8",
+ "repo": "defects4j:Cli",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/cli/CommandLine.java",
+  "src/java/org/apache/commons/cli/HelpFormatter.java",
+  "src/java/org/apache/commons/cli/Util.java",
+  "src/java/org/apache/commons/cli/MissingOptionException.java",
+  "src/java/org/apache/commons/cli/OptionGroup.java"
+ ],
+ "timestamp": "2026-08-27T18:54:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "5": 0.35,
+  "1": 0.2,
+  "3": 0.1,
+  "2": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.35,
+  0.55,
+  0.1,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [4, 5, 1, 3, 2], \"confidence\": {\"4\": 0.55, \"5\": 0.35, \"1\": 0.20, \"3\": 0.10, \"2\": 0.08}}",
+ "n_attempts": 1
+}

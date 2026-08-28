@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-youtube-dl-20",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "youtube_dl/extractor/arte.py",
+  "youtube_dl/extractor/clipsyndicate.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/utils.py"
+ ],
+ "timestamp": "2026-08-27T19:26:20",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "4": 0.3,
+  "1": 0.15,
+  "2": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.45,
+  0.1,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 797,
+  "output_tokens": 243
+ },
+ "raw_response": "Looking at this failing test event for youtube-dl with an AssertionError:\n\nThe test is likely related to JavaScript interpretation or utility functions given the nature of youtube-dl tests. The `jsinterp.py` file is a common source of bugs in youtube-dl as it handles JavaScript interpretation for extracting video URLs. The `utils.py` file is heavily modified (high churn, many commits, many developers) making it a frequent source of bugs.\n\nThe `arte.py` and `clipsyndicate.py` are extractor files - while they could be involved, AssertionErrors in tests often point to core functionality rather than specific extractors.\n\nGiven that `jsinterp.py` handles complex JavaScript interpretation logic and is a common source of assertion failures in youtube-dl tests, and `utils.py` has very high activity suggesting frequent changes, I'll rank accordingly.\n\n{\"ranking\": [3, 4, 1, 2], \"confidence\": {\"3\": 0.45, \"4\": 0.30, \"1\": 0.15, \"2\": 0.10}}",
+ "n_attempts": 1
+}

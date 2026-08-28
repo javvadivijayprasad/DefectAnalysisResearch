@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-117",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/TypeValidator.java",
+  "src/com/google/javascript/jscomp/BasicErrorManager.java",
+  "src/com/google/javascript/jscomp/OptimizeCalls.java",
+  "src/com/google/javascript/jscomp/PreprocessorSymbolTable.java",
+  "src/com/google/javascript/jscomp/ErrorManager.java",
+  "src/com/google/javascript/jscomp/ReorderConstantExpression.java"
+ ],
+ "timestamp": "2026-08-27T18:58:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  2,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "4": 0.2,
+  "3": 0.15,
+  "2": 0.08,
+  "5": 0.06,
+  "6": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.08,
+  0.04,
+  0.15,
+  0.2,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  5,
+  2,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 946,
+  "output_tokens": 388
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-117, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a type checking or validation issue\n- `app_code_changed` flag is set\n- TypeValidator.java (file 1) is the most active file with many commits and is directly related to type validation/checking\n- BasicErrorManager.java and ErrorManager.java have similar commit patterns and relate to error management\n- OptimizeCalls.java is very recently active (high commit_freq=0.3203, age_days=153)\n- PreprocessorSymbolTable.java is brand new (age_days=1, commit_freq=1.0, only 1 commit) - this is suspicious as a newly added file\n- ReorderConstantExpression.java has moderate activity\n\nFor Closure-117 specifically, this is related to type checking issues. TypeValidator.java is the primary suspect given its direct relevance to type validation. The newly created PreprocessorSymbolTable.java (age_days=1) is also suspicious as it could be a new file introduced in the fix or causing issues.\n\nTypeValidator.java with its high churn and direct relevance to the AssertionError in type checking is the top candidate. The error manager files could also be involved if error reporting is part of the issue.\n\n{\"ranking\": [1, 4, 3, 2, 5, 6], \"confidence\": {\"1\": 0.65, \"4\": 0.20, \"3\": 0.15, \"2\": 0.08, \"5\": 0.06, \"6\": 0.04}}",
+ "n_attempts": 1
+}

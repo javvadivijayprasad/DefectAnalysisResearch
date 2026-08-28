@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-thefuck-25",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "thefuck/shells/bash.py",
+  "thefuck/rules/dirty_unzip.py",
+  "thefuck/rules/no_command.py",
+  "thefuck/rules/git_push.py",
+  "thefuck/rules/vagrant_up.py",
+  "thefuck/rules/mkdir_p.py",
+  "thefuck/rules/pip_unknown_command.py"
+ ],
+ "timestamp": "2026-08-27T19:25:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3,
+  5,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "1": 0.3,
+  "2": 0.08,
+  "3": 0.08,
+  "5": 0.08,
+  "6": 0.08,
+  "7": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.08,
+  0.08,
+  0.08,
+  0.45,
+  0.08,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  3,
+  4,
+  6,
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 949,
+  "output_tokens": 420
+ },
+ "raw_response": "Looking at the failing test event for thefuck project with an AssertionError, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n1. The test is `bip-thefuck-25` - the number 25 might correspond to a specific bug/issue\n2. `app_code_changed` flag is set, indicating application code (not test code) was changed\n3. File `thefuck/shells/bash.py` stands out with more commits (2), more churn (70), and higher commit frequency (0.1667) compared to most rule files\n4. `thefuck/rules/git_push.py` also stands out with 3 commits, highest churn (105), and highest commit frequency (0.2500)\n5. The other rule files (dirty_unzip, no_command, vagrant_up, mkdir_p, pip_unknown_command) all have identical statistics (1 commit, 1 dev, +20/-15, age 30 days, freq 0.0833), suggesting they may be distractor files\n\nThe files with higher activity (git_push.py and bash.py) are more likely to be the defective ones. `git_push.py` has the highest commit frequency and churn, making it the most suspicious. `bash.py` is also notable.\n\nAmong the identical-stats rule files, it's hard to differentiate, but one of them could still be the fix target.\n\n{\"ranking\": [4, 1, 2, 3, 5, 6, 7], \"confidence\": {\"4\": 0.45, \"1\": 0.30, \"2\": 0.08, \"3\": 0.08, \"5\": 0.08, \"6\": 0.08, \"7\": 0.08}}",
+ "n_attempts": 1
+}

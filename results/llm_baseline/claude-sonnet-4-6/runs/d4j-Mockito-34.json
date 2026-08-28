@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Mockito-34",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/org/mockito/internal/invocation/MatchersBinder.java",
+  "src/org/mockito/internal/invocation/StubInfo.java",
+  "src/org/mockito/internal/invocation/InvocationsFinder.java",
+  "src/org/mockito/internal/invocation/SerializableMethod.java",
+  "src/org/mockito/internal/invocation/CapturesArgumensFromInvocation.java",
+  "src/org/mockito/internal/invocation/InvocationMatcher.java",
+  "src/org/mockito/internal/invocation/MockitoMethod.java",
+  "src/org/mockito/internal/invocation/InvocationMarker.java"
+ ],
+ "timestamp": "2026-08-27T19:15:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  4,
+  7,
+  3,
+  1,
+  8,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.55,
+  "2": 0.45,
+  "4": 0.3,
+  "7": 0.25,
+  "3": 0.2,
+  "1": 0.1,
+  "8": 0.08,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.25,
+  0.3,
+  0.08,
+  0.05,
+  0.1,
+  0.2,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  6,
+  7,
+  5,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1065,
+  "output_tokens": 481
+ },
+ "raw_response": "Looking at the failing test event for Mockito-34, I need to identify which files are most likely defective.\n\nKey observations:\n1. The test failure is an `AssertionError` with `app_code_changed` flag set\n2. Files 2 (`StubInfo.java`) and 4 (`SerializableMethod.java`) and 7 (`MockitoMethod.java`) have very high commit frequencies (4.0, 7.0, 6.4 commits/day), suggesting very recent, active changes\n3. `StubInfo.java` has age_days=2, meaning it's brand new - very likely part of a recent fix/change\n4. `SerializableMethod.java` and `MockitoMethod.java` both have age_days=12 with high churn\n5. `InvocationMatcher.java` has the highest total commits (62) and churn (682), making it a core file that's frequently modified\n6. `InvocationsFinder.java` has high commit frequency (0.5634) and significant churn\n\nFor Mockito-34, the test likely involves argument matching or invocation handling. The `InvocationMatcher.java` is central to matching logic. `StubInfo.java` being brand new (age=2 days) with high commit frequency strongly suggests it's part of the fix. `SerializableMethod.java` and `MockitoMethod.java` with very high recent activity are also suspicious.\n\nThe combination of `InvocationMatcher.java` (core matching logic, high churn) and `StubInfo.java` (brand new file) seems most likely to be involved in the defect.\n\n{\"ranking\": [6, 2, 4, 7, 3, 1, 8, 5], \"confidence\": {\"6\": 0.55, \"2\": 0.45, \"4\": 0.30, \"7\": 0.25, \"3\": 0.20, \"1\": 0.10, \"8\": 0.08, \"5\": 0.05}}",
+ "n_attempts": 1
+}

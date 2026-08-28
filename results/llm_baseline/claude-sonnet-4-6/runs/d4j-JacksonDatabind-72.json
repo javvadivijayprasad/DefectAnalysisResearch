@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-72",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanAsArrayBuilderDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdReader.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/FailingDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java"
+ ],
+ "timestamp": "2026-08-27T18:50:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  5,
+  4,
+  6,
+  1,
+  2,
+  7,
+  3
+ ],
+ "llm_confidence_presented": {
+  "8": 0.45,
+  "5": 0.25,
+  "4": 0.12,
+  "6": 0.1,
+  "1": 0.08,
+  "2": 0.06,
+  "7": 0.03,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.1,
+  0.08,
+  0.45,
+  0.01,
+  0.12,
+  0.25,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  3,
+  4,
+  0,
+  7,
+  2,
+  1,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1157,
+  "output_tokens": 542
+ },
+ "raw_response": "Looking at this failing test for JacksonDatabind-72, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is in the `deser/impl` package\n\nLet me analyze the candidates:\n\n1. **BeanPropertyMap.java** (index 8) - Very high churn (3755), many commits (34), high commit frequency. This is a core deserialization component that maps bean properties and is frequently modified. High likelihood of containing bugs.\n\n2. **CreatorCollector.java** (index 5) - High commits (30), significant churn (805), handles creator/constructor collection during deserialization. Frequently modified.\n\n3. **ObjectIdReader.java** (index 4) - 14 commits, moderate churn, deals with object identity during deserialization.\n\n4. **ObjectIdValueProperty.java** (index 6) - 21 commits, moderate churn, related to object ID handling.\n\n5. **BeanAsArrayBuilderDeserializer.java** (index 1) - 12 commits, moderate churn, handles array-based deserialization.\n\n6. **InnerClassProperty.java** (index 2) - 10 commits, lower churn, handles inner class properties.\n\n7. **FailingDeserializer.java** (index 7) - Low commits, low churn, simple utility class.\n\n8. **package-info.java** (index 3) - Only 1 commit, just package documentation.\n\nFor JacksonDatabind-72 specifically, this is likely related to `BeanPropertyMap` which is a central, heavily-modified component, or `CreatorCollector` which handles constructor/factory method collection. The `BeanPropertyMap` has the highest churn and commit frequency suggesting it's the most actively modified and bug-prone.\n\n{\"ranking\": [8, 5, 4, 6, 1, 2, 7, 3], \"confidence\": {\"8\": 0.45, \"5\": 0.25, \"4\": 0.12, \"6\": 0.10, \"1\": 0.08, \"2\": 0.06, \"7\": 0.03, \"3\": 0.01}}",
+ "n_attempts": 1
+}

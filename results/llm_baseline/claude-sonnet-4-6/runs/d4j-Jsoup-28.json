@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-28",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Parser.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/Tag.java"
+ ],
+ "timestamp": "2026-08-27T19:08:42",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  7,
+  6,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "2": 0.75,
+  "3": 0.6,
+  "7": 0.3,
+  "6": 0.2,
+  "4": 0.1,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.6,
+  0.1,
+  0.3,
+  0.82,
+  0.75,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  2,
+  5,
+  3,
+  0,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1001,
+  "output_tokens": 454
+ },
+ "raw_response": "Looking at this failing test in Jsoup (a Java HTML parser), I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n1. The test failure is an AssertionError in Jsoup's parsing functionality\n2. The `app_code_changed` flag is set\n3. Candidate 1 (`package-info.java`) has commits=1, age_days=1, commit_freq=1.0 - this is a brand new file, very likely part of the fix commit\n4. `TreeBuilder.java` has high churn (1452) and relatively recent activity with high commit frequency (0.2229) - this is a core parsing class that was heavily modified\n5. `Parser.java` has the highest commit count (58) and significant churn - it's the main parser class\n6. `Tag.java` has very high commit frequency (0.3204) and significant churn - tags are fundamental to parsing\n\nThe package-info.java being brand new (age_days=1, commits=1) strongly suggests it was added as part of the fix commit. This is a structural change to the parser package.\n\n`TreeBuilder.java` with its high churn and recent activity is also very likely part of the fix - it's a core component that was heavily refactored.\n\n`Parser.java` with 58 commits and high churn is also a strong candidate as the main parsing entry point.\n\n`Tag.java` with the highest commit frequency is also suspicious.\n\nThe fix likely involved refactoring the parser (creating TreeBuilder, adding package-info), which would touch Parser.java and TreeBuilder.java primarily.\n\n{\"ranking\": [1, 2, 3, 7, 6, 4, 5], \"confidence\": {\"1\": 0.82, \"2\": 0.75, \"3\": 0.60, \"7\": 0.30, \"6\": 0.20, \"4\": 0.10, \"5\": 0.05}}",
+ "n_attempts": 1
+}

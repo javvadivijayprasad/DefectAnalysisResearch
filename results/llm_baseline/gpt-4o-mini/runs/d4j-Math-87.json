@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-87",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/math/optimization/linear/LinearObjectiveFunction.java",
+  "src/java/org/apache/commons/math/optimization/linear/AbstractLinearOptimizer.java",
+  "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+  "src/java/org/apache/commons/math/optimization/linear/UnboundedSolutionException.java",
+  "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+  "src/java/org/apache/commons/math/optimization/linear/Relationship.java"
+ ],
+ "timestamp": "2026-08-27T19:36:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  2,
+  6,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "5": 0.35,
+  "1": 0.25,
+  "2": 0.2,
+  "6": 0.15,
+  "4": 0.04,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.01,
+  0.04,
+  0.25,
+  0.35,
+  0.15,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  4,
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 803,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [5, 1, 2, 6, 4, 3], \"confidence\": {\"5\": 0.35, \"1\": 0.25, \"2\": 0.20, \"6\": 0.15, \"4\": 0.04, \"3\": 0.01}}",
+ "n_attempts": 1
+}

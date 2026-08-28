@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-155",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/InlineVariables.java",
+  "src/com/google/javascript/jscomp/Scope.java",
+  "src/com/google/javascript/jscomp/SimpleRegion.java",
+  "src/com/google/javascript/jscomp/MemoizedScopeCreator.java",
+  "src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java",
+  "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+  "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+  "src/com/google/javascript/jscomp/InferJSDocInfo.java"
+ ],
+ "timestamp": "2026-08-27T18:59:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  4,
+  2,
+  5,
+  8,
+  3,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "6": 0.3,
+  "4": 0.15,
+  "2": 0.1,
+  "5": 0.05,
+  "8": 0.04,
+  "3": 0.03,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.3,
+  0.1,
+  0.04,
+  0.05,
+  0.02,
+  0.03,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  5,
+  4,
+  7,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1070,
+  "output_tokens": 502
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-155, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError (likely a compiler output mismatch)\n- The `app_code_changed` flag is set\n- This is Closure-155, which relates to variable inlining\n\nLet me analyze the candidates:\n\n1. **InlineVariables.java** - High relevance: directly related to variable inlining, which is a common source of bugs in Closure compiler. Moderate commit history.\n\n2. **Scope.java** - Scope management, could be related to variable tracking issues.\n\n3. **SimpleRegion.java** - Low relevance, simple utility class with few commits.\n\n4. **MemoizedScopeCreator.java** - Could be related if scope caching causes issues with variable inlining.\n\n5. **ExtractPrototypeMemberDeclarations.java** - High commit frequency but less likely related to variable inlining bugs.\n\n6. **ReferenceCollectingCallback.java** - Very relevant: this collects variable references, which is directly used by InlineVariables. Works closely with InlineVariables.\n\n7. **DiagnosticGroups.java** - Diagnostic configuration, unlikely to cause AssertionError in test.\n\n8. **InferJSDocInfo.java** - JSDoc inference, less likely related.\n\nFor Closure-155, the bug is likely in the variable inlining logic. `InlineVariables.java` and `ReferenceCollectingCallback.java` are the most likely candidates as they work together. `MemoizedScopeCreator.java` could also be involved if scope caching causes incorrect behavior during inlining.\n\n{\"ranking\": [1, 6, 4, 2, 5, 8, 3, 7], \"confidence\": {\"1\": 0.55, \"6\": 0.30, \"4\": 0.15, \"2\": 0.10, \"5\": 0.05, \"8\": 0.04, \"3\": 0.03, \"7\": 0.02}}",
+ "n_attempts": 1
+}

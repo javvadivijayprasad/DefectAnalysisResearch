@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Time-2",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/joda/time/Partial.java",
+  "src/main/java/org/joda/time/field/UnsupportedDurationField.java",
+  "src/main/java/org/joda/time/YearMonth.java",
+  "src/main/java/org/joda/time/field/SkipUndoDateTimeField.java",
+  "src/main/java/org/joda/time/ReadWritableInterval.java"
+ ],
+ "timestamp": "2026-08-27T19:15:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.85,
+  "2": 0.07,
+  "3": 0.05,
+  "4": 0.02,
+  "5": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.85,
+  0.07,
+  0.01,
+  0.02,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 907,
+  "output_tokens": 111
+ },
+ "raw_response": "The defects4j Time-2 bug is in `Partial.java` \u2014 specifically the constructor validation logic that checks field ordering. This is a well-known bug where the comparison uses the wrong comparator direction.\n\n{\"ranking\": [1, 2, 3, 4, 5], \"confidence\": {\"1\": 0.85, \"2\": 0.07, \"3\": 0.05, \"4\": 0.02, \"5\": 0.01}}",
+ "n_attempts": 1
+}

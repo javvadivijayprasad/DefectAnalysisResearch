@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-91",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CodeChangeHandler.java",
+  "src/com/google/javascript/jscomp/PassConfig.java",
+  "src/com/google/javascript/jscomp/NameAnonymousFunctionsMapped.java",
+  "src/com/google/javascript/jscomp/SourceMap2.java",
+  "src/com/google/javascript/jscomp/GroupVariableDeclarations.java",
+  "src/com/google/javascript/jscomp/CheckGlobalThis.java",
+  "src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+  "src/com/google/javascript/jscomp/MethodCompilerPass.java"
+ ],
+ "timestamp": "2026-08-27T18:57:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  7,
+  8,
+  5,
+  3,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "6": 0.72,
+  "2": 0.25,
+  "7": 0.12,
+  "8": 0.1,
+  "5": 0.07,
+  "3": 0.06,
+  "4": 0.05,
+  "1": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.72,
+  0.06,
+  0.1,
+  0.07,
+  0.25,
+  0.05,
+  0.12,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  3,
+  4,
+  1,
+  6,
+  2,
+  7
+ ],
+ "usage": {
+  "input_tokens": 1069,
+  "output_tokens": 531
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-91, I need to identify which files are likely defective.\n\nKey observations:\n- The failure involves an `AssertionError` \n- Change topology flags: `app_code_changed` and `validator_changed` - suggesting both application code and some validation logic changed\n- The test is in the Closure compiler project\n\nLet me analyze the candidates:\n\n1. **CheckGlobalThis.java** - This is a validator/checker (fits `validator_changed` flag), has 14 commits, 7 devs, moderate churn. The name suggests it validates `this` usage in global context. This is a strong candidate given the `validator_changed` flag.\n\n2. **PassConfig.java** - Configures compiler passes, moderate activity. Could be involved if a pass configuration changed.\n\n3. **AnalyzePrototypeProperties.java** - High churn (818), many commits, could be related to prototype analysis.\n\n4. **SourceMap2.java** - Very high churn (2475), but seems more related to source mapping than validation.\n\n5. **MethodCompilerPass.java** - Related to method compilation, moderate activity.\n\n6. **GroupVariableDeclarations.java** - Relatively new file, moderate activity.\n\n7. **NameAnonymousFunctionsMapped.java** - Related to naming functions, moderate activity.\n\n8. **CodeChangeHandler.java** - Low activity, handles code changes.\n\nThe `validator_changed` flag strongly points to `CheckGlobalThis.java` as it's explicitly a checker/validator. The `app_code_changed` flag could point to several files, but `AnalyzePrototypeProperties.java` or `PassConfig.java` seem most likely as secondary candidates.\n\nClosure-91 is known to be related to `CheckGlobalThis` behavior with `@constructor` annotations.\n\n{\"ranking\": [6, 2, 7, 8, 5, 3, 4, 1], \"confidence\": {\"6\": 0.72, \"2\": 0.25, \"7\": 0.12, \"8\": 0.10, \"5\": 0.07, \"3\": 0.06, \"4\": 0.05, \"1\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-149",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "src/com/google/javascript/jscomp/Compiler.java",
+  "src/com/google/javascript/jscomp/CompilerOptions.java",
+  "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+  "src/com/google/javascript/jscomp/TypeInferencePass.java",
+  "src/com/google/javascript/jscomp/CommandLineRunner.java"
+ ],
+ "timestamp": "2026-08-27T18:59:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  2,
+  3,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "4": 0.35,
+  "2": 0.25,
+  "3": 0.15,
+  "1": 0.1,
+  "6": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.08,
+  0.25,
+  0.15,
+  0.35,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  5,
+  2,
+  3,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 953,
+  "output_tokens": 443
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-149, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure compiler project\n\nLet me analyze the candidates:\n\n1. **AbstractCommandLineRunner.java** - High activity, many commits/devs, large churn\n2. **Compiler.java** - Highest activity among candidates, very large churn\n3. **CompilerOptions.java** - Moderate activity, mostly additions\n4. **ControlFlowAnalysis.java** - Recent file (274 days), high commit frequency (0.1277)\n5. **TypeInferencePass.java** - Very recent file (182 days), highest commit frequency (0.1923), small but active\n6. **CommandLineRunner.java** - Similar to AbstractCommandLineRunner\n\nFor Closure-149, this is related to type inference or control flow analysis based on the test patterns. The recently added/modified files with high commit frequency are more likely to contain bugs:\n\n- **TypeInferencePass.java** has the highest commit frequency and is very recent - suggests active development where bugs are more likely\n- **ControlFlowAnalysis.java** is also recent with high commit frequency\n- **Compiler.java** is the core compiler with high churn and could easily have defects\n\nThe AssertionError pattern often points to type checking or inference issues in Closure. TypeInferencePass and ControlFlowAnalysis are the most recently active files and most likely candidates for a bug fix.\n\n{\"ranking\": [5, 4, 2, 3, 1, 6], \"confidence\": {\"5\": 0.45, \"4\": 0.35, \"2\": 0.25, \"3\": 0.15, \"1\": 0.10, \"6\": 0.08}}",
+ "n_attempts": 1
+}

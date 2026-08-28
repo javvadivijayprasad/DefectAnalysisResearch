@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-sanic-2",
+ "repo": "bugsinpy:sanic",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "sanic/request.py",
+  "sanic/log.py",
+  "sanic/server.py",
+  "sanic/app.py"
+ ],
+ "timestamp": "2026-08-27T19:39:32",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.25,
+  "3": 0.25,
+  "4": 0.5
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.25,
+  0.25,
+  0.5
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 657,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [4, 1, 2, 3], \"confidence\": {\"1\": 0.25, \"2\": 0.25, \"3\": 0.25, \"4\": 0.50}}",
+ "n_attempts": 1
+}

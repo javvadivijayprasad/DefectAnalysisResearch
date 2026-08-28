@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Codec-9",
+ "repo": "defects4j:Codec",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/codec/binary/Base64InputStream.java",
+  "src/java/org/apache/commons/codec/binary/Base32InputStream.java",
+  "src/java/org/apache/commons/codec/binary/BaseNCodecOutputStream.java",
+  "src/java/org/apache/commons/codec/binary/StringUtils.java",
+  "src/java/org/apache/commons/codec/binary/Base32.java",
+  "src/java/org/apache/commons/codec/binary/Base64.java"
+ ],
+ "timestamp": "2026-08-27T19:32:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  3,
+  2,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.2,
+  "2": 0.05,
+  "3": 0.15,
+  "4": 0.3,
+  "5": 0.1,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.3,
+  0.2,
+  0.1,
+  0.05,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  0,
+  1,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 799,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [4, 1, 3, 2, 5, 6], \"confidence\": {\"1\": 0.20, \"2\": 0.05, \"3\": 0.15, \"4\": 0.30, \"5\": 0.10, \"6\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-167",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/rhino/jstype/StaticSourceFile.java",
+  "src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java",
+  "src/com/google/javascript/jscomp/type/FlowScope.java",
+  "src/com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java",
+  "src/com/google/javascript/rhino/jstype/NoResolvedType.java",
+  "src/com/google/javascript/rhino/jstype/JSType.java",
+  "src/com/google/javascript/rhino/jstype/ErrorFunctionType.java"
+ ],
+ "timestamp": "2026-08-27T19:00:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  6,
+  5,
+  7,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.45,
+  "4": 0.35,
+  "6": 0.25,
+  "5": 0.15,
+  "7": 0.12,
+  "3": 0.08,
+  "1": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.25,
+  0.08,
+  0.12,
+  0.15,
+  0.35,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  5,
+  4,
+  3,
+  1,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1027,
+  "output_tokens": 566
+ },
+ "raw_response": "Looking at this failing test for Closure-167, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is in the Closure compiler's type system\n\nLet me analyze the candidates:\n\n1. **SemanticReverseAbstractInterpreter.java** (file 2) - High commit count (22), many devs, large churn (906). This is a complex type inference file that's frequently modified and could easily have bugs related to type narrowing/refinement.\n\n2. **ClosureReverseAbstractInterpreter.java** (file 4) - 14 commits, 8 devs, relatively high commit frequency (0.1111). This handles Closure-specific type narrowing and is a prime candidate for type-related bugs.\n\n3. **JSType.java** (file 6) - Very high commits (65), 12 devs, massive churn (1941). Core type class that's heavily modified - high probability of containing bugs.\n\n4. **NoResolvedType.java** (file 5) - 11 commits, 8 devs, relatively recent (813 days), high commit frequency (0.0947). Unresolved types could cause assertion errors.\n\n5. **ErrorFunctionType.java** (file 7) - Highest commit frequency (0.1202), relatively young file (524 days). Could be related to error type handling.\n\n6. **FlowScope.java** (file 3) - 8 commits, moderate activity.\n\n7. **StaticSourceFile.java** (file 1) - Less likely to cause type assertion errors.\n\nThe test name \"Closure-167\" suggests it's related to type narrowing/refinement in the abstract interpreter. The `SemanticReverseAbstractInterpreter` and `ClosureReverseAbstractInterpreter` are the most likely candidates for type-related assertion failures, with `JSType.java` also being a strong candidate due to its high activity.\n\n{\"ranking\": [2, 4, 6, 5, 7, 3, 1], \"confidence\": {\"2\": 0.45, \"4\": 0.35, \"6\": 0.25, \"5\": 0.15, \"7\": 0.12, \"3\": 0.08, \"1\": 0.04}}",
+ "n_attempts": 1
+}

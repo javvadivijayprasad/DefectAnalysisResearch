@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-22",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/distribution/TDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/BetaDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/NormalDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/SaddlePointExpansion.java",
+  "src/main/java/org/apache/commons/math3/distribution/UniformIntegerDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/FDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java"
+ ],
+ "timestamp": "2026-08-27T19:35:43",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  5,
+  3,
+  1,
+  4,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "2": 0.45,
+  "6": 0.25,
+  "5": 0.15,
+  "3": 0.05,
+  "1": 0.04,
+  "4": 0.03,
+  "7": 0.02,
+  "8": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.01,
+  0.05,
+  0.03,
+  0.25,
+  0.04,
+  0.45,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  7,
+  3,
+  5,
+  1,
+  4,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 899,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[2,6,5,3,1,4,7,8],\"confidence\":{\"2\":0.45,\"6\":0.25,\"5\":0.15,\"3\":0.05,\"1\":0.04,\"4\":0.03,\"7\":0.02,\"8\":0.01}}",
+ "n_attempts": 1
+}

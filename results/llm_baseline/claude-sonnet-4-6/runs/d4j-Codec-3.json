@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Codec-3",
+ "repo": "defects4j:Codec",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/java/org/apache/commons/codec/language/Soundex.java",
+  "src/java/org/apache/commons/codec/language/RefinedSoundex.java",
+  "src/java/org/apache/commons/codec/language/SoundexUtils.java",
+  "src/java/org/apache/commons/codec/language/DoubleMetaphone.java"
+ ],
+ "timestamp": "2026-08-27T19:00:28",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.3,
+  "3": 0.2,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.2,
+  0.3,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 848,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 4], \"confidence\": {\"1\": 0.55, \"2\": 0.30, \"3\": 0.20, \"4\": 0.05}}",
+ "n_attempts": 1
+}

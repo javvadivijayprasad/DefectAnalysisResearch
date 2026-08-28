@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Compress-40",
+ "repo": "defects4j:Compress",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+  "src/main/java/org/apache/commons/compress/utils/CountingOutputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/BoundedInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/CharsetNames.java",
+  "src/main/java/org/apache/commons/compress/utils/BitInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/CountingInputStream.java"
+ ],
+ "timestamp": "2026-08-27T19:32:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  6,
+  5,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.25,
+  "6": 0.15,
+  "5": 0.12,
+  "3": 0.08,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.35,
+  0.25,
+  0.08,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  1,
+  4,
+  2,
+  5
+ ],
+ "usage": {
+  "input_tokens": 799,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 2, 6, 5, 3, 4], \"confidence\": {\"1\": 0.35, \"2\": 0.25, \"6\": 0.15, \"5\": 0.12, \"3\": 0.08, \"4\": 0.05}}",
+ "n_attempts": 1
+}

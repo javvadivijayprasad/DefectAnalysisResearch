@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-16",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/util/Incrementor.java",
+  "src/main/java/org/apache/commons/math3/util/ContinuedFraction.java",
+  "src/main/java/org/apache/commons/math3/util/FastMath.java",
+  "src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java",
+  "src/main/java/org/apache/commons/math3/util/ResizableDoubleArray.java",
+  "src/main/java/org/apache/commons/math3/util/FastMathCalc.java"
+ ],
+ "timestamp": "2026-08-27T19:35:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  4,
+  1,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "5": 0.25,
+  "4": 0.15,
+  "1": 0.12,
+  "2": 0.08,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.15,
+  0.12,
+  0.05,
+  0.08,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  5,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 805,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [3, 5, 4, 1, 2, 6], \"confidence\": {\"3\": 0.35, \"5\": 0.25, \"4\": 0.15, \"1\": 0.12, \"2\": 0.08, \"6\": 0.05}}",
+ "n_attempts": 1
+}

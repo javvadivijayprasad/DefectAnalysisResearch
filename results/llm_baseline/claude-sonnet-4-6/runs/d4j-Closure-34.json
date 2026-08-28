@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-34",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/EmptyMessageBundle.java",
+  "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+  "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+  "src/com/google/javascript/jscomp/CodePrinter.java",
+  "src/com/google/javascript/jscomp/CodeGenerator.java"
+ ],
+ "timestamp": "2026-08-27T18:56:20",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  4,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "5": 0.3,
+  "4": 0.2,
+  "2": 0.08,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.2,
+  0.45,
+  0.03,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 898,
+  "output_tokens": 465
+ },
+ "raw_response": "Looking at this failing test in the Closure compiler project, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError, suggesting a code generation or transformation issue\n- The `app_code_changed` flag indicates application code was modified\n- I need to consider which files are most likely related to the kind of bug that would cause an AssertionError in Closure compiler tests\n\nAnalysis of candidates:\n1. **EmptyMessageBundle.java** - Low activity, simple utility class, unlikely to cause AssertionError in typical compiler tests\n2. **PeepholeOptimizationsPass.java** - Moderate activity, peephole optimizations could cause incorrect code transformations\n3. **MakeDeclaredNamesUnique.java** - High commit frequency and churn, variable renaming logic is complex and error-prone, could easily cause AssertionErrors\n4. **CodePrinter.java** - High churn, very old file, code printing issues could cause AssertionErrors in output comparison tests\n5. **CodeGenerator.java** - Highest commits and churn among candidates, very old file, code generation bugs are a common source of AssertionErrors\n\nFor Closure-34 specifically, the test likely involves code generation or variable naming. `MakeDeclaredNamesUnique.java` has the highest commit frequency (0.17) and significant churn, making it a strong candidate. `CodeGenerator.java` has the most commits and highest churn overall. `CodePrinter.java` is also a strong candidate given its high activity.\n\nThe combination of high commit frequency and churn in `MakeDeclaredNamesUnique.java` makes it particularly suspicious, along with `CodeGenerator.java` for its overall activity level.\n\n{\"ranking\": [3, 5, 4, 2, 1], \"confidence\": {\"3\": 0.45, \"5\": 0.30, \"4\": 0.20, \"2\": 0.08, \"1\": 0.03}}",
+ "n_attempts": 1
+}

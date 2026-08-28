@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-cookiecutter-3",
+ "repo": "bugsinpy:cookiecutter",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "cookiecutter/prompt.py",
+  "cookiecutter/hooks.py",
+  "cookiecutter/exceptions.py",
+  "cookiecutter/generate.py"
+ ],
+ "timestamp": "2026-08-27T19:16:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "4": 0.45,
+  "2": 0.25,
+  "3": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.45,
+  0.25,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 785,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.55, \"4\": 0.45, \"2\": 0.25, \"3\": 0.10}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-pandas-18",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "pandas/core/arrays/masked.py",
+  "pandas/core/window.py",
+  "pandas/core/window/common.py",
+  "pandas/core/internals/blocks.py",
+  "pandas/io/common.py",
+  "pandas/core/reshape/melt.py",
+  "pandas/core/window/rolling.py"
+ ],
+ "timestamp": "2026-08-27T19:19:10",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  3,
+  2,
+  4,
+  1,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "7": 0.55,
+  "3": 0.35,
+  "2": 0.2,
+  "4": 0.15,
+  "1": 0.05,
+  "5": 0.04,
+  "6": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.55,
+  0.04,
+  0.04,
+  0.05,
+  0.15,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  6,
+  5,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 928,
+  "output_tokens": 400
+ },
+ "raw_response": "Looking at this failing test in pandas with an AssertionError related to window operations, I need to identify which files are most likely defective.\n\nKey observations:\n1. The test failure involves an AssertionError, suggesting a computation result doesn't match expected values\n2. The candidates include window-related files (window.py, window/common.py, window/rolling.py) which are highly relevant given the test name pattern\n3. `pandas/core/window/rolling.py` has 5 commits, 1 dev, significant churn (175), age 150 days - active development\n4. `pandas/core/window/common.py` has 2 commits, 1 dev, churn 70, age 60 days - also recently active\n5. `pandas/core/window.py` has 1 commit but is the base window module\n6. `pandas/core/internals/blocks.py` has the most commits (9) and highest churn (315) but is a general internals file\n7. The other files (masked.py, io/common.py, melt.py) seem less related to window operations\n\nThe window-related files are the most likely candidates for a window-related test failure. `rolling.py` has the most activity among window files and is the most likely location for rolling window bugs. `window/common.py` is also suspicious with recent changes.\n\n{\"ranking\": [7, 3, 2, 4, 1, 5, 6], \"confidence\": {\"7\": 0.55, \"3\": 0.35, \"2\": 0.20, \"4\": 0.15, \"1\": 0.05, \"5\": 0.04, \"6\": 0.04}}",
+ "n_attempts": 1
+}

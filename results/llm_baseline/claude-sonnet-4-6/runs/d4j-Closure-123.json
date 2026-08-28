@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-123",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "src/com/google/javascript/jscomp/SanityCheck.java",
+  "src/com/google/javascript/jscomp/FindExportableNodes.java",
+  "src/com/google/javascript/jscomp/InlineSimpleMethods.java",
+  "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+  "src/com/google/javascript/jscomp/ExternExportsPass.java",
+  "src/com/google/javascript/jscomp/CompilationLevel.java",
+  "src/com/google/javascript/jscomp/ErrorManager.java"
+ ],
+ "timestamp": "2026-08-27T18:59:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  5,
+  7,
+  2,
+  4,
+  3,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "6": 0.2,
+  "5": 0.12,
+  "7": 0.08,
+  "2": 0.06,
+  "4": 0.05,
+  "3": 0.04,
+  "8": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.02,
+  0.12,
+  0.04,
+  0.05,
+  0.08,
+  0.06,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  7,
+  2,
+  6,
+  5,
+  3,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1065,
+  "output_tokens": 505
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-123, I need to identify which file(s) were changed in the fix commit.\n\nThe test failure is an AssertionError, which in Closure compiler tests typically relates to code generation or compilation output mismatches.\n\nLet me analyze the candidates:\n\n1. **CodeGenerator.java** - High commits (84), high churn (2340), very active file. Code generation issues would cause AssertionErrors in output comparison tests.\n\n2. **SanityCheck.java** - Moderate activity, sanity checks could cause assertion failures.\n\n3. **FindExportableNodes.java** - Lower activity, related to exports.\n\n4. **InlineSimpleMethods.java** - Moderate activity, optimization pass.\n\n5. **FunctionTypeBuilder.java** - Very high commit frequency (0.3742), high churn (2061), very active. Type-related issues.\n\n6. **ExternExportsPass.java** - Moderate-high activity, related to exports/externs.\n\n7. **CompilationLevel.java** - Moderate activity, compilation settings.\n\n8. **ErrorManager.java** - Low activity, error management.\n\nFor Closure-123 specifically, this bug relates to code generation of certain constructs. The `CodeGenerator.java` is the most likely candidate given its high activity and direct relevance to code output. `ExternExportsPass.java` is also plausible given the export-related files in the candidates. `FunctionTypeBuilder.java` has the highest commit frequency suggesting it's frequently modified.\n\nGiven the AssertionError pattern and the nature of Closure-123 (which relates to code generation issues), `CodeGenerator.java` is the primary suspect, with `ExternExportsPass.java` as secondary.\n\n{\"ranking\": [1, 6, 5, 7, 2, 4, 3, 8], \"confidence\": {\"1\": 0.45, \"6\": 0.20, \"5\": 0.12, \"7\": 0.08, \"2\": 0.06, \"4\": 0.05, \"3\": 0.04, \"8\": 0.02}}",
+ "n_attempts": 1
+}

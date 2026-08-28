@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Compress-39",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/utils/BitInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java",
+  "src/main/java/org/apache/commons/compress/utils/CountingOutputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/ChecksumVerifyingInputStream.java"
+ ],
+ "timestamp": "2026-08-27T19:02:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.7,
+  "4": 0.15,
+  "3": 0.08,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.08,
+  0.7
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 848,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [1, 4, 3, 2], \"confidence\": {\"1\": 0.70, \"4\": 0.15, \"3\": 0.08, \"2\": 0.05}}",
+ "n_attempts": 1
+}

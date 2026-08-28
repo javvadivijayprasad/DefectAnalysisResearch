@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-13",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/nodes/DataNode.java",
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/nodes/XmlDeclaration.java",
+  "src/main/java/org/jsoup/nodes/package-info.java",
+  "src/main/java/org/jsoup/nodes/TextNode.java",
+  "src/main/java/org/jsoup/nodes/Comment.java",
+  "src/main/java/org/jsoup/nodes/Node.java"
+ ],
+ "timestamp": "2026-08-27T19:08:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  3,
+  8,
+  7,
+  4,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "6": 0.3,
+  "3": 0.2,
+  "8": 0.15,
+  "7": 0.1,
+  "4": 0.08,
+  "2": 0.07,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.1,
+  0.08,
+  0.07,
+  0.02,
+  0.3,
+  0.55,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  5,
+  6,
+  7,
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1052,
+  "output_tokens": 420
+ },
+ "raw_response": "Looking at this failing test in Jsoup (a Java HTML parser), I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in the `nodes` package\n- `Entities.java` has very high activity (commits=15, churn=2490) and is relatively new (281 days), suggesting active development\n- `TextNode.java` has the highest commit frequency (0.4461) among the substantive files\n- `Node.java` is the base class with many commits (47) but very old (6074 days) and low frequency\n- `Attributes.java` has significant churn (385) and many commits (20)\n- `package-info.java` is essentially a new file (age=1 day, 1 commit) - this is suspicious as it was just created\n\nThe `Entities.java` file stands out with massive churn (+2398/-92) and high commit frequency in a relatively short time - this suggests significant recent changes that could introduce bugs. Entity handling is a common source of HTML parsing issues.\n\n`TextNode.java` also has high commit frequency and deals with text content which often involves entity encoding/decoding.\n\n`package-info.java` being brand new (age_days=1) is interesting but unlikely to cause an AssertionError.\n\n`Node.java` as the base class with many commits could be involved in structural issues.\n\n{\"ranking\": [1, 6, 3, 8, 7, 4, 2, 5], \"confidence\": {\"1\": 0.55, \"6\": 0.30, \"3\": 0.20, \"8\": 0.15, \"7\": 0.10, \"4\": 0.08, \"2\": 0.07, \"5\": 0.02}}",
+ "n_attempts": 1
+}

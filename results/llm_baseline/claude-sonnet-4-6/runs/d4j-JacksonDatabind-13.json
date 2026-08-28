@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-13",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/KeyDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/PropertyBasedObjectIdGenerator.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/TypeWrappedDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiators.java"
+ ],
+ "timestamp": "2026-08-27T19:05:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  3,
+  4,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "2": 0.35,
+  "3": 0.25,
+  "4": 0.1,
+  "1": 0.07,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.45,
+  0.05,
+  0.07,
+  0.1,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  5,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1016,
+  "output_tokens": 516
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files are likely defective.\n\nKey observations:\n- The test involves deserialization (deser package)\n- AssertionError suggests a logic/value mismatch rather than a crash\n- The test name suggests it's related to JacksonDatabind issue #13\n\nLet me analyze the candidates:\n\n1. **KeyDeserializers.java** - Interface/registry for key deserializers, moderate activity\n2. **DefaultDeserializationContext.java** - Core deserialization context, high activity (26 commits, 4 devs), very old file with significant churn - this is a central class that could affect many things\n3. **PropertyBasedObjectIdGenerator.java** - Object ID generation, low activity, newer file\n4. **TypeWrappedDeserializer.java** - Type wrapping for deserializers, low activity\n5. **ObjectIdValueProperty.java** - Object ID value property handling, high activity (20 commits, 4 devs), very old with significant churn - object ID handling is a common source of bugs\n6. **ValueInstantiators.java** - Value instantiation registry, recent file with high commit frequency\n\nThe test is d4j-JacksonDatabind-13. Issues around object ID handling (files 3, 5) and the deserialization context (file 2) are common sources of bugs. The `ObjectIdValueProperty` (file 5) has high churn and many commits suggesting it's been frequently modified/fixed. `DefaultDeserializationContext` (file 2) is also highly active.\n\nGiven the \"app_code_changed\" flag and the nature of JacksonDatabind bug #13 which relates to object ID deserialization issues, files 5 and 2 seem most likely. File 3 (PropertyBasedObjectIdGenerator) is also relevant to object ID handling.\n\n{\"ranking\": [5, 2, 3, 4, 1, 6], \"confidence\": {\"5\": 0.45, \"2\": 0.35, \"3\": 0.25, \"4\": 0.10, \"1\": 0.07, \"6\": 0.05}}",
+ "n_attempts": 1
+}

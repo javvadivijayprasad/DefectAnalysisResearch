@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Math-59",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/util/BigReal.java",
+  "src/main/java/org/apache/commons/math/util/OpenIntToDoubleHashMap.java",
+  "src/main/java/org/apache/commons/math/util/DoubleArray.java",
+  "src/main/java/org/apache/commons/math/util/FastMath.java"
+ ],
+ "timestamp": "2026-08-27T19:13:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.92,
+  "1": 0.04,
+  "2": 0.02,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.02,
+  0.02,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 847,
+  "output_tokens": 142
+ },
+ "raw_response": "The failing test is d4j-Math-59. In defects4j, Math-59 is known to be related to `FastMath.max`/`FastMath.min` returning incorrect results (specifically, `FastMath.max(50.0f, -50.0f)` returning `-50.0f`). This is a bug in `FastMath.java`.\n\n{\"ranking\": [4, 1, 2, 3], \"confidence\": {\"4\": 0.92, \"1\": 0.04, \"2\": 0.02, \"3\": 0.02}}",
+ "n_attempts": 1
+}

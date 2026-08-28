@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-httpie-2",
+ "repo": "bugsinpy:httpie",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "httpie/models.py",
+  "httpie/sessions.py",
+  "httpie/client.py",
+  "httpie/core.py",
+  "httpie/cli.py",
+  "httpie/downloads.py"
+ ],
+ "timestamp": "2026-08-27T19:37:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.17,
+  "2": 0.17,
+  "3": 0.17,
+  "4": 0.17,
+  "5": 0.17,
+  "6": 0.17
+ },
+ "confidence_by_corpus_row": [
+  0.17,
+  0.17,
+  0.17,
+  0.17,
+  0.17,
+  0.17
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  4,
+  0,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 730,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 4, 5, 6], \"confidence\": {\"1\": 0.17, \"2\": 0.17, \"3\": 0.17, \"4\": 0.17, \"5\": 0.17, \"6\": 0.17}}",
+ "n_attempts": 1
+}

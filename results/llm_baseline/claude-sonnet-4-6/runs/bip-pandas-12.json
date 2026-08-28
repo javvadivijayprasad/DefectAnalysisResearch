@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-pandas-12",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "pandas/core/tools/datetimes.py",
+  "pandas/core/frame.py",
+  "pandas/core/missing.py",
+  "pandas/core/reshape/merge.py",
+  "pandas/core/algorithms.py",
+  "pandas/core/arrays/datetimes.py",
+  "pandas/core/series.py"
+ ],
+ "timestamp": "2026-08-27T19:19:00",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  4,
+  1,
+  6,
+  2,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.2,
+  "3": 0.45,
+  "4": 0.3,
+  "5": 0.4,
+  "6": 0.2,
+  "7": 0.18
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.45,
+  0.18,
+  0.3,
+  0.4,
+  0.25,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  0,
+  6,
+  2,
+  1,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 926,
+  "output_tokens": 524
+ },
+ "raw_response": "Looking at this failing test event for pandas with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError (likely a test assertion failure, common in data manipulation bugs)\n- `app_code_changed` flag is set\n- The test is labeled `bip-pandas-12`\n\nAnalyzing the candidates:\n\n1. **pandas/core/tools/datetimes.py** - Recent activity (60 days), moderate churn, datetime tools are often bug-prone\n2. **pandas/core/frame.py** - High activity (11 commits, 3 devs), high churn (385), very active file - likely candidate\n3. **pandas/core/missing.py** - Very recent (30 days), low activity, small changes\n4. **pandas/core/reshape/merge.py** - Moderate activity, merge operations are complex and bug-prone\n5. **pandas/core/algorithms.py** - Very recent (30 days), low activity, small changes\n6. **pandas/core/arrays/datetimes.py** - Recent (90 days), moderate activity, datetime arrays\n7. **pandas/core/series.py** - High activity (8 commits, 2 devs), high churn (280), very active\n\nFor pandas bug #12, common issues involve datetime handling, merging, or core data operations. The most recently changed files (missing.py, algorithms.py) with small targeted changes suggest bug fixes. The high-activity files (frame.py, series.py) are frequently modified. The datetime-related files (tools/datetimes.py, arrays/datetimes.py) are also candidates.\n\nGiven the pattern of small, targeted changes in missing.py and algorithms.py (both 30 days old, single commits), these look like focused bug fixes. The merge.py file is also a strong candidate for AssertionError issues.\n\n{\"ranking\": [3, 5, 4, 1, 6, 2, 7], \"confidence\": {\"1\": 0.25, \"2\": 0.20, \"3\": 0.45, \"4\": 0.30, \"5\": 0.40, \"6\": 0.20, \"7\": 0.18}}",
+ "n_attempts": 1
+}

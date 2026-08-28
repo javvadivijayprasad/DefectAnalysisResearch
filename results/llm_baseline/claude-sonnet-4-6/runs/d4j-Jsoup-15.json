@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Jsoup-15",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/TreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "src/main/java/org/jsoup/parser/ParseError.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/Tag.java"
+ ],
+ "timestamp": "2026-08-27T19:08:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  3,
+  1,
+  6,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.65,
+  "5": 0.45,
+  "3": 0.25,
+  "1": 0.15,
+  "6": 0.1,
+  "2": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.65,
+  0.08,
+  0.1,
+  0.45,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  5,
+  4,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 943,
+  "output_tokens": 470
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError in Jsoup's parser\n- The `app_code_changed` flag is set\n- I need to look at commit frequency, age, and churn patterns\n\nAnalysis:\n1. **TreeBuilderState.java** - Very old file (5569 days), low commit frequency (0.0063), large initial addition but few changes. Less likely to be recently defective.\n\n2. **TokenQueue.java** - Moderate age (531 days), high commit frequency (0.4087), significant churn. Possible but not the most recent.\n\n3. **ParseError.java** - Very recent file (33 days old), high commit frequency (0.4242), small file. Recently added/modified.\n\n4. **TreeBuilder.java** - Very recent (34 days old), very high commit frequency (0.8235), large addition (+706 lines). This is a very recently active file with lots of changes - highly suspicious.\n\n5. **CharacterReader.java** - Very recent (24 days old), high commit frequency (0.5833), moderate size. Recently created/modified.\n\n6. **Tag.java** - Moderate age (505 days), high commit frequency (0.5683), high churn. Active file but older.\n\nThe most suspicious files are **TreeBuilder.java** (very recent, very high commit frequency, large changes) and **CharacterReader.java** (newest file, high frequency). **ParseError.java** is also recent. For an AssertionError in parsing, TreeBuilder.java and CharacterReader.java are the most likely culprits.\n\n{\"ranking\": [4, 5, 3, 1, 6, 2], \"confidence\": {\"4\": 0.65, \"5\": 0.45, \"3\": 0.25, \"1\": 0.15, \"6\": 0.10, \"2\": 0.08}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-79",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CssRenamingMap.java",
+  "src/com/google/javascript/jscomp/RenameProperties.java",
+  "src/com/google/javascript/jscomp/LocaleUtil.java",
+  "src/com/google/javascript/jscomp/MarkNoSideEffectCalls.java",
+  "src/com/google/javascript/jscomp/Normalize.java",
+  "src/com/google/javascript/jscomp/JSModuleGraph.java",
+  "src/com/google/javascript/jscomp/PeepholeFoldWithTypes.java",
+  "src/com/google/javascript/jscomp/VarCheck.java"
+ ],
+ "timestamp": "2026-08-27T18:57:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  8,
+  5,
+  6,
+  4,
+  7,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.55,
+  "3": 0.03,
+  "4": 0.1,
+  "5": 0.2,
+  "6": 0.12,
+  "7": 0.08,
+  "8": 0.25
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.25,
+  0.12,
+  0.08,
+  0.03,
+  0.55,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  3,
+  5,
+  7,
+  0,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1068,
+  "output_tokens": 549
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-79, I need to identify which files are likely defective.\n\nKey observations:\n- The failure involves an `AssertionError`\n- Flags indicate `app_code_changed` and `validator_changed`\n- This is Closure compiler issue #79\n\nLet me analyze the candidates:\n\n1. **RenameProperties.java** - High activity (11 commits, 7 devs, +499/-35 churn=534), relatively recent (408 days). The large number of additions suggests significant changes. This is a property renaming pass which could easily cause assertion errors.\n\n2. **Normalize.java** - Very high activity (29 commits, churn=1533), but older file (6122 days). The `validator_changed` flag could relate to normalization validation.\n\n3. **VarCheck.java** - High commits (26), old file (6122 days), moderate churn. VarCheck is a validator-type pass, which aligns with `validator_changed` flag.\n\n4. **JSModuleGraph.java** - Highest commit frequency (0.2627), recent (373 days), good churn. Could be involved.\n\n5. **MarkNoSideEffectCalls.java** - 7 commits, 7 devs, recent. Could be related to assertion errors in side-effect analysis.\n\n6. **PeepholeFoldWithTypes.java** - Recent (195 days), low commits. Less likely.\n\n7. **CssRenamingMap.java** - Moderate activity. Less likely for this type of failure.\n\n8. **LocaleUtil.java** - Low activity, less likely.\n\nThe `validator_changed` flag strongly suggests VarCheck.java or Normalize.java. The `app_code_changed` flag combined with RenameProperties.java's high churn makes it a strong candidate. Closure-79 is known to relate to property renaming issues.\n\n{\"ranking\": [2, 8, 5, 6, 4, 7, 1, 3], \"confidence\": {\"1\": 0.05, \"2\": 0.55, \"3\": 0.03, \"4\": 0.10, \"5\": 0.20, \"6\": 0.12, \"7\": 0.08, \"8\": 0.25}}",
+ "n_attempts": 1
+}

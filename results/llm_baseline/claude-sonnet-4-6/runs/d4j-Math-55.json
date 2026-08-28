@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-55",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/geometry/RotationOrder.java",
+  "src/main/java/org/apache/commons/math/geometry/Rotation.java",
+  "src/main/java/org/apache/commons/math/geometry/Vector3DFormat.java",
+  "src/main/java/org/apache/commons/math/geometry/Vector3D.java",
+  "src/main/java/org/apache/commons/math/geometry/NotARotationMatrixException.java",
+  "src/main/java/org/apache/commons/math/geometry/CardanEulerSingularityException.java"
+ ],
+ "timestamp": "2026-08-27T19:13:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  1,
+  3,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.82,
+  "2": 0.12,
+  "1": 0.04,
+  "3": 0.03,
+  "5": 0.02,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.02,
+  0.02,
+  0.03,
+  0.12,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  4,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 977,
+  "output_tokens": 149
+ },
+ "raw_response": "The failing test is d4j-Math-55, which is about geometry. The test name suggests it's related to Vector3D cross product (Math-55 in defects4j is known to be about Vector3D.crossProduct). Vector3D.java is the most likely defective file, with high commit frequency and many changes.\n\n{\"ranking\": [4, 2, 1, 3, 5, 6], \"confidence\": {\"4\": 0.82, \"2\": 0.12, \"1\": 0.04, \"3\": 0.03, \"5\": 0.02, \"6\": 0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Mockito-11",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/org/mockito/internal/creation/DelegatingMockitoMethodProxy.java",
+  "src/org/mockito/internal/creation/AbstractMockitoMethodProxy.java",
+  "src/org/mockito/internal/creation/MockitoMethodProxy.java",
+  "src/org/mockito/internal/creation/DelegatingMethod.java",
+  "src/org/mockito/internal/creation/SerializableMockitoMethodProxy.java",
+  "src/org/mockito/internal/creation/AcrossJVMSerializationFeature.java",
+  "src/org/mockito/internal/creation/MockSettingsImpl.java",
+  "src/org/mockito/internal/creation/CglibMockMaker.java"
+ ],
+ "timestamp": "2026-08-27T19:14:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  7,
+  6,
+  2,
+  3,
+  5,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "8": 0.45,
+  "7": 0.35,
+  "6": 0.25,
+  "2": 0.12,
+  "3": 0.1,
+  "5": 0.08,
+  "1": 0.08,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.08,
+  0.08,
+  0.25,
+  0.45,
+  0.35,
+  0.1,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  5,
+  6,
+  2,
+  0,
+  1,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1074,
+  "output_tokens": 571
+ },
+ "raw_response": "Looking at this failing test in Mockito, I need to identify which files are likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is in the `creation` package, related to mock creation\n\nLet me analyze the candidates:\n\n1. **CglibMockMaker.java** (index 8) - High commit frequency (0.2429), relatively young (317 days), 11 commits. This is the main mock maker class and would be central to mock creation issues.\n\n2. **MockSettingsImpl.java** (index 7) - Highest commits (45), most devs (7), high churn (545), high commit frequency (0.2207). Very active file, likely to have bugs.\n\n3. **AcrossJVMSerializationFeature.java** (index 6) - Very high churn (717), high commit frequency (0.1977), youngest active file (602 days). Serialization features are complex and bug-prone.\n\n4. **AbstractMockitoMethodProxy.java** (index 2) - 13 commits, high churn (145), high commit frequency (0.0846).\n\n5. **MockitoMethodProxy.java** (index 3) - 7 commits, moderate churn.\n\n6. **DelegatingMockitoMethodProxy.java** (index 1) - 6 commits, lower churn.\n\n7. **SerializableMockitoMethodProxy.java** (index 5) - 6 commits, similar to index 1.\n\n8. **DelegatingMethod.java** (index 4) - Very old file (6117 days), low commit frequency, less likely to be recently changed.\n\nThe test name \"d4j-Mockito-11\" and AssertionError suggest a core mock creation issue. CglibMockMaker and MockSettingsImpl are the most active and central files. AcrossJVMSerializationFeature is also highly active and complex.\n\n{\"ranking\": [8, 7, 6, 2, 3, 5, 1, 4], \"confidence\": {\"8\": 0.45, \"7\": 0.35, \"6\": 0.25, \"2\": 0.12, \"3\": 0.10, \"5\": 0.08, \"1\": 0.08, \"4\": 0.05}}",
+ "n_attempts": 1
+}

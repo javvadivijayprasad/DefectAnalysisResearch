@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-70",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CheckMissingReturn.java",
+  "src/com/google/javascript/jscomp/MessageBundle.java",
+  "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "src/com/google/javascript/jscomp/JsMessageExtractor.java",
+  "src/com/google/javascript/jscomp/ChainableReverseAbstractInterpreter.java"
+ ],
+ "timestamp": "2026-08-27T18:57:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  5,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.72,
+  "3": 0.12,
+  "5": 0.07,
+  "4": 0.05,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.05,
+  0.03,
+  0.72,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  4,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 899,
+  "output_tokens": 131
+ },
+ "raw_response": "The failing test is d4j-Closure-70, which relates to `CheckMissingReturn`. This is a common defects4j bug where the fix involves the `CheckMissingReturn.java` file. The file has moderate churn and commit frequency consistent with active development where bugs are introduced.\n\n{\"ranking\": [1, 3, 5, 4, 2], \"confidence\": {\"1\": 0.72, \"3\": 0.12, \"5\": 0.07, \"4\": 0.05, \"2\": 0.03}}",
+ "n_attempts": 1
+}

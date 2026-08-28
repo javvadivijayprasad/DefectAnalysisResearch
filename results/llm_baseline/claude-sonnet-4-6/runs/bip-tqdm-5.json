@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-tqdm-5",
+ "repo": "bugsinpy:tqdm",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "tqdm/_main.py",
+  "tqdm/contrib/__init__.py",
+  "tqdm/utils.py",
+  "tqdm/std.py",
+  "tqdm/_tqdm.py"
+ ],
+ "timestamp": "2026-08-27T19:25:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.25,
+  "3": 0.45,
+  "4": 0.65,
+  "5": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.65,
+  0.35,
+  0.25,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 826,
+  "output_tokens": 470
+ },
+ "raw_response": "Looking at this failing test event for tqdm, I need to identify which file(s) are most likely defective.\n\nKey observations:\n1. Files 1-4 all have identical statistics (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833) - these appear to be recently modified files, likely part of the same fix/change batch\n2. File 5 (`tqdm/_tqdm.py`) has much higher activity (commits=6, devs=2, churn=210, age_days=180, commit_freq=0.5000) - this is an older, more frequently changed file\n\nThe test is an AssertionError in tqdm. The `tqdm/std.py` file is the main implementation file in modern tqdm (it replaced `_tqdm.py`). The `_tqdm.py` file appears to be a legacy compatibility shim.\n\nGiven that:\n- Files 1-4 were all recently changed together (same stats), they're likely part of the fix commit\n- `tqdm/std.py` (file 4) is the core implementation where most logic lives\n- `tqdm/utils.py` (file 3) contains utility functions that could affect behavior\n- `tqdm/_main.py` (file 1) is the CLI entry point\n- `tqdm/contrib/__init__.py` (file 2) is a contrib module\n- `tqdm/_tqdm.py` (file 5) is older and more churned but has different commit stats\n\nThe bug likely involves `std.py` as the primary implementation file, with possibly `utils.py` as a secondary. The identical stats for files 1-4 suggest they were all touched in the same commit.\n\n{\"ranking\": [4, 3, 1, 2, 5], \"confidence\": {\"1\": 0.35, \"2\": 0.25, \"3\": 0.45, \"4\": 0.65, \"5\": 0.15}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-JacksonDatabind-42",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/ContainerDeserializerBase.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/EnumMapDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/ByteBufferDeserializer.java"
+ ],
+ "timestamp": "2026-08-27T19:33:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "1": 0.3,
+  "2": 0.2,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.45,
+  0.05,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 728,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [3, 1, 2, 4], \"confidence\": {\"3\": 0.45, \"1\": 0.30, \"2\": 0.20, \"4\": 0.05}}",
+ "n_attempts": 1
+}

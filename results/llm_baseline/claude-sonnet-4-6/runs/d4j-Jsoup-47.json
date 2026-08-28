@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-47",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/DataNode.java",
+  "src/main/java/org/jsoup/nodes/Element.java",
+  "src/main/java/org/jsoup/nodes/Node.java",
+  "src/main/java/org/jsoup/nodes/BooleanAttribute.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/nodes/DocumentType.java",
+  "src/main/java/org/jsoup/nodes/XmlDeclaration.java",
+  "src/main/java/org/jsoup/nodes/FormElement.java"
+ ],
+ "timestamp": "2026-08-27T19:09:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  2,
+  5,
+  6,
+  7,
+  1,
+  8
+ ],
+ "llm_confidence_presented": {
+  "4": 0.92,
+  "3": 0.35,
+  "2": 0.3,
+  "5": 0.2,
+  "6": 0.1,
+  "7": 0.08,
+  "1": 0.06,
+  "8": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.08,
+  0.04,
+  0.35,
+  0.1,
+  0.3,
+  0.06,
+  0.92
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  5,
+  7,
+  1,
+  4,
+  2,
+  6,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1062,
+  "output_tokens": 419
+ },
+ "raw_response": "Looking at this failing test in defects4j:Jsoup-47, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n1. The failure is an `AssertionError` with `app_code_changed` flag set\n2. Candidate 4 (`BooleanAttribute.java`) has extremely unusual stats: `commits=1, age_days=1, commit_freq=1.0000` - this strongly suggests it's a newly created file added as part of the fix\n3. `Node.java` has high commit frequency and is a core class that many things depend on - likely involved in fixes\n4. `Element.java` has very high commit frequency and is the most actively developed file\n5. `Entities.java` has massive churn but lower commit frequency relative to its age\n\nThe `BooleanAttribute.java` with `age_days=1` is almost certainly a new file introduced in the fix commit. This is a very strong signal.\n\nFor Jsoup issue 47, which relates to attribute handling (boolean attributes in HTML), `BooleanAttribute.java` being newly created makes perfect sense. The fix likely also touched `Entities.java` or `Node.java` for related attribute output handling.\n\nGiven the context of boolean attributes, `Entities.java` (handles entity/output encoding) and `Node.java` (base node with attribute handling) are also plausible co-changes.\n\n{\"ranking\": [4, 3, 2, 5, 6, 7, 1, 8], \"confidence\": {\"4\": 0.92, \"3\": 0.35, \"2\": 0.30, \"5\": 0.20, \"6\": 0.10, \"7\": 0.08, \"1\": 0.06, \"8\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Compress-22",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2Utils.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorOutputStream.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/Rand.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2Constants.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/BlockSort.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/CRC.java"
+ ],
+ "timestamp": "2026-08-27T19:02:14",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  4,
+  7,
+  5,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "6": 0.85,
+  "2": 0.12,
+  "4": 0.08,
+  "7": 0.04,
+  "5": 0.03,
+  "3": 0.03,
+  "1": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.03,
+  0.12,
+  0.02,
+  0.04,
+  0.03,
+  0.85
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  4,
+  1,
+  6,
+  3,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1081,
+  "output_tokens": 149
+ },
+ "raw_response": "The key signal here is candidate 6 (BlockSort.java): extremely high commit frequency (4.05 commits/day), very young file (19 days old), and only 1 developer \u2014 classic signs of a recently introduced/heavily modified file that likely contains the bug being fixed.\n\n{\"ranking\": [6, 2, 4, 7, 5, 3, 1], \"confidence\": {\"6\": 0.85, \"2\": 0.12, \"4\": 0.08, \"7\": 0.04, \"5\": 0.03, \"3\": 0.03, \"1\": 0.02}}",
+ "n_attempts": 1
+}

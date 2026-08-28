@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-69",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/DocumentType.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/nodes/FormElement.java",
+  "src/main/java/org/jsoup/nodes/LeafNode.java",
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/nodes/Attribute.java",
+  "src/main/java/org/jsoup/nodes/BooleanAttribute.java"
+ ],
+ "timestamp": "2026-08-27T19:09:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  5,
+  6,
+  1,
+  7,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.82,
+  "2": 0.25,
+  "5": 0.2,
+  "6": 0.15,
+  "1": 0.1,
+  "7": 0.06,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.15,
+  0.82,
+  0.06,
+  0.1,
+  0.2,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  3,
+  0,
+  5,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1003,
+  "output_tokens": 186
+ },
+ "raw_response": "The standout signal here is candidate 4 (LeafNode.java): age_days=1, commits=1, churn=95 \u2014 this is a brand-new file added in essentially the same commit window as the fix. New files introduced alongside a bug fix are very commonly part of the fix itself. The other candidates with high activity (Entities.java, Attributes.java, Attribute.java) are also plausible but less strongly indicated.\n\n{\"ranking\": [4, 2, 5, 6, 1, 7, 3], \"confidence\": {\"4\": 0.82, \"2\": 0.25, \"5\": 0.20, \"6\": 0.15, \"1\": 0.10, \"7\": 0.06, \"3\": 0.04}}",
+ "n_attempts": 1
+}

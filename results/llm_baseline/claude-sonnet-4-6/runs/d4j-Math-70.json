@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-70",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/analysis/solvers/MullerSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverImpl.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverFactory.java"
+ ],
+ "timestamp": "2026-08-27T19:13:34",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "2": 0.92,
+  "3": 0.08,
+  "1": 0.04,
+  "4": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.03,
+  0.02,
+  0.04,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 944,
+  "output_tokens": 123
+ },
+ "raw_response": "The defects4j Math-70 bug is about `BisectionSolver.solve()` calling the wrong method (calling `solve(f, min, max)` recursively instead of the actual solving logic). This is a well-known bug in this benchmark.\n\n{\"ranking\": [2, 3, 1, 4, 5], \"confidence\": {\"2\": 0.92, \"3\": 0.08, \"1\": 0.04, \"4\": 0.03, \"5\": 0.02}}",
+ "n_attempts": 1
+}

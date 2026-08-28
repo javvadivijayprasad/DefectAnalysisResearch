@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-8",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/Node.java",
+  "src/main/java/org/jsoup/nodes/Evaluator.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/nodes/Attribute.java",
+  "src/main/java/org/jsoup/nodes/Document.java"
+ ],
+ "timestamp": "2026-08-27T19:08:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  4,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.65,
+  "5": 0.2,
+  "4": 0.08,
+  "2": 0.05,
+  "1": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.05,
+  0.2,
+  0.08,
+  0.65
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 884,
+  "output_tokens": 354
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test is in Jsoup, dealing with HTML parsing/nodes\n- `Entities.java` has extremely high churn (2452) and very recent age (32 days) with very high commit frequency (2.625) - this strongly suggests recent active development/fixes\n- `Document.java` has moderate activity and is relatively recent (328 days)\n- `Evaluator.java` is also relatively recent (219 days) with decent activity\n- `Node.java` is the oldest file with moderate activity\n- `Attribute.java` is relatively recent with moderate activity\n\nThe `Entities.java` file stands out dramatically - it's only 32 days old with massive churn (2363 lines added) and extremely high commit frequency. This suggests it was recently heavily modified, possibly introducing a bug that this test catches. The test failure is an AssertionError which could relate to entity encoding/decoding issues.\n\n`Document.java` is also a reasonable candidate as it's actively developed and could relate to document-level parsing behavior.\n\n`Evaluator.java` with its recent age and high frequency is also worth considering, though CSS selectors seem less likely to cause the specific failure.\n\n{\"ranking\": [3, 5, 4, 2, 1], \"confidence\": {\"3\": 0.65, \"5\": 0.20, \"4\": 0.08, \"2\": 0.05, \"1\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-8",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/distribution/AbstractRealDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/FDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/PoissonDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java"
+ ],
+ "timestamp": "2026-08-27T18:51:08",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.82,
+  "5": 0.08,
+  "1": 0.06,
+  "4": 0.04,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.06,
+  0.08,
+  0.03,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 923,
+  "output_tokens": 199
+ },
+ "raw_response": "The failing test is d4j-Math-8. Looking at the defects4j Math bug #8, it involves `DiscreteDistribution` - specifically the `sample()` method which had a bug where it was sampling from the wrong collection (using the keys/singletons list instead of the cumulative probability structure correctly). The `DiscreteDistribution` file has very few commits (3) and low churn, suggesting it's a newer file that may have introduced a bug. The test failure with AssertionError in Math-8 is known to be related to `DiscreteDistribution.sample()`.\n\n{\"ranking\": [3, 5, 1, 4, 2], \"confidence\": {\"3\": 0.82, \"5\": 0.08, \"1\": 0.06, \"4\": 0.04, \"2\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-scrapy-25",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "scrapy/http/request/form.py",
+  "scrapy/core/downloader/handlers/http11.py",
+  "scrapy/dupefilters.py",
+  "scrapy/http/request/__init__.py",
+  "scrapy/http/cookies.py",
+  "scrapy/contracts/__init__.py",
+  "scrapy/pipelines/images.py",
+  "scrapy/utils/url.py"
+ ],
+ "timestamp": "2026-08-27T19:23:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  8,
+  5,
+  2,
+  3,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "4": 0.2,
+  "8": 0.15,
+  "5": 0.1,
+  "2": 0.08,
+  "3": 0.05,
+  "6": 0.05,
+  "7": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.04,
+  0.08,
+  0.05,
+  0.15,
+  0.05,
+  0.1,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  7,
+  4,
+  6,
+  2,
+  5,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 983,
+  "output_tokens": 424
+ },
+ "raw_response": "Looking at this failing test event for scrapy with an AssertionError related to HTTP requests/forms, I need to identify which files are most likely defective.\n\nKey observations:\n1. The failure involves an AssertionError (likely a test assertion about request behavior)\n2. `app_code_changed` flag is set\n3. File 1 (`scrapy/http/request/form.py`) stands out significantly: 3 commits, highest churn (105), oldest age (90 days), highest commit frequency (0.25) - this suggests it's been actively worked on\n4. The test failure relates to HTTP/request handling based on the exception type\n5. `scrapy/http/request/form.py` is directly related to HTTP request forms, which is a common source of assertion errors in scrapy tests\n6. `scrapy/http/request/__init__.py` (file 4) is also request-related\n7. `scrapy/utils/url.py` (file 8) could be involved as URL handling is closely tied to form requests\n8. `scrapy/http/cookies.py` (file 5) could be related to request handling\n\nThe form.py file has notably more activity than others (3 commits vs 1-2 for others, highest churn), making it the most suspicious. The request `__init__.py` and `utils/url.py` are also plausible given the HTTP/request nature of the failure.\n\n{\"ranking\": [1, 4, 8, 5, 2, 3, 6, 7], \"confidence\": {\"1\": 0.55, \"4\": 0.20, \"8\": 0.15, \"5\": 0.10, \"2\": 0.08, \"3\": 0.05, \"6\": 0.05, \"7\": 0.04}}",
+ "n_attempts": 1
+}

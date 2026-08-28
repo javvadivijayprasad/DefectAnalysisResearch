@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-1",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/fraction/package-info.java",
+  "src/main/java/org/apache/commons/math3/fraction/FractionField.java",
+  "src/main/java/org/apache/commons/math3/fraction/FractionConversionException.java",
+  "src/main/java/org/apache/commons/math3/fraction/ProperBigFractionFormat.java",
+  "src/main/java/org/apache/commons/math3/fraction/FractionFormat.java",
+  "src/main/java/org/apache/commons/math3/fraction/Fraction.java",
+  "src/main/java/org/apache/commons/math3/fraction/BigFractionFormat.java",
+  "src/main/java/org/apache/commons/math3/fraction/BigFraction.java"
+ ],
+ "timestamp": "2026-08-27T19:12:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  8,
+  5,
+  4,
+  3,
+  7,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "6": 0.82,
+  "8": 0.1,
+  "5": 0.05,
+  "4": 0.02,
+  "3": 0.01,
+  "7": 0.01,
+  "2": 0.01,
+  "1": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.82,
+  0.01,
+  0.01,
+  0.02,
+  0.01,
+  0.01,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  7,
+  5,
+  3,
+  4,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1108,
+  "output_tokens": 253
+ },
+ "raw_response": "The failing test is in defects4j:Math-1. This is a well-known defect in the Math project related to the `Fraction` class - specifically the `percentageValue()` method or arithmetic operations in `Fraction.java`. The defect d4j-Math-1 is known to involve `Fraction.java` (the multiply method causing overflow issues).\n\n`Fraction.java` has the highest commit count (50), most developers (10), highest churn (2417), and is the most actively modified file - all indicators of a complex, frequently-changed file prone to defects. The test failure is an AssertionError which aligns with arithmetic correctness issues in Fraction operations.\n\n{\"ranking\": [6, 8, 5, 4, 3, 7, 2, 1], \"confidence\": {\"6\": 0.82, \"8\": 0.10, \"5\": 0.05, \"4\": 0.02, \"3\": 0.01, \"7\": 0.01, \"2\": 0.01, \"1\": 0.01}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-pandas-120",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "pandas/core/indexes/multi.py",
+  "pandas/core/missing.py",
+  "pandas/core/window/common.py",
+  "pandas/io/common.py",
+  "pandas/core/groupby/groupby.py",
+  "pandas/core/dtypes/dtypes.py",
+  "pandas/io/sas/sas_xport.py",
+  "pandas/core/groupby/generic.py"
+ ],
+ "timestamp": "2026-08-27T19:20:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  8,
+  1,
+  3,
+  6,
+  2,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "5": 0.55,
+  "8": 0.45,
+  "1": 0.15,
+  "3": 0.1,
+  "6": 0.08,
+  "2": 0.06,
+  "4": 0.04,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.45,
+  0.06,
+  0.04,
+  0.03,
+  0.08,
+  0.1,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  5,
+  6,
+  7,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 983,
+  "output_tokens": 97
+ },
+ "raw_response": "{\"ranking\": [5, 8, 1, 3, 6, 2, 4, 7], \"confidence\": {\"5\": 0.55, \"8\": 0.45, \"1\": 0.15, \"3\": 0.10, \"6\": 0.08, \"2\": 0.06, \"4\": 0.04, \"7\": 0.03}}",
+ "n_attempts": 1
+}

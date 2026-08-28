@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Cli-8",
+ "repo": "defects4j:Cli",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/cli/CommandLine.java",
+  "src/java/org/apache/commons/cli/HelpFormatter.java",
+  "src/java/org/apache/commons/cli/Util.java",
+  "src/java/org/apache/commons/cli/MissingOptionException.java",
+  "src/java/org/apache/commons/cli/OptionGroup.java"
+ ],
+ "timestamp": "2026-08-27T19:30:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.3,
+  "5": 0.15,
+  "3": 0.07,
+  "4": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.15,
+  0.03,
+  0.07,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 742,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 2, 5, 3, 4], \"confidence\": {\"1\": 0.45, \"2\": 0.30, \"5\": 0.15, \"3\": 0.07, \"4\": 0.03}}",
+ "n_attempts": 1
+}

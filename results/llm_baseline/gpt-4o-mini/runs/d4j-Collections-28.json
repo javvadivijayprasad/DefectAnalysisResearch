@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Collections-28",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java",
+  "src/main/java/org/apache/commons/collections4/trie/KeyAnalyzer.java",
+  "src/main/java/org/apache/commons/collections4/trie/PatriciaTrie.java",
+  "src/main/java/org/apache/commons/collections4/trie/package-info.java",
+  "src/main/java/org/apache/commons/collections4/trie/UnmodifiableTrie.java",
+  "src/main/java/org/apache/commons/collections4/trie/AbstractBitwiseTrie.java"
+ ],
+ "timestamp": "2026-08-27T19:32:34",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  5,
+  2,
+  6,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.1,
+  "3": 0.4,
+  "4": 0.05,
+  "5": 0.2,
+  "6": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.1,
+  0.4,
+  0.2,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  0,
+  2,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 815,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [3, 1, 5, 2, 6, 4], \"confidence\": {\"1\": 0.15, \"2\": 0.10, \"3\": 0.40, \"4\": 0.05, \"5\": 0.20, \"6\": 0.10}}",
+ "n_attempts": 1
+}

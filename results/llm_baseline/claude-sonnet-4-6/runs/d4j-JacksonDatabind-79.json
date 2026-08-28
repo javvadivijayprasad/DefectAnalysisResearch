@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-79",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/ser/std/MapSerializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java",
+  "src/main/java/com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java",
+  "src/main/java/com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java",
+  "src/main/java/com/fasterxml/jackson/databind/introspect/AnnotationMap.java",
+  "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+  "src/main/java/com/fasterxml/jackson/databind/introspect/ClassIntrospector.java"
+ ],
+ "timestamp": "2026-08-27T19:06:57",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  1,
+  2,
+  4,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.18,
+  "3": 0.28,
+  "4": 0.08,
+  "5": 0.05,
+  "6": 0.35,
+  "7": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.28,
+  0.08,
+  0.18,
+  0.35,
+  0.25,
+  0.04,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  3,
+  0,
+  2,
+  6,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1092,
+  "output_tokens": 499
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files are most likely defective.\n\nThe test failure involves an AssertionError, which suggests a logic error rather than a compilation issue. Let me analyze the candidates:\n\n1. **MapSerializer.java** - High commit frequency (0.3194), significant churn (1861), relatively recent. Map serialization is a common area for bugs.\n\n2. **BeanSerializerBase.java** - Very high commits (100), high churn (2570), but older file with lower commit frequency.\n\n3. **JacksonAnnotationIntrospector.java** - Highest commits (110), high churn (3076), older file. Annotation introspection is central to many features.\n\n4. **ObjectIdInfo.java** - Low commits (12), low churn (148). Less likely but possible for targeted fixes.\n\n5. **AnnotationMap.java** - Low commits (10), low churn (182), moderate age.\n\n6. **POJOPropertiesCollector.java** - High commit frequency (0.3285), significant churn (2025), relatively recent. This is a key class for property collection and is frequently modified.\n\n7. **ClassIntrospector.java** - Low commits (10), low churn (211).\n\nThe test name pattern \"d4j-JacksonDatabind-79\" suggests this is related to property/annotation handling. The most active files in terms of recent changes are MapSerializer (1) and POJOPropertiesCollector (6). Given the AssertionError and the nature of JacksonDatabind bugs around property collection and serialization, POJOPropertiesCollector and JacksonAnnotationIntrospector are strong candidates. MapSerializer is also frequently involved in serialization bugs.\n\n{\"ranking\": [6, 3, 1, 2, 4, 5, 7], \"confidence\": {\"1\": 0.25, \"2\": 0.18, \"3\": 0.28, \"4\": 0.08, \"5\": 0.05, \"6\": 0.35, \"7\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,30 @@
+{
+ "event_id": "d4j-Gson-5",
+ "repo": "defects4j:Gson",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 1,
+ "presented_files": [
+  "gson/src/main/java/com/google/gson/internal/bind/util/ISO8601Utils.java"
+ ],
+ "timestamp": "2026-08-27T19:33:10",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.85
+ },
+ "confidence_by_corpus_row": [
+  0.85
+ ],
+ "rankpos_by_corpus_row": [
+  0
+ ],
+ "usage": {
+  "input_tokens": 569,
+  "output_tokens": 17
+ },
+ "raw_response": "{\"ranking\": [1], \"confidence\": {\"1\": 0.85}}",
+ "n_attempts": 1
+}

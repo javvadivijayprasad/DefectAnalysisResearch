@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-JacksonDatabind-105",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/ThrowableDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/JdkDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/ByteBufferDeserializer.java"
+ ],
+ "timestamp": "2026-08-27T19:07:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.7,
+  "2": 0.25,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.05,
+  0.7
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 824,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3], \"confidence\": {\"1\": 0.70, \"2\": 0.25, \"3\": 0.05}}",
+ "n_attempts": 1
+}

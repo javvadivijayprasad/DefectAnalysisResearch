@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Math-93",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/java/org/apache/commons/math/util/TransformerMap.java",
+  "src/java/org/apache/commons/math/util/CompositeFormat.java",
+  "src/java/org/apache/commons/math/util/MathUtils.java",
+  "src/java/org/apache/commons/math/util/ContinuedFraction.java"
+ ],
+ "timestamp": "2026-08-27T19:14:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.88,
+  "4": 0.07,
+  "1": 0.04,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.88,
+  0.02,
+  0.04,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 844,
+  "output_tokens": 185
+ },
+ "raw_response": "The failing test is d4j-Math-93. In defects4j, Math-93 is related to `MathUtils.factorial` or similar mathematical utility functions. The test involves an AssertionError which typically comes from incorrect computation results.\n\nMathUtils.java is the most likely candidate given:\n- It's the most heavily modified file (53 commits, 8 devs, high churn)\n- Math-93 in defects4j is known to be related to `MathUtils` (specifically factorial/binomial coefficient calculations)\n- The other files are less likely candidates\n\n{\"ranking\": [3, 4, 1, 2], \"confidence\": {\"3\": 0.88, \"4\": 0.07, \"1\": 0.04, \"2\": 0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-thefuck-19",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "thefuck/types.py",
+  "thefuck/rules/git_push_force.py",
+  "thefuck/shells/bash.py",
+  "thefuck/rules/dirty_unzip.py",
+  "thefuck/rules/sudo.py",
+  "thefuck/rules/git_add.py",
+  "thefuck/shells/fish.py",
+  "thefuck/rules/dnf_no_such_command.py"
+ ],
+ "timestamp": "2026-08-27T19:25:00",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  7,
+  3,
+  2,
+  4,
+  5,
+  6,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "7": 0.4,
+  "3": 0.2,
+  "2": 0.1,
+  "4": 0.08,
+  "5": 0.08,
+  "6": 0.08,
+  "8": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.08,
+  0.4,
+  0.08,
+  0.2,
+  0.55,
+  0.08,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  7,
+  1,
+  6,
+  2,
+  0,
+  5,
+  4
+ ],
+ "usage": {
+  "input_tokens": 995,
+  "output_tokens": 464
+ },
+ "raw_response": "Looking at this failing test event for thefuck project, I need to identify which files are most likely defective.\n\nKey observations:\n1. The failure is an `AssertionError` with `app_code_changed` flag set\n2. Files 1 (`thefuck/types.py`) and 7 (`thefuck/shells/fish.py`) have higher commit activity (commits=4, churn=140, age_days=120, commit_freq=0.3333) compared to the other candidates\n3. Files 2,4,5,6,8 all have identical stats (commits=1, churn=35, age_days=30) suggesting they may be recently added rule files\n4. File 3 (`thefuck/shells/bash.py`) has moderate activity\n\nThe `thefuck/types.py` file is a core file that would affect many tests if changed incorrectly. Shell files (bash.py, fish.py) are also central to the framework. The higher churn and commit frequency of files 1 and 7 suggest they've been actively modified.\n\nFor a test about `git_push_force` (file 2), the test might be testing command matching which could depend on `types.py`. However, the AssertionError could come from many places.\n\nGiven that `types.py` is a foundational file with high churn and the test failure is an AssertionError (often from type/interface mismatches), and `fish.py` also has similar high activity, these two are most suspicious. The rule files with identical low stats are less likely to be the defective ones.\n\n{\"ranking\": [1, 7, 3, 2, 4, 5, 6, 8], \"confidence\": {\"1\": 0.55, \"7\": 0.40, \"3\": 0.20, \"2\": 0.10, \"4\": 0.08, \"5\": 0.08, \"6\": 0.08, \"8\": 0.08}}",
+ "n_attempts": 1
+}

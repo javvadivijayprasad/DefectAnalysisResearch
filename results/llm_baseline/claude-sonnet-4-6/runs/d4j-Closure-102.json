@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-102",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "src/com/google/javascript/jscomp/CollapseAnonymousFunctions.java",
+  "src/com/google/javascript/jscomp/UseSite.java",
+  "src/com/google/javascript/jscomp/AnonymousFunctionNamingCallback.java",
+  "src/com/google/javascript/jscomp/CrossModuleCodeMotion.java",
+  "src/com/google/javascript/jscomp/Normalize.java"
+ ],
+ "timestamp": "2026-08-27T18:58:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  3,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.65,
+  "3": 0.25,
+  "4": 0.55,
+  "5": 0.15,
+  "6": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.15,
+  0.65,
+  0.55,
+  0.35,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  4,
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 950,
+  "output_tokens": 437
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-102, I need to identify which files are likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The flag `app_code_changed` is set\n- Candidates 2, 3, 4, 5 all have age_days=1 and commits=1, suggesting they were newly added files (possibly in the same commit)\n- Candidate 1 (CodeGenerator.java) has significant activity with 6 commits and high churn\n- Candidate 6 (Normalize.java) has many commits over a long history\n\nFor Closure-102, this bug relates to anonymous function naming/collapsing. The test name pattern suggests it involves `CollapseAnonymousFunctions` or related functionality. Files 2, 3, 4 are all related to anonymous function handling and were added together (age_days=1, commits=1), suggesting they're part of the same feature addition that introduced the bug.\n\n`CollapseAnonymousFunctions.java` (2) and `AnonymousFunctionNamingCallback.java` (4) are directly related to the feature being tested. `CrossModuleCodeMotion.java` (5) is also new but less directly related to anonymous function naming.\n\n`CodeGenerator.java` (1) could also be involved as it handles code generation which might interact with anonymous function naming.\n\nThe most likely defective files are the newly added anonymous function-related files (2, 4) and possibly CodeGenerator (1) which may need updates to support the new feature.\n\n{\"ranking\": [2, 4, 1, 3, 5, 6], \"confidence\": {\"1\": 0.35, \"2\": 0.65, \"3\": 0.25, \"4\": 0.55, \"5\": 0.15, \"6\": 0.10}}",
+ "n_attempts": 1
+}

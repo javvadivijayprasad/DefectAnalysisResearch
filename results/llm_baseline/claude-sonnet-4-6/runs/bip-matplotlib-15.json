@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-matplotlib-15",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "examples/userdemo/colormap_normalizations_symlognorm.py",
+  "lib/matplotlib/colorbar.py",
+  "lib/matplotlib/figure.py",
+  "examples/userdemo/colormap_normalizations.py",
+  "lib/matplotlib/colors.py",
+  "tutorials/colors/colormapnorms.py",
+  "lib/matplotlib/backend_bases.py"
+ ],
+ "timestamp": "2026-08-27T19:18:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  7,
+  3,
+  6,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "5": 0.7,
+  "2": 0.35,
+  "7": 0.2,
+  "3": 0.15,
+  "6": 0.05,
+  "1": 0.05,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.05,
+  0.05,
+  0.7,
+  0.35,
+  0.2,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  4,
+  5,
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 940,
+  "output_tokens": 327
+ },
+ "raw_response": "Looking at this failing test event for matplotlib with an AssertionError:\n\nKey observations:\n1. The test involves colormaps/normalization (based on the file names in candidates)\n2. `lib/matplotlib/colors.py` has 3 commits vs 1 for most others, and higher churn (105 vs 35), suggesting it's been more actively modified\n3. `lib/matplotlib/colorbar.py` is directly related to colorbar functionality which uses color normalization\n4. `lib/matplotlib/backend_bases.py` has 2 commits and moderate churn\n5. The example files (1, 4, 6) are less likely to cause test failures\n6. `lib/matplotlib/figure.py` is less directly related to colormap normalization\n\nThe AssertionError in colormap normalization tests most likely points to `colors.py` (the core normalization logic) and possibly `colorbar.py` (which renders colorbars using normalization). The higher commit frequency of `colors.py` strongly suggests it's the primary defective file.\n\n{\"ranking\": [5, 2, 7, 3, 6, 1, 4], \"confidence\": {\"5\": 0.70, \"2\": 0.35, \"7\": 0.20, \"3\": 0.15, \"6\": 0.05, \"1\": 0.05, \"4\": 0.05}}",
+ "n_attempts": 1
+}

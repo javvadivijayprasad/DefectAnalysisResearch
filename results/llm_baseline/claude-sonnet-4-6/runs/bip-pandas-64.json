@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-pandas-64",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "pandas/core/reshape/tile.py",
+  "pandas/io/formats/excel.py",
+  "pandas/io/pickle.py",
+  "pandas/io/parquet.py"
+ ],
+ "timestamp": "2026-08-27T19:19:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.7,
+  "2": 0.12,
+  "3": 0.1,
+  "4": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.1,
+  0.1,
+  0.7
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 786,
+  "output_tokens": 116
+ },
+ "raw_response": "The test is bip-pandas-64. The \"tile\" module (pandas/core/reshape/tile.py) has significantly more commits, higher churn, and higher commit frequency than the others, making it the most likely defective file. The io files are all equally low-activity.\n\n{\"ranking\": [1, 2, 3, 4], \"confidence\": {\"1\": 0.70, \"2\": 0.12, \"3\": 0.10, \"4\": 0.10}}",
+ "n_attempts": 1
+}

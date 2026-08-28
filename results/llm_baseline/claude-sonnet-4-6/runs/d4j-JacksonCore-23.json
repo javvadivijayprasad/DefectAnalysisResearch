@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonCore-23",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/util/JsonParserDelegate.java",
+  "src/main/java/com/fasterxml/jackson/core/util/DefaultIndenter.java",
+  "src/main/java/com/fasterxml/jackson/core/util/MinimalPrettyPrinter.java",
+  "src/main/java/com/fasterxml/jackson/core/util/package-info.java",
+  "src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java"
+ ],
+ "timestamp": "2026-08-27T19:04:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  3,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "5": 0.55,
+  "2": 0.35,
+  "3": 0.15,
+  "1": 0.08,
+  "4": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.02,
+  0.35,
+  0.08,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  1,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 928,
+  "output_tokens": 433
+ },
+ "raw_response": "Looking at this failing test in JacksonCore, I need to identify which file(s) are likely defective.\n\nKey observations:\n- The test involves `AssertionError` which suggests a value mismatch\n- The `app_code_changed` flag indicates application code was modified\n- The files are all in the `util` package\n\nAnalysis of candidates:\n1. `JsonParserDelegate.java` - High commit frequency (0.0956), moderate activity, delegates parser operations\n2. `DefaultIndenter.java` - Very high commit frequency (0.2154), recently created (130 days old), relatively new file with active development - this suggests recent changes that could introduce bugs\n3. `MinimalPrettyPrinter.java` - Moderate activity, pretty printing related\n4. `package-info.java` - Just created (1 day old), trivial file, very unlikely to be defective in a functional sense\n5. `DefaultPrettyPrinter.java` - High churn (1029), many devs (6), long history - this is the main pretty printer implementation\n\nThe test failure likely relates to pretty printing functionality. `DefaultPrettyPrinter.java` has the highest churn and most contributors, making it prone to bugs. `DefaultIndenter.java` is very recently active (high commit_freq=0.2154, age=130 days) suggesting recent changes. These two are the most likely candidates for a pretty-printer related bug.\n\n`DefaultPrettyPrinter` with its high churn and many contributors is the primary suspect, with `DefaultIndenter` as a secondary suspect given its recent high activity.\n\n{\"ranking\": [5, 2, 3, 1, 4], \"confidence\": {\"5\": 0.55, \"2\": 0.35, \"3\": 0.15, \"1\": 0.08, \"4\": 0.02}}",
+ "n_attempts": 1
+}

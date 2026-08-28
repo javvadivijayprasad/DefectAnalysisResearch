@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Time-1",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/joda/time/LocalDate.java",
+  "src/main/java/org/joda/time/Partial.java",
+  "src/main/java/org/joda/time/field/UnsupportedDurationField.java",
+  "src/main/java/org/joda/time/ReadablePeriod.java",
+  "src/main/java/org/joda/time/DateTimeUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:15:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "2": 0.1,
+  "5": 0.05,
+  "3": 0.02,
+  "4": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.02,
+  0.82,
+  0.02,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  0,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 899,
+  "output_tokens": 126
+ },
+ "raw_response": "The defects4j Time-1 bug is about `LocalDate.plusYears()` (or similar period arithmetic) returning wrong results. The fix is in `LocalDate.java` which has the highest commit frequency among recent files and is the most actively changed file in this set.\n\n{\"ranking\": [1, 2, 5, 3, 4], \"confidence\": {\"1\": 0.82, \"2\": 0.10, \"5\": 0.05, \"3\": 0.02, \"4\": 0.02}}",
+ "n_attempts": 1
+}

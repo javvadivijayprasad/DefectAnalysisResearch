@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-pandas-119",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "pandas/core/arrays/interval.py",
+  "pandas/core/arrays/categorical.py",
+  "pandas/core/reshape/pivot.py",
+  "pandas/core/indexes/accessors.py",
+  "pandas/core/arrays/string_.py",
+  "pandas/core/reshape/util.py"
+ ],
+ "timestamp": "2026-08-27T19:20:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  4,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.4,
+  "3": 0.25,
+  "4": 0.08,
+  "5": 0.08,
+  "6": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.08,
+  0.4,
+  0.08,
+  0.08,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  0,
+  3,
+  5,
+  2
+ ],
+ "usage": {
+  "input_tokens": 884,
+  "output_tokens": 486
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError in pandas\n- The `app_code_changed` flag is set\n- I need to consider file activity patterns and relevance\n\nAnalysis:\n1. `interval.py` - Recent activity (60 days), 2 commits, moderate churn. Interval arrays can have assertion issues.\n2. `categorical.py` - High activity (9 commits, 3 devs, 315 churn, 270 days). Categorical arrays are complex and frequently modified.\n3. `pivot.py` - Moderate activity (5 commits, 175 churn, 150 days). Pivot operations can trigger assertion errors.\n4. `accessors.py` - Very recent (30 days), single commit, low churn. New/recently added file.\n5. `string_.py` - Very recent (30 days), single commit, low churn. New/recently added file.\n6. `util.py` - Very recent (30 days), single commit, low churn. New/recently added file.\n\nFor bip-pandas-119, this is likely related to a specific bug. The categorical.py file has the highest activity suggesting it's frequently buggy/fixed. The pivot.py is also a common source of issues. The very recent files (4, 5, 6) with single commits could be newly introduced files that have bugs, but they're also less likely to be the source of complex assertion errors.\n\nGiven the AssertionError pattern and the file characteristics, `categorical.py` with its high churn and multiple developers is most likely to contain the defect. `pivot.py` is second most likely. The interval.py with recent changes is also a candidate.\n\n{\"ranking\": [2, 3, 1, 4, 5, 6], \"confidence\": {\"1\": 0.15, \"2\": 0.40, \"3\": 0.25, \"4\": 0.08, \"5\": 0.08, \"6\": 0.08}}",
+ "n_attempts": 1
+}

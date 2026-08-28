@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonCore-14",
+ "repo": "defects4j:JacksonCore",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/io/CharacterEscapes.java",
+  "src/main/java/com/fasterxml/jackson/core/io/NumberOutput.java",
+  "src/main/java/com/fasterxml/jackson/core/io/UTF8Writer.java",
+  "src/main/java/com/fasterxml/jackson/core/io/OutputDecorator.java",
+  "src/main/java/com/fasterxml/jackson/core/io/CharTypes.java",
+  "src/main/java/com/fasterxml/jackson/core/io/SegmentedStringWriter.java",
+  "src/main/java/com/fasterxml/jackson/core/io/InputDecorator.java",
+  "src/main/java/com/fasterxml/jackson/core/io/IOContext.java"
+ ],
+ "timestamp": "2026-08-27T19:33:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  1,
+  6,
+  3,
+  4,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "2": 0.25,
+  "5": 0.2,
+  "1": 0.15,
+  "6": 0.12,
+  "3": 0.1,
+  "4": 0.08,
+  "7": 0.05,
+  "8": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.12,
+  0.25,
+  0.1,
+  0.08,
+  0.15,
+  0.05,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  3,
+  0,
+  4,
+  5,
+  2,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[2,5,1,6,3,4,7,8],\"confidence\":{\"2\":0.25,\"5\":0.20,\"1\":0.15,\"6\":0.12,\"3\":0.10,\"4\":0.08,\"7\":0.05,\"8\":0.05}}",
+ "n_attempts": 1
+}

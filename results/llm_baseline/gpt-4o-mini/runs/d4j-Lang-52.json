@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-52",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/StringEscapeUtils.java",
+  "src/java/org/apache/commons/lang/SerializationException.java",
+  "src/java/org/apache/commons/lang/IncompleteArgumentException.java",
+  "src/java/org/apache/commons/lang/NumberUtils.java",
+  "src/java/org/apache/commons/lang/IntHashMap.java",
+  "src/java/org/apache/commons/lang/NumberRange.java"
+ ],
+ "timestamp": "2026-08-27T19:35:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  6,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.25,
+  "3": 0.15,
+  "6": 0.1,
+  "2": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.15,
+  0.25,
+  0.1,
+  0.03,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  3,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 782,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\":[1,4,3,6,2,5],\"confidence\":{\"1\":0.45,\"4\":0.25,\"3\":0.15,\"6\":0.10,\"2\":0.03,\"5\":0.02}}",
+ "n_attempts": 1
+}

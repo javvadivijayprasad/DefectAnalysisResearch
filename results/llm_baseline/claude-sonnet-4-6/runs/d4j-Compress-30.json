@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Compress-30",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/Rand.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2Utils.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/BlockSort.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/CRC.java",
+  "src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorInputStream.java"
+ ],
+ "timestamp": "2026-08-27T19:02:26",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  4,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.75,
+  "5": 0.2,
+  "4": 0.05,
+  "2": 0.03,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.05,
+  0.03,
+  0.03,
+  0.75
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 940,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [3, 5, 4, 2, 1], \"confidence\": {\"3\": 0.75, \"5\": 0.20, \"4\": 0.05, \"2\": 0.03, \"1\": 0.03}}",
+ "n_attempts": 1
+}

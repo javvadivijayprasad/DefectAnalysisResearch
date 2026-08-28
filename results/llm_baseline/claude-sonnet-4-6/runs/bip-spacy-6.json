@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-spacy-6",
+ "repo": "bugsinpy:spacy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "spacy/language.py",
+  "examples/information_extraction/entity_relations.py",
+  "spacy/errors.py",
+  "spacy/util.py",
+  "spacy/cli/converters/conllu2json.py",
+  "bin/wiki_entity_linking/wikipedia_processor.py"
+ ],
+ "timestamp": "2026-08-27T19:24:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  5,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "4": 0.35,
+  "3": 0.25,
+  "5": 0.08,
+  "2": 0.05,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.05,
+  0.25,
+  0.08,
+  0.05,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  2,
+  3,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 75
+ },
+ "raw_response": "{\"ranking\": [1, 4, 3, 5, 2, 6], \"confidence\": {\"1\": 0.55, \"4\": 0.35, \"3\": 0.25, \"5\": 0.08, \"2\": 0.05, \"6\": 0.05}}",
+ "n_attempts": 1
+}

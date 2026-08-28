@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-matplotlib-15",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "examples/userdemo/colormap_normalizations_symlognorm.py",
+  "lib/matplotlib/colorbar.py",
+  "lib/matplotlib/figure.py",
+  "examples/userdemo/colormap_normalizations.py",
+  "lib/matplotlib/colors.py",
+  "tutorials/colors/colormapnorms.py",
+  "lib/matplotlib/backend_bases.py"
+ ],
+ "timestamp": "2026-08-27T19:38:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  7,
+  1,
+  2,
+  3,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.12,
+  "2": 0.12,
+  "3": 0.12,
+  "4": 0.12,
+  "5": 0.35,
+  "6": 0.1,
+  "7": 0.17
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.1,
+  0.12,
+  0.35,
+  0.12,
+  0.17,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  6,
+  2,
+  0,
+  3,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 794,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [5, 7, 1, 2, 3, 4, 6], \"confidence\": {\"1\": 0.12, \"2\": 0.12, \"3\": 0.12, \"4\": 0.12, \"5\": 0.35, \"6\": 0.10, \"7\": 0.17}}",
+ "n_attempts": 1
+}

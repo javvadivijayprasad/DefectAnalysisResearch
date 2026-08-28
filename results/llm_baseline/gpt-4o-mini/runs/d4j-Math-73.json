@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Math-73",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/NewtonSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/LaguerreSolver.java"
+ ],
+ "timestamp": "2026-08-27T19:36:05",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "3": 0.3,
+  "2": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.15,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 671,
+  "output_tokens": 39
+ },
+ "raw_response": "{\"ranking\": [1, 3, 2], \"confidence\": {\"1\": 0.55, \"3\": 0.30, \"2\": 0.15}}",
+ "n_attempts": 1
+}

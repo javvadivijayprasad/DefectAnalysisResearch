@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-pandas-71",
+ "repo": "bugsinpy:pandas",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "pandas/core/groupby/grouper.py",
+  "pandas/core/reshape/reshape.py",
+  "pandas/core/ops/__init__.py",
+  "pandas/core/arrays/masked.py",
+  "pandas/core/indexes/numeric.py",
+  "pandas/core/indexes/period.py",
+  "pandas/core/reshape/tile.py"
+ ],
+ "timestamp": "2026-08-27T19:38:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  2,
+  3,
+  7,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "6": 0.25,
+  "2": 0.15,
+  "3": 0.1,
+  "7": 0.08,
+  "4": 0.04,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.1,
+  0.25,
+  0.35,
+  0.04,
+  0.03,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  1,
+  0,
+  5,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 785,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [1, 6, 2, 3, 7, 4, 5], \"confidence\": {\"1\": 0.35, \"6\": 0.25, \"2\": 0.15, \"3\": 0.10, \"7\": 0.08, \"4\": 0.04, \"5\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-51",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/LiveVariablesAnalysis.java",
+  "src/com/google/javascript/jscomp/FunctionNames.java",
+  "src/com/google/javascript/jscomp/GlobalVarReferenceMap.java",
+  "src/com/google/javascript/jscomp/AstParallelizer.java",
+  "src/com/google/javascript/jscomp/CodeConsumer.java",
+  "src/com/google/javascript/jscomp/CodeChangeHandler.java"
+ ],
+ "timestamp": "2026-08-27T18:56:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  1,
+  4,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.52,
+  "3": 0.18,
+  "1": 0.1,
+  "4": 0.08,
+  "2": 0.06,
+  "6": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.52,
+  0.1,
+  0.06,
+  0.08,
+  0.18,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  3,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 946,
+  "output_tokens": 469
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-51, I need to identify which file(s) are likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure compiler issue #51\n\nLet me analyze the candidates:\n\n1. **LiveVariablesAnalysis.java** - Analysis pass, moderate activity (14 commits, 9 devs)\n2. **FunctionNames.java** - Function naming utility, moderate activity\n3. **GlobalVarReferenceMap.java** - Very recent file (119 days old), high commit frequency (0.2941), relatively new with significant changes\n4. **AstParallelizer.java** - AST utility, moderate activity\n5. **CodeConsumer.java** - Very old file (6122 days), moderate commits, handles code generation/output\n6. **CodeChangeHandler.java** - Small file, low activity\n\nFor Closure-51, this is related to code generation. The `CodeConsumer.java` is the oldest file with significant churn and handles code output - code generation bugs often manifest as AssertionErrors in tests. However, `GlobalVarReferenceMap.java` is very new (119 days) with the highest commit frequency, suggesting it's actively being developed and more likely to have bugs.\n\n`CodeConsumer.java` with its age and role in code generation seems most likely for a code output-related assertion error. The `GlobalVarReferenceMap.java` being very new and actively changed is also suspicious.\n\nLooking at Closure-51 specifically, it relates to code printing/generation issues, making `CodeConsumer.java` the primary suspect.\n\n{\"ranking\": [5, 3, 1, 4, 2, 6], \"confidence\": {\"5\": 0.52, \"3\": 0.18, \"1\": 0.10, \"4\": 0.08, \"2\": 0.06, \"6\": 0.04}}",
+ "n_attempts": 1
+}

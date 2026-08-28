@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-thefuck-18",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "thefuck/rules/sudo.py",
+  "thefuck/shells/fish.py",
+  "thefuck/rules/git_add.py",
+  "thefuck/rules/php_s.py"
+ ],
+ "timestamp": "2026-08-27T19:24:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.55,
+  "1": 0.2,
+  "3": 0.15,
+  "4": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.15,
+  0.55,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 797,
+  "output_tokens": 488
+ },
+ "raw_response": "Looking at the failing test for thefuck project with an AssertionError, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test is `bip-thefuck-18`, which is in the thefuck project\n- The failure is an AssertionError\n- The `app_code_changed` flag is set\n\nAnalyzing the candidates:\n1. `thefuck/rules/sudo.py` - 1 commit, 1 dev, low activity, young file (30 days)\n2. `thefuck/shells/fish.py` - 4 commits, 1 dev, much higher activity (140 churn), older file (120 days), higher commit frequency\n3. `thefuck/rules/git_add.py` - 1 commit, 1 dev, low activity, young file (30 days)\n4. `thefuck/rules/php_s.py` - 1 commit, 1 dev, low activity, young file (30 days)\n\nThe `fish.py` shell file stands out significantly with 4 commits, higher churn (140 vs 35), and much higher commit frequency (0.3333 vs 0.0833). Shell-related bugs often cause AssertionErrors in tests that check command output or parsing.\n\nFiles 1, 3, and 4 all have identical statistics (commits=1, devs=1, churn=35, age_days=30, commit_freq=0.0833), suggesting they may be part of the same batch of changes. The test name `bip-thefuck-18` doesn't directly indicate which rule is being tested.\n\nGiven that `fish.py` has significantly more activity and the bug likely involves shell interaction, I'll rank it highest. Among the rules files, they're statistically identical, so I'll distribute probability somewhat evenly.\n\n{\"ranking\": [2, 1, 3, 4], \"confidence\": {\"2\": 0.55, \"1\": 0.20, \"3\": 0.15, \"4\": 0.10}}",
+ "n_attempts": 1
+}

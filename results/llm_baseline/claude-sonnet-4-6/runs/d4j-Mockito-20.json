@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-20",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/internal/creation/bytebuddy/CachingMockBytecodeGenerator.java",
+  "src/org/mockito/internal/creation/bytebuddy/InterceptedInvocation.java",
+  "src/org/mockito/internal/creation/bytebuddy/ClassInstantiator.java",
+  "src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java",
+  "src/org/mockito/internal/creation/bytebuddy/MockMethodInterceptor.java",
+  "src/org/mockito/internal/creation/bytebuddy/MockBytecodeGenerator.java"
+ ],
+ "timestamp": "2026-08-27T19:14:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  5,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "4": 0.45,
+  "3": 0.4,
+  "5": 0.25,
+  "2": 0.2,
+  "6": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.65,
+  0.1,
+  0.4,
+  0.25,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  5,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 985,
+  "output_tokens": 395
+ },
+ "raw_response": "Looking at the failing test and candidates:\n\n- Files 1 and 3 have `commits=1`, `age_days=1`, `commit_freq=1.0000` \u2014 these are brand new files, very likely introduced in the fix commit or the defect-introducing commit.\n- Files 2 and 5 have similar stats (`commits=7`, `age_days=67`, `commit_freq=0.7313`) suggesting they were recently added/modified together.\n- File 4 (`ByteBuddyMockMaker.java`) has high churn (923) and many commits (17) \u2014 it's the main entry point and often involved in fixes.\n- File 6 (`MockBytecodeGenerator.java`) has moderate activity.\n\nThe test failure is an `AssertionError` in Mockito's bytebuddy creation package. The brand-new files (1 and 3) are most suspicious as they represent new code that could introduce defects. File 1 (`CachingMockBytecodeGenerator`) with 135 lines added is particularly notable \u2014 caching logic is a common source of bugs. File 4 (`ByteBuddyMockMaker`) as the orchestrator is also likely involved when new components are introduced.\n\nFiles 2 and 5 were modified together and could be part of the same change set. File 6 is less likely but possible.\n\n{\"ranking\": [1, 4, 3, 5, 2, 6], \"confidence\": {\"1\": 0.65, \"4\": 0.45, \"3\": 0.40, \"5\": 0.25, \"2\": 0.20, \"6\": 0.10}}",
+ "n_attempts": 1
+}

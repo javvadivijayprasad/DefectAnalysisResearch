@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Lang-15",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/reflect/ConstructorUtils.java",
+  "src/main/java/org/apache/commons/lang3/reflect/FieldUtils.java",
+  "src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:11:08",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.85,
+  "1": 0.1,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.85,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 792,
+  "output_tokens": 154
+ },
+ "raw_response": "The failing test is d4j-Lang-15. In the defects4j Lang dataset, bug 15 is related to `TypeUtils` - specifically issues with generic type handling. The `TypeUtils.java` file is the most likely candidate given the nature of the bug (type utilities), and while it has fewer commits, it has significant additions (+1226) suggesting complex logic was added. The test name pattern for Lang-15 typically involves `TypeUtils.getTypeArguments` or similar generic type reflection functionality.\n\n{\"ranking\": [3, 1, 2], \"confidence\": {\"3\": 0.85, \"1\": 0.10, \"2\": 0.05}}",
+ "n_attempts": 1
+}

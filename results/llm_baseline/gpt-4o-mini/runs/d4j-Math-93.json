@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Math-93",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/java/org/apache/commons/math/util/TransformerMap.java",
+  "src/java/org/apache/commons/math/util/CompositeFormat.java",
+  "src/java/org/apache/commons/math/util/MathUtils.java",
+  "src/java/org/apache/commons/math/util/ContinuedFraction.java"
+ ],
+ "timestamp": "2026-08-27T19:36:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.45,
+  "3": 0.15,
+  "4": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.45,
+  0.25,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 700,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [2, 1, 4, 3], \"confidence\": {\"1\": 0.25, \"2\": 0.45, \"3\": 0.15, \"4\": 0.15}}",
+ "n_attempts": 1
+}

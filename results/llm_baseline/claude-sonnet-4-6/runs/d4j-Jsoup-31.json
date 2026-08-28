@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-31",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java"
+ ],
+ "timestamp": "2026-08-27T19:08:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "1": 0.35,
+  "2": 0.12,
+  "3": 0.06,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.06,
+  0.05,
+  0.35,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  4,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 891,
+  "output_tokens": 411
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The failure is an `AssertionError` in the parser\n- `app_code_changed` flag is set\n- This is defects4j Jsoup bug #31\n\nAnalyzing the candidates:\n\n1. **Tag.java** - Very high commit frequency (0.32), high churn (1479), single developer, relatively recent (1005 days). This is a heavily modified file suggesting active development/bug fixing.\n\n2. **Token.java** - Moderate activity, two developers, moderate churn.\n\n3. **TokeniserState.java** - Large file (1899 lines added), low commit frequency, older file.\n\n4. **TreeBuilder.java** - High churn (1452), single developer, very recent (314 days), high commit frequency (0.22). This is a very recently and actively modified file.\n\n5. **XmlTreeBuilder.java** - Low activity, low churn, older file.\n\nFor Jsoup bug #31, which typically involves parsing issues, the TreeBuilder is the most recently active file (314 days old, high commit frequency). Tag.java is also highly active. These two are the most likely candidates for a recent bug fix.\n\nThe TreeBuilder being only 314 days old with high commit frequency suggests it's been recently refactored/modified, making it a prime candidate for introducing bugs. Tag.java with its high commit frequency is also suspicious.\n\n{\"ranking\": [4, 1, 2, 3, 5], \"confidence\": {\"4\": 0.45, \"1\": 0.35, \"2\": 0.12, \"3\": 0.06, \"5\": 0.05}}",
+ "n_attempts": 1
+}

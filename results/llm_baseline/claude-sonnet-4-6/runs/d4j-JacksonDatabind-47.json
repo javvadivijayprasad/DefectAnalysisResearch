@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-47",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/BeanProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/SequenceWriter.java",
+  "src/main/java/com/fasterxml/jackson/databind/KeyDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java",
+  "src/main/java/com/fasterxml/jackson/databind/RuntimeJsonMappingException.java"
+ ],
+ "timestamp": "2026-08-27T19:06:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  2,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "5": 0.88,
+  "3": 0.72,
+  "2": 0.35,
+  "4": 0.12,
+  "1": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.72,
+  0.08,
+  0.35,
+  0.88
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  4,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 928,
+  "output_tokens": 342
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- `RuntimeJsonMappingException.java`: age_days=1, commits=1, commit_freq=1.0 - This is a brand new file, very likely created as part of the fix\n- `KeyDeserializer.java`: age_days=30, commits=3, commit_freq=0.7 - Recently modified, high commit frequency\n- `SequenceWriter.java`: relatively recent file with moderate activity\n- `AnnotationIntrospector.java`: very active file but old\n- `BeanProperty.java`: moderate activity\n\nThe `RuntimeJsonMappingException.java` being brand new (age_days=1, single commit) strongly suggests it was created as part of the fix. `KeyDeserializer.java` being recently modified (age_days=30) with high commit frequency also suggests it's part of the fix - likely it was modified to use the new `RuntimeJsonMappingException`. `SequenceWriter.java` could also be involved as it might wrap checked exceptions.\n\nThe pattern of a new exception class being created alongside modifications to related classes is common in Jackson fixes.\n\n{\"ranking\": [5, 3, 2, 4, 1], \"confidence\": {\"5\": 0.88, \"3\": 0.72, \"2\": 0.35, \"4\": 0.12, \"1\": 0.08}}",
+ "n_attempts": 1
+}

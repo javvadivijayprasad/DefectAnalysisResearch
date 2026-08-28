@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Compress-19",
+ "repo": "defects4j:Compress",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/zip/UnparseableExtraFieldData.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/Zip64ExtendedInformationExtraField.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/AbstractUnicodeExtraField.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/NioZipEncoding.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipMethod.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipConstants.java"
+ ],
+ "timestamp": "2026-08-27T19:32:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  3,
+  1,
+  5,
+  4,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "6": 0.35,
+  "2": 0.25,
+  "3": 0.15,
+  "1": 0.1,
+  "5": 0.08,
+  "4": 0.04,
+  "7": 0.02,
+  "8": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.15,
+  0.1,
+  0.25,
+  0.01,
+  0.08,
+  0.35,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  3,
+  1,
+  7,
+  4,
+  0,
+  6
+ ],
+ "usage": {
+  "input_tokens": 930,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[6,2,3,1,5,4,7,8],\"confidence\":{\"6\":0.35,\"2\":0.25,\"3\":0.15,\"1\":0.10,\"5\":0.08,\"4\":0.04,\"7\":0.02,\"8\":0.01}}",
+ "n_attempts": 1
+}

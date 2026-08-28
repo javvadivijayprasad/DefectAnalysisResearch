@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonCore-13",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/json/DupDetector.java",
+  "src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java",
+  "src/main/java/com/fasterxml/jackson/core/json/ByteSourceJsonBootstrapper.java",
+  "src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java",
+  "src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java"
+ ],
+ "timestamp": "2026-08-27T19:04:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "4": 0.4,
+  "2": 0.2,
+  "5": 0.15,
+  "3": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.08,
+  0.55,
+  0.15,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 932,
+  "output_tokens": 497
+ },
+ "raw_response": "Looking at this failing test in JacksonCore, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is in the `json` package\n\nLet me analyze the candidates:\n\n1. **DupDetector.java** - Low commits (3), relatively new (692 days), small file. Handles duplicate field detection.\n\n2. **UTF8JsonGenerator.java** - High activity (42 commits, 5 devs), large file with significant churn. JSON generation for UTF-8.\n\n3. **ByteSourceJsonBootstrapper.java** - Moderate activity, handles bootstrapping/encoding detection.\n\n4. **JsonGeneratorImpl.java** - Low commit frequency, older file, handles generator implementation base. The DupDetector is used in JsonGeneratorImpl for duplicate field name detection.\n\n5. **ReaderBasedJsonParser.java** - Very high activity (75 commits, 6 devs), largest churn. This is the most actively modified file.\n\nFor JacksonCore defect #13, considering the DupDetector is a relatively new file (692 days, only 3 commits) and JsonGeneratorImpl is its likely consumer, and given that duplicate detection is a feature that could have subtle bugs causing AssertionErrors... The DupDetector and JsonGeneratorImpl combination seems plausible.\n\nHowever, the high-churn files (UTF8JsonGenerator, ReaderBasedJsonParser) are more likely to contain bugs simply due to frequency of changes. The DupDetector being new with few commits could indicate it was recently added and has a bug.\n\nGiven the test is about JSON generation/parsing and the AssertionError pattern, I'll weight toward DupDetector (recently added, could have logic bugs) and JsonGeneratorImpl (which uses it).\n\n{\"ranking\": [1, 4, 2, 5, 3], \"confidence\": {\"1\": 0.55, \"4\": 0.40, \"2\": 0.20, \"5\": 0.15, \"3\": 0.08}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-93",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsWrapperTypeDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsExternalTypeDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsPropertyTypeDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsWrapperTypeSerializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsArrayTypeSerializer.java"
+ ],
+ "timestamp": "2026-08-27T19:07:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "4": 0.15,
+  "2": 0.08,
+  "3": 0.06,
+  "6": 0.04,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.04,
+  0.06,
+  0.03,
+  0.08,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  3,
+  5,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1028,
+  "output_tokens": 173
+ },
+ "raw_response": "The failing test is about subtype validation (a security/deserialization issue in JacksonDatabind). The `SubTypeValidator.java` file is specifically designed to validate subtypes during deserialization, which is exactly what would be involved in a fix for deserialization-related security issues. The low commit count (4) but with additions (+106/-6) suggests a significant feature/fix was added. This is the most likely defective file.\n\n{\"ranking\": [1, 4, 2, 3, 6, 5], \"confidence\": {\"1\": 0.82, \"4\": 0.15, \"2\": 0.08, \"3\": 0.06, \"6\": 0.04, \"5\": 0.03}}",
+ "n_attempts": 1
+}

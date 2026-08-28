@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-30",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/CharUtils.java",
+  "src/main/java/org/apache/commons/lang3/StringEscapeUtils.java",
+  "src/main/java/org/apache/commons/lang3/ClassUtils.java",
+  "src/main/java/org/apache/commons/lang3/SystemUtils.java",
+  "src/main/java/org/apache/commons/lang3/CharEncoding.java",
+  "src/main/java/org/apache/commons/lang3/StringUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:11:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  3,
+  1,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.82,
+  "2": 0.08,
+  "3": 0.04,
+  "1": 0.03,
+  "4": 0.02,
+  "5": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.03,
+  0.08,
+  0.04,
+  0.02,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  2,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 967,
+  "output_tokens": 205
+ },
+ "raw_response": "The failing test is d4j-Lang-30. Looking at the defects4j Lang bug database, Lang-30 is related to `StringUtils.containsAny` method which had a bug with supplementary characters (Unicode code points > 0xFFFF). This is a `StringUtils` issue.\n\nThe `StringUtils.java` file is the most likely candidate given:\n- It's the most heavily modified file (243 commits, 15 devs, massive churn)\n- Lang-30 specifically involves `StringUtils.containsAny` with char array handling\n\n{\"ranking\": [6, 2, 3, 1, 4, 5], \"confidence\": {\"6\": 0.82, \"2\": 0.08, \"3\": 0.04, \"1\": 0.03, \"4\": 0.02, \"5\": 0.01}}",
+ "n_attempts": 1
+}

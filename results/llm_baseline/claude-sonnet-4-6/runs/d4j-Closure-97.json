@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-97",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/NameAnalyzer.java",
+  "src/com/google/javascript/jscomp/JSError.java",
+  "src/com/google/javascript/jscomp/UnreachableCodeElimination.java",
+  "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+  "src/com/google/javascript/jscomp/JsMessage.java",
+  "src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java"
+ ],
+ "timestamp": "2026-08-27T18:58:20",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  5,
+  3,
+  7,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.3,
+  "5": 0.15,
+  "3": 0.1,
+  "7": 0.05,
+  "2": 0.03,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.1,
+  0.45,
+  0.03,
+  0.05,
+  0.02,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  0,
+  5,
+  4,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1012,
+  "output_tokens": 525
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-97, I need to identify which files are likely defective.\n\nThe test failure is an AssertionError, which in Closure compiler tests typically indicates a compilation/optimization result doesn't match expected output.\n\nLet me analyze the candidates:\n\n1. **NameAnalyzer.java** - High commit frequency (0.45), relatively recent (170 days), significant churn. NameAnalyzer handles dead code elimination and variable reference tracking.\n\n2. **JSError.java** - Low commits, moderate age. Error reporting infrastructure - unlikely to cause test failures.\n\n3. **UnreachableCodeElimination.java** - Low commits but recent activity, handles unreachable code - could be relevant.\n\n4. **PeepholeFoldConstants.java** - Very high churn (4313), many commits (21), old file (6122 days). This handles constant folding optimizations which frequently cause AssertionErrors in tests.\n\n5. **DefaultPassConfig.java** - Extremely high commit frequency (1.035), many commits (38), recent. This configures which passes run - changes here could affect many tests.\n\n6. **JsMessage.java** - Very few commits, very recent (51 days). Message handling - less likely.\n\n7. **CheckPathsBetweenNodes.java** - Low commits, moderate age. Graph analysis utility.\n\nFor Closure-97 specifically, this is related to dead code elimination / name analysis. The NameAnalyzer.java is highly active and recent. PeepholeFoldConstants.java has massive churn and many commits making it prone to bugs. DefaultPassConfig.java's high commit frequency makes it a candidate too.\n\nGiven the AssertionError pattern and the nature of Closure-97 (which involves dead code elimination), NameAnalyzer.java seems most likely, with PeepholeFoldConstants.java as a strong second candidate.\n\n{\"ranking\": [1, 4, 5, 3, 7, 2, 6], \"confidence\": {\"1\": 0.45, \"4\": 0.30, \"5\": 0.15, \"3\": 0.10, \"7\": 0.05, \"2\": 0.03, \"6\": 0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-45",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/ParseError.java",
+  "src/main/java/org/jsoup/parser/ParseErrorList.java",
+  "src/main/java/org/jsoup/parser/Parser.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java"
+ ],
+ "timestamp": "2026-08-27T19:09:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  6,
+  2,
+  3,
+  7,
+  1
+ ],
+ "llm_confidence_presented": {
+  "5": 0.92,
+  "4": 0.65,
+  "6": 0.6,
+  "2": 0.15,
+  "3": 0.12,
+  "7": 0.1,
+  "1": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.92,
+  0.12,
+  0.08,
+  0.65,
+  0.1,
+  0.6
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  4,
+  6,
+  1,
+  5,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1001,
+  "output_tokens": 438
+ },
+ "raw_response": "Looking at the failing test event for defects4j:Jsoup-45, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- `ParseErrorList.java` (candidate 5) has extremely unusual stats: commits=1, age_days=1, commit_freq=1.0000, churn=34 with only additions. This strongly suggests it's a newly created file as part of the fix.\n- `ParseError.java` (candidate 4) has a very high commit_freq=0.1097 relative to its age, and was recently modified (age_days=319). It likely was modified alongside ParseErrorList.java.\n- `Parser.java` (candidate 6) has the highest commit count (62) and highest churn (1542), making it a frequent target for changes. It's very likely involved in parsing error handling changes.\n- `HtmlTreeBuilder.java` (candidate 2) has a very old age (5569 days) but relatively few commits, suggesting it's stable.\n- `TokenQueue.java` (candidate 1) and `CharacterReader.java` (candidate 7) are moderately active.\n- `Token.java` (candidate 3) is moderately active.\n\nThe pattern of ParseErrorList being brand new (age_days=1, single commit) strongly indicates it's part of the fix. ParseError.java being recently modified and related to error handling also points to it being part of the fix. Parser.java as the main parser class is very likely involved in wiring these together.\n\n{\"ranking\": [5, 4, 6, 2, 3, 7, 1], \"confidence\": {\"5\": 0.92, \"4\": 0.65, \"6\": 0.60, \"2\": 0.15, \"3\": 0.12, \"7\": 0.10, \"1\": 0.08}}",
+ "n_attempts": 1
+}

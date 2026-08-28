@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Compress-44",
+ "repo": "defects4j:Compress",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/utils/Sets.java",
+  "src/main/java/org/apache/commons/compress/utils/ChecksumVerifyingInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/SeekableInMemoryByteChannel.java",
+  "src/main/java/org/apache/commons/compress/utils/FixedLengthBlockOutputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/ServiceLoaderIterator.java",
+  "src/main/java/org/apache/commons/compress/utils/CloseShieldFilterInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/BoundedInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/ChecksumCalculatingInputStream.java"
+ ],
+ "timestamp": "2026-08-27T19:32:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  3,
+  2,
+  1,
+  6,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "4": 0.35,
+  "5": 0.3,
+  "3": 0.15,
+  "2": 0.1,
+  "1": 0.05,
+  "6": 0.025,
+  "7": 0.025,
+  "8": 0.005
+ },
+ "confidence_by_corpus_row": [
+  0.005,
+  0.05,
+  0.1,
+  0.3,
+  0.15,
+  0.025,
+  0.025,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  4,
+  3,
+  1,
+  2,
+  5,
+  6,
+  0
+ ],
+ "usage": {
+  "input_tokens": 905,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[4,5,3,2,1,6,7,8],\"confidence\":{\"4\":0.35,\"5\":0.30,\"3\":0.15,\"2\":0.10,\"1\":0.05,\"6\":0.025,\"7\":0.025,\"8\":0.005}}",
+ "n_attempts": 1
+}

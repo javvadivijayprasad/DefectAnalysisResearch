@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Cli-15",
+ "repo": "defects4j:Cli",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/cli2/commandline/PropertiesCommandLine.java",
+  "src/java/org/apache/commons/cli2/commandline/Parser.java",
+  "src/java/org/apache/commons/cli2/commandline/CommandLineImpl.java",
+  "src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java",
+  "src/java/org/apache/commons/cli2/commandline/PreferencesCommandLine.java",
+  "src/java/org/apache/commons/cli2/commandline/DefaultingCommandLine.java"
+ ],
+ "timestamp": "2026-08-27T18:54:42",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  3,
+  6,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "2": 0.3,
+  "3": 0.15,
+  "6": 0.08,
+  "1": 0.06,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.3,
+  0.05,
+  0.06,
+  0.15,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  5,
+  4,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 970,
+  "output_tokens": 75
+ },
+ "raw_response": "{\"ranking\": [4, 2, 3, 6, 1, 5], \"confidence\": {\"4\": 0.45, \"2\": 0.30, \"3\": 0.15, \"6\": 0.08, \"1\": 0.06, \"5\": 0.05}}",
+ "n_attempts": 1
+}

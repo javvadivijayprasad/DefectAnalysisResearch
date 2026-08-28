@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Collections-20",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/collections/list/SynchronizedList.java",
+  "src/main/java/org/apache/commons/collections/list/FixedSizeList.java",
+  "src/main/java/org/apache/commons/collections/list/PredicatedList.java",
+  "src/main/java/org/apache/commons/collections/list/package-info.java",
+  "src/main/java/org/apache/commons/collections/list/LazyList.java",
+  "src/main/java/org/apache/commons/collections/list/TreeList.java"
+ ],
+ "timestamp": "2026-08-27T19:32:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  5,
+  6,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.25,
+  "3": 0.2,
+  "5": 0.1,
+  "6": 0.08,
+  "4": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.1,
+  0.02,
+  0.25,
+  0.2,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  5,
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 801,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 5, 6, 4], \"confidence\": {\"1\": 0.35, \"2\": 0.25, \"3\": 0.20, \"5\": 0.10, \"6\": 0.08, \"4\": 0.02}}",
+ "n_attempts": 1
+}

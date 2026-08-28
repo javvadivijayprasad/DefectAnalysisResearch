@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-101",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/SettableBeanProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiator.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/KeyDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerModifier.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiators.java"
+ ],
+ "timestamp": "2026-08-27T18:50:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  7,
+  2,
+  4,
+  6,
+  8,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.82,
+  "1": 0.45,
+  "7": 0.35,
+  "2": 0.3,
+  "4": 0.1,
+  "6": 0.08,
+  "8": 0.06,
+  "5": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.08,
+  0.82,
+  0.1,
+  0.3,
+  0.06,
+  0.35,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  0,
+  4,
+  3,
+  6,
+  2,
+  7
+ ],
+ "usage": {
+  "input_tokens": 1152,
+  "output_tokens": 408
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError, suggesting a deserialization behavior issue\n- The `app_code_changed` flag is set\n- File 3 (`package-info.java`) has extremely unusual stats: commits=1, age_days=1, commit_freq=1.0000 - this strongly suggests it was just created/modified as part of the fix commit\n- Files 1 (`BeanDeserializer.java`) and 7 (`BuilderBasedDeserializer.java`) are the core deserialization logic files with high activity\n- File 2 (`SettableBeanProperty.java`) also has high activity and is central to bean deserialization\n\nThe `package-info.java` with age_days=1 is almost certainly part of the fix commit (newly created). For the actual logic fix, `BeanDeserializer.java` and/or `BuilderBasedDeserializer.java` are the most likely candidates given they contain the core deserialization logic that would cause AssertionErrors in tests.\n\n`SettableBeanProperty.java` with high commit frequency (0.2560) is also a strong candidate as it's frequently modified and central to property setting during deserialization.\n\n{\"ranking\": [3, 1, 7, 2, 4, 6, 8, 5], \"confidence\": {\"3\": 0.82, \"1\": 0.45, \"7\": 0.35, \"2\": 0.30, \"4\": 0.10, \"6\": 0.08, \"8\": 0.06, \"5\": 0.04}}",
+ "n_attempts": 1
+}

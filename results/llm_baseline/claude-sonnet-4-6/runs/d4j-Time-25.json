@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Time-25",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/org/joda/time/ReadWritablePeriod.java",
+  "src/main/java/org/joda/time/DateTimeZone.java",
+  "src/main/java/org/joda/time/Duration.java"
+ ],
+ "timestamp": "2026-08-27T19:16:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.7,
+  "3": 0.2,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.7,
+  0.05,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 780,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [2, 3, 1], \"confidence\": {\"2\": 0.70, \"3\": 0.20, \"1\": 0.05}}",
+ "n_attempts": 1
+}

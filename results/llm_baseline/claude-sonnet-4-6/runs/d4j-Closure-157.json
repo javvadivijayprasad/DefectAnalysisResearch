@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Closure-157",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/RenamePrototypes.java",
+  "src/com/google/javascript/jscomp/parsing/IRFactory.java",
+  "src/com/google/javascript/jscomp/DefinitionsRemover.java",
+  "src/com/google/javascript/jscomp/CodeGenerator.java"
+ ],
+ "timestamp": "2026-08-27T18:59:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "3": 0.3,
+  "2": 0.2,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.05,
+  0.2,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 836,
+  "output_tokens": 411
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-157, I need to identify which file(s) are most likely defective.\n\nKey observations:\n- The failure is an AssertionError (test assertion failure, not a crash)\n- `app_code_changed` flag is set\n- This is Closure compiler project\n\nAnalyzing the candidates:\n\n1. **RenamePrototypes.java** - Low commit frequency (0.0137), older file, moderate churn. Less likely to be the source of a recent bug.\n\n2. **IRFactory.java** - Higher commit frequency (0.0423), significant churn (2161), handles parsing/IR creation. Parsing issues could cause assertion errors in many tests.\n\n3. **DefinitionsRemover.java** - Very high commit frequency (0.2236), relatively young file (407 days), moderate churn. The high recent activity suggests active development and higher bug probability.\n\n4. **CodeGenerator.java** - Highest commits (47), high churn (1755), high commit frequency (0.0537). CodeGenerator is frequently modified and bugs here would cause assertion errors in output comparison tests.\n\nFor Closure-157 specifically, this test relates to code generation behavior. CodeGenerator.java is the most active file with the most commits and high churn. DefinitionsRemover.java has the highest commit frequency suggesting very recent changes. IRFactory.java is also a strong candidate given its high activity.\n\nThe combination of high commit frequency and recent age for DefinitionsRemover, plus the high overall activity of CodeGenerator, makes these the top candidates.\n\n{\"ranking\": [4, 3, 2, 1], \"confidence\": {\"4\": 0.45, \"3\": 0.30, \"2\": 0.20, \"1\": 0.05}}",
+ "n_attempts": 1
+}

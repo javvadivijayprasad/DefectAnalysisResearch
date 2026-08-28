@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-spacy-2",
+ "repo": "bugsinpy:spacy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "spacy/errors.py",
+  "spacy/cli/converters/conllu2json.py",
+  "bin/wiki_entity_linking/wikipedia_processor.py",
+  "spacy/language.py",
+  "spacy/util.py",
+  "examples/information_extraction/entity_relations.py"
+ ],
+ "timestamp": "2026-08-27T19:24:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  1,
+  2,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "5": 0.35,
+  "1": 0.15,
+  "2": 0.08,
+  "3": 0.05,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.15,
+  0.08,
+  0.45,
+  0.05,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  3,
+  0,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 75
+ },
+ "raw_response": "{\"ranking\": [4, 5, 1, 2, 3, 6], \"confidence\": {\"4\": 0.45, \"5\": 0.35, \"1\": 0.15, \"2\": 0.08, \"3\": 0.05, \"6\": 0.03}}",
+ "n_attempts": 1
+}

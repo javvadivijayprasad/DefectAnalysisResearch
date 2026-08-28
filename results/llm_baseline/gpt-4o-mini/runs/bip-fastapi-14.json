@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-fastapi-14",
+ "repo": "bugsinpy:fastapi",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "fastapi/routing.py",
+  "fastapi/utils.py",
+  "fastapi/encoders.py",
+  "fastapi/applications.py",
+  "fastapi/dependencies/utils.py",
+  "fastapi/openapi/models.py",
+  "fastapi/security/http.py"
+ ],
+ "timestamp": "2026-08-27T19:37:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  3,
+  2,
+  4,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "5": 0.25,
+  "3": 0.1,
+  "2": 0.05,
+  "4": 0.03,
+  "6": 0.01,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.01,
+  0.1,
+  0.55,
+  0.03,
+  0.25,
+  0.01,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  0,
+  4,
+  1,
+  6,
+  3
+ ],
+ "usage": {
+  "input_tokens": 772,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [1, 5, 3, 2, 4, 6, 7], \"confidence\": {\"1\": 0.55, \"5\": 0.25, \"3\": 0.10, \"2\": 0.05, \"4\": 0.03, \"6\": 0.01, \"7\": 0.01}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Mockito-18",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsMoreEmptyValues.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ForwardsInvocations.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java"
+ ],
+ "timestamp": "2026-08-27T19:14:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.35,
+  "3": 0.15,
+  "4": 0.05,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.15,
+  0.55,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 931,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 5, 4], \"confidence\": {\"1\": 0.55, \"2\": 0.35, \"3\": 0.15, \"4\": 0.05, \"5\": 0.10}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-36",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/DescendableLinkedList.java",
+  "src/main/java/org/jsoup/helper/HttpConnection.java",
+  "src/main/java/org/jsoup/helper/StringUtil.java",
+  "src/main/java/org/jsoup/helper/Validate.java",
+  "src/main/java/org/jsoup/helper/DataUtil.java"
+ ],
+ "timestamp": "2026-08-27T19:08:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  2,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.92,
+  "5": 0.15,
+  "2": 0.08,
+  "3": 0.05,
+  "4": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.92,
+  0.05,
+  0.04,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 889,
+  "output_tokens": 329
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n1. `DescendableLinkedList.java` has extremely unusual statistics: age_days=1 (brand new file), commits=2, commit_freq=2.0000 (very high), and +83/-1 churn. This strongly suggests it was newly created as part of the fix.\n2. The file name \"DescendableLinkedList\" suggests it's a utility data structure that might have been introduced to fix a parsing/traversal bug in Jsoup.\n3. The other files have more typical histories and don't show signs of recent significant changes related to a fix.\n\nThe `DescendableLinkedList.java` file being 1 day old with a commit frequency of 2.0 is a very strong signal that it was created as part of the fix commit. It's almost certainly the defective/fixed file (or rather, the new file introduced by the fix).\n\n`DataUtil.java` has high commit activity and could potentially be involved as a secondary change, but the primary signal points to `DescendableLinkedList.java`.\n\n{\"ranking\": [1, 5, 2, 3, 4], \"confidence\": {\"1\": 0.92, \"5\": 0.15, \"2\": 0.08, \"3\": 0.05, \"4\": 0.04}}",
+ "n_attempts": 1
+}

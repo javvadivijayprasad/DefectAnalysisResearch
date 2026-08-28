@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-tornado-9",
+ "repo": "bugsinpy:tornado",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "tornado/ioloop.py",
+  "tornado/http1connection.py",
+  "setup.py",
+  "tornado/httputil.py",
+  "tornado/web.py",
+  "tornado/gen.py",
+  "tornado/platform/asyncio.py"
+ ],
+ "timestamp": "2026-08-27T19:40:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  3,
+  4,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.25,
+  "5": 0.15,
+  "3": 0.05,
+  "4": 0.05,
+  "6": 0.025,
+  "7": 0.025
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.025,
+  0.45,
+  0.15,
+  0.025,
+  0.25,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  5,
+  0,
+  2,
+  6,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 764,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [1, 2, 5, 3, 4, 6, 7], \"confidence\": {\"1\": 0.45, \"2\": 0.25, \"5\": 0.15, \"3\": 0.05, \"4\": 0.05, \"6\": 0.025, \"7\": 0.025}}",
+ "n_attempts": 1
+}

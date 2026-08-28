@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-91",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/CreatorProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ResolvableDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/Deserializers.java"
+ ],
+ "timestamp": "2026-08-27T19:07:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  3,
+  2,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.72,
+  "1": 0.45,
+  "3": 0.35,
+  "2": 0.2,
+  "4": 0.12,
+  "6": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.12,
+  0.45,
+  0.08,
+  0.35,
+  0.72
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  1,
+  5,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1018,
+  "output_tokens": 443
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n1. File 5 (`ResolvableDeserializer.java`) has an extremely high commit frequency (1.75 commits/day) and is very young (32 days old), suggesting it was recently created or heavily modified - this is a strong signal of recent activity related to a fix.\n2. The test involves deserialization (AssertionError), so files in the `deser` package are all relevant.\n3. `BeanDeserializer.java` (file 1) and `BeanDeserializerFactory.java` (file 3) are the most active files with high commit counts and churn, making them common targets for fixes.\n4. `DeserializerCache.java` (file 2) has moderate activity and could be involved in caching-related deserialization issues.\n5. `CreatorProperty.java` (file 4) has lower activity but is still plausible.\n6. `Deserializers.java` (file 6) is less likely given its lower churn relative to the core deserializer files.\n\nThe very high commit frequency of file 5 (`ResolvableDeserializer.java`) at 32 days old strongly suggests it's a recently introduced/modified file that's part of the fix. Combined with `BeanDeserializer.java` which is the core deserialization class and frequently modified, these seem most likely.\n\n`BeanDeserializerFactory.java` is also a strong candidate given its high activity.\n\n{\"ranking\": [5, 1, 3, 2, 4, 6], \"confidence\": {\"5\": 0.72, \"1\": 0.45, \"3\": 0.35, \"2\": 0.20, \"4\": 0.12, \"6\": 0.08}}",
+ "n_attempts": 1
+}

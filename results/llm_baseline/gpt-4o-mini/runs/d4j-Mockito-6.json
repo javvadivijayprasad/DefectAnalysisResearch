@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-6",
+ "repo": "defects4j:Mockito",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/MockitoDebugger.java",
+  "src/org/mockito/ReturnValues.java",
+  "src/org/mockito/InOrder.java",
+  "src/org/mockito/Matchers.java",
+  "src/org/mockito/Answers.java",
+  "src/org/mockito/AdditionalAnswers.java"
+ ],
+ "timestamp": "2026-08-27T19:36:19",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  3,
+  6,
+  5,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.25,
+  "3": 0.15,
+  "4": 0.4,
+  "5": 0.1,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.05,
+  0.1,
+  0.25,
+  0.05,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  1,
+  5,
+  2
+ ],
+ "usage": {
+  "input_tokens": 758,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [4, 2, 3, 6, 5, 1], \"confidence\": {\"1\": 0.05, \"2\": 0.25, \"3\": 0.15, \"4\": 0.40, \"5\": 0.10, \"6\": 0.05}}",
+ "n_attempts": 1
+}

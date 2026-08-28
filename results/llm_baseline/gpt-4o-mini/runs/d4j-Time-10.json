@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Time-10",
+ "repo": "defects4j:Time",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/joda/time/base/BaseDateTime.java",
+  "src/main/java/org/joda/time/base/BasePartial.java",
+  "src/main/java/org/joda/time/base/AbstractDateTime.java",
+  "src/main/java/org/joda/time/base/BaseLocal.java",
+  "src/main/java/org/joda/time/base/AbstractInterval.java",
+  "src/main/java/org/joda/time/base/BaseDuration.java",
+  "src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java"
+ ],
+ "timestamp": "2026-08-27T19:36:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  3,
+  6,
+  1,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.25,
+  "3": 0.15,
+  "4": 0.05,
+  "5": 0.2,
+  "6": 0.15,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.25,
+  0.05,
+  0.15,
+  0.2,
+  0.1,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  0,
+  5,
+  2,
+  1,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 831,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [2, 5, 3, 6, 1, 4, 7], \"confidence\": {\"1\": 0.10, \"2\": 0.25, \"3\": 0.15, \"4\": 0.05, \"5\": 0.20, \"6\": 0.15, \"7\": 0.05}}",
+ "n_attempts": 1
+}

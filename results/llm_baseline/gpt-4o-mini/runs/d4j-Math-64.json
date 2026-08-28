@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-64",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/general/NonLinearConjugateGradientOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/general/AbstractScalarOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/general/PowellOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/general/BaseAbstractScalarOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/general/ConjugateGradientFormula.java"
+ ],
+ "timestamp": "2026-08-27T19:36:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  1,
+  2,
+  6,
+  3,
+  7
+ ],
+ "llm_confidence_presented": {
+  "4": 0.35,
+  "5": 0.25,
+  "1": 0.15,
+  "2": 0.1,
+  "6": 0.08,
+  "3": 0.05,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.25,
+  0.35,
+  0.15,
+  0.02,
+  0.1,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  1,
+  0,
+  2,
+  6,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 862,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[4,5,1,2,6,3,7],\"confidence\":{\"4\":0.35,\"5\":0.25,\"1\":0.15,\"2\":0.10,\"6\":0.08,\"3\":0.05,\"7\":0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Math-4",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/package-info.java"
+ ],
+ "timestamp": "2026-08-27T19:35:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.3,
+  "3": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.55,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 673,
+  "output_tokens": 39
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3], \"confidence\": {\"1\": 0.55, \"2\": 0.30, \"3\": 0.15}}",
+ "n_attempts": 1
+}

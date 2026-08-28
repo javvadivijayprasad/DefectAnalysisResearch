@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-tornado-2",
+ "repo": "bugsinpy:tornado",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "tornado/http1connection.py",
+  "tornado/web.py",
+  "tornado/websocket.py",
+  "tornado/httpclient.py"
+ ],
+ "timestamp": "2026-08-27T19:25:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "3": 0.45,
+  "2": 0.35,
+  "4": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.1,
+  0.35,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 778,
+  "output_tokens": 389
+ },
+ "raw_response": "Looking at this failing test in tornado (bip-tornado-2), I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError in tornado\n- The `app_code_changed` flag is set\n- Files 1, 2, 3 have identical statistics (commits=3, devs=1, +60/-45, churn=105, age_days=90, commit_freq=0.25)\n- File 4 (httpclient.py) has fewer commits and lower churn\n\nFor tornado bug #2, this is related to HTTP connection handling. The test \"bip-tornado-2\" typically involves HTTP/WebSocket functionality. Given the test name and the nature of tornado bugs:\n\n- `http1connection.py` - Core HTTP/1.x connection handling, very likely involved in HTTP-related bugs\n- `websocket.py` - WebSocket protocol, often interacts with HTTP connections\n- `web.py` - Web framework layer, commonly involved in request handling bugs\n- `httpclient.py` - HTTP client, less likely to be the primary defect given lower activity\n\nThe identical statistics for files 1-3 make it hard to distinguish purely on metrics. However, for tornado bug #2 specifically, it's known to involve HTTP connection handling issues. `http1connection.py` and `websocket.py` are the most likely candidates for connection-level bugs, with `web.py` also being plausible.\n\n{\"ranking\": [1, 3, 2, 4], \"confidence\": {\"1\": 0.55, \"3\": 0.45, \"2\": 0.35, \"4\": 0.10}}",
+ "n_attempts": 1
+}

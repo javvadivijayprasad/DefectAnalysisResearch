@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Closure-144",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "src/com/google/javascript/rhino/jstype/FunctionBuilder.java",
+  "src/com/google/javascript/rhino/jstype/FunctionType.java",
+  "src/com/google/javascript/jscomp/FunctionTypeBuilder.java"
+ ],
+ "timestamp": "2026-08-27T18:59:33",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "1": 0.35,
+  "3": 0.25,
+  "2": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.35,
+  0.1,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 842,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [4, 1, 3, 2], \"confidence\": {\"4\": 0.55, \"1\": 0.35, \"3\": 0.25, \"2\": 0.10}}",
+ "n_attempts": 1
+}

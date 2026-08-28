@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-18",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/TokenQueue.java"
+ ],
+ "timestamp": "2026-08-27T19:08:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  3,
+  7,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "2": 0.65,
+  "4": 0.45,
+  "1": 0.2,
+  "3": 0.12,
+  "7": 0.06,
+  "5": 0.03,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.2,
+  0.06,
+  0.03,
+  0.45,
+  0.65,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  2,
+  4,
+  5,
+  1,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 998,
+  "output_tokens": 422
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files are most likely defective.\n\nKey observations:\n- The test involves parsing/tokenization (AssertionError in Jsoup parser tests)\n- `TokeniserState.java` has extremely high recent activity: 6 commits, age only 39 days, very high commit_freq (1.0769), and massive churn (1958 lines)\n- `Tokeniser.java` is very new (age 24 days), with commit_freq of 0.5833 - recently added/modified\n- `Token.java` has moderate recent activity\n- `Tag.java` has high commit frequency and significant churn\n- `package-info.java` is brand new (1 day old) but trivial\n- `CharacterReader.java` is very old with low activity\n- `TokenQueue.java` has moderate activity\n\nThe most suspicious files are:\n1. `TokeniserState.java` - extremely recent, massive changes, very high commit frequency - this is the most likely source of a bug\n2. `Tokeniser.java` - very new file, recently added\n3. `Token.java` - moderate recent activity, related to tokenization\n4. `Tag.java` - high activity, could be involved\n\nThe test failure is an AssertionError which suggests incorrect parsing behavior, most likely in the tokenizer state machine (`TokeniserState.java`) or the `Tokeniser.java` itself.\n\n{\"ranking\": [2, 4, 1, 3, 7, 5, 6], \"confidence\": {\"2\": 0.65, \"4\": 0.45, \"1\": 0.20, \"3\": 0.12, \"7\": 0.06, \"5\": 0.03, \"6\": 0.02}}",
+ "n_attempts": 1
+}

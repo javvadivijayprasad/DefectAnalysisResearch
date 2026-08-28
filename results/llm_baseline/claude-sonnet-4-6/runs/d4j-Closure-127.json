@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-127",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/JsMessageVisitor.java",
+  "src/com/google/javascript/jscomp/AstChangeProxy.java",
+  "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "src/com/google/javascript/jscomp/UnreachableCodeElimination.java",
+  "src/com/google/javascript/jscomp/CrossModuleMethodMotion.java"
+ ],
+ "timestamp": "2026-08-27T18:59:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  5,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "3": 0.25,
+  "5": 0.1,
+  "4": 0.06,
+  "2": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.04,
+  0.1,
+  0.55,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  2,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 904,
+  "output_tokens": 464
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-127, I need to identify which file(s) are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError (likely a compiler test assertion)\n- The flag `app_code_changed` is set\n- I need to consider which files are most likely to contain the bug\n\nAnalyzing the candidates:\n\n1. **JsMessageVisitor.java** - High commit frequency (0.1285), significant additions (+1013), relatively recent activity. Deals with JS message visiting/processing.\n\n2. **AstChangeProxy.java** - Lower commit frequency (0.0724), small file (139 added), proxy pattern - less likely to have complex bugs.\n\n3. **ProcessClosurePrimitives.java** - Very high commit frequency (0.3469), most commits (61), most churn (2744), many devs (14). This is a very active, complex file dealing with Closure primitives processing.\n\n4. **UnreachableCodeElimination.java** - Very old file (age_days=6122), moderate commits (30), deals with dead code elimination. The age suggests it's been stable for a long time.\n\n5. **CrossModuleMethodMotion.java** - Moderate activity, deals with cross-module method motion optimization.\n\nFor Closure-127 specifically, this is related to message handling or processing. JsMessageVisitor.java is the most likely candidate given its focus on message visiting and high recent activity. ProcessClosurePrimitives.java is also a strong candidate given its very high churn and commit frequency.\n\nUnreachableCodeElimination.java's extreme age (6122 days) makes it less likely to be recently changed/defective.\n\n{\"ranking\": [1, 3, 5, 4, 2], \"confidence\": {\"1\": 0.55, \"3\": 0.25, \"5\": 0.10, \"4\": 0.06, \"2\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,2 @@
+method,n_events,n_rows,p1_mean,p3_mean,r5_mean,mrr_mean,triage_s_mean,ece_10bin,n_unparsed_fallback,n_ok_after_retry,parse_failure_rate,total_input_tokens,total_output_tokens
+llm_gpt-4o-mini,1323,6988,0.2721,0.2516,0.84,0.4952,9.36,0.1093,0,0,0.0,987521,79763

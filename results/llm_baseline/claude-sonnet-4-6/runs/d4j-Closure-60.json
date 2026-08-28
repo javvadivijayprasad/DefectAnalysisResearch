@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-60",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CreateSyntheticBlocks.java",
+  "src/com/google/javascript/jscomp/AbstractPeepholeOptimization.java",
+  "src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java",
+  "src/com/google/javascript/jscomp/ExploitAssigns.java",
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/ExpressionDecomposer.java"
+ ],
+ "timestamp": "2026-08-27T18:57:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  6,
+  1,
+  5,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "6": 0.4,
+  "1": 0.2,
+  "5": 0.15,
+  "2": 0.08,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.2,
+  0.55,
+  0.05,
+  0.08,
+  0.4
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  0,
+  5,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 962,
+  "output_tokens": 494
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-60, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure compiler issue #60\n\nLet me analyze the candidates:\n\n1. **CreateSyntheticBlocks.java** - Moderate activity, deals with synthetic blocks\n2. **AbstractPeepholeOptimization.java** - High commit frequency (0.3051), relatively recent (390 days), deals with peephole optimizations\n3. **ClosureReverseAbstractInterpreter.java** - Moderate activity\n4. **ExploitAssigns.java** - Very new file (28 days old), very high commit frequency (0.75), only 3 commits but recently added - this is suspicious as a new/recently modified file\n5. **NodeUtil.java** - Very high churn (4098), many commits (95), utility class that's frequently modified\n6. **ExpressionDecomposer.java** - Moderate-high activity, deals with expression decomposition\n\nFor Closure-60, the issue relates to expression decomposition and how assignments are handled. `ExpressionDecomposer.java` is a strong candidate given its role. `ExploitAssigns.java` is extremely new (28 days, 0.75 commit frequency) suggesting it was recently added and may have introduced bugs. `NodeUtil.java` with its high churn is always a candidate.\n\nThe combination of `ExploitAssigns.java` (very new, high churn rate) and `ExpressionDecomposer.java` (relevant functionality) seems most likely. `CreateSyntheticBlocks.java` could also be involved as synthetic blocks interact with expression decomposition.\n\n{\"ranking\": [4, 6, 1, 5, 2, 3], \"confidence\": {\"4\": 0.55, \"6\": 0.40, \"1\": 0.20, \"5\": 0.15, \"2\": 0.08, \"3\": 0.05}}",
+ "n_attempts": 1
+}

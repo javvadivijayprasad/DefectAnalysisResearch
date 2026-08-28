@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-87",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/TextNode.java",
+  "src/main/java/org/jsoup/parser/ParseErrorList.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/nodes/Element.java",
+  "src/main/java/org/jsoup/nodes/Node.java"
+ ],
+ "timestamp": "2026-08-27T19:10:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  8,
+  7,
+  5,
+  6,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.35,
+  "3": 0.3,
+  "8": 0.2,
+  "7": 0.15,
+  "5": 0.12,
+  "6": 0.1,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.3,
+  0.35,
+  0.1,
+  0.03,
+  0.12,
+  0.2,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  2,
+  1,
+  6,
+  7,
+  5,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1069,
+  "output_tokens": 502
+ },
+ "raw_response": "Looking at this failing test in Jsoup (d4j-Jsoup-87), I need to reason about which files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError, suggesting a parsing or node behavior issue\n- The `app_code_changed` flag indicates application code was modified\n- This is Jsoup issue #87 area\n\nLet me analyze the candidates:\n\n1. **TextNode.java** - High commit frequency (0.096), moderate churn. TextNode handling is often involved in parsing edge cases.\n\n2. **ParseErrorList.java** - Very low activity (2 commits), unlikely to be the defect.\n\n3. **HtmlTreeBuilder.java** - High activity, core HTML parsing logic. Very likely candidate for parsing bugs.\n\n4. **HtmlTreeBuilderState.java** - High activity, handles state transitions in HTML parsing. Very likely for parsing-related AssertionErrors.\n\n5. **Tokeniser.java** - Moderate activity, handles tokenization. Could be involved.\n\n6. **Tag.java** - High commits (62), significant churn. Tag handling could cause assertion errors.\n\n7. **Element.java** - Highest commits (149), very high activity. Core element class, frequently modified.\n\n8. **Node.java** - Very high commit frequency (0.2126), significant activity. Core node class.\n\nFor Jsoup bug #87, based on the nature of the failure (AssertionError in parsing), the most likely candidates are the tree builder and state files, followed by TextNode (which has had significant recent activity relative to its age). The high commit frequency of Node.java also makes it suspicious.\n\nGiven the pattern of Jsoup bugs around this era often involving TextNode whitespace handling or tree builder state issues:\n\n{\"ranking\": [1, 4, 3, 8, 7, 5, 6, 2], \"confidence\": {\"1\": 0.45, \"4\": 0.35, \"3\": 0.30, \"8\": 0.20, \"7\": 0.15, \"5\": 0.12, \"6\": 0.10, \"2\": 0.03}}",
+ "n_attempts": 1
+}

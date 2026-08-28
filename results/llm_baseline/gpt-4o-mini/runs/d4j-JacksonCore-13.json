@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonCore-13",
+ "repo": "defects4j:JacksonCore",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/json/DupDetector.java",
+  "src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java",
+  "src/main/java/com/fasterxml/jackson/core/json/ByteSourceJsonBootstrapper.java",
+  "src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java",
+  "src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java"
+ ],
+ "timestamp": "2026-08-27T19:33:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  3,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "2": 0.25,
+  "3": 0.15,
+  "1": 0.1,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.1,
+  0.45,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  2,
+  3,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 762,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [5, 2, 3, 1, 4], \"confidence\": {\"5\": 0.45, \"2\": 0.25, \"3\": 0.15, \"1\": 0.10, \"4\": 0.05}}",
+ "n_attempts": 1
+}

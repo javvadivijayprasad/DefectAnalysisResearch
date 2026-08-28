@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Cli-37",
+ "repo": "defects4j:Cli",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/cli/DefaultParser.java",
+  "src/main/java/org/apache/commons/cli/Option.java",
+  "src/main/java/org/apache/commons/cli/Util.java",
+  "src/main/java/org/apache/commons/cli/AmbiguousOptionException.java",
+  "src/main/java/org/apache/commons/cli/GnuParser.java"
+ ],
+ "timestamp": "2026-08-27T19:30:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  2,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "5": 0.25,
+  "2": 0.15,
+  "3": 0.1,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.25,
+  0.15,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 748,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 5, 2, 3, 4], \"confidence\": {\"1\": 0.45, \"5\": 0.25, \"2\": 0.15, \"3\": 0.10, \"4\": 0.05}}",
+ "n_attempts": 1
+}

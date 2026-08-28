@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-17",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/TreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/ParseError.java"
+ ],
+ "timestamp": "2026-08-27T19:08:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  7,
+  4,
+  6,
+  2,
+  8,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "7": 0.4,
+  "4": 0.3,
+  "6": 0.2,
+  "2": 0.15,
+  "8": 0.1,
+  "5": 0.05,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.02,
+  0.55,
+  0.1,
+  0.2,
+  0.3,
+  0.4
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  4,
+  7,
+  0,
+  5,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1056,
+  "output_tokens": 529
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError in the parser\n- `app_code_changed` flag is set\n- This is defects4j:Jsoup-17, which relates to HTML parsing\n\nAnalyzing the candidates:\n\n1. **Tag.java** - High commit frequency (0.5683), many changes (+847/-585), active file. Very likely to contain bugs.\n\n2. **Token.java** - Moderate activity, reasonable candidate.\n\n3. **package-info.java** - Only 1 commit, 4 lines added, age 1 day. This is just a package descriptor, very unlikely to be defective.\n\n4. **TreeBuilder.java** - Recent file (34 days), high commit frequency (0.8235), large addition (+706/-7). Recently added/modified files are prime candidates for bugs.\n\n5. **TreeBuilderState.java** - Very old file (5569 days), low commit frequency. Less likely to be the source of a new bug.\n\n6. **Tokeniser.java** - Very recent (24 days), moderate frequency, new code (+235/-0). New code is suspect.\n\n7. **TokeniserState.java** - Recent (39 days), very high commit frequency (1.0769!), large changes (+1867/-91). This is extremely active and recently modified - high bug probability.\n\n8. **ParseError.java** - Recent (33 days), moderate activity.\n\nThe most suspicious files are those recently added/modified with high churn: TokeniserState.java (highest commit frequency, very recent, large changes), TreeBuilder.java (very recent, high frequency), and Tag.java (most total churn, high frequency).\n\nFor Jsoup-17 specifically, the bug typically relates to tag handling or tokenization state.\n\n{\"ranking\": [1, 7, 4, 6, 2, 8, 5, 3], \"confidence\": {\"1\": 0.55, \"7\": 0.40, \"4\": 0.30, \"6\": 0.20, \"2\": 0.15, \"8\": 0.10, \"5\": 0.05, \"3\": 0.02}}",
+ "n_attempts": 1
+}

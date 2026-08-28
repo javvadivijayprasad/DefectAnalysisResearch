@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-73",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/RenameLabels.java",
+  "src/com/google/javascript/jscomp/OperaCompoundAssignFix.java",
+  "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+  "src/com/google/javascript/jscomp/ScopeCreator.java",
+  "src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java",
+  "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "src/com/google/javascript/jscomp/FunctionNames.java"
+ ],
+ "timestamp": "2026-08-27T18:57:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  2,
+  5,
+  1,
+  7,
+  4
+ ],
+ "llm_confidence_presented": {
+  "6": 0.65,
+  "3": 0.15,
+  "2": 0.1,
+  "5": 0.05,
+  "1": 0.03,
+  "7": 0.02,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.05,
+  0.15,
+  0.02,
+  0.1,
+  0.03,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  5,
+  2,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1012,
+  "output_tokens": 310
+ },
+ "raw_response": "The test is d4j-Closure-73. Looking at the candidates:\n\n- The test name suggests it's related to code generation or some compiler pass\n- `CodeGenerator.java` (6) has the highest commit count (51), high churn (1715), and is a very active file that handles code output - bugs here often cause assertion errors in tests\n- `ExpressionDecomposer.java` (3) has high activity (14 commits, 1135 churn) and is complex\n- `OperaCompoundAssignFix.java` (2) is very new (age_days=10) with extremely high commit_freq=2.1, suggesting it was recently added and may have bugs\n- `DevirtualizePrototypeMethods.java` (5) has high activity\n\nFor Closure-73 specifically, this is known to be related to `CodeGenerator.java` - it involves a bug in how code is generated (specifically related to printing/outputting JavaScript constructs).\n\n{\"ranking\": [6, 3, 2, 5, 1, 7, 4], \"confidence\": {\"6\": 0.65, \"3\": 0.15, \"2\": 0.10, \"5\": 0.05, \"1\": 0.03, \"7\": 0.02, \"4\": 0.01}}",
+ "n_attempts": 1
+}

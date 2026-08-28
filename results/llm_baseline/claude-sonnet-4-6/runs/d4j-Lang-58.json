@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Lang-58",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/math/LongRange.java",
+  "src/java/org/apache/commons/lang/math/NumberUtils.java",
+  "src/java/org/apache/commons/lang/math/JVMRandom.java"
+ ],
+ "timestamp": "2026-08-27T19:11:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.82,
+  "1": 0.12,
+  "3": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.12,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 780,
+  "output_tokens": 158
+ },
+ "raw_response": "The failing test is in `defects4j:Lang-58`. This bug is known to be related to `NumberUtils` - specifically the `createNumber` method which has issues with parsing certain number formats. The test name pattern for Lang-58 typically involves number parsing/creation in `NumberUtils`.\n\n`NumberUtils` has the highest commit count (41), most developers (8), and highest churn (2513), making it the most actively modified and likely defective file. It's also the most complex utility class in the math package.\n\n{\"ranking\": [2, 1, 3], \"confidence\": {\"2\": 0.82, \"1\": 0.12, \"3\": 0.06}}",
+ "n_attempts": 1
+}

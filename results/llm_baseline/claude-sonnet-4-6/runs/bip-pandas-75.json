@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-pandas-75",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "pandas/core/ops/dispatch.py",
+  "pandas/core/dtypes/cast.py",
+  "pandas/core/indexes/period.py",
+  "pandas/core/ops/__init__.py",
+  "pandas/core/groupby/grouper.py",
+  "pandas/core/internals/blocks.py",
+  "pandas/core/strings.py",
+  "pandas/core/window/common.py"
+ ],
+ "timestamp": "2026-08-27T19:20:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  5,
+  2,
+  4,
+  7,
+  8,
+  1
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "3": 0.25,
+  "5": 0.18,
+  "2": 0.12,
+  "4": 0.1,
+  "7": 0.08,
+  "8": 0.07,
+  "1": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.45,
+  0.12,
+  0.18,
+  0.06,
+  0.1,
+  0.08,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  2,
+  7,
+  4,
+  5,
+  6
+ ],
+ "usage": {
+  "input_tokens": 979,
+  "output_tokens": 533
+ },
+ "raw_response": "Looking at this failing test in pandas with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError (likely from a test assertion or internal assertion)\n- `app_code_changed` flag is set\n- This is bugsinpy:pandas bug #75\n\nLet me analyze the candidates:\n\n1. `pandas/core/internals/blocks.py` - highest activity (9 commits, 3 devs, 315 churn, highest commit_freq=0.75). Core internal blocks handling is frequently involved in dtype/operation bugs.\n\n2. `pandas/core/indexes/period.py` - 5 commits, 175 churn, age_days=150. Period index operations are a common source of bugs.\n\n3. `pandas/core/groupby/grouper.py` - 4 commits, 140 churn. GroupBy operations frequently cause AssertionErrors.\n\n4. `pandas/core/dtypes/cast.py` - 2 commits, 70 churn. Cast operations are involved in many type-related bugs.\n\n5. `pandas/core/ops/__init__.py` - 2 commits, 70 churn. Operations module.\n\n6. `pandas/core/strings.py` - 3 commits, 105 churn. String operations.\n\n7. `pandas/core/window/common.py` - 2 commits, 70 churn. Window operations.\n\n8. `pandas/core/ops/dispatch.py` - 1 commit, 35 churn, newest file (30 days). Very new file with minimal history - could be a recently introduced bug.\n\nThe highest churn files with most activity are most likely defective. `blocks.py` stands out significantly. `period.py` and `groupby/grouper.py` also have notable activity.\n\n{\"ranking\": [6, 3, 5, 2, 4, 7, 8, 1], \"confidence\": {\"6\": 0.45, \"3\": 0.25, \"5\": 0.18, \"2\": 0.12, \"4\": 0.10, \"7\": 0.08, \"8\": 0.07, \"1\": 0.06}}",
+ "n_attempts": 1
+}

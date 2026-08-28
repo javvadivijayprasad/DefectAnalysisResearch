@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-tornado-14",
+ "repo": "bugsinpy:tornado",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 3,
+ "presented_files": [
+  "tornado/ioloop.py",
+  "tornado/web.py",
+  "tornado/gen.py"
+ ],
+ "timestamp": "2026-08-27T19:40:20",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.3,
+  "3": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.3,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 621,
+  "output_tokens": 39
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3], \"confidence\": {\"1\": 0.55, \"2\": 0.30, \"3\": 0.15}}",
+ "n_attempts": 1
+}

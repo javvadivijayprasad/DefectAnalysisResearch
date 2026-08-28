@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Time-13",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/joda/time/format/PeriodFormatterBuilder.java",
+  "src/main/java/org/joda/time/format/FormatUtils.java",
+  "src/main/java/org/joda/time/format/DateTimeFormat.java",
+  "src/main/java/org/joda/time/format/DateTimeParser.java",
+  "src/main/java/org/joda/time/format/PeriodParser.java"
+ ],
+ "timestamp": "2026-08-27T19:15:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  2,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.75,
+  "5": 0.2,
+  "2": 0.05,
+  "3": 0.03,
+  "4": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.05,
+  0.03,
+  0.2,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 907,
+  "output_tokens": 185
+ },
+ "raw_response": "The failing test is d4j-Time-13, which is about Period formatting/parsing. The test name and the \"PeriodFormatterBuilder\" and \"PeriodParser\" files are the most relevant candidates for period-related bugs.\n\nPeriodFormatterBuilder.java has the highest churn, most commits, and is directly related to period formatting. PeriodParser.java is also period-related. The other files (DateTimeFormat, FormatUtils, DateTimeParser) are less likely to be involved in a Period-specific test failure.\n\n{\"ranking\": [1, 5, 2, 3, 4], \"confidence\": {\"1\": 0.75, \"5\": 0.20, \"2\": 0.05, \"3\": 0.03, \"4\": 0.03}}",
+ "n_attempts": 1
+}

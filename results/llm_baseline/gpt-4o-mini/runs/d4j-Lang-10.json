@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Lang-10",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/time/DateFormatUtils.java",
+  "src/main/java/org/apache/commons/lang3/time/DatePrinter.java",
+  "src/main/java/org/apache/commons/lang3/time/DateUtils.java",
+  "src/main/java/org/apache/commons/lang3/time/FastDateFormat.java",
+  "src/main/java/org/apache/commons/lang3/time/FastDateParser.java",
+  "src/main/java/org/apache/commons/lang3/time/FormatCache.java",
+  "src/main/java/org/apache/commons/lang3/time/StopWatch.java"
+ ],
+ "timestamp": "2026-08-27T19:35:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  1,
+  2,
+  7,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "4": 0.25,
+  "1": 0.15,
+  "2": 0.1,
+  "7": 0.08,
+  "5": 0.04,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.1,
+  0.35,
+  0.03,
+  0.15,
+  0.08,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  3,
+  0,
+  6,
+  2,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 850,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[3,4,1,2,7,5,6],\"confidence\":{\"3\":0.35,\"4\":0.25,\"1\":0.15,\"2\":0.10,\"7\":0.08,\"5\":0.04,\"6\":0.03}}",
+ "n_attempts": 1
+}

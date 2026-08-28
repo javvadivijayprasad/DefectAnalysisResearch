@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-10",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/extractor/clipsyndicate.py",
+  "youtube_dl/extractor/youtube.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/facebook.py",
+  "youtube_dl/extractor/npo.py",
+  "youtube_dl/extractor/common.py",
+  "youtube_dl/postprocessor/ffmpeg.py"
+ ],
+ "timestamp": "2026-08-27T19:26:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  6,
+  4,
+  1,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.08,
+  "2": 0.55,
+  "3": 0.25,
+  "4": 0.1,
+  "5": 0.08,
+  "6": 0.15,
+  "7": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.15,
+  0.08,
+  0.08,
+  0.06,
+  0.1,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  5,
+  4,
+  6,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 945,
+  "output_tokens": 308
+ },
+ "raw_response": "The test is named \"bip-youtube-dl-10\" and the failure is an AssertionError in the youtube-dl project. The test name strongly suggests it's related to the YouTube extractor. The file `youtube_dl/extractor/youtube.py` is the most obvious candidate given the test name.\n\nLooking at the statistics, most candidates have identical commit stats (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833), which suggests they were all touched in the same commit window. However, `youtube_dl/utils.py` has much higher activity (commits=33, high churn), suggesting it's a core utility file that gets changed frequently.\n\nGiven the test is specifically about YouTube downloading (bip-youtube-dl-10), `youtube.py` is the primary suspect. The `utils.py` file is also commonly involved in fixes. `common.py` (the base extractor) is another possibility.\n\n{\"ranking\": [2, 3, 6, 4, 1, 5, 7], \"confidence\": {\"1\": 0.08, \"2\": 0.55, \"3\": 0.25, \"4\": 0.10, \"5\": 0.08, \"6\": 0.15, \"7\": 0.06}}",
+ "n_attempts": 1
+}

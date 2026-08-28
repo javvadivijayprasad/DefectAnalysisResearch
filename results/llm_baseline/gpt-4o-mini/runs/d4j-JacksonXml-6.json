@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-JacksonXml-6",
+ "repo": "defects4j:JacksonXml",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializerBase.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/UnwrappingXmlBeanSerializer.java"
+ ],
+ "timestamp": "2026-08-27T19:34:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.05,
+  "3": 0.45,
+  "4": 0.35
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.35,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 727,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [3, 4, 1, 2], \"confidence\": {\"1\": 0.15, \"2\": 0.05, \"3\": 0.45, \"4\": 0.35}}",
+ "n_attempts": 1
+}

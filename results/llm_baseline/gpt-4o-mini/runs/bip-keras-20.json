@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-keras-20",
+ "repo": "bugsinpy:keras",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "keras/backend/tensorflow_backend.py",
+  "keras/layers/convolutional.py",
+  "keras/backend/theano_backend.py",
+  "keras/engine/training.py",
+  "keras/utils/conv_utils.py",
+  "keras/backend/cntk_backend.py"
+ ],
+ "timestamp": "2026-08-27T19:37:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  6,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.25,
+  "3": 0.15,
+  "6": 0.1,
+  "2": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.03,
+  0.15,
+  0.45,
+  0.02,
+  0.1,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  2,
+  0,
+  5,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 742,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 4, 3, 6, 2, 5], \"confidence\": {\"1\": 0.45, \"4\": 0.25, \"3\": 0.15, \"6\": 0.10, \"2\": 0.03, \"5\": 0.02}}",
+ "n_attempts": 1
+}

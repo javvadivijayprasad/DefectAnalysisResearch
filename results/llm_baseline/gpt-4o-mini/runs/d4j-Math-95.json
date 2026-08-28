@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-95",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/math/distribution/WeibullDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/FDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/BinomialDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/PascalDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/GammaDistribution.java"
+ ],
+ "timestamp": "2026-08-27T19:36:14",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "4": 0.25,
+  "3": 0.2,
+  "2": 0.15,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.35,
+  0.25,
+  0.2,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  1,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 756,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 4, 3, 2, 5], \"confidence\": {\"1\": 0.35, \"4\": 0.25, \"3\": 0.20, \"2\": 0.15, \"5\": 0.05}}",
+ "n_attempts": 1
+}

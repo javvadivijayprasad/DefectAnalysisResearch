@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-76",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/ResolvableDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/UnresolvedId.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/KeyDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/AbstractDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java"
+ ],
+ "timestamp": "2026-08-27T19:06:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  6,
+  5,
+  7,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "4": 0.45,
+  "6": 0.35,
+  "5": 0.15,
+  "7": 0.1,
+  "2": 0.05,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.04,
+  0.05,
+  0.35,
+  0.15,
+  0.45,
+  0.65
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  6,
+  5,
+  2,
+  3,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1087,
+  "output_tokens": 435
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError, suggesting a deserialization behavior issue\n- The `app_code_changed` flag is set\n- File 1 (`ResolvableDeserializer.java`) has an extremely high commit frequency (1.75/day) and is very young (32 days old), suggesting it was recently added or heavily modified - this is a strong signal\n- File 4 (`BasicDeserializerFactory.java`) has very high churn (6432) and many commits (158), making it a common target for fixes\n- File 6 (`BeanDeserializerBase.java`) also has high churn and commits\n\nThe `ResolvableDeserializer` interface is involved in the resolution phase of deserializers. A bug related to resolving deserializers could cause assertion errors. The very recent activity (32 days old, 1.75 commits/day) strongly suggests this file was recently introduced or modified as part of the fix.\n\n`BasicDeserializerFactory` is the factory that creates deserializers and is frequently modified. `BeanDeserializerBase` handles the core bean deserialization logic.\n\nThe combination of `ResolvableDeserializer` (very recently active) and `BasicDeserializerFactory` (high churn, frequently modified) seems most likely. The `BeanDeserializerBase` is also a candidate given its high activity.\n\n{\"ranking\": [1, 4, 6, 5, 7, 2, 3], \"confidence\": {\"1\": 0.65, \"4\": 0.45, \"6\": 0.35, \"5\": 0.15, \"7\": 0.10, \"2\": 0.05, \"3\": 0.04}}",
+ "n_attempts": 1
+}

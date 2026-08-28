@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-thefuck-1",
+ "repo": "bugsinpy:thefuck",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "thefuck/rules/php_s.py",
+  "thefuck/rules/pip_unknown_command.py",
+  "thefuck/rules/man.py",
+  "thefuck/shells/zsh.py",
+  "thefuck/rules/git_fix_stash.py",
+  "thefuck/rules/git_branch_exists.py"
+ ],
+ "timestamp": "2026-08-27T19:39:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  5,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.25,
+  "3": 0.2,
+  "5": 0.2,
+  "4": 0.05,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.2,
+  0.25,
+  0.05,
+  0.2,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  4,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 751,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 5, 4, 6], \"confidence\": {\"1\": 0.25, \"2\": 0.25, \"3\": 0.2, \"5\": 0.2, \"4\": 0.05, \"6\": 0.05}}",
+ "n_attempts": 1
+}

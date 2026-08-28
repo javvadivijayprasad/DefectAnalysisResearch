@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-70",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ManagedReferenceProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/UnwrappedPropertyHandler.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdReader.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ErrorThrowingDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/PropertyValueBuffer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java"
+ ],
+ "timestamp": "2026-08-27T19:06:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  6,
+  7,
+  3,
+  1,
+  8,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.85,
+  "4": 0.45,
+  "6": 0.2,
+  "7": 0.15,
+  "3": 0.12,
+  "1": 0.08,
+  "8": 0.07,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.12,
+  0.85,
+  0.15,
+  0.2,
+  0.08,
+  0.07,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  0,
+  3,
+  2,
+  5,
+  6,
+  7
+ ],
+ "usage": {
+  "input_tokens": 1159,
+  "output_tokens": 446
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- File 5 (`ErrorThrowingDeserializer.java`) has `commits=1, devs=1, age_days=1, commit_freq=1.0000` - this is a brand new file, almost certainly introduced as part of the fix commit itself.\n- File 4 (`BeanPropertyMap.java`) has very high churn (3831) and many commits (38), suggesting it's frequently modified and could be part of a fix.\n- File 3 (`ObjectIdReader.java`) has relatively high commit frequency (0.0946) and recent activity.\n- File 6 (`ExternalTypeHandler.java`) has the highest commit frequency among the older files (0.1067).\n\nThe `ErrorThrowingDeserializer.java` being brand new (age_days=1, single commit) is a very strong signal that it was introduced as part of this fix. New files are often added alongside modifications to existing files.\n\nFor the accompanying modified file, `BeanPropertyMap.java` is the most heavily modified file in this package and could be where the fix logic was applied. `ExternalTypeHandler.java` also has high activity.\n\nThe test failure is an `AssertionError`, which could relate to deserialization property handling. `BeanPropertyMap` is central to bean deserialization property management and would be a natural place for a fix that also introduces an `ErrorThrowingDeserializer`.\n\n{\"ranking\": [5, 4, 6, 7, 3, 1, 8, 2], \"confidence\": {\"5\": 0.85, \"4\": 0.45, \"6\": 0.20, \"7\": 0.15, \"3\": 0.12, \"1\": 0.08, \"8\": 0.07, \"2\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Mockito-19",
+ "repo": "defects4j:Mockito",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/filter/OngoingInjecter.java",
+  "src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/MockInjectionStrategy.java",
+  "src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+ ],
+ "timestamp": "2026-08-27T19:36:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  4,
+  2,
+  3,
+  1,
+  7,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "4": 0.25,
+  "2": 0.15,
+  "3": 0.1,
+  "1": 0.03,
+  "7": 0.01,
+  "5": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.01,
+  0.15,
+  0.01,
+  0.1,
+  0.03,
+  0.45,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  6,
+  3,
+  4,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 849,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [6, 4, 2, 3, 1, 7, 5], \"confidence\": {\"6\": 0.45, \"4\": 0.25, \"2\": 0.15, \"3\": 0.10, \"1\": 0.03, \"7\": 0.01, \"5\": 0.01}}",
+ "n_attempts": 1
+}

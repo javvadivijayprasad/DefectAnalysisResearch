@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-90",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/Validate.java",
+  "src/main/java/org/jsoup/helper/ChangeNotifyingArrayList.java",
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/helper/W3CDom.java",
+  "src/main/java/org/jsoup/helper/HttpConnection.java"
+ ],
+ "timestamp": "2026-08-27T19:10:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  1,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.9,
+  "5": 0.55,
+  "1": 0.2,
+  "3": 0.15,
+  "4": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.9,
+  0.1,
+  0.2,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  4,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 894,
+  "output_tokens": 323
+ },
+ "raw_response": "Looking at the candidates:\n\n- File 2 (ChangeNotifyingArrayList.java) has extremely unusual stats: commits=1, age_days=1, commit_freq=1.0000. This is a brand new file added in a single commit, which strongly suggests it's part of the fix commit.\n- File 1 (Validate.java) has relatively few commits but a notable churn ratio, and could be part of a fix involving validation changes.\n- File 5 (HttpConnection.java) is the most heavily modified file historically but that's typical for a large utility class.\n- File 3 (DataUtil.java) has high commit frequency suggesting active development.\n- File 4 (W3CDom.java) is less likely.\n\nThe brand-new file (age_days=1, commit_freq=1.0) is almost certainly part of the fix. The test failure (AssertionError) combined with app_code_changed suggests logic changes. HttpConnection.java being the most complex HTTP handling class could also be involved if the fix required adding a new helper class (ChangeNotifyingArrayList) alongside changes to HttpConnection.\n\n{\"ranking\": [2, 5, 1, 3, 4], \"confidence\": {\"2\": 0.90, \"5\": 0.55, \"1\": 0.20, \"3\": 0.15, \"4\": 0.10}}",
+ "n_attempts": 1
+}

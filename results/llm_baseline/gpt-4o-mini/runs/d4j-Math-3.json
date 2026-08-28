@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-3",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/util/OpenIntToDoubleHashMap.java",
+  "src/main/java/org/apache/commons/math3/util/Pair.java",
+  "src/main/java/org/apache/commons/math3/util/NumberTransformer.java",
+  "src/main/java/org/apache/commons/math3/util/MathArrays.java",
+  "src/main/java/org/apache/commons/math3/util/Decimal64Field.java"
+ ],
+ "timestamp": "2026-08-27T19:35:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.25,
+  "3": 0.2,
+  "5": 0.15,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.35,
+  0.25,
+  0.2,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 753,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 5, 4], \"confidence\": {\"1\": 0.35, \"2\": 0.25, \"3\": 0.20, \"5\": 0.15, \"4\": 0.05}}",
+ "n_attempts": 1
+}

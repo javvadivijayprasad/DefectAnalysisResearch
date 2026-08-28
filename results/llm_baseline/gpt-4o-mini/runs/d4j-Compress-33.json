@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Compress-33",
+ "repo": "defects4j:Compress",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorOutputStream.java",
+  "src/main/java/org/apache/commons/compress/compressors/deflate/DeflateCompressorInputStream.java",
+  "src/main/java/org/apache/commons/compress/compressors/FileNameUtil.java",
+  "src/main/java/org/apache/commons/compress/compressors/CompressorInputStream.java",
+  "src/main/java/org/apache/commons/compress/compressors/CompressorException.java",
+  "src/main/java/org/apache/commons/compress/compressors/CompressorStreamFactory.java"
+ ],
+ "timestamp": "2026-08-27T19:32:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  3,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.25,
+  "4": 0.15,
+  "3": 0.12,
+  "5": 0.08,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.25,
+  0.08,
+  0.15,
+  0.12,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  1,
+  4,
+  2,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 823,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 2, 4, 3, 5, 6], \"confidence\": {\"1\": 0.35, \"2\": 0.25, \"4\": 0.15, \"3\": 0.12, \"5\": 0.08, \"6\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-JacksonCore-16",
+ "repo": "defects4j:JacksonCore",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java",
+  "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+  "src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java"
+ ],
+ "timestamp": "2026-08-27T19:33:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.5,
+  "3": 0.35
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.35,
+  0.5
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 661,
+  "output_tokens": 39
+ },
+ "raw_response": "{\"ranking\": [2, 3, 1], \"confidence\": {\"1\": 0.15, \"2\": 0.50, \"3\": 0.35}}",
+ "n_attempts": 1
+}

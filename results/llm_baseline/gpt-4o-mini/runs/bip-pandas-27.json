@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-pandas-27",
+ "repo": "bugsinpy:pandas",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 3,
+ "presented_files": [
+  "pandas/io/formats/excel.py",
+  "pandas/core/arrays/datetimes.py",
+  "pandas/core/indexes/datetimelike.py"
+ ],
+ "timestamp": "2026-08-27T19:38:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.5,
+  "3": 0.35
+ },
+ "confidence_by_corpus_row": [
+  0.5,
+  0.35,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 634,
+  "output_tokens": 39
+ },
+ "raw_response": "{\"ranking\": [2, 3, 1], \"confidence\": {\"1\": 0.15, \"2\": 0.50, \"3\": 0.35}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-luigi-11",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "luigi/execution_summary.py",
+  "luigi/file.py",
+  "luigi/contrib/hadoop_jar.py",
+  "luigi/server.py",
+  "luigi/scheduler.py",
+  "luigi/contrib/spark.py"
+ ],
+ "timestamp": "2026-08-27T19:17:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  4,
+  2,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.75,
+  "1": 0.12,
+  "4": 0.08,
+  "2": 0.05,
+  "3": 0.04,
+  "6": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.08,
+  0.05,
+  0.04,
+  0.12,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  5,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 867,
+  "output_tokens": 355
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) are most likely defective given an AssertionError in luigi.\n\nKey observations:\n- Files 1, 2, 3, 4, 6 all have identical statistics (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833) - these look like distractor files with minimal history\n- File 5 (luigi/scheduler.py) stands out significantly: commits=11, devs=3, +220/-165, churn=385, age_days=330, commit_freq=0.9167 - much more active development\n\nThe scheduler.py file has dramatically more activity, suggesting it's the core component being actively developed and fixed. An AssertionError in luigi tests often relates to scheduling logic. The scheduler is the central component of luigi's task management system.\n\nThe `execution_summary.py` (file 1) is also worth considering as it could relate to task execution state assertions, but its stats are identical to the distractor files.\n\nGiven the `app_code_changed` flag and the nature of AssertionError in luigi, the scheduler is the most likely candidate for the defective file.\n\n{\"ranking\": [5, 1, 4, 2, 3, 6], \"confidence\": {\"5\": 0.75, \"1\": 0.12, \"4\": 0.08, \"2\": 0.05, \"3\": 0.04, \"6\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-60",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/text/StrMatcher.java",
+  "src/java/org/apache/commons/lang/text/StrLookup.java",
+  "src/java/org/apache/commons/lang/text/StrSubstitutor.java",
+  "src/java/org/apache/commons/lang/text/StrTokenizer.java",
+  "src/java/org/apache/commons/lang/text/CompositeFormat.java",
+  "src/java/org/apache/commons/lang/text/StrBuilder.java"
+ ],
+ "timestamp": "2026-08-27T19:11:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  4,
+  1,
+  3,
+  5,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.88,
+  "4": 0.06,
+  "1": 0.04,
+  "3": 0.03,
+  "5": 0.02,
+  "2": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.88,
+  0.01,
+  0.04,
+  0.06,
+  0.03,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  2,
+  1,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 961,
+  "output_tokens": 184
+ },
+ "raw_response": "The failing test is in Lang-60, which is related to the `text` package. The test name and the defects4j bug database suggest this is related to `StrBuilder` - specifically a bug in `StrBuilder.contains(String)` or similar method. `StrBuilder` has the highest churn and most developers, and the bug in Lang-60 is known to be in `StrBuilder.java` (the `contains` method had an off-by-one error).\n\n{\"ranking\": [6, 4, 1, 3, 5, 2], \"confidence\": {\"6\": 0.88, \"4\": 0.06, \"1\": 0.04, \"3\": 0.03, \"5\": 0.02, \"2\": 0.01}}",
+ "n_attempts": 1
+}

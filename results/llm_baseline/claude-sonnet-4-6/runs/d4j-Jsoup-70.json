@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-70",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/Comment.java",
+  "src/main/java/org/jsoup/nodes/Element.java",
+  "src/main/java/org/jsoup/nodes/Node.java",
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/nodes/BooleanAttribute.java"
+ ],
+ "timestamp": "2026-08-27T19:09:43",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  4,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.35,
+  "3": 0.55,
+  "4": 0.2,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.05,
+  0.2,
+  0.55,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  2,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 889,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [3, 2, 4, 1, 5], \"confidence\": {\"1\": 0.10, \"2\": 0.35, \"3\": 0.55, \"4\": 0.20, \"5\": 0.05}}",
+ "n_attempts": 1
+}

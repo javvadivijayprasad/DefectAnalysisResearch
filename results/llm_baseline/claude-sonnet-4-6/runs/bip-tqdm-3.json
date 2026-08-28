@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-tqdm-3",
+ "repo": "bugsinpy:tqdm",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "tqdm/std.py",
+  "tqdm/contrib/__init__.py",
+  "tqdm/utils.py",
+  "tqdm/_tqdm.py"
+ ],
+ "timestamp": "2026-08-27T19:25:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "4": 0.3,
+  "3": 0.1,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.55,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 782,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [1, 4, 3, 2], \"confidence\": {\"1\": 0.55, \"4\": 0.30, \"3\": 0.10, \"2\": 0.05}}",
+ "n_attempts": 1
+}

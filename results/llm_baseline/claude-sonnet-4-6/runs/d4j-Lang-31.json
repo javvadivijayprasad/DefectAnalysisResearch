@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Lang-31",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/StringEscapeUtils.java",
+  "src/main/java/org/apache/commons/lang3/Validate.java",
+  "src/main/java/org/apache/commons/lang3/Pair.java",
+  "src/main/java/org/apache/commons/lang3/StringUtils.java",
+  "src/main/java/org/apache/commons/lang3/EnumUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:11:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  5,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.75,
+  "1": 0.12,
+  "5": 0.07,
+  "2": 0.04,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.12,
+  0.02,
+  0.04,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 904,
+  "output_tokens": 113
+ },
+ "raw_response": "The test is about `StringUtils` (d4j-Lang-31 is a known defect in `StringUtils.containsAny` or similar). The most likely defective file is `StringUtils.java`.\n\n{\"ranking\": [4, 1, 5, 2, 3], \"confidence\": {\"4\": 0.75, \"1\": 0.12, \"5\": 0.07, \"2\": 0.04, \"3\": 0.02}}",
+ "n_attempts": 1
+}

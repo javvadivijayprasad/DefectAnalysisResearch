@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-99",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/MapType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ClassStack.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java"
+ ],
+ "timestamp": "2026-08-27T19:07:34",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  5,
+  3,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.88,
+  "1": 0.72,
+  "5": 0.15,
+  "3": 0.12,
+  "2": 0.08,
+  "6": 0.07
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.72,
+  0.07,
+  0.15,
+  0.88,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  5,
+  2,
+  0,
+  4
+ ],
+ "usage": {
+  "input_tokens": 990,
+  "output_tokens": 415
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n1. **ClassStack.java** (candidate 4) - age_days=4, commit_freq=2.0000, commits=2, churn=86 with only additions. This is a brand new file (4 days old) with very high commit frequency. This strongly suggests it was created as part of the fix.\n\n2. **ResolvedRecursiveType.java** (candidate 1) - commits=10, relatively recent activity, commit_freq=0.1148. This file deals with recursive type resolution, which is a common source of bugs in Jackson's type system.\n\n3. **package-info.java** (candidate 5) - age_days=20, commit_freq=1.0500. Recently modified, but package-info files are rarely the source of bugs.\n\nThe test failure is an AssertionError in JacksonDatabind, likely related to type resolution. The `ClassStack` file being brand new (4 days old, only additions) strongly suggests it was introduced as part of the fix - perhaps to handle recursive type detection. `ResolvedRecursiveType` would naturally be paired with a `ClassStack` for tracking recursive types during resolution.\n\nThe combination of a new `ClassStack` class (for tracking class resolution stack to detect cycles) and modifications to `ResolvedRecursiveType` (which handles the recursive type placeholder) makes the most sense for fixing a recursive type resolution bug.\n\n{\"ranking\": [4, 1, 5, 3, 2, 6], \"confidence\": {\"4\": 0.88, \"1\": 0.72, \"5\": 0.15, \"3\": 0.12, \"2\": 0.08, \"6\": 0.07}}",
+ "n_attempts": 1
+}

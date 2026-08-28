@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-18",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/PropertyMetadata.java",
+  "src/main/java/com/fasterxml/jackson/databind/RuntimeJsonMappingException.java",
+  "src/main/java/com/fasterxml/jackson/databind/SerializationFeature.java",
+  "src/main/java/com/fasterxml/jackson/databind/MappingIterator.java",
+  "src/main/java/com/fasterxml/jackson/databind/PropertyName.java"
+ ],
+ "timestamp": "2026-08-27T19:05:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.9,
+  "4": 0.65,
+  "1": 0.08,
+  "5": 0.06,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.06,
+  0.05,
+  0.08,
+  0.9
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  4,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 921,
+  "output_tokens": 369
+ },
+ "raw_response": "Looking at this failing test event for JacksonDatabind-18, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an `AssertionError` with `app_code_changed` flag\n- Candidate 2 (`RuntimeJsonMappingException.java`) has extremely unusual stats: commits=1, age_days=1, commit_freq=1.0000 \u2014 this strongly suggests it's a newly created file added in the fix commit\n- Candidate 4 (`MappingIterator.java`) has high churn (726) and many commits (19), making it a likely candidate for modification alongside a new exception class\n- `RuntimeJsonMappingException` being new (age=1 day) and `MappingIterator` being the class that would throw/use such an exception fits a pattern where a new exception type was introduced and the iterator was modified to use it\n\nThe `RuntimeJsonMappingException` being brand new (1 day old, 1 commit, commit_freq=1.0) is the strongest signal \u2014 it was almost certainly created as part of the fix. `MappingIterator` likely needed modification to use this new exception class.\n\nThe other candidates (PropertyMetadata, SerializationFeature, PropertyName) seem less related to an iterator/mapping exception scenario.\n\n{\"ranking\": [2, 4, 1, 5, 3], \"confidence\": {\"2\": 0.90, \"4\": 0.65, \"1\": 0.08, \"5\": 0.06, \"3\": 0.05}}",
+ "n_attempts": 1
+}

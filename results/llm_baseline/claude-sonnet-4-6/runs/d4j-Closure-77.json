@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-77",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+  "src/com/google/javascript/jscomp/NameReferenceGraphConstruction.java",
+  "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "src/com/google/javascript/jscomp/ShowByPathWarningsGuard.java",
+  "src/com/google/javascript/jscomp/CheckLevel.java",
+  "src/com/google/javascript/jscomp/RemoveUnusedPrototypeProperties.java",
+  "src/com/google/javascript/jscomp/InferJSDocInfo.java"
+ ],
+ "timestamp": "2026-08-27T18:57:32",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  6,
+  1,
+  2,
+  7,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "6": 0.2,
+  "1": 0.12,
+  "2": 0.08,
+  "7": 0.07,
+  "4": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.12,
+  0.07,
+  0.2,
+  0.03,
+  0.08,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  1,
+  5,
+  3,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1011,
+  "output_tokens": 408
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-77, I need to identify which files are likely defective.\n\nThe test failure is an AssertionError, which in Closure compiler tests typically indicates incorrect code generation or transformation output.\n\nKey observations:\n- `CodeGenerator.java` (index 3) is the most likely candidate for code generation issues - it has high commit frequency relative to its age, many commits, and is directly responsible for generating JavaScript output. AssertionErrors in Closure tests often relate to code generation.\n- `DefaultPassConfig.java` (index 1) is heavily modified and controls which passes run - could affect test outcomes.\n- `RemoveUnusedPrototypeProperties.java` (index 6) - a pass that removes prototype properties, which could cause assertion errors if it incorrectly removes or keeps code.\n- `InferJSDocInfo.java` (index 7) - JSDoc inference pass.\n- `NameReferenceGraphConstruction.java` (index 2) - graph construction.\n- `ShowByPathWarningsGuard.java` (index 4) and `CheckLevel.java` (index 5) are less likely as they deal with warnings/levels.\n\nFor Closure-77 specifically, this is related to code generation issues (likely involving how certain JavaScript constructs are printed). `CodeGenerator.java` is the primary suspect for AssertionErrors in output comparison tests.\n\n{\"ranking\": [3, 6, 1, 2, 7, 4, 5], \"confidence\": {\"3\": 0.55, \"6\": 0.20, \"1\": 0.12, \"2\": 0.08, \"7\": 0.07, \"4\": 0.03, \"5\": 0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Lang-12",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/BooleanUtils.java",
+  "src/main/java/org/apache/commons/lang3/JavaVersion.java",
+  "src/main/java/org/apache/commons/lang3/Range.java",
+  "src/main/java/org/apache/commons/lang3/SystemUtils.java",
+  "src/main/java/org/apache/commons/lang3/CharRange.java",
+  "src/main/java/org/apache/commons/lang3/BitField.java",
+  "src/main/java/org/apache/commons/lang3/RandomStringUtils.java",
+  "src/main/java/org/apache/commons/lang3/StringEscapeUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:35:14",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  8,
+  5,
+  2,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.3,
+  "4": 0.25,
+  "3": 0.2,
+  "8": 0.1,
+  "5": 0.05,
+  "2": 0.03,
+  "6": 0.02,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.01,
+  0.05,
+  0.25,
+  0.2,
+  0.1,
+  0.3,
+  0.02,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  4,
+  1,
+  2,
+  3,
+  0,
+  6,
+  5
+ ],
+ "usage": {
+  "input_tokens": 886,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[1,4,3,8,5,2,6,7],\"confidence\":{\"1\":0.30,\"4\":0.25,\"3\":0.20,\"8\":0.10,\"5\":0.05,\"2\":0.03,\"6\":0.02,\"7\":0.01}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-84",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ClassKey.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ArrayType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java"
+ ],
+ "timestamp": "2026-08-27T19:07:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  6,
+  4,
+  3,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.3,
+  "5": 0.2,
+  "6": 0.1,
+  "4": 0.1,
+  "3": 0.05,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.55,
+  0.05,
+  0.3,
+  0.2,
+  0.1,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  0,
+  5,
+  1,
+  2,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1058,
+  "output_tokens": 397
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind related to type handling, I need to identify which files were likely changed in the fix.\n\nKey observations:\n- The failure is in the `type` package\n- `TypeBindings.java` has the highest commit frequency (0.1103) and significant churn (1225), suggesting it's actively maintained and frequently modified\n- `CollectionLikeType.java` has high commit frequency (0.0806) and notable churn\n- `CollectionType.java` has decent commit frequency (0.0721)\n- `package-info.java` has an extremely high commit_freq (1.05) but very low churn (14 lines) - this is suspicious but likely just a recently created/modified documentation file\n- `ClassKey.java` is relatively new (435 days) with low churn\n- `ResolvedRecursiveType.java` is very old (3950 days) with low commit frequency\n\nFor a test failure related to type bindings/resolution in Jackson, `TypeBindings.java` is the most likely candidate given its high activity. `CollectionLikeType.java` and `CollectionType.java` are also plausible as collection type handling is a common source of bugs. The `package-info.java` with its unusual commit_freq might indicate it was recently added as part of a fix commit.\n\n{\"ranking\": [1, 2, 5, 6, 4, 3, 7], \"confidence\": {\"1\": 0.55, \"2\": 0.30, \"5\": 0.20, \"6\": 0.10, \"4\": 0.10, \"3\": 0.05, \"7\": 0.05}}",
+ "n_attempts": 1
+}

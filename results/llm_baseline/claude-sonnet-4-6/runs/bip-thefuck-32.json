@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-thefuck-32",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "thefuck/rules/git_add.py",
+  "thefuck/rules/ls_lah.py",
+  "thefuck/rules/sudo.py",
+  "thefuck/rules/mkdir_p.py",
+  "thefuck/shells/bash.py"
+ ],
+ "timestamp": "2026-08-27T19:25:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "3": 0.25,
+  "1": 0.15,
+  "4": 0.1,
+  "2": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.1,
+  0.45,
+  0.15,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 847,
+  "output_tokens": 416
+ },
+ "raw_response": "Looking at this failing test event for thefuck project, I need to analyze which files are most likely defective.\n\nKey observations:\n1. The test is `bip-thefuck-32` - this is test #32 in the thefuck bugsinpy dataset\n2. The failure is an `AssertionError` \n3. The flag `app_code_changed` is set\n4. All 5 candidates have identical commit statistics except `bash.py` which has 2 commits vs 1 for the others\n\nThe test name `bip-thefuck-32` likely corresponds to a specific bug. Looking at the candidates:\n- `git_add.py`, `ls_lah.py`, `sudo.py`, `mkdir_p.py` are all rule files with identical stats (1 commit, 1 dev, +20/-15)\n- `bash.py` is a shell file with 2 commits, suggesting it was modified more\n\nThe `bash.py` file has double the commits and churn of the others, suggesting it's more actively modified and potentially the source of the bug. However, the rule files are also candidates.\n\nFor thefuck bug #32, based on the nature of the project and the test failure pattern, `sudo.py` is a commonly modified rule that could cause assertion errors. The `bash.py` shell file with more commits is also suspicious.\n\nGiven the identical statistics for the rule files, I'll weight `bash.py` higher due to its higher commit frequency and churn, while distributing probability among the rule files.\n\n{\"ranking\": [5, 3, 1, 4, 2], \"confidence\": {\"5\": 0.45, \"3\": 0.25, \"1\": 0.15, \"4\": 0.10, \"2\": 0.08}}",
+ "n_attempts": 1
+}

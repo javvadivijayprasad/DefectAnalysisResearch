@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Compress-36",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZMethodConfiguration.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/BoundedRandomAccessFileInputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/StreamMap.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/Coder.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/CLI.java"
+ ],
+ "timestamp": "2026-08-27T19:02:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  6,
+  3,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "4": 0.35,
+  "2": 0.1,
+  "6": 0.08,
+  "3": 0.06,
+  "5": 0.05,
+  "7": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.04,
+  0.06,
+  0.35,
+  0.05,
+  0.1,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  4,
+  1,
+  5,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1066,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 6, 3, 5, 7], \"confidence\": {\"1\": 0.55, \"4\": 0.35, \"2\": 0.10, \"6\": 0.08, \"3\": 0.06, \"5\": 0.05, \"7\": 0.04}}",
+ "n_attempts": 1
+}

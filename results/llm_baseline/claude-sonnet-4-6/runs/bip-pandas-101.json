@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-pandas-101",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "pandas/core/dtypes/cast.py",
+  "pandas/core/indexes/range.py",
+  "pandas/core/reshape/melt.py",
+  "pandas/core/groupby/ops.py",
+  "pandas/core/computation/expressions.py",
+  "pandas/io/common.py",
+  "pandas/core/indexes/period.py",
+  "pandas/core/missing.py"
+ ],
+ "timestamp": "2026-08-27T19:20:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  4,
+  2,
+  1,
+  3,
+  5,
+  6,
+  8
+ ],
+ "llm_confidence_presented": {
+  "7": 0.45,
+  "4": 0.25,
+  "2": 0.22,
+  "1": 0.15,
+  "3": 0.08,
+  "5": 0.07,
+  "6": 0.06,
+  "8": 0.07
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.45,
+  0.25,
+  0.08,
+  0.22,
+  0.07,
+  0.07,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  1,
+  4,
+  2,
+  7,
+  5,
+  6
+ ],
+ "usage": {
+  "input_tokens": 976,
+  "output_tokens": 466
+ },
+ "raw_response": "Looking at this failing test in pandas, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError in pandas\n- The `app_code_changed` flag is set\n- I need to consider which files are most likely to contain bugs based on their history statistics\n\nAnalysis of candidates:\n- **File 7 (period.py)**: Highest commits (5), highest churn (175), highest age (150 days), highest commit frequency (0.4167) - most actively modified, suggesting it's a complex file with ongoing fixes\n- **File 2 (range.py)** and **File 4 (groupby/ops.py)**: Both have commits=3, churn=105, age=90 days, commit_freq=0.25 - moderately active\n- **File 1 (cast.py)**: commits=2, churn=70, age=60 days - moderate activity\n- **Files 3, 5, 6, 8**: All have commits=1, churn=35, age=30 days, commit_freq=0.0833 - least active, recently added/modified once\n\nThe files with more commits and higher churn tend to be more complex and bug-prone. `period.py` stands out as the most likely defective file given its high activity metrics. `groupby/ops.py` and `range.py` are also strong candidates given their moderate-high activity.\n\nFor an AssertionError in pandas, index operations (period.py, range.py) and groupby operations (ops.py) are common sources of such failures.\n\n{\"ranking\": [7, 4, 2, 1, 3, 5, 6, 8], \"confidence\": {\"7\": 0.45, \"4\": 0.25, \"2\": 0.22, \"1\": 0.15, \"3\": 0.08, \"5\": 0.07, \"6\": 0.06, \"8\": 0.07}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-scrapy-29",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "scrapy/cmdline.py",
+  "scrapy/utils/request.py",
+  "scrapy/http/response/__init__.py",
+  "scrapy/crawler.py",
+  "scrapy/log.py"
+ ],
+ "timestamp": "2026-08-27T19:23:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "5": 0.25,
+  "2": 0.12,
+  "3": 0.1,
+  "1": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.55,
+  0.1,
+  0.25,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  3,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 830,
+  "output_tokens": 377
+ },
+ "raw_response": "Looking at this failing test event for scrapy (Python) with an AssertionError.\n\nKey observations:\n- The test is bip-scrapy-29, which is related to scrapy's core functionality\n- The failure is an AssertionError (likely a test assertion failure)\n- `app_code_changed` flag is set\n- Candidate 4 (`scrapy/crawler.py`) has twice the commits (2 vs 1) and twice the churn (70 vs 35) compared to others, suggesting it's been more actively modified\n- The other candidates all have identical statistics (commits=1, devs=1, +20/-15, churn=35, age_days=30)\n\nFor scrapy bug #29, this is related to the crawler/engine functionality. The `crawler.py` file being more actively changed (2 commits vs 1) is a strong signal. Among the others, `scrapy/log.py` is a common source of issues in scrapy's history around this period, as logging was being refactored. The `scrapy/utils/request.py` and `scrapy/http/response/__init__.py` are also plausible given HTTP-related assertions.\n\nGiven the AssertionError and the nature of scrapy bug #29 (which involves crawler/log interactions), `crawler.py` and `log.py` are the most likely candidates.\n\n{\"ranking\": [4, 5, 2, 3, 1], \"confidence\": {\"4\": 0.55, \"5\": 0.25, \"2\": 0.12, \"3\": 0.10, \"1\": 0.08}}",
+ "n_attempts": 1
+}

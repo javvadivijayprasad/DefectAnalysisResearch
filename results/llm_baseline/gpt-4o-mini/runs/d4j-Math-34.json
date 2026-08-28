@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Math-34",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/genetics/Fitness.java",
+  "src/main/java/org/apache/commons/math3/genetics/PermutationChromosome.java",
+  "src/main/java/org/apache/commons/math3/genetics/AbstractListChromosome.java",
+  "src/main/java/org/apache/commons/math3/genetics/ListPopulation.java"
+ ],
+ "timestamp": "2026-08-27T19:35:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.45,
+  "3": 0.1,
+  "4": 0.3
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.1,
+  0.45,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 707,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [2, 4, 1, 3], \"confidence\": {\"1\": 0.15, \"2\": 0.45, \"3\": 0.10, \"4\": 0.30}}",
+ "n_attempts": 1
+}

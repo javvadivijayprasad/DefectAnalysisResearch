@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-31",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/util/ContinuedFraction.java",
+  "src/main/java/org/apache/commons/math3/util/BigRealField.java",
+  "src/main/java/org/apache/commons/math3/util/IterationManager.java",
+  "src/main/java/org/apache/commons/math3/util/DefaultTransformer.java",
+  "src/main/java/org/apache/commons/math3/util/Decimal64.java",
+  "src/main/java/org/apache/commons/math3/util/TransformerMap.java",
+  "src/main/java/org/apache/commons/math3/util/MultidimensionalCounter.java"
+ ],
+ "timestamp": "2026-08-27T19:12:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  6,
+  7,
+  3,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.88,
+  "4": 0.05,
+  "6": 0.04,
+  "7": 0.03,
+  "3": 0.02,
+  "2": 0.01,
+  "5": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.88,
+  0.01,
+  0.05,
+  0.03,
+  0.04,
+  0.02,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  1,
+  3,
+  2,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1038,
+  "output_tokens": 167
+ },
+ "raw_response": "The failing test is Math-31, which in defects4j is related to `ContinuedFraction` (specifically the `evaluate` method having issues with convergence/infinity handling). `ContinuedFraction.java` is the classic location for this bug - it has high commit activity and is directly related to continued fraction evaluation used in incomplete beta/gamma functions.\n\n{\"ranking\": [1, 4, 6, 7, 3, 2, 5], \"confidence\": {\"1\": 0.88, \"4\": 0.05, \"6\": 0.04, \"7\": 0.03, \"3\": 0.02, \"2\": 0.01, \"5\": 0.01}}",
+ "n_attempts": 1
+}

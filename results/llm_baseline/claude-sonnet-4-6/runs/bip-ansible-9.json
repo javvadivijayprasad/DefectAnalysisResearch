@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-ansible-9",
+ "repo": "bugsinpy:ansible",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "lib/ansible/modules/packaging/os/redhat_subscription.py",
+  "lib/ansible/module_utils/network/eos/config/vlans/vlans.py",
+  "lib/ansible/galaxy/api.py"
+ ],
+ "timestamp": "2026-08-27T19:16:32",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.7,
+  "1": 0.17,
+  "2": 0.13
+ },
+ "confidence_by_corpus_row": [
+  0.17,
+  0.7,
+  0.13
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 762,
+  "output_tokens": 119
+ },
+ "raw_response": "The failing test is in the `ansible` project with an `AssertionError`. The test name `bip-ansible-9` and the failure signal suggest this is related to the Galaxy API functionality. The `galaxy/api.py` file is the most likely candidate for a test related to Galaxy API operations, which commonly involve HTTP requests and assertions about responses.\n\n{\"ranking\": [3, 1, 2], \"confidence\": {\"3\": 0.70, \"1\": 0.17, \"2\": 0.13}}",
+ "n_attempts": 1
+}

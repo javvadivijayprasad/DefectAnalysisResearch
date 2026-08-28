@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-matplotlib-12",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "lib/matplotlib/backend_bases.py",
+  "lib/matplotlib/text.py",
+  "lib/matplotlib/axes/_base.py",
+  "lib/matplotlib/projections/polar.py",
+  "lib/matplotlib/transforms.py",
+  "lib/matplotlib/colorbar.py",
+  "lib/matplotlib/axes/_axes.py"
+ ],
+ "timestamp": "2026-08-27T19:38:00",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  3,
+  4,
+  1,
+  2,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "7": 0.35,
+  "3": 0.2,
+  "4": 0.15,
+  "1": 0.1,
+  "2": 0.1,
+  "5": 0.05,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.1,
+  0.2,
+  0.15,
+  0.05,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  2,
+  6,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 791,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [7, 3, 4, 1, 2, 5, 6], \"confidence\": {\"7\": 0.35, \"3\": 0.20, \"4\": 0.15, \"1\": 0.10, \"2\": 0.10, \"5\": 0.05, \"6\": 0.05}}",
+ "n_attempts": 1
+}

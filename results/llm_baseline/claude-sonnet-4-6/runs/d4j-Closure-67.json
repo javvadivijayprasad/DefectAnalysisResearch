@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-67",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/MessageBundle.java",
+  "src/com/google/javascript/jscomp/ExternExportsPass.java",
+  "src/com/google/javascript/jscomp/AnalyzePrototypeProperties.java",
+  "src/com/google/javascript/jscomp/TypeInferencePass.java",
+  "src/com/google/javascript/jscomp/ObjectPropertyStringPostprocess.java"
+ ],
+ "timestamp": "2026-08-27T18:57:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  4,
+  5,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "2": 0.3,
+  "4": 0.12,
+  "5": 0.08,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.08,
+  0.12,
+  0.05,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 891,
+  "output_tokens": 455
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-67, I need to identify which file(s) were changed in the fix commit.\n\nLet me analyze the candidates:\n\n1. **MessageBundle.java** - Low churn (84), moderate commit frequency, relatively young file. Less likely to be the source of a complex bug.\n\n2. **ExternExportsPass.java** - High churn (954), many commits (19), many devs (9), high commit frequency (0.2384). This is a very active file with lots of changes, suggesting it's complex and bug-prone.\n\n3. **AnalyzePrototypeProperties.java** - High churn (889), many commits (20), many devs (10), but very old file (6122 days) with very low commit frequency (0.0229). The low recent activity despite high historical churn suggests it's mature but could have deep-seated issues.\n\n4. **TypeInferencePass.java** - Moderate commits (13), low churn (176), moderate commit frequency. Less likely.\n\n5. **ObjectPropertyStringPostprocess.java** - Low churn (102), few commits (8), low commit frequency. Less likely.\n\nFor Closure-67, the test name suggests it might be related to prototype properties analysis or type inference. The `AnalyzePrototypeProperties.java` file has very high historical activity but low recent frequency, which could indicate a regression. `ExternExportsPass.java` has the highest recent activity.\n\nGiven the AssertionError and the nature of Closure compiler bugs, `AnalyzePrototypeProperties.java` with its high complexity and many contributors is a strong candidate, as is `ExternExportsPass.java`.\n\n{\"ranking\": [3, 2, 4, 5, 1], \"confidence\": {\"3\": 0.45, \"2\": 0.30, \"4\": 0.12, \"5\": 0.08, \"1\": 0.05}}",
+ "n_attempts": 1
+}

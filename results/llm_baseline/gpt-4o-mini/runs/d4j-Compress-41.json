@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Compress-41",
+ "repo": "defects4j:Compress",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipUtil.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/UnparseableExtraFieldData.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipLong.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ScatterZipOutputStream.java"
+ ],
+ "timestamp": "2026-08-27T19:32:57",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  2,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "5": 0.3,
+  "2": 0.15,
+  "4": 0.07,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.3,
+  0.07,
+  0.15,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 778,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 5, 2, 4, 3], \"confidence\": {\"1\": 0.45, \"5\": 0.30, \"2\": 0.15, \"4\": 0.07, \"3\": 0.03}}",
+ "n_attempts": 1
+}

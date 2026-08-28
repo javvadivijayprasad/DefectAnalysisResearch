@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-scrapy-26",
+ "repo": "bugsinpy:scrapy",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "scrapy/downloadermiddlewares/httpproxy.py",
+  "scrapy/utils/datatypes.py",
+  "scrapy/settings/__init__.py",
+  "scrapy/http/response/__init__.py",
+  "scrapy/exporters.py",
+  "scrapy/downloadermiddlewares/redirect.py"
+ ],
+ "timestamp": "2026-08-27T19:39:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  1,
+  2,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "6": 0.35,
+  "5": 0.25,
+  "1": 0.15,
+  "2": 0.1,
+  "3": 0.05,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.05,
+  0.25,
+  0.35,
+  0.1,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  5,
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 748,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [6, 5, 1, 2, 3, 4], \"confidence\": {\"6\": 0.35, \"5\": 0.25, \"1\": 0.15, \"2\": 0.10, \"3\": 0.05, \"4\": 0.05}}",
+ "n_attempts": 1
+}

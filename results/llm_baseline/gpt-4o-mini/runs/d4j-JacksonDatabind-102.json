@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-JacksonDatabind-102",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/ser/std/IterableSerializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/std/DateTimeSerializerBase.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/std/SqlDateSerializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/std/EnumSerializer.java"
+ ],
+ "timestamp": "2026-08-27T19:34:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "2": 0.3,
+  "1": 0.15,
+  "3": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.15,
+  0.45,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 728,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [4, 2, 1, 3], \"confidence\": {\"4\": 0.45, \"2\": 0.30, \"1\": 0.15, \"3\": 0.10}}",
+ "n_attempts": 1
+}

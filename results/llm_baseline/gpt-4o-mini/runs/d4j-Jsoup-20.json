@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-20",
+ "repo": "defects4j:Jsoup",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/HttpConnection.java",
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/helper/StringUtil.java",
+  "src/main/java/org/jsoup/helper/DescendableLinkedList.java",
+  "src/main/java/org/jsoup/helper/Validate.java"
+ ],
+ "timestamp": "2026-08-27T19:34:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.25,
+  "3": 0.15,
+  "5": 0.04,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.55,
+  0.15,
+  0.04,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 733,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 5, 4], \"confidence\": {\"1\": 0.55, \"2\": 0.25, \"3\": 0.15, \"5\": 0.04, \"4\": 0.01}}",
+ "n_attempts": 1
+}

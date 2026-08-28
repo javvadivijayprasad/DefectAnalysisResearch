@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-5",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/complex/ComplexFormat.java",
+  "src/main/java/org/apache/commons/math3/complex/Quaternion.java",
+  "src/main/java/org/apache/commons/math3/complex/package-info.java",
+  "src/main/java/org/apache/commons/math3/complex/ComplexField.java",
+  "src/main/java/org/apache/commons/math3/complex/ComplexUtils.java",
+  "src/main/java/org/apache/commons/math3/complex/RootsOfUnity.java",
+  "src/main/java/org/apache/commons/math3/complex/Complex.java"
+ ],
+ "timestamp": "2026-08-27T19:12:05",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  1,
+  5,
+  4,
+  2,
+  6,
+  3
+ ],
+ "llm_confidence_presented": {
+  "7": 0.92,
+  "1": 0.05,
+  "5": 0.04,
+  "4": 0.03,
+  "2": 0.02,
+  "6": 0.01,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.04,
+  0.01,
+  0.01,
+  0.02,
+  0.03,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  5,
+  6,
+  4,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1036,
+  "output_tokens": 212
+ },
+ "raw_response": "The test is \"Math-5\" in the complex package. The defects4j Math-5 bug is known to be in `Complex.java` \u2014 specifically the `reciprocal()` method returning wrong results for zero (should return `Complex.INF` but returned `Complex.NaN` or similar). This is a classic defect in the `Complex` class.\n\n`Complex.java` has by far the most commits (72), most authors (12), highest churn (4093), and is the oldest/most active file \u2014 consistent with being the defective file.\n\n{\"ranking\": [7, 1, 5, 4, 2, 6, 3], \"confidence\": {\"7\": 0.92, \"1\": 0.05, \"5\": 0.04, \"4\": 0.03, \"2\": 0.02, \"6\": 0.01, \"3\": 0.01}}",
+ "n_attempts": 1
+}

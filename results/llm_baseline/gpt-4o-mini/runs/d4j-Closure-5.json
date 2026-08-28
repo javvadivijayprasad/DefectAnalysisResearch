@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-5",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/RemoveUnusedNames.java",
+  "src/com/google/javascript/jscomp/SyntheticAst.java",
+  "src/com/google/javascript/jscomp/JSModuleGraph.java",
+  "src/com/google/javascript/jscomp/SourceAst.java",
+  "src/com/google/javascript/jscomp/StripCode.java",
+  "src/com/google/javascript/jscomp/InlineObjectLiterals.java",
+  "src/com/google/javascript/jscomp/ProcessTweaks.java",
+  "src/com/google/javascript/jscomp/CollapseProperties.java"
+ ],
+ "timestamp": "2026-08-27T19:30:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  5,
+  3,
+  7,
+  1,
+  4,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "8": 0.35,
+  "5": 0.25,
+  "3": 0.15,
+  "7": 0.1,
+  "1": 0.05,
+  "4": 0.05,
+  "2": 0.03,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.03,
+  0.15,
+  0.05,
+  0.35,
+  0.05,
+  0.1,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  6,
+  2,
+  5,
+  0,
+  4,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 858,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[8,5,3,7,1,4,2,6],\"confidence\":{\"8\":0.35,\"5\":0.25,\"3\":0.15,\"7\":0.10,\"1\":0.05,\"4\":0.05,\"2\":0.03,\"6\":0.02}}",
+ "n_attempts": 1
+}

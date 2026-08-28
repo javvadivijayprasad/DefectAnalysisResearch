@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-87",
+ "repo": "defects4j:Jsoup",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/TextNode.java",
+  "src/main/java/org/jsoup/parser/ParseErrorList.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/nodes/Element.java",
+  "src/main/java/org/jsoup/nodes/Node.java"
+ ],
+ "timestamp": "2026-08-27T19:34:57",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  8,
+  3,
+  4,
+  5,
+  1,
+  6,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.02,
+  "3": 0.15,
+  "4": 0.12,
+  "5": 0.1,
+  "6": 0.08,
+  "7": 0.25,
+  "8": 0.23
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.15,
+  0.12,
+  0.08,
+  0.02,
+  0.1,
+  0.23,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  6,
+  7,
+  4,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 877,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [7, 8, 3, 4, 5, 1, 6, 2], \"confidence\": {\"1\": 0.05, \"2\": 0.02, \"3\": 0.15, \"4\": 0.12, \"5\": 0.10, \"6\": 0.08, \"7\": 0.25, \"8\": 0.23}}",
+ "n_attempts": 1
+}

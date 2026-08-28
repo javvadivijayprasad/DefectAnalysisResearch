@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-thefuck-15",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "thefuck/rules/man.py",
+  "thefuck/rules/git_diff_staged.py",
+  "thefuck/rules/vagrant_up.py",
+  "thefuck/rules/mkdir_p.py",
+  "thefuck/rules/git_push_force.py",
+  "thefuck/rules/git_add.py",
+  "thefuck/rules/php_s.py",
+  "thefuck/shells/fish.py"
+ ],
+ "timestamp": "2026-08-27T19:24:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  6,
+  4,
+  5,
+  7,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "8": 0.45,
+  "6": 0.12,
+  "4": 0.1,
+  "5": 0.09,
+  "7": 0.08,
+  "1": 0.07,
+  "2": 0.06,
+  "3": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.06,
+  0.06,
+  0.1,
+  0.07,
+  0.45,
+  0.09,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  6,
+  7,
+  2,
+  5,
+  0,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 997,
+  "output_tokens": 488
+ },
+ "raw_response": "Looking at this failing test event, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n1. The test is `bip-thefuck-15` in the `thefuck` project\n2. The failure is an `AssertionError`\n3. The `app_code_changed` flag is set\n4. Candidates 1-7 all have identical statistics (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833)\n5. Candidate 8 (`thefuck/shells/fish.py`) has more commits (4), more churn (140), older age (120 days), and higher commit frequency\n\nThe identical statistics for candidates 1-7 suggest they may have been part of a batch refactoring commit. However, the test name `bip-thefuck-15` and the `AssertionError` suggest a specific rule or shell integration issue.\n\nThe `fish.py` shell file stands out with more activity and a different profile. Shell integration files often have bugs related to command parsing that could cause AssertionError in tests.\n\nFor the rule files (1-7), they all look like they were added/modified in the same commit. The test number 15 in thefuck's bugsinpy suite - looking at common thefuck bugs, `fish.py` shell integration issues are common sources of failures.\n\nGiven that `fish.py` has distinctly different (higher) activity metrics and the bug involves an AssertionError (which could be from shell command parsing), I'll rank it highest. Among the rule files, without content to distinguish them, I'll distribute probability somewhat evenly with slight variations.\n\n{\"ranking\": [8, 6, 4, 5, 7, 1, 2, 3], \"confidence\": {\"8\": 0.45, \"6\": 0.12, \"4\": 0.10, \"5\": 0.09, \"7\": 0.08, \"1\": 0.07, \"2\": 0.06, \"3\": 0.06}}",
+ "n_attempts": 1
+}

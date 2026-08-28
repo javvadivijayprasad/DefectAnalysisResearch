@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Time-12",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/joda/time/LocalDateTime.java",
+  "src/main/java/org/joda/time/ReadablePeriod.java",
+  "src/main/java/org/joda/time/LocalDate.java",
+  "src/main/java/org/joda/time/Months.java"
+ ],
+ "timestamp": "2026-08-27T19:15:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.05,
+  "3": 0.7,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.7,
+  0.55,
+  0.05,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 834,
+  "output_tokens": 187
+ },
+ "raw_response": "The test is `d4j-Time-12`, which in the Defects4J Time project corresponds to a bug in `LocalDate.fromCalendarFields` or `LocalDateTime.fromCalendarFields` \u2014 specifically related to handling of dates before the epoch (BC dates / year 0 issues with `GregorianCalendar`). Both `LocalDate` and `LocalDateTime` have `fromCalendarFields` static methods that were buggy. The fix typically involves both files.\n\n`ReadablePeriod` and `Months` are unlikely to be involved in this kind of date parsing bug.\n\n{\"ranking\": [3, 1, 4, 2], \"confidence\": {\"1\": 0.55, \"2\": 0.05, \"3\": 0.70, \"4\": 0.05}}",
+ "n_attempts": 1
+}

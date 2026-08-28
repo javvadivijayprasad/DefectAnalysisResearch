@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-scrapy-35",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "scrapy/exporters.py",
+  "scrapy/cmdline.py",
+  "scrapy/crawler.py",
+  "scrapy/utils/gz.py",
+  "scrapy/log.py",
+  "scrapy/responsetypes.py",
+  "scrapy/utils/url.py",
+  "scrapy/spidermiddlewares/offsite.py"
+ ],
+ "timestamp": "2026-08-27T19:24:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  7,
+  1,
+  4,
+  8,
+  6,
+  5,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "7": 0.3,
+  "1": 0.2,
+  "4": 0.18,
+  "8": 0.12,
+  "6": 0.08,
+  "5": 0.07,
+  "2": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.07,
+  0.2,
+  0.08,
+  0.3,
+  0.18,
+  0.12,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  2,
+  5,
+  1,
+  3,
+  4,
+  7
+ ],
+ "usage": {
+  "input_tokens": 971,
+  "output_tokens": 468
+ },
+ "raw_response": "Looking at this failing test in scrapy, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError (test assertion failure)\n- `app_code_changed` flag is set\n- The test is from bugsinpy:scrapy project\n\nLooking at the candidates:\n- Files 1, 3, 4, 7 have higher activity (commits=2, churn=70, age_days=60, commit_freq=0.1667)\n- Files 2, 5, 6, 8 have lower activity (commits=1, churn=35, age_days=30, commit_freq=0.0833)\n\nThe higher-churn files (1, 3, 4, 7) are more likely to contain bugs given their higher commit frequency and churn. Among these:\n- `scrapy/crawler.py` (3) - core component, frequently involved in bugs\n- `scrapy/utils/url.py` (7) - URL utilities are commonly buggy\n- `scrapy/exporters.py` (1) - exporters can have assertion-related bugs\n- `scrapy/utils/gz.py` (4) - gz utilities\n\nFor an AssertionError in scrapy tests, `crawler.py` and `utils/url.py` are common culprits. The `offsite.py` spider middleware (8) could also be relevant for URL-related assertions.\n\nGiven the similar statistics within each group, I'll weight the higher-churn files more heavily, with `crawler.py` and `utils/url.py` as top candidates.\n\n{\"ranking\": [3, 7, 1, 4, 8, 6, 5, 2], \"confidence\": {\"3\": 0.35, \"7\": 0.30, \"1\": 0.20, \"4\": 0.18, \"8\": 0.12, \"6\": 0.08, \"5\": 0.07, \"2\": 0.06}}",
+ "n_attempts": 1
+}

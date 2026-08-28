@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-thefuck-21",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "thefuck/rules/git_fix_stash.py",
+  "thefuck/utils.py",
+  "thefuck/rules/dirty_unzip.py",
+  "thefuck/rules/git_diff_staged.py",
+  "thefuck/rules/sudo.py",
+  "thefuck/types.py",
+  "thefuck/shells/bash.py"
+ ],
+ "timestamp": "2026-08-27T19:25:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  7,
+  1,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.55,
+  "2": 0.3,
+  "7": 0.2,
+  "1": 0.08,
+  "3": 0.08,
+  "4": 0.08,
+  "5": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.3,
+  0.08,
+  0.08,
+  0.08,
+  0.55,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  4,
+  5,
+  6,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 942,
+  "output_tokens": 433
+ },
+ "raw_response": "Looking at this failing test event for thefuck project with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n1. The test failure is an AssertionError, suggesting a logic/behavior mismatch\n2. The `app_code_changed` flag is set\n3. `thefuck/types.py` has the most commits (4), highest churn (140), and highest commit frequency (0.3333) - suggesting it's been actively modified\n4. `thefuck/utils.py` and `thefuck/shells/bash.py` have moderate activity (2 commits each)\n5. The rule files (1, 3, 4, 5) all have identical low stats (1 commit, same churn) - they look like distractors or minor changes\n6. `thefuck/types.py` being a core type file that's been heavily modified is a strong candidate for causing AssertionError failures across tests\n7. `thefuck/utils.py` is another core utility file that could affect many tests\n\nThe test name suggests it's related to thefuck's core functionality. Files with higher churn and commit frequency in core modules (types.py, utils.py, shells/bash.py) are more likely to contain the defect that causes AssertionError.\n\n`types.py` stands out most with 4 commits and highest churn. `utils.py` and `bash.py` are secondary candidates. The rule files are less likely as they're isolated rules.\n\n{\"ranking\": [6, 2, 7, 1, 3, 4, 5], \"confidence\": {\"6\": 0.55, \"2\": 0.30, \"7\": 0.20, \"1\": 0.08, \"3\": 0.08, \"4\": 0.08, \"5\": 0.08}}",
+ "n_attempts": 1
+}

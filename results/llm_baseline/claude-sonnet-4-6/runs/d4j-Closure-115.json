@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-115",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/FunctionInjector.java",
+  "src/com/google/javascript/jscomp/JqueryCodingConvention.java",
+  "src/com/google/javascript/jscomp/SimpleDefinitionFinder.java",
+  "src/com/google/javascript/jscomp/DiagnosticType.java",
+  "src/com/google/javascript/jscomp/InlineProperties.java",
+  "src/com/google/javascript/jscomp/LoggerErrorManager.java",
+  "src/com/google/javascript/jscomp/GlobalNamespace.java"
+ ],
+ "timestamp": "2026-08-27T18:58:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  7,
+  5,
+  2,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.72,
+  "3": 0.18,
+  "7": 0.07,
+  "5": 0.05,
+  "2": 0.03,
+  "4": 0.02,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.72,
+  0.01,
+  0.05,
+  0.02,
+  0.07,
+  0.03,
+  0.18
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  3,
+  5,
+  2,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1011,
+  "output_tokens": 188
+ },
+ "raw_response": "The failing test is d4j-Closure-115, which relates to function inlining. The `FunctionInjector.java` is the most likely candidate given it directly handles function injection/inlining logic, has significant churn, and is the core component for inlining operations. `SimpleDefinitionFinder.java` is also relevant as it supports inlining by finding definitions. The others are less likely to be related to an inlining bug.\n\n{\"ranking\": [1, 3, 7, 5, 2, 4, 6], \"confidence\": {\"1\": 0.72, \"3\": 0.18, \"7\": 0.07, \"5\": 0.05, \"2\": 0.03, \"4\": 0.02, \"6\": 0.01}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Gson-2",
+ "repo": "defects4j:Gson",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "gson/src/main/java/com/google/gson/internal/bind/CollectionTypeAdapterFactory.java",
+  "gson/src/main/java/com/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper.java",
+  "gson/src/main/java/com/google/gson/internal/bind/TimeTypeAdapter.java",
+  "gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java",
+  "gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java",
+  "gson/src/main/java/com/google/gson/internal/bind/JsonTreeWriter.java"
+ ],
+ "timestamp": "2026-08-27T19:33:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  6,
+  2,
+  1,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.15,
+  "3": 0.25,
+  "4": 0.05,
+  "5": 0.12,
+  "6": 0.33
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.25,
+  0.1,
+  0.15,
+  0.12,
+  0.33
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  0,
+  3,
+  2,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 809,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [3, 6, 2, 1, 5, 4], \"confidence\": {\"1\": 0.10, \"2\": 0.15, \"3\": 0.25, \"4\": 0.05, \"5\": 0.12, \"6\": 0.33}}",
+ "n_attempts": 1
+}

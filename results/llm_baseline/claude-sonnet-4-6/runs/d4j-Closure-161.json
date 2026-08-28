@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-161",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/DefinitionsRemover.java",
+  "src/com/google/javascript/jscomp/StrictWarningsGuard.java",
+  "src/com/google/javascript/jscomp/CompilerPass.java",
+  "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "src/com/google/javascript/jscomp/MarkNoSideEffectCalls.java",
+  "src/com/google/javascript/jscomp/Scope.java",
+  "src/com/google/javascript/jscomp/AstParallelizer.java",
+  "src/com/google/javascript/jscomp/LinkedFlowScope.java"
+ ],
+ "timestamp": "2026-08-27T18:59:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  8,
+  6,
+  5,
+  7,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "1": 0.15,
+  "8": 0.1,
+  "6": 0.08,
+  "5": 0.06,
+  "7": 0.04,
+  "2": 0.02,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.01,
+  0.1,
+  0.02,
+  0.06,
+  0.08,
+  0.04,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  7,
+  2,
+  6,
+  4,
+  3,
+  5,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1067,
+  "output_tokens": 477
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-161, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is in the Closure compiler project\n\nLet me analyze the candidates:\n\n1. **PeepholeFoldConstants.java** - Very high churn (7084), many commits (64), long history. This is a complex optimization pass that frequently has bugs. High likelihood of being involved in constant folding issues.\n\n2. **DefinitionsRemover.java** - Moderate activity, related to definitions/removal which could cause assertion errors.\n\n3. **LinkedFlowScope.java** - Moderate commits, related to flow analysis which can cause assertion errors.\n\n4. **Scope.java** - High commits and churn, scope management is critical and often buggy.\n\n5. **MarkNoSideEffectCalls.java** - Related to side effect analysis, could interact with constant folding.\n\n6. **AstParallelizer.java** - AST manipulation, moderate activity.\n\n7. **StrictWarningsGuard.java** - Low activity, unlikely to be the source.\n\n8. **CompilerPass.java** - Base interface/class, unlikely to be changed for a bug fix.\n\nGiven that Closure-161 is likely related to constant folding or peephole optimizations (common source of assertion errors in Closure), and PeepholeFoldConstants.java has by far the highest churn and commit frequency among complex files, it's the most likely candidate. DefinitionsRemover and LinkedFlowScope are secondary candidates.\n\n{\"ranking\": [4, 1, 8, 6, 5, 7, 2, 3], \"confidence\": {\"4\": 0.55, \"1\": 0.15, \"8\": 0.10, \"6\": 0.08, \"5\": 0.06, \"7\": 0.04, \"2\": 0.02, \"3\": 0.01}}",
+ "n_attempts": 1
+}

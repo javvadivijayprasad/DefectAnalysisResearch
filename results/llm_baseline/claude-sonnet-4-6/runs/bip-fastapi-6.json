@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-fastapi-6",
+ "repo": "bugsinpy:fastapi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "fastapi/routing.py",
+  "fastapi/openapi/utils.py",
+  "fastapi/dependencies/utils.py",
+  "fastapi/exception_handlers.py",
+  "fastapi/openapi/models.py"
+ ],
+ "timestamp": "2026-08-27T19:17:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "3": 0.25,
+  "2": 0.12,
+  "4": 0.05,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.03,
+  0.55,
+  0.05,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 833,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [1, 3, 2, 4, 5], \"confidence\": {\"1\": 0.55, \"3\": 0.25, \"2\": 0.12, \"4\": 0.05, \"5\": 0.03}}",
+ "n_attempts": 1
+}

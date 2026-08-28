@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-32",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/MapDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/StringDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/UntypedObjectDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/JdkDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/MapEntryDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/EnumSetDeserializer.java"
+ ],
+ "timestamp": "2026-08-27T19:05:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  6,
+  5,
+  2,
+  8,
+  7,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.3,
+  "6": 0.15,
+  "5": 0.08,
+  "2": 0.06,
+  "8": 0.05,
+  "7": 0.04,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.06,
+  0.08,
+  0.15,
+  0.03,
+  0.04,
+  0.45,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  3,
+  2,
+  7,
+  6,
+  0,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1172,
+  "output_tokens": 417
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which deserializer file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test is about deserialization (all candidates are deserializers)\n- `MapDeserializer.java` has very high commit frequency and churn, suggesting it's actively maintained and frequently fixed\n- `UntypedObjectDeserializer.java` has very high churn (1212) and many commits (31), suggesting it handles complex cases that often need fixes\n- `MapEntryDeserializer.java` is relatively new (217 days) with few commits (5) but decent churn - new files often have bugs\n- The defect index is 32, which in JacksonDatabind often relates to Map or untyped object deserialization issues\n\nFor JacksonDatabind defect #32, this is likely related to Map deserialization or untyped object handling. The `MapDeserializer` has the highest commit frequency and churn, making it a prime candidate. `UntypedObjectDeserializer` also has significant activity. `MapEntryDeserializer` being new with relatively few commits could also be involved.\n\nGiven the pattern of JacksonDatabind bugs around this era, MapDeserializer and UntypedObjectDeserializer are the most likely candidates for defect #32.\n\n{\"ranking\": [1, 4, 6, 5, 2, 8, 7, 3], \"confidence\": {\"1\": 0.45, \"4\": 0.30, \"6\": 0.15, \"5\": 0.08, \"2\": 0.06, \"8\": 0.05, \"7\": 0.04, \"3\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-110",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/rhino/Node.java",
+  "src/com/google/javascript/jscomp/DefinitionSite.java",
+  "src/com/google/javascript/jscomp/ScopedAliases.java",
+  "src/com/google/javascript/jscomp/ErrorPass.java",
+  "src/com/google/javascript/jscomp/InlineProperties.java",
+  "src/com/google/javascript/jscomp/CodingConvention.java",
+  "src/com/google/javascript/jscomp/ExpressionDecomposer.java"
+ ],
+ "timestamp": "2026-08-27T18:58:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  7,
+  1,
+  3,
+  6,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.04,
+  "3": 0.12,
+  "4": 0.05,
+  "5": 0.45,
+  "6": 0.1,
+  "7": 0.3
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.25,
+  0.04,
+  0.1,
+  0.45,
+  0.05,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  6,
+  4,
+  0,
+  5,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1008,
+  "output_tokens": 480
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-110, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure compiler issue #110\n\nLet me analyze the candidates:\n\n1. **Node.java** - Very high activity (94 commits, 13 devs, high churn), core AST node class - frequently involved in fixes\n2. **DefinitionSite.java** - Low activity, small file, unlikely to be the source\n3. **ScopedAliases.java** - Moderate activity, handles scoped aliases which could relate to various compiler issues\n4. **ErrorPass.java** - Low activity, small file\n5. **InlineProperties.java** - Very few commits (3), recently added, handles property inlining - could be involved in optimization bugs\n6. **CodingConvention.java** - High commit frequency, moderate size\n7. **ExpressionDecomposer.java** - Moderate commits, significant size, handles expression decomposition which is often involved in complex compiler bugs\n\nFor Closure-110, looking at the characteristics:\n- `InlineProperties.java` is very new (3 commits, 320 days old) and deals with property inlining - new features often have bugs\n- `ExpressionDecomposer.java` has significant churn and handles complex transformations\n- `Node.java` is always a candidate given its central role\n\nThe combination of InlineProperties being very new with few commits and dealing with optimization, plus ExpressionDecomposer's complexity, makes these strong candidates. Node.java is also frequently involved in fixes.\n\n{\"ranking\": [5, 7, 1, 3, 6, 4, 2], \"confidence\": {\"1\": 0.25, \"2\": 0.04, \"3\": 0.12, \"4\": 0.05, \"5\": 0.45, \"6\": 0.10, \"7\": 0.30}}",
+ "n_attempts": 1
+}

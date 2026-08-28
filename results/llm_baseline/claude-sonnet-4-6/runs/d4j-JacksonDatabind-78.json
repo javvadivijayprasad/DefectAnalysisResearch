@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-78",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/UnresolvedForwardReference.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ResolvableDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/SettableBeanProperty.java"
+ ],
+ "timestamp": "2026-08-27T19:06:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.55,
+  "3": 0.15,
+  "4": 0.25,
+  "5": 0.12
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.35,
+  0.25,
+  0.12,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  2,
+  4,
+  0
+ ],
+ "usage": {
+  "input_tokens": 954,
+  "output_tokens": 456
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an `AssertionError` related to deserialization\n- `app_code_changed` flag is set\n- The test is about forward references during deserialization (based on the `UnresolvedForwardReference` candidate)\n\nAnalyzing the candidates:\n\n1. **UnresolvedForwardReference.java** - Directly related to forward reference handling in deserialization. Moderate activity (8 commits, 3 devs).\n\n2. **ResolvableDeserializer.java** - Very high commit frequency (1.75/day) with recent activity (age_days=32). This is extremely suspicious - very recently modified file with high churn rate relative to its age. This strongly suggests recent active development/fixing.\n\n3. **BeanDeserializerFactory.java** - High activity overall but lower commit frequency. Core factory class.\n\n4. **DefaultDeserializationContext.java** - Moderate activity, handles deserialization context which could be involved in forward reference resolution.\n\n5. **SettableBeanProperty.java** - High activity, core property setting class.\n\nThe `ResolvableDeserializer.java` stands out dramatically with its commit_freq of 1.75 (commits per day over its 32-day age), suggesting it was very recently created or heavily modified. This is a strong signal of recent bug-fixing activity.\n\n`UnresolvedForwardReference.java` is also relevant given the test context around forward references.\n\n`DefaultDeserializationContext.java` could be involved as it manages the deserialization context where forward references are tracked.\n\n{\"ranking\": [2, 1, 4, 3, 5], \"confidence\": {\"1\": 0.35, \"2\": 0.55, \"3\": 0.15, \"4\": 0.25, \"5\": 0.12}}",
+ "n_attempts": 1
+}

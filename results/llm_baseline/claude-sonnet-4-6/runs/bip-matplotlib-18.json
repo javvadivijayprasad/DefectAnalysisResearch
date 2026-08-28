@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-matplotlib-18",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "lib/matplotlib/markers.py",
+  "examples/userdemo/colormap_normalizations.py",
+  "lib/matplotlib/projections/polar.py",
+  "lib/matplotlib/tight_layout.py",
+  "lib/matplotlib/colors.py",
+  "lib/matplotlib/backend_bases.py"
+ ],
+ "timestamp": "2026-08-27T19:18:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  6,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.55,
+  "3": 0.35,
+  "6": 0.2,
+  "1": 0.08,
+  "4": 0.08,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.55,
+  0.2,
+  0.05,
+  0.08,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2,
+  5,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 884,
+  "output_tokens": 408
+ },
+ "raw_response": "Looking at this failing test event for matplotlib with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- The test name is \"bip-matplotlib-18\" which doesn't give specific clues about the module\n- The failure is an AssertionError\n- Files 3 and 5 have higher commit frequency and churn (commits=3, churn=105) compared to others\n- `lib/matplotlib/colors.py` is a core file that's frequently modified and could cause AssertionErrors in many tests\n- `lib/matplotlib/projections/polar.py` is also highly active\n- `examples/userdemo/colormap_normalizations.py` is an example file, less likely to be defective in a test failure\n- `lib/matplotlib/backend_bases.py` has moderate activity\n- `lib/matplotlib/markers.py` and `lib/matplotlib/tight_layout.py` have minimal activity\n\nThe \"colormap_normalizations\" example file alongside `colors.py` being active suggests color-related changes. However, example files rarely cause test failures directly. `colors.py` with its higher churn is a strong candidate.\n\n`polar.py` with similar stats could also be involved. `backend_bases.py` is moderately active.\n\nThe example file `colormap_normalizations.py` having the same stats as some lib files is suspicious - it might have been changed alongside `colors.py` in a related commit.\n\n{\"ranking\": [5, 3, 6, 1, 4, 2], \"confidence\": {\"5\": 0.55, \"3\": 0.35, \"6\": 0.20, \"1\": 0.08, \"4\": 0.08, \"2\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Jsoup-93",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/FormElement.java",
+  "src/main/java/org/jsoup/nodes/TextNode.java",
+  "src/main/java/org/jsoup/nodes/PseudoTextElement.java",
+  "src/main/java/org/jsoup/nodes/package-info.java"
+ ],
+ "timestamp": "2026-08-27T19:10:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "2": 0.45,
+  "4": 0.2,
+  "1": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.2,
+  0.55,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 834,
+  "output_tokens": 415
+ },
+ "raw_response": "Looking at this failing test in Jsoup (defects4j:Jsoup-93), I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in the `nodes` package\n- `app_code_changed` flag is set, indicating application code was modified\n- `PseudoTextElement.java` (candidate 3) is very new (167 days old, only 2 commits) and has a high commit frequency relative to its age - this suggests it's a recently added/modified file\n- `TextNode.java` (candidate 2) has high activity (42 commits, 5 devs, high churn) and high commit frequency\n- `FormElement.java` (candidate 1) has moderate activity\n- `package-info.java` (candidate 4) is brand new (1 day old, 1 commit) - this is suspicious as it may have been added as part of the fix commit\n\nThe `PseudoTextElement` is a very new class (167 days, only 2 commits) that likely interacts with `TextNode`. Given that it's new and has had recent changes, it's likely involved in the bug. The `package-info.java` being brand new (1 day old) suggests it was added in the fix commit. `TextNode` with its high activity is also a strong candidate.\n\nThe combination of `PseudoTextElement` (new class, recently modified) and `TextNode` (high activity, core class) seems most likely for a bug fix involving text node handling.\n\n{\"ranking\": [3, 2, 4, 1], \"confidence\": {\"3\": 0.55, \"2\": 0.45, \"4\": 0.20, \"1\": 0.10}}",
+ "n_attempts": 1
+}

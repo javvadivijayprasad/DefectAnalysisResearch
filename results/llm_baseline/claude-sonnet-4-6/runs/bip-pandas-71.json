@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-pandas-71",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "pandas/core/groupby/grouper.py",
+  "pandas/core/reshape/reshape.py",
+  "pandas/core/ops/__init__.py",
+  "pandas/core/arrays/masked.py",
+  "pandas/core/indexes/numeric.py",
+  "pandas/core/indexes/period.py",
+  "pandas/core/reshape/tile.py"
+ ],
+ "timestamp": "2026-08-27T19:20:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  2,
+  7,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "6": 0.28,
+  "2": 0.2,
+  "7": 0.12,
+  "3": 0.1,
+  "4": 0.06,
+  "5": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.1,
+  0.28,
+  0.35,
+  0.06,
+  0.06,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  1,
+  0,
+  5,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 932,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [1, 6, 2, 7, 3, 4, 5], \"confidence\": {\"1\": 0.35, \"6\": 0.28, \"2\": 0.20, \"7\": 0.12, \"3\": 0.10, \"4\": 0.06, \"5\": 0.06}}",
+ "n_attempts": 1
+}

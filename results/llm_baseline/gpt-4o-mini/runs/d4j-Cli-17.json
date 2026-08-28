@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Cli-17",
+ "repo": "defects4j:Cli",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/cli/BasicParser.java",
+  "src/java/org/apache/commons/cli/TypeHandler.java",
+  "src/java/org/apache/commons/cli/Util.java",
+  "src/java/org/apache/commons/cli/Parser.java",
+  "src/java/org/apache/commons/cli/PosixParser.java"
+ ],
+ "timestamp": "2026-08-27T19:30:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.15,
+  "3": 0.1,
+  "4": 0.5,
+  "5": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.15,
+  0.05,
+  0.1,
+  0.5
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 740,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [4, 5, 2, 3, 1], \"confidence\": {\"1\": 0.05, \"2\": 0.15, \"3\": 0.10, \"4\": 0.50, \"5\": 0.20}}",
+ "n_attempts": 1
+}

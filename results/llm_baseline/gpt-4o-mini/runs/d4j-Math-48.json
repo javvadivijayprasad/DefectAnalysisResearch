@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-48",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/analysis/solvers/AbstractDifferentiableUnivariateRealSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/MullerSolver.java"
+ ],
+ "timestamp": "2026-08-27T19:35:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  5,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.05,
+  "3": 0.35,
+  "4": 0.25,
+  "5": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.35,
+  0.15,
+  0.25,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 779,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [3, 4, 5, 1, 2], \"confidence\": {\"1\": 0.15, \"2\": 0.05, \"3\": 0.35, \"4\": 0.25, \"5\": 0.20}}",
+ "n_attempts": 1
+}

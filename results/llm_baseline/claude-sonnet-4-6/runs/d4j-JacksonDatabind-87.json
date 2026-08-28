@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-87",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/util/Named.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/RootNameLookup.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ISO8601DateFormat.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/Converter.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/NameTransformer.java"
+ ],
+ "timestamp": "2026-08-27T19:07:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "2": 0.35,
+  "3": 0.1,
+  "4": 0.05,
+  "5": 0.04,
+  "6": 0.03,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.1,
+  0.03,
+  0.35,
+  0.03,
+  0.65,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  6,
+  1,
+  5,
+  0,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1059,
+  "output_tokens": 344
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- `Named.java` (candidate 1) is extremely new (age_days=28) with very high commit frequency (0.5000), suggesting it was recently created/modified - this is a strong signal of recent activity related to a fix.\n- The test failure is an AssertionError, suggesting a logic/behavior issue.\n- `RootNameLookup.java` (candidate 2) has moderate activity and deals with root name lookup which could relate to naming/serialization issues.\n- `TokenBuffer.java` (candidate 3) is heavily modified but is a large utility class.\n- `Named.java` being only 28 days old with 2 commits and high frequency strongly suggests it's part of a recent fix.\n\nThe `Named.java` file is very new (28 days old) and has a very high commit frequency, suggesting it was recently introduced as part of a fix. `RootNameLookup.java` also seems plausible as it deals with name resolution which could interact with a `Named` interface.\n\n{\"ranking\": [1, 2, 3, 4, 5, 6, 7], \"confidence\": {\"1\": 0.65, \"2\": 0.35, \"3\": 0.10, \"4\": 0.05, \"5\": 0.04, \"6\": 0.03, \"7\": 0.03}}",
+ "n_attempts": 1
+}

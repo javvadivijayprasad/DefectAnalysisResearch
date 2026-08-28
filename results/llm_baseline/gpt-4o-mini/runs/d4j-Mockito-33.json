@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Mockito-33",
+ "repo": "defects4j:Mockito",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/org/mockito/internal/invocation/ArgumentsComparator.java",
+  "src/org/mockito/internal/invocation/SerializableMethod.java",
+  "src/org/mockito/internal/invocation/InvocationMatcher.java",
+  "src/org/mockito/internal/invocation/CapturesArgumensFromInvocation.java",
+  "src/org/mockito/internal/invocation/MockitoMethod.java",
+  "src/org/mockito/internal/invocation/Invocation.java",
+  "src/org/mockito/internal/invocation/AllInvocationsFinder.java"
+ ],
+ "timestamp": "2026-08-27T19:36:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  2,
+  6,
+  4,
+  7,
+  3
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "1": 0.2,
+  "2": 0.15,
+  "6": 0.1,
+  "4": 0.05,
+  "7": 0.03,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.2,
+  0.15,
+  0.45,
+  0.03,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  1,
+  2,
+  0,
+  5,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 829,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[5,1,2,6,4,7,3],\"confidence\":{\"5\":0.45,\"1\":0.20,\"2\":0.15,\"6\":0.10,\"4\":0.05,\"7\":0.03,\"3\":0.02}}",
+ "n_attempts": 1
+}

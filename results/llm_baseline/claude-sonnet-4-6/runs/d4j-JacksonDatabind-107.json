@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-107",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsArrayTypeDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/ClassNameIdResolver.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsExistingPropertyTypeSerializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsExternalTypeDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java"
+ ],
+ "timestamp": "2026-08-27T19:07:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "2": 0.35,
+  "1": 0.25,
+  "4": 0.15,
+  "3": 0.1,
+  "5": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.15,
+  0.35,
+  0.08,
+  0.1,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  5,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1025,
+  "output_tokens": 464
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind related to type deserialization, I need to identify which files are most likely defective.\n\nKey observations:\n- The test involves `jsontype/impl` package\n- It's an AssertionError suggesting incorrect behavior rather than a crash\n- The `package-info.java` (candidate 4) has very recent activity (age_days=30, high commit_freq=0.4667) which is suspicious - it was recently modified\n- `TypeDeserializerBase.java` (candidate 6) has the most commits (49) and is a base class that many deserializers depend on - changes here could affect many tests\n- `ClassNameIdResolver.java` (candidate 2) has significant churn and many commits, dealing with class name resolution which is a common source of type-related bugs\n- `AsArrayTypeDeserializer.java` (candidate 1) has moderate activity and deals with array-type deserialization\n\nThe `package-info.java` with age_days=30 is very recently touched, which could indicate it was part of a recent change that introduced a bug. However, package-info files rarely contain logic.\n\nFor type deserialization issues, `TypeDeserializerBase.java` is the most architecturally central file. `ClassNameIdResolver.java` handles class name resolution which is critical for polymorphic type handling. `AsArrayTypeDeserializer.java` is also a strong candidate for array-based type info bugs.\n\nThe combination of high commit frequency on `package-info.java` (likely touched alongside a real change) and the centrality of `TypeDeserializerBase.java` and `ClassNameIdResolver.java` guides my ranking.\n\n{\"ranking\": [6, 2, 1, 4, 3, 5], \"confidence\": {\"6\": 0.45, \"2\": 0.35, \"1\": 0.25, \"4\": 0.15, \"3\": 0.10, \"5\": 0.08}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-keras-15",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "keras/callbacks.py",
+  "keras/preprocessing/text.py",
+  "keras/initializers.py",
+  "docs/autogen.py",
+  "keras/utils/generic_utils.py",
+  "keras/backend/numpy_backend.py"
+ ],
+ "timestamp": "2026-08-27T19:17:28",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  2,
+  3,
+  6,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "5": 0.15,
+  "2": 0.08,
+  "3": 0.07,
+  "6": 0.05,
+  "4": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.05,
+  0.02,
+  0.15,
+  0.07,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  5,
+  1,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 871,
+  "output_tokens": 407
+ },
+ "raw_response": "Looking at this failing test in keras, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n1. The test failure is an `AssertionError` in keras\n2. `app_code_changed` flag is set, indicating application code was modified\n3. `keras/callbacks.py` stands out significantly with 4 commits, higher churn (140), and much higher commit frequency (0.3333) compared to all others\n4. The other 5 files all have identical statistics (1 commit, same churn, same age, same frequency), suggesting they may be distractor files\n5. For a keras test failure with AssertionError, `callbacks.py` is a common source of issues as it's a complex, frequently-modified file\n6. `keras/utils/generic_utils.py` is also a plausible candidate as utility functions can affect many tests\n7. `keras/preprocessing/text.py` could be relevant depending on the test\n8. `docs/autogen.py` is unlikely to cause test failures as it's documentation\n9. `keras/backend/numpy_backend.py` and `keras/initializers.py` are less likely for a general AssertionError\n\nThe strong signal here is `callbacks.py` with its much higher activity metrics. Among the identical-stats files, `generic_utils.py` is most likely to cause broad test failures, followed by `preprocessing/text.py` and `initializers.py`.\n\n{\"ranking\": [1, 5, 2, 3, 6, 4], \"confidence\": {\"1\": 0.65, \"5\": 0.15, \"2\": 0.08, \"3\": 0.07, \"6\": 0.05, \"4\": 0.02}}",
+ "n_attempts": 1
+}

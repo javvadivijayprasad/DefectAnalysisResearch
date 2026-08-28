@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Gson-4",
+ "repo": "defects4j:Gson",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "gson/src/main/java/com/google/gson/stream/MalformedJsonException.java",
+  "gson/src/main/java/com/google/gson/stream/JsonToken.java",
+  "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+  "gson/src/main/java/com/google/gson/stream/JsonReader.java",
+  "gson/src/main/java/com/google/gson/stream/JsonScope.java"
+ ],
+ "timestamp": "2026-08-27T19:33:10",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  5,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "3": 0.3,
+  "1": 0.15,
+  "5": 0.07,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.3,
+  0.03,
+  0.07,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 751,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [4, 3, 1, 5, 2], \"confidence\": {\"4\": 0.45, \"3\": 0.30, \"1\": 0.15, \"5\": 0.07, \"2\": 0.03}}",
+ "n_attempts": 1
+}

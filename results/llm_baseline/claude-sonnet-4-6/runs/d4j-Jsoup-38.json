@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Jsoup-38",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/ParseErrorList.java",
+  "src/main/java/org/jsoup/parser/Parser.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java"
+ ],
+ "timestamp": "2026-08-27T19:08:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.9,
+  "3": 0.75,
+  "4": 0.6,
+  "1": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.75,
+  0.9,
+  0.6
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 837,
+  "output_tokens": 248
+ },
+ "raw_response": "Looking at the candidates:\n\n- **File 2 (ParseErrorList.java)**: commits=1, age_days=1, commit_freq=1.0 \u2014 this is a brand new file, very likely part of the fix commit.\n- **File 3 (Parser.java)**: High commit frequency (0.359), heavily modified \u2014 likely involved in the fix.\n- **File 4 (TreeBuilder.java)**: Also heavily modified, relatively recent \u2014 could be part of the fix.\n- **File 1 (HtmlTreeBuilderState.java)**: Older file, lower commit frequency \u2014 less likely but possible.\n\nThe test failure is an AssertionError in Jsoup's parser. The fix likely introduced parse error tracking (ParseErrorList is brand new), which would require changes to Parser.java and possibly TreeBuilder.java to wire it in.\n\n{\"ranking\": [2, 3, 4, 1], \"confidence\": {\"2\": 0.90, \"3\": 0.75, \"4\": 0.60, \"1\": 0.20}}",
+ "n_attempts": 1
+}

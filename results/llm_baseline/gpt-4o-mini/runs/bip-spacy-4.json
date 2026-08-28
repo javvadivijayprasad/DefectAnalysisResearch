@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-spacy-4",
+ "repo": "bugsinpy:spacy",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "examples/information_extraction/entity_relations.py",
+  "spacy/errors.py",
+  "spacy/language.py",
+  "spacy/cli/converters/conllu2json.py"
+ ],
+ "timestamp": "2026-08-27T19:39:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.45,
+  "3": 0.3,
+  "4": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.15,
+  0.3,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 671,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [2, 3, 1, 4], \"confidence\": {\"1\": 0.15, \"2\": 0.45, \"3\": 0.30, \"4\": 0.10}}",
+ "n_attempts": 1
+}

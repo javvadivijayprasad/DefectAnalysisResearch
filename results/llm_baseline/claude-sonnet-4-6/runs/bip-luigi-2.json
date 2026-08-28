@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-luigi-2",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "luigi/contrib/beam_dataflow.py",
+  "luigi/util.py",
+  "luigi/task_register.py",
+  "luigi/server.py"
+ ],
+ "timestamp": "2026-08-27T19:17:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.65,
+  "2": 0.15,
+  "4": 0.12,
+  "1": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.12,
+  0.65,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 780,
+  "output_tokens": 293
+ },
+ "raw_response": "Looking at this failing test in luigi with an AssertionError, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- `luigi/task_register.py` stands out with 2 commits, 2x the churn (70), and double the commit frequency (0.1667) compared to the others\n- The other three files all have identical statistics (commits=1, churn=35, age_days=30, commit_freq=0.0833)\n- An AssertionError in luigi tests often relates to task registration/discovery mechanisms\n- `task_register.py` is a core file that handles task registration, which is fundamental to luigi's operation\n- The higher commit activity on `task_register.py` suggests it's been more actively modified recently\n\nThe `task_register.py` file is the most likely candidate given its higher activity metrics. Among the remaining files, `luigi/util.py` is a utility module that could affect many tests, while `server.py` and `beam_dataflow.py` are more specialized.\n\n{\"ranking\": [3, 2, 4, 1], \"confidence\": {\"3\": 0.65, \"2\": 0.15, \"4\": 0.12, \"1\": 0.08}}",
+ "n_attempts": 1
+}

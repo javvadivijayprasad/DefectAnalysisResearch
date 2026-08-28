@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-108",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/DefinitionProvider.java",
+  "src/com/google/javascript/jscomp/CodingConventions.java",
+  "src/com/google/javascript/jscomp/RenameVars2.java",
+  "src/com/google/javascript/jscomp/ScopedAliases.java",
+  "src/com/google/javascript/jscomp/CombinedCompilerPass.java"
+ ],
+ "timestamp": "2026-08-27T18:58:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  3,
+  5,
+  1
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "2": 0.25,
+  "3": 0.12,
+  "5": 0.05,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.25,
+  0.12,
+  0.03,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 897,
+  "output_tokens": 423
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-108, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a logic/compilation error\n- The flag `app_code_changed` indicates application code was modified\n\nAnalyzing the candidates:\n\n1. **DefinitionProvider.java** - Interface/provider class, low churn (48), moderate commit frequency. Less likely to be the source of a bug fix.\n\n2. **CodingConventions.java** - High churn (539), relatively recent (461 days), high commit frequency (0.1670). Coding conventions changes could affect many compiler behaviors.\n\n3. **RenameVars2.java** - Very high churn (877), many commits (30), many devs (11), old file (1290 days). High activity suggests ongoing development and bug fixes.\n\n4. **ScopedAliases.java** - Highest churn (1121), most commits (34), very old file (5940 days) but low commit frequency (0.0401). ScopedAliases is a complex pass that handles goog.scope and similar patterns - known to have many edge cases.\n\n5. **CombinedCompilerPass.java** - Moderate stats, utility class combining passes.\n\nFor Closure-108 specifically, this is related to scoped aliases handling. ScopedAliases.java is a strong candidate given its complexity and high churn. CodingConventions.java is also plausible given its recent high activity.\n\n{\"ranking\": [4, 2, 3, 5, 1], \"confidence\": {\"4\": 0.55, \"2\": 0.25, \"3\": 0.12, \"5\": 0.05, \"1\": 0.03}}",
+ "n_attempts": 1
+}

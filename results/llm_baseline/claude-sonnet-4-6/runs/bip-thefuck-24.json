@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-thefuck-24",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "thefuck/types.py",
+  "thefuck/rules/git_diff_staged.py",
+  "thefuck/rules/fix_file.py",
+  "thefuck/rules/php_s.py",
+  "thefuck/shells/fish.py",
+  "thefuck/rules/git_branch_exists.py",
+  "thefuck/rules/vagrant_up.py",
+  "thefuck/rules/git_push_force.py"
+ ],
+ "timestamp": "2026-08-27T19:25:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  6,
+  3,
+  2,
+  4,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "5": 0.4,
+  "6": 0.2,
+  "3": 0.18,
+  "2": 0.08,
+  "4": 0.08,
+  "7": 0.08,
+  "8": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.08,
+  0.4,
+  0.08,
+  0.08,
+  0.08,
+  0.2,
+  0.18
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  1,
+  5,
+  7,
+  4,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 997,
+  "output_tokens": 458
+ },
+ "raw_response": "Looking at this failing test in the thefuck project, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a test assertion failed\n- The flag `app_code_changed` is set, indicating application code was modified\n- The project is `thefuck`, a shell command correction tool\n\nAnalyzing the candidates:\n- Files 1 and 5 (`thefuck/types.py` and `thefuck/shells/fish.py`) have the highest activity: commits=4, devs=1, churn=140, age_days=120, commit_freq=0.3333 - these are the most actively modified files\n- Files 3 and 6 (`fix_file.py` and `git_branch_exists.py`) have moderate activity: commits=2, churn=70\n- Files 2, 4, 7, 8 have minimal activity: commits=1, churn=35\n\nThe `thefuck/types.py` file is a core module that many rules depend on - changes here could cause widespread test failures via AssertionError. Similarly, `thefuck/shells/fish.py` is a core shell integration file.\n\nThe `git_branch_exists.py` and `fix_file.py` have moderate churn and could be involved.\n\nGiven the AssertionError pattern and that core files like `types.py` and `shells/fish.py` have the most activity, they're most likely to be the defective files. The rule files with single commits are less likely but possible.\n\n{\"ranking\": [1, 5, 6, 3, 2, 4, 7, 8], \"confidence\": {\"1\": 0.45, \"5\": 0.40, \"6\": 0.20, \"3\": 0.18, \"2\": 0.08, \"4\": 0.08, \"7\": 0.08, \"8\": 0.08}}",
+ "n_attempts": 1
+}

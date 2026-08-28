@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Time-15",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/joda/time/field/ImpreciseDateTimeField.java",
+  "src/main/java/org/joda/time/field/DelegatedDateTimeField.java",
+  "src/main/java/org/joda/time/field/StrictDateTimeField.java",
+  "src/main/java/org/joda/time/field/FieldUtils.java",
+  "src/main/java/org/joda/time/field/UnsupportedDurationField.java"
+ ],
+ "timestamp": "2026-08-27T19:15:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.85,
+  "1": 0.08,
+  "2": 0.05,
+  "3": 0.04,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.85,
+  0.03,
+  0.08,
+  0.04,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  1,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 911,
+  "output_tokens": 156
+ },
+ "raw_response": "The defects4j Time-15 bug is about `FieldUtils.getMinimumDurationFieldOrdinal` or similar utility method in `FieldUtils.java`. Looking at the test name pattern for Time-15, it involves `FieldUtils` - specifically the `safeMultiply` or similar method. The fix for Time-15 is known to be in `FieldUtils.java`.\n\n{\"ranking\": [4, 1, 2, 3, 5], \"confidence\": {\"4\": 0.85, \"1\": 0.08, \"2\": 0.05, \"3\": 0.04, \"5\": 0.03}}",
+ "n_attempts": 1
+}

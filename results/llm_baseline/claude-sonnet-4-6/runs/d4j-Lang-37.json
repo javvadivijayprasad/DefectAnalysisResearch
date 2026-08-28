@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-37",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/lang3/Range.java",
+  "src/java/org/apache/commons/lang3/BooleanUtils.java",
+  "src/java/org/apache/commons/lang3/SerializationException.java",
+  "src/java/org/apache/commons/lang3/ObjectUtils.java",
+  "src/java/org/apache/commons/lang3/SystemUtils.java",
+  "src/java/org/apache/commons/lang3/ArrayUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:11:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  6,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.88,
+  "4": 0.07,
+  "6": 0.04,
+  "2": 0.02,
+  "5": 0.02,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.88,
+  0.01,
+  0.02,
+  0.07,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  5,
+  3,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 949,
+  "output_tokens": 167
+ },
+ "raw_response": "The failing test is in defects4j:Lang-37. The key signal is that `Range.java` is extremely new (age_days=41) with very high commit frequency (2.39 commits/day), indicating it's a recently added/heavily modified file. The test failure involves an AssertionError which is consistent with a logic bug in a newly introduced class. The other files are much older and more stable.\n\n{\"ranking\": [1, 4, 6, 2, 5, 3], \"confidence\": {\"1\": 0.88, \"4\": 0.07, \"6\": 0.04, \"2\": 0.02, \"5\": 0.02, \"3\": 0.01}}",
+ "n_attempts": 1
+}

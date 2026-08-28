@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-96",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/LoggerErrorManager.java",
+  "src/com/google/javascript/jscomp/NameReferenceGraph.java",
+  "src/com/google/javascript/jscomp/JsAst.java",
+  "src/com/google/javascript/jscomp/PhaseOptimizer.java",
+  "src/com/google/javascript/jscomp/AnonymousFunctionNamingCallback.java",
+  "src/com/google/javascript/jscomp/NodeTraversal.java",
+  "src/com/google/javascript/jscomp/TypeCheck.java",
+  "src/com/google/javascript/jscomp/PrepareAst.java"
+ ],
+ "timestamp": "2026-08-27T18:58:19",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  8,
+  4,
+  6,
+  3,
+  2,
+  5,
+  1
+ ],
+ "llm_confidence_presented": {
+  "7": 0.65,
+  "8": 0.25,
+  "4": 0.15,
+  "6": 0.12,
+  "3": 0.08,
+  "2": 0.06,
+  "5": 0.04,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.15,
+  0.12,
+  0.06,
+  0.08,
+  0.25,
+  0.04,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  5,
+  4,
+  1,
+  6,
+  7
+ ],
+ "usage": {
+  "input_tokens": 1066,
+  "output_tokens": 545
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-96, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure involves an `AssertionError`\n- Flags indicate `app_code_changed` and `validator_changed`\n- The `validator_changed` flag is particularly interesting - it suggests a validation/checking component was modified\n\nLet me analyze the candidates:\n\n1. **TypeCheck.java** - High commit count (21), many devs (6), very high churn (1980), old file (6122 days). TypeCheck is a validator by nature. The `validator_changed` flag strongly suggests this file.\n\n2. **PrepareAst.java** - Recent file (161 days), high commit frequency (0.3043), significant churn (499). PrepareAst prepares the AST and could affect validation.\n\n3. **PhaseOptimizer.java** - Recent file (128 days), highest commit frequency (0.3281), significant churn (418). Could be involved in optimization phases.\n\n4. **NodeTraversal.java** - High churn (710), moderate commit frequency. Core traversal component.\n\n5. **JsAst.java** - Moderate stats, could be involved in AST-related issues.\n\n6. **NameReferenceGraph.java** - Moderate stats.\n\n7. **AnonymousFunctionNamingCallback.java** - Low commits, low churn.\n\n8. **LoggerErrorManager.java** - Low commits, low churn.\n\nThe `validator_changed` flag most strongly points to **TypeCheck.java** (it IS a type validator). The `app_code_changed` flag could point to **PrepareAst.java** or **PhaseOptimizer.java** given their recent high activity. TypeCheck.java with its very high churn and many commits is the most likely defective file for a type-checking related AssertionError.\n\n{\"ranking\": [7, 8, 4, 6, 3, 2, 5, 1], \"confidence\": {\"7\": 0.65, \"8\": 0.25, \"4\": 0.15, \"6\": 0.12, \"3\": 0.08, \"2\": 0.06, \"5\": 0.04, \"1\": 0.03}}",
+ "n_attempts": 1
+}

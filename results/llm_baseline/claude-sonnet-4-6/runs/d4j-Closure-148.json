@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-148",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "src/com/google/javascript/jscomp/MaybeReachingVariableUse.java",
+  "src/com/google/javascript/jscomp/AbstractCompiler.java",
+  "src/com/google/javascript/jscomp/SourceMap.java",
+  "src/com/google/javascript/jscomp/CollapseProperties.java",
+  "src/com/google/javascript/jscomp/DiagnosticGroup.java"
+ ],
+ "timestamp": "2026-08-27T18:59:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  3,
+  2,
+  6,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.72,
+  "5": 0.12,
+  "3": 0.07,
+  "2": 0.05,
+  "6": 0.03,
+  "4": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.72,
+  0.02,
+  0.12,
+  0.07,
+  0.03,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  1,
+  2,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 956,
+  "output_tokens": 199
+ },
+ "raw_response": "The failing test is in Closure-148, which is an AssertionError. The test name suggests it's related to `PeepholeFoldConstants` based on the defects4j Closure bug database. This file has the highest churn (4307), most commits (20), and is a complex optimization pass that commonly has folding bugs.\n\n`CollapseProperties` is also a candidate with recent activity, but `PeepholeFoldConstants` is the most likely defective file for a Closure-148 type bug involving constant folding assertions.\n\n{\"ranking\": [1, 5, 3, 2, 6, 4], \"confidence\": {\"1\": 0.72, \"5\": 0.12, \"3\": 0.07, \"2\": 0.05, \"6\": 0.03, \"4\": 0.02}}",
+ "n_attempts": 1
+}

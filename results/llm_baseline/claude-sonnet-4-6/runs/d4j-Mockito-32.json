@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-32",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/internal/configuration/DefaultInjectionEngine.java",
+  "src/org/mockito/internal/configuration/GlobalConfiguration.java",
+  "src/org/mockito/internal/configuration/SpyAnnotationEngine.java",
+  "src/org/mockito/internal/configuration/ClassPathLoader.java",
+  "src/org/mockito/internal/configuration/InjectingAnnotationEngine.java",
+  "src/org/mockito/internal/configuration/DefaultAnnotationEngine.java"
+ ],
+ "timestamp": "2026-08-27T19:15:19",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  5,
+  6,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.65,
+  "1": 0.45,
+  "5": 0.25,
+  "6": 0.15,
+  "2": 0.1,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.65,
+  0.15,
+  0.1,
+  0.45,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  0,
+  3,
+  4,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 937,
+  "output_tokens": 372
+ },
+ "raw_response": "Looking at the failing test event for Mockito-32 with `AssertionError` and `config_changed` flag set.\n\nKey observations:\n- The `config_changed` flag suggests configuration-related files are involved\n- The test is about injection/annotation configuration\n- File 4 (ClassPathLoader.java) has an extremely high commit frequency (7.0/day) with age_days=9, suggesting very recent active development\n- File 1 (DefaultInjectionEngine.java) is very new (age_days=15) with high commit frequency (1.87/day), suggesting recent active changes\n- File 5 (InjectingAnnotationEngine.java) has moderate recent activity (age_days=84, freq=0.58)\n- The `config_changed` flag combined with ClassPathLoader's extremely high churn rate makes it a prime suspect\n- DefaultInjectionEngine is also very new and actively modified\n\nClassPathLoader with 7.0 commits/day over 9 days is extremely suspicious - this is clearly under heavy development. DefaultInjectionEngine at age 15 days with 1.87 commits/day is also very new.\n\nThe combination of `config_changed` flag and the recency/churn of ClassPathLoader and DefaultInjectionEngine makes these the top candidates.\n\n{\"ranking\": [4, 1, 5, 6, 2, 3], \"confidence\": {\"4\": 0.65, \"1\": 0.45, \"5\": 0.25, \"6\": 0.15, \"2\": 0.10, \"3\": 0.05}}",
+ "n_attempts": 1
+}

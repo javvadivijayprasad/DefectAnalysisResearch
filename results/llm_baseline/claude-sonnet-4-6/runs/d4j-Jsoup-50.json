@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Jsoup-50",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/helper/HttpConnection.java",
+  "src/main/java/org/jsoup/helper/Validate.java",
+  "src/main/java/org/jsoup/helper/W3CDom.java"
+ ],
+ "timestamp": "2026-08-27T19:09:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.35,
+  "4": 0.08,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.35,
+  0.03,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 833,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [1, 2, 4, 3], \"confidence\": {\"1\": 0.55, \"2\": 0.35, \"4\": 0.08, \"3\": 0.03}}",
+ "n_attempts": 1
+}

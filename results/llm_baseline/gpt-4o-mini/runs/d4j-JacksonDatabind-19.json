@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-JacksonDatabind-19",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/MapType.java"
+ ],
+ "timestamp": "2026-08-27T19:33:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.45,
+  "3": 0.3,
+  "4": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.1,
+  0.15,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 719,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [2, 3, 1, 4], \"confidence\": {\"1\": 0.15, \"2\": 0.45, \"3\": 0.30, \"4\": 0.10}}",
+ "n_attempts": 1
+}

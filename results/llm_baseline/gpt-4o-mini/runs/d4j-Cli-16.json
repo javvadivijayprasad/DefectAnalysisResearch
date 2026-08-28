@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Cli-16",
+ "repo": "defects4j:Cli",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/java/org/apache/commons/cli2/option/ParentImpl.java",
+  "src/java/org/apache/commons/cli2/option/GroupImpl.java",
+  "src/java/org/apache/commons/cli2/Group.java",
+  "src/java/org/apache/commons/cli2/option/OptionImpl.java",
+  "src/java/org/apache/commons/cli2/Option.java",
+  "src/java/org/apache/commons/cli2/commandline/WriteableCommandLineImpl.java",
+  "src/java/org/apache/commons/cli2/commandline/PropertiesCommandLine.java"
+ ],
+ "timestamp": "2026-08-27T19:30:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  5,
+  6,
+  3,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.25,
+  "4": 0.15,
+  "5": 0.1,
+  "6": 0.08,
+  "3": 0.04,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.08,
+  0.25,
+  0.15,
+  0.35,
+  0.03,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  1,
+  2,
+  0,
+  6,
+  5
+ ],
+ "usage": {
+  "input_tokens": 850,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [1, 2, 4, 5, 6, 3, 7], \"confidence\": {\"1\": 0.35, \"2\": 0.25, \"4\": 0.15, \"5\": 0.10, \"6\": 0.08, \"3\": 0.04, \"7\": 0.03}}",
+ "n_attempts": 1
+}

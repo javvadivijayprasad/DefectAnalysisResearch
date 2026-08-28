@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-keras-17",
+ "repo": "bugsinpy:keras",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "keras/models.py",
+  "keras/layers/wrappers.py",
+  "keras/backend/tensorflow_backend.py",
+  "keras/initializers.py",
+  "keras/utils/conv_utils.py",
+  "keras/metrics.py",
+  "keras/callbacks.py",
+  "docs/autogen.py"
+ ],
+ "timestamp": "2026-08-27T19:37:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  6,
+  7,
+  4,
+  5,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.25,
+  "3": 0.2,
+  "6": 0.15,
+  "7": 0.1,
+  "4": 0.025,
+  "5": 0.025,
+  "8": 0.005
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.005,
+  0.25,
+  0.2,
+  0.25,
+  0.025,
+  0.1,
+  0.025
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  7,
+  1,
+  2,
+  0,
+  5,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 806,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 6, 7, 4, 5, 8], \"confidence\": {\"1\": 0.25, \"2\": 0.25, \"3\": 0.20, \"6\": 0.15, \"7\": 0.10, \"4\": 0.025, \"5\": 0.025, \"8\": 0.005}}",
+ "n_attempts": 1
+}

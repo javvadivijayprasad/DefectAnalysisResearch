@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-86",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeModifier.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/MapLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/MapType.java"
+ ],
+ "timestamp": "2026-08-27T19:07:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  4,
+  2,
+  7,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.72,
+  "6": 0.55,
+  "4": 0.3,
+  "2": 0.15,
+  "7": 0.12,
+  "5": 0.1,
+  "3": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.1,
+  0.3,
+  0.72,
+  0.15,
+  0.12,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  5,
+  2,
+  0,
+  3,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1060,
+  "output_tokens": 380
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind related to type handling, I need to identify which files are most likely defective.\n\nKey observations:\n1. `TypeModifier.java` (candidate 1) has an extremely high commit frequency (0.9545) and is very young (22 days old), suggesting it was recently added/modified - this is a strong signal of recent activity that could introduce bugs.\n2. `TypeFactory.java` (candidate 6) has the highest overall commit activity and is the central type creation/management class - very commonly involved in type-related bugs.\n3. `ReferenceType.java` (candidate 4) has relatively high commit frequency (0.2524) and moderate age, suggesting active development.\n4. The test failure is an `AssertionError`, which often indicates a type resolution or type construction issue.\n\nThe combination of `TypeModifier.java` being brand new (22 days, very high commit frequency) and `TypeFactory.java` being the core type factory strongly suggests these are the defective files. `TypeModifier` being so new and having such high commit frequency (nearly 1 commit per day) strongly indicates it's part of a recent feature addition that introduced the bug.\n\n`ReferenceType.java` also shows signs of active development and could be involved.\n\n{\"ranking\": [1, 6, 4, 2, 7, 5, 3], \"confidence\": {\"1\": 0.72, \"6\": 0.55, \"4\": 0.30, \"2\": 0.15, \"7\": 0.12, \"5\": 0.10, \"3\": 0.06}}",
+ "n_attempts": 1
+}

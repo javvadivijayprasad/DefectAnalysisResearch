@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Lang-4",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java",
+  "src/main/java/org/apache/commons/lang3/text/translate/OctalUnescaper.java",
+  "src/main/java/org/apache/commons/lang3/text/translate/CodePointTranslator.java"
+ ],
+ "timestamp": "2026-08-27T19:10:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.7,
+  "2": 0.2,
+  "3": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.7,
+  0.2,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 800,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3], \"confidence\": {\"1\": 0.70, \"2\": 0.20, \"3\": 0.10}}",
+ "n_attempts": 1
+}

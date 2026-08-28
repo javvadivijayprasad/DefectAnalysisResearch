@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-55",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/geometry/RotationOrder.java",
+  "src/main/java/org/apache/commons/math/geometry/Rotation.java",
+  "src/main/java/org/apache/commons/math/geometry/Vector3DFormat.java",
+  "src/main/java/org/apache/commons/math/geometry/Vector3D.java",
+  "src/main/java/org/apache/commons/math/geometry/NotARotationMatrixException.java",
+  "src/main/java/org/apache/commons/math/geometry/CardanEulerSingularityException.java"
+ ],
+ "timestamp": "2026-08-27T19:35:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  3,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.35,
+  "3": 0.1,
+  "4": 0.25,
+  "5": 0.05,
+  "6": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.1,
+  0.05,
+  0.1,
+  0.35,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  4,
+  3,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 805,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [2, 4, 1, 3, 5, 6], \"confidence\": {\"1\": 0.15, \"2\": 0.35, \"3\": 0.10, \"4\": 0.25, \"5\": 0.05, \"6\": 0.10}}",
+ "n_attempts": 1
+}

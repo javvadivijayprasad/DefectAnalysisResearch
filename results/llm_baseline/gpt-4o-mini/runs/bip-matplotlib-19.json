@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-matplotlib-19",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "examples/userdemo/colormap_normalizations_symlognorm.py",
+  "tutorials/colors/colormapnorms.py",
+  "lib/matplotlib/projections/polar.py",
+  "examples/userdemo/colormap_normalizations.py",
+  "lib/matplotlib/path.py"
+ ],
+ "timestamp": "2026-08-27T19:38:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.2,
+  "2": 0.2,
+  "3": 0.4,
+  "4": 0.15,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.2,
+  0.15,
+  0.2,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 719,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [3, 1, 2, 4, 5], \"confidence\": {\"1\": 0.20, \"2\": 0.20, \"3\": 0.40, \"4\": 0.15, \"5\": 0.05}}",
+ "n_attempts": 1
+}

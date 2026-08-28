@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Collections-3",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/java/org/apache/commons/collections/Factory.java",
+  "src/java/org/apache/commons/collections/BinaryHeap.java",
+  "src/java/org/apache/commons/collections/Predicate.java",
+  "src/java/org/apache/commons/collections/CollectionUtils.java",
+  "src/java/org/apache/commons/collections/BagUtils.java",
+  "src/java/org/apache/commons/collections/ExtendedProperties.java",
+  "src/java/org/apache/commons/collections/IterableMap.java",
+  "src/java/org/apache/commons/collections/TreeBag.java"
+ ],
+ "timestamp": "2026-08-27T19:32:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  5,
+  4,
+  1,
+  3,
+  8,
+  7
+ ],
+ "llm_confidence_presented": {
+  "6": 0.35,
+  "2": 0.25,
+  "5": 0.15,
+  "4": 0.1,
+  "1": 0.08,
+  "3": 0.04,
+  "8": 0.02,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.08,
+  0.35,
+  0.04,
+  0.25,
+  0.02,
+  0.15,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  0,
+  5,
+  1,
+  6,
+  2,
+  7
+ ],
+ "usage": {
+  "input_tokens": 877,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[6,2,5,4,1,3,8,7],\"confidence\":{\"6\":0.35,\"2\":0.25,\"5\":0.15,\"4\":0.10,\"1\":0.08,\"3\":0.04,\"8\":0.02,\"7\":0.01}}",
+ "n_attempts": 1
+}

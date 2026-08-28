@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Jsoup-79",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/BooleanAttribute.java",
+  "src/main/java/org/jsoup/nodes/LeafNode.java",
+  "src/main/java/org/jsoup/nodes/PseudoTextElement.java",
+  "src/main/java/org/jsoup/nodes/XmlDeclaration.java"
+ ],
+ "timestamp": "2026-08-27T19:09:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.92,
+  "2": 0.45,
+  "1": 0.2,
+  "4": 0.12
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.2,
+  0.12,
+  0.92
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 839,
+  "output_tokens": 267
+ },
+ "raw_response": "Looking at the candidates:\n\n- **File 3 (PseudoTextElement.java)**: age_days=1 and commit_freq=1.0000 \u2014 this is a brand new file, just created. This is a very strong signal that it's part of the fix commit.\n- **File 2 (LeafNode.java)**: commits=3, relatively recent changes (+100/-4), could be related to supporting new node types.\n- **File 1 (BooleanAttribute.java)**: commits=2, small changes, possible but less likely.\n- **File 4 (XmlDeclaration.java)**: higher commit frequency but older, less likely to be the defective file in this context.\n\nThe brand-new PseudoTextElement.java (age=1 day, freq=1.0) is almost certainly part of the fix. LeafNode.java with recent substantial additions could be a companion change.\n\n{\"ranking\": [3, 2, 1, 4], \"confidence\": {\"3\": 0.92, \"2\": 0.45, \"1\": 0.20, \"4\": 0.12}}",
+ "n_attempts": 1
+}

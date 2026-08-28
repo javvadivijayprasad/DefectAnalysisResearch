@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-37",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/MapType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeModifier.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeBase.java"
+ ],
+ "timestamp": "2026-08-27T19:33:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  1,
+  3,
+  6,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.35,
+  "5": 0.25,
+  "1": 0.15,
+  "3": 0.12,
+  "6": 0.08,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.25,
+  0.35,
+  0.08,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  1,
+  0,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 812,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [4, 5, 1, 3, 6, 2], \"confidence\": {\"4\": 0.35, \"5\": 0.25, \"1\": 0.15, \"3\": 0.12, \"6\": 0.08, \"2\": 0.05}}",
+ "n_attempts": 1
+}

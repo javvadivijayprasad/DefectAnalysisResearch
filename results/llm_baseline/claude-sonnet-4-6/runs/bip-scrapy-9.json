@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-scrapy-9",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "scrapy/downloadermiddlewares/redirect.py",
+  "scrapy/utils/datatypes.py",
+  "scrapy/core/downloader/handlers/http11.py",
+  "scrapy/dupefilters.py",
+  "scrapy/mail.py"
+ ],
+ "timestamp": "2026-08-27T19:22:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.72,
+  "2": 0.07,
+  "3": 0.07,
+  "4": 0.07,
+  "5": 0.07
+ },
+ "confidence_by_corpus_row": [
+  0.07,
+  0.07,
+  0.72,
+  0.07,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 843,
+  "output_tokens": 142
+ },
+ "raw_response": "The redirect middleware (file 1) stands out significantly: it has 3 commits, more churn (105 vs 35), and a higher commit frequency (0.25 vs 0.083). The test failure involves an AssertionError which is common in redirect-related tests. The other four files have identical statistics suggesting they're distractors.\n\n{\"ranking\": [1, 2, 3, 4, 5], \"confidence\": {\"1\": 0.72, \"2\": 0.07, \"3\": 0.07, \"4\": 0.07, \"5\": 0.07}}",
+ "n_attempts": 1
+}

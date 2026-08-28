@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-youtube-dl-27",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "youtube_dl/extractor/common.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/downloader/f4m.py",
+  "youtube_dl/extractor/drtv.py",
+  "youtube_dl/extractor/metacritic.py",
+  "youtube_dl/postprocessor/ffmpeg.py",
+  "youtube_dl/YoutubeDL.py"
+ ],
+ "timestamp": "2026-08-27T19:26:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  5,
+  6,
+  4,
+  7,
+  8,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.4,
+  "3": 0.1,
+  "4": 0.25,
+  "5": 0.3,
+  "6": 0.25,
+  "7": 0.2,
+  "8": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.25,
+  0.3,
+  0.35,
+  0.4,
+  0.2,
+  0.25,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  4,
+  2,
+  1,
+  0,
+  5,
+  3,
+  6
+ ],
+ "usage": {
+  "input_tokens": 995,
+  "output_tokens": 550
+ },
+ "raw_response": "Looking at this failing test event, I need to identify which files are most likely defective.\n\nKey observations:\n1. The failure is an AssertionError in a youtube-dl test\n2. The `app_code_changed` flag is set\n3. Most candidates (1, 2, 4, 5, 6, 7) have identical stats: commits=1, devs=1, +20/-15, age_days=30, commit_freq=0.0833 - these look like they were all touched in the same commit\n4. `utils.py` (3) has much higher activity - very frequently changed file\n5. `YoutubeDL.py` (8) has moderate activity\n\nThe identical statistics for files 1, 2, 4, 5, 6, 7 suggest they were all modified in the same single commit. This is suspicious - it could mean they all share the same fix, or these stats are normalized/aggregated differently.\n\nFor youtube-dl bugs, common sources of issues:\n- `jsinterp.py` handles JavaScript interpretation (common source of YouTube extraction bugs)\n- `common.py` is the base extractor\n- `utils.py` is heavily used utility functions\n- `YoutubeDL.py` is the main downloader class\n\nGiven that files 1, 2, 4, 5, 6, 7 all have identical commit stats (suggesting they were all part of the same fix commit), and the test involves an AssertionError, the most likely defective files are among those with the identical single-commit stats. `jsinterp.py` and `common.py` are particularly relevant for extraction failures.\n\n`utils.py` with its high churn is also a candidate, and `YoutubeDL.py` with moderate activity.\n\nGiven the identical stats pattern, I'll rank the files with those stats highly, with `jsinterp.py` and `common.py` at the top as they're most commonly involved in extraction failures.\n\n{\"ranking\": [2, 1, 5, 6, 4, 7, 8, 3], \"confidence\": {\"1\": 0.35, \"2\": 0.40, \"3\": 0.10, \"4\": 0.25, \"5\": 0.30, \"6\": 0.25, \"7\": 0.20, \"8\": 0.15}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Lang-56",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/time/StopWatch.java",
+  "src/java/org/apache/commons/lang/time/DateUtils.java",
+  "src/java/org/apache/commons/lang/time/FastDateFormat.java",
+  "src/java/org/apache/commons/lang/time/DurationFormatUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:11:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.75,
+  "2": 0.12,
+  "4": 0.09,
+  "1": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.04,
+  0.12,
+  0.09
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 843,
+  "output_tokens": 132
+ },
+ "raw_response": "The failing test is d4j-Lang-56. Looking at the Lang project's known defects, Lang-56 is related to `FastDateFormat` - specifically a thread-safety issue with locale/timezone handling. FastDateFormat has the highest churn (5472) and most developers (8), indicating it's a complex, frequently modified file prone to bugs.\n\n{\"ranking\": [3, 2, 4, 1], \"confidence\": {\"3\": 0.75, \"2\": 0.12, \"4\": 0.09, \"1\": 0.04}}",
+ "n_attempts": 1
+}

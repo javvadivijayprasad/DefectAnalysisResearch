@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-ansible-9",
+ "repo": "bugsinpy:ansible",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 3,
+ "presented_files": [
+  "lib/ansible/modules/packaging/os/redhat_subscription.py",
+  "lib/ansible/module_utils/network/eos/config/vlans/vlans.py",
+  "lib/ansible/galaxy/api.py"
+ ],
+ "timestamp": "2026-08-27T19:36:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.4,
+  "2": 0.35,
+  "3": 0.25
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.25,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 651,
+  "output_tokens": 39
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3], \"confidence\": {\"1\": 0.4, \"2\": 0.35, \"3\": 0.25}}",
+ "n_attempts": 1
+}

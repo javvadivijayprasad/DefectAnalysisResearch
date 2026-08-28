@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-24",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/optimization/univariate/BracketFinder.java",
+  "src/main/java/org/apache/commons/math3/optimization/univariate/package-info.java",
+  "src/main/java/org/apache/commons/math3/optimization/univariate/SimpleUnivariateValueChecker.java",
+  "src/main/java/org/apache/commons/math3/optimization/univariate/UnivariatePointValuePair.java",
+  "src/main/java/org/apache/commons/math3/optimization/univariate/BaseUnivariateOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optimization/univariate/UnivariateOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optimization/univariate/BrentOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optimization/univariate/BaseAbstractUnivariateOptimizer.java"
+ ],
+ "timestamp": "2026-08-27T19:35:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  8,
+  3,
+  6,
+  4,
+  2,
+  7
+ ],
+ "llm_confidence_presented": {
+  "5": 0.3,
+  "1": 0.25,
+  "8": 0.15,
+  "3": 0.1,
+  "6": 0.08,
+  "4": 0.05,
+  "2": 0.04,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.03,
+  0.3,
+  0.15,
+  0.1,
+  0.25,
+  0.04,
+  0.05,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  0,
+  2,
+  3,
+  1,
+  6,
+  5,
+  4
+ ],
+ "usage": {
+  "input_tokens": 919,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [5, 1, 8, 3, 6, 4, 2, 7], \"confidence\": {\"5\": 0.30, \"1\": 0.25, \"8\": 0.15, \"3\": 0.10, \"6\": 0.08, \"4\": 0.05, \"2\": 0.04, \"7\": 0.03}}",
+ "n_attempts": 1
+}

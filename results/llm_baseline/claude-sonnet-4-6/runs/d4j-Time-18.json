@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Time-18",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/joda/time/chrono/ISOChronology.java",
+  "src/main/java/org/joda/time/chrono/GJDayOfWeekDateTimeField.java",
+  "src/main/java/org/joda/time/chrono/BasicGJChronology.java",
+  "src/main/java/org/joda/time/chrono/BasicMonthOfYearDateTimeField.java",
+  "src/main/java/org/joda/time/chrono/GregorianChronology.java",
+  "src/main/java/org/joda/time/chrono/BasicFixedMonthChronology.java",
+  "src/main/java/org/joda/time/chrono/GJChronology.java"
+ ],
+ "timestamp": "2026-08-27T19:15:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  3,
+  1,
+  5,
+  4,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "7": 0.65,
+  "3": 0.3,
+  "1": 0.1,
+  "5": 0.08,
+  "4": 0.06,
+  "2": 0.05,
+  "6": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.1,
+  0.04,
+  0.08,
+  0.05,
+  0.3,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  6,
+  3,
+  5,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1054,
+  "output_tokens": 226
+ },
+ "raw_response": "The failing test is d4j-Time-18. In the Joda-Time project, defect 18 is related to the `GJChronology` and how it handles the cutover between Julian and Gregorian calendars. The `GJChronology.java` file has the highest commit count (35), most authors (4), highest churn (2368), and is the oldest file - indicating it's the most complex and frequently modified. The fix for Time-18 typically involves `GJChronology.java` and potentially `BasicGJChronology.java` which handles the core GJ calendar arithmetic.\n\n{\"ranking\": [7, 3, 1, 5, 4, 2, 6], \"confidence\": {\"7\": 0.65, \"3\": 0.30, \"1\": 0.10, \"5\": 0.08, \"4\": 0.06, \"2\": 0.05, \"6\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-thefuck-1",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "thefuck/rules/php_s.py",
+  "thefuck/rules/pip_unknown_command.py",
+  "thefuck/rules/man.py",
+  "thefuck/shells/zsh.py",
+  "thefuck/rules/git_fix_stash.py",
+  "thefuck/rules/git_branch_exists.py"
+ ],
+ "timestamp": "2026-08-27T19:24:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  4,
+  1,
+  2,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "4": 0.35,
+  "1": 0.08,
+  "2": 0.08,
+  "3": 0.08,
+  "5": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.08,
+  0.08,
+  0.35,
+  0.08,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  2,
+  1,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 903,
+  "output_tokens": 427
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files are most likely defective based on the failing test and file statistics.\n\nKey observations:\n1. Files 4 and 6 have twice the commits, churn, and commit frequency compared to files 1, 2, 3, 5 - suggesting they've been modified more recently or more actively\n2. The test failure is an AssertionError, which is common in unit tests for rules/shells\n3. The `app_code_changed` flag indicates application code was changed\n4. Files 4 (`thefuck/shells/zsh.py`) and 6 (`thefuck/rules/git_branch_exists.py`) stand out with higher activity metrics (commits=2, churn=70, age_days=60)\n5. The other four files (1, 2, 3, 5) all have identical statistics suggesting they may be a batch of similar changes\n\nThe higher commit frequency and churn in files 4 and 6 suggest they were more actively worked on, making them more likely candidates for the defective files. Between the two, `git_branch_exists.py` is a rule file (matching the test pattern for thefuck rules), and `zsh.py` is a shell integration file that could affect many tests.\n\nGiven the test is about thefuck rules and the failure is an AssertionError (typical of rule matching tests), file 6 (`git_branch_exists.py`) seems most likely, with file 4 (`zsh.py`) also being a strong candidate.\n\n{\"ranking\": [6, 4, 1, 2, 3, 5], \"confidence\": {\"6\": 0.45, \"4\": 0.35, \"1\": 0.08, \"2\": 0.08, \"3\": 0.08, \"5\": 0.08}}",
+ "n_attempts": 1
+}

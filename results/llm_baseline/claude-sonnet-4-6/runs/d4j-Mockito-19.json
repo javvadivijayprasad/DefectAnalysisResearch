@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Mockito-19",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/filter/OngoingInjecter.java",
+  "src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/MockInjectionStrategy.java",
+  "src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+ ],
+ "timestamp": "2026-08-27T19:14:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  7,
+  3,
+  2,
+  1,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.65,
+  "7": 0.55,
+  "3": 0.25,
+  "2": 0.22,
+  "1": 0.18,
+  "4": 0.15,
+  "5": 0.12
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.22,
+  0.12,
+  0.25,
+  0.18,
+  0.65,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  6,
+  2,
+  4,
+  0,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1042,
+  "output_tokens": 441
+ },
+ "raw_response": "Looking at this failing test in Mockito related to injection filtering, I need to identify which files are most likely defective.\n\nKey observations:\n1. The `config_changed` flag is set, suggesting configuration-related changes\n2. File 6 (`MockInjectionStrategy.java`) has extremely high commit frequency (0.1944) and is very young (108 days), suggesting recent active development - this is a strong signal\n3. File 7 (`PropertyAndSetterInjection.java`) has the most commits (16) and highest churn (377), indicating it's frequently modified and complex\n4. The test failure is an `AssertionError`, which in Mockito tests often relates to injection behavior\n\nThe `config_changed` flag combined with `MockInjectionStrategy.java` being very recently created/modified (108 days old, very high commit frequency) strongly suggests it's involved in the fix.\n\n`PropertyAndSetterInjection.java` is also a strong candidate given its high churn and commit count - it's the main injection logic file.\n\nThe filter files (1, 2, 3, 5) are older with moderate activity. `FinalMockCandidateFilter.java` (file 2) has the highest churn among filters.\n\n`NameBasedCandidateFilter.java` (file 3) also has notable churn and could be involved in name-based injection issues.\n\n`OngoingInjecter.java` (file 4) is relatively young (1672 days) with higher commit frequency than the older files.\n\n{\"ranking\": [6, 7, 3, 2, 1, 4, 5], \"confidence\": {\"6\": 0.65, \"7\": 0.55, \"3\": 0.25, \"2\": 0.22, \"1\": 0.18, \"4\": 0.15, \"5\": 0.12}}",
+ "n_attempts": 1
+}

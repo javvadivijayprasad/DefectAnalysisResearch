@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-27",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/rhino/JSDocInfoBuilder.java",
+  "src/com/google/javascript/rhino/ScriptRuntime.java",
+  "src/com/google/javascript/rhino/SimpleErrorReporter.java",
+  "src/com/google/javascript/rhino/SourcePosition.java",
+  "src/com/google/javascript/rhino/JSDocInfo.java",
+  "src/com/google/javascript/rhino/Node.java",
+  "src/com/google/javascript/rhino/IR.java"
+ ],
+ "timestamp": "2026-08-27T18:56:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  6,
+  7,
+  3,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "1": 0.4,
+  "6": 0.3,
+  "7": 0.15,
+  "3": 0.08,
+  "4": 0.06,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.05,
+  0.45,
+  0.08,
+  0.06,
+  0.4,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  6,
+  0,
+  4,
+  5,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 990,
+  "output_tokens": 501
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-27, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The change topology flag indicates app_code_changed\n- This is in the `rhino` package of the Closure compiler\n\nLet me analyze the candidates:\n\n1. **JSDocInfoBuilder.java** - High commit frequency (0.2124), significant additions (+1034), actively developed. JSDoc-related bugs are common in Closure.\n\n2. **ScriptRuntime.java** - Moderate activity, but ScriptRuntime is less likely to be involved in typical Closure compiler test failures.\n\n3. **SimpleErrorReporter.java** - Moderate activity, error reporting utility.\n\n4. **SourcePosition.java** - Lower activity, position tracking.\n\n5. **JSDocInfo.java** - Highest commit frequency among JSDoc files (0.2450), most lines added (+1566), very actively developed. JSDocInfo is central to many Closure compiler operations.\n\n6. **Node.java** - Extremely high commit frequency (0.5659), massive churn (7953), most commits (73). Node is the AST node class and is central to almost everything in the compiler.\n\n7. **IR.java** - Low commit frequency (0.0078), but relatively recent additions. IR (Intermediate Representation) builder is used for creating AST nodes.\n\nFor Closure-27 specifically, this test likely involves JSDoc handling or AST node operations. The most likely candidates are JSDocInfo.java and JSDocInfoBuilder.java given their high activity and relevance to common Closure bugs. Node.java is always a strong candidate given its centrality.\n\nIR.java has very low commit frequency but was recently modified, which could indicate a targeted fix area.\n\n{\"ranking\": [5, 1, 6, 7, 3, 4, 2], \"confidence\": {\"5\": 0.45, \"1\": 0.40, \"6\": 0.30, \"7\": 0.15, \"3\": 0.08, \"4\": 0.06, \"2\": 0.05}}",
+ "n_attempts": 1
+}

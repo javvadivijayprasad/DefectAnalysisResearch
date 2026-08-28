@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Jsoup-56",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/nodes/DocumentType.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Token.java"
+ ],
+ "timestamp": "2026-08-27T19:09:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  6,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.35,
+  "3": 0.25,
+  "6": 0.2,
+  "2": 0.15,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.15,
+  0.2,
+  0.35,
+  0.1,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  4,
+  3,
+  1,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 954,
+  "output_tokens": 478
+ },
+ "raw_response": "Looking at this failing test in Jsoup (d4j-Jsoup-56), I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError, suggesting a test assertion failed\n- The `app_code_changed` flag is set\n- This is related to Jsoup's HTML/XML parsing\n\nLet me analyze the candidates:\n\n1. **CharacterReader.java** - High commit frequency (0.0773), relatively recent activity, moderate churn. This is a core parsing utility that's been actively modified.\n\n2. **HtmlTreeBuilderState.java** - High churn (2259), many commits (29), but lower commit frequency than CharacterReader.\n\n3. **DocumentType.java** - Low commits (11), low churn (152). DocumentType handling could be related to parsing issues.\n\n4. **TokeniserState.java** - Highest churn (2498), many commits (30), similar age to HtmlTreeBuilderState. Core tokenization logic.\n\n5. **XmlTreeBuilder.java** - Moderate stats, fewer commits (13).\n\n6. **Token.java** - High churn (813), many commits (23), oldest file.\n\nFor Jsoup issue 56 (which relates to XML/DOCTYPE parsing issues), the fix likely involves `TokeniserState.java` or `Token.java` for handling token-level issues, or `DocumentType.java` for DOCTYPE-specific handling. The `CharacterReader.java` with its high recent commit frequency is also suspicious.\n\nGiven the nature of AssertionError in parsing tests, `TokeniserState.java` and `CharacterReader.java` are strong candidates. `DocumentType.java` could also be involved if it's a DOCTYPE-related test.\n\n{\"ranking\": [1, 4, 3, 6, 2, 5], \"confidence\": {\"1\": 0.45, \"4\": 0.35, \"3\": 0.25, \"6\": 0.20, \"2\": 0.15, \"5\": 0.10}}",
+ "n_attempts": 1
+}

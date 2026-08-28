@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-matplotlib-30",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "lib/matplotlib/text.py",
+  "lib/matplotlib/axes/_axes.py",
+  "lib/matplotlib/projections/polar.py",
+  "lib/matplotlib/tight_layout.py",
+  "lib/matplotlib/path.py",
+  "lib/matplotlib/colors.py",
+  "lib/matplotlib/pyplot.py"
+ ],
+ "timestamp": "2026-08-27T19:18:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  6,
+  1,
+  4,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.55,
+  "3": 0.3,
+  "4": 0.08,
+  "5": 0.05,
+  "6": 0.2,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.3,
+  0.05,
+  0.15,
+  0.55,
+  0.08,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  6,
+  3,
+  0,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 923,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [2, 3, 6, 1, 4, 5, 7], \"confidence\": {\"1\": 0.15, \"2\": 0.55, \"3\": 0.30, \"4\": 0.08, \"5\": 0.05, \"6\": 0.20, \"7\": 0.05}}",
+ "n_attempts": 1
+}

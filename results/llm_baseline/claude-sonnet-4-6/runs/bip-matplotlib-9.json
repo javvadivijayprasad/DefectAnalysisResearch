@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-matplotlib-9",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "tutorials/colors/colormapnorms.py",
+  "lib/matplotlib/projections/polar.py",
+  "examples/userdemo/colormap_normalizations_symlognorm.py",
+  "lib/matplotlib/markers.py"
+ ],
+ "timestamp": "2026-08-27T19:18:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.75,
+  "3": 0.05,
+  "4": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.15,
+  0.05,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 799,
+  "output_tokens": 347
+ },
+ "raw_response": "Looking at the candidates:\n\n1. `tutorials/colors/colormapnorms.py` - Tutorial file, 1 commit, low activity. Unlikely to be the source of a bug fix.\n\n2. `lib/matplotlib/projections/polar.py` - Library code with 3 commits, 1 dev, more churn (105), age 90 days, higher commit frequency (0.25). This is actual library code that could contain bugs related to polar projections.\n\n3. `examples/userdemo/colormap_normalizations_symlognorm.py` - Example file, 1 commit, low activity. Unlikely to be the source of a bug fix.\n\n4. `lib/matplotlib/markers.py` - Library code, but only 1 commit, low activity. Could be relevant if the test involves markers.\n\nThe failing test is an AssertionError. The `polar.py` file stands out as it's actual library code with more commits and higher churn compared to the others. The other three files (tutorials, examples, markers) have identical low statistics suggesting they might be distractor files added in the same documentation update.\n\n`lib/matplotlib/projections/polar.py` is the most likely defective file given it's library code with more activity and is the only file with multiple commits.\n\n{\"ranking\": [2, 4, 1, 3], \"confidence\": {\"1\": 0.05, \"2\": 0.75, \"3\": 0.05, \"4\": 0.15}}",
+ "n_attempts": 1
+}

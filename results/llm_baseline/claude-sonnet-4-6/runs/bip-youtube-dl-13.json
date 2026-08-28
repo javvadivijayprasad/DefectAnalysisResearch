@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-13",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/extractor/youtube.py",
+  "youtube_dl/extractor/clipsyndicate.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/downloader/f4m.py",
+  "youtube_dl/extractor/facebook.py",
+  "youtube_dl/extractor/metacritic.py",
+  "youtube_dl/extractor/npo.py"
+ ],
+ "timestamp": "2026-08-27T19:26:08",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  5,
+  4,
+  2,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "3": 0.25,
+  "5": 0.1,
+  "4": 0.05,
+  "2": 0.03,
+  "6": 0.03,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.03,
+  0.03,
+  0.1,
+  0.55,
+  0.05,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  6,
+  4,
+  2,
+  0,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 947,
+  "output_tokens": 236
+ },
+ "raw_response": "The failing test is for youtube-dl with an AssertionError. The test name suggests it's related to YouTube extraction (bip-youtube-dl-13). The most likely defective file is `youtube_dl/extractor/youtube.py` given the test name. However, `youtube_dl/utils.py` has significantly more activity and is a common source of bugs. `youtube_dl/extractor/facebook.py` also has more commits than the other extractors.\n\nGiven the test is specifically about youtube-dl (likely YouTube extractor), and the AssertionError pattern, the YouTube extractor is the primary suspect. Utils.py is also frequently changed and could be involved.\n\n{\"ranking\": [1, 3, 5, 4, 2, 6, 7], \"confidence\": {\"1\": 0.55, \"3\": 0.25, \"5\": 0.10, \"4\": 0.05, \"2\": 0.03, \"6\": 0.03, \"7\": 0.03}}",
+ "n_attempts": 1
+}

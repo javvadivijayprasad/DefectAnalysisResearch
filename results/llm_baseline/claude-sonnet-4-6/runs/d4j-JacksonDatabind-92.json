@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-92",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerModifier.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ContextualDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/Deserializers.java"
+ ],
+ "timestamp": "2026-08-27T19:07:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  5,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.65,
+  "3": 0.45,
+  "1": 0.12,
+  "5": 0.1,
+  "2": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.12,
+  0.1,
+  0.08,
+  0.65
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  3,
+  4,
+  0
+ ],
+ "usage": {
+  "input_tokens": 951,
+  "output_tokens": 375
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in JacksonDatabind\n- The `app_code_changed` flag is set\n- Candidate 4 (`ContextualDeserializer.java`) stands out dramatically: age_days=38 (very recently created/modified), commit_freq=0.9211 (extremely high - nearly 1 commit per day), with only 5 commits and 2 devs. This is a very recently active file.\n- Candidate 3 (`BeanDeserializerFactory.java`) has the highest total churn (4185) and most commits (103), making it a frequent target for fixes. It's the core factory implementation.\n- The issue likely involves deserialization context handling, which could relate to `ContextualDeserializer` (recently modified) and `BeanDeserializerFactory` (core implementation).\n\nThe extremely high commit frequency of `ContextualDeserializer.java` (0.9211 commits/day over 38 days) strongly suggests it's actively being worked on. Combined with `BeanDeserializerFactory.java` being the main implementation file that would need to be updated to work with contextual deserializer changes, these two are the most likely candidates.\n\n{\"ranking\": [4, 3, 1, 5, 2], \"confidence\": {\"4\": 0.65, \"3\": 0.45, \"1\": 0.12, \"5\": 0.10, \"2\": 0.08}}",
+ "n_attempts": 1
+}

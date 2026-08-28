@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-youtube-dl-28",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "youtube_dl/extractor/minhateca.py",
+  "youtube_dl/extractor/metacritic.py",
+  "youtube_dl/extractor/clipsyndicate.py",
+  "youtube_dl/YoutubeDL.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/extractor/youtube.py",
+  "youtube_dl/extractor/drtv.py"
+ ],
+ "timestamp": "2026-08-27T19:26:32",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  7,
+  1,
+  2,
+  3,
+  6,
+  8
+ ],
+ "llm_confidence_presented": {
+  "5": 0.55,
+  "4": 0.35,
+  "7": 0.15,
+  "1": 0.1,
+  "2": 0.1,
+  "3": 0.1,
+  "6": 0.12,
+  "8": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.15,
+  0.1,
+  0.35,
+  0.1,
+  0.1,
+  0.12,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  7,
+  1,
+  3,
+  4,
+  6,
+  5
+ ],
+ "usage": {
+  "input_tokens": 996,
+  "output_tokens": 504
+ },
+ "raw_response": "Looking at this failing test event, I need to identify which files are most likely defective.\n\nKey observations:\n1. The failure is an `AssertionError` in youtube-dl\n2. The `app_code_changed` flag is set\n3. Files 1, 2, 3, 6, 7, 8 all have identical stats (commits=1, devs=1, +20/-15, age_days=30) - these look like they were all touched in the same batch commit (likely a mass refactoring)\n4. File 4 (`YoutubeDL.py`) has higher activity (6 commits, 2 devs, more churn)\n5. File 5 (`utils.py`) has the highest activity by far (33 commits, 11 devs, massive churn)\n\nFor an `AssertionError` in youtube-dl:\n- `utils.py` is the most heavily modified file and contains many utility functions that could trigger assertion errors\n- `YoutubeDL.py` is the core downloader class and is frequently modified\n- The batch of extractor files (1,2,3,6,7,8) with identical stats suggest a mass update, possibly a refactoring that introduced a bug\n\nThe `AssertionError` is most likely in core infrastructure (`utils.py` or `YoutubeDL.py`) rather than individual extractors. However, the identical stats for 6 extractor files suggest they were all changed together in a single commit - possibly a systematic change that introduced the bug.\n\nGiven the `AssertionError` nature and the high churn in `utils.py` and `YoutubeDL.py`, these are the most likely candidates. The extractor files with identical stats could be part of the fix commit too.\n\n{\"ranking\": [5, 4, 7, 1, 2, 3, 6, 8], \"confidence\": {\"5\": 0.55, \"4\": 0.35, \"7\": 0.15, \"1\": 0.10, \"2\": 0.10, \"3\": 0.10, \"6\": 0.12, \"8\": 0.10}}",
+ "n_attempts": 1
+}

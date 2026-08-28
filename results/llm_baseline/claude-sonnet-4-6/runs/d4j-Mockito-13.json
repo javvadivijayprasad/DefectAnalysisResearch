@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Mockito-13",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/org/mockito/internal/MockHandler.java",
+  "src/org/mockito/internal/InOrderImpl.java",
+  "src/org/mockito/internal/MockitoInvocationHandler.java",
+  "src/org/mockito/internal/MockitoCore.java",
+  "src/org/mockito/internal/MockHandlerInterface.java"
+ ],
+ "timestamp": "2026-08-27T19:14:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  4,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "3": 0.35,
+  "4": 0.25,
+  "2": 0.15,
+  "5": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.35,
+  0.08,
+  0.15,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 876,
+  "output_tokens": 478
+ },
+ "raw_response": "Looking at this failing test in Mockito, I need to identify which files are likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting incorrect behavior in mock handling\n- The `app_code_changed` flag indicates application code was modified\n- The test is related to Mockito's core mocking functionality\n\nAnalyzing the candidates:\n\n1. **MockHandler.java** - Very high commit frequency (0.1524) with massive churn (2532). This is the central mock handling class that processes invocations. High likelihood of being involved in fixes.\n\n2. **InOrderImpl.java** - Moderate commit frequency (0.3824), relatively recent (842 days). InOrder verification is a common source of bugs.\n\n3. **MockitoInvocationHandler.java** - Very high commit frequency (0.6512), very recent file (86 days), low churn (35). Being very new and frequently committed suggests active development/bug fixing.\n\n4. **MockitoCore.java** - High commit frequency (0.4655), moderate age (391 days), significant churn (560). Core functionality that could affect many behaviors.\n\n5. **MockHandlerInterface.java** - Low commits (6), recent (120 days), very low churn (44). Interface changes are less likely to cause AssertionErrors directly.\n\nThe test name \"d4j-Mockito-13\" suggests this is a known defect. MockHandler.java is the most central class for mock invocation handling. MockitoInvocationHandler.java being very new with high commit frequency suggests it may have introduced a bug. MockitoCore.java coordinates core operations.\n\nGiven the AssertionError pattern and the centrality of MockHandler to mock behavior, combined with MockitoInvocationHandler being very new (likely introduced alongside a bug):\n\n{\"ranking\": [1, 3, 4, 2, 5], \"confidence\": {\"1\": 0.55, \"3\": 0.35, \"4\": 0.25, \"2\": 0.15, \"5\": 0.08}}",
+ "n_attempts": 1
+}

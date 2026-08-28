@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Time-17",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/joda/time/Chronology.java",
+  "src/main/java/org/joda/time/MutablePeriod.java",
+  "src/main/java/org/joda/time/DateTimeZone.java",
+  "src/main/java/org/joda/time/ReadableInstant.java"
+ ],
+ "timestamp": "2026-08-27T19:15:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.8,
+  "2": 0.1,
+  "1": 0.06,
+  "4": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.8,
+  0.1,
+  0.06,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 841,
+  "output_tokens": 103
+ },
+ "raw_response": "The defects4j Time-17 bug is about DST (daylight saving time) offset handling. The fix is in `DateTimeZone.java` which has a method related to offset adjustments during DST transitions.\n\n{\"ranking\": [3, 2, 1, 4], \"confidence\": {\"3\": 0.80, \"2\": 0.10, \"1\": 0.06, \"4\": 0.04}}",
+ "n_attempts": 1
+}

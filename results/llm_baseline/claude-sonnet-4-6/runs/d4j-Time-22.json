@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Time-22",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/joda/time/base/BaseDuration.java",
+  "src/main/java/org/joda/time/base/BasePartial.java",
+  "src/main/java/org/joda/time/base/BaseInterval.java",
+  "src/main/java/org/joda/time/base/BaseSingleFieldPeriod.java",
+  "src/main/java/org/joda/time/base/AbstractDuration.java",
+  "src/main/java/org/joda/time/base/AbstractPartial.java",
+  "src/main/java/org/joda/time/base/BasePeriod.java",
+  "src/main/java/org/joda/time/base/AbstractPeriod.java"
+ ],
+ "timestamp": "2026-08-27T19:16:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  8,
+  4,
+  3,
+  1,
+  5,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "7": 0.75,
+  "8": 0.12,
+  "4": 0.06,
+  "3": 0.03,
+  "1": 0.02,
+  "5": 0.02,
+  "2": 0.01,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.03,
+  0.01,
+  0.01,
+  0.06,
+  0.12,
+  0.02,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  7,
+  6,
+  2,
+  1,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1093,
+  "output_tokens": 211
+ },
+ "raw_response": "The test is `d4j-Time-22`. In Joda-Time, defect 22 is about `BasePeriod` constructor that takes a `ReadableDuration` and `Chronology` \u2014 specifically the `BasePeriod(long, PeriodType, Chronology)` constructor where when `chronology` is null it should default to `ISOChronology.getInstance()` but instead uses `null`, causing issues. The fix is in `BasePeriod.java`.\n\n{\"ranking\": [7, 8, 4, 3, 1, 5, 2, 6], \"confidence\": {\"7\": 0.75, \"8\": 0.12, \"4\": 0.06, \"3\": 0.03, \"1\": 0.02, \"5\": 0.02, \"2\": 0.01, \"6\": 0.01}}",
+ "n_attempts": 1
+}

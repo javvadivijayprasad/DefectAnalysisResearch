@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Compress-21",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/BindPair.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZOutputFile.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/Coder.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/StreamMap.java"
+ ],
+ "timestamp": "2026-08-27T19:02:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.75,
+  "3": 0.2,
+  "4": 0.18
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.18,
+  0.2,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 864,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [2, 3, 4, 1], \"confidence\": {\"1\": 0.15, \"2\": 0.75, \"3\": 0.20, \"4\": 0.18}}",
+ "n_attempts": 1
+}

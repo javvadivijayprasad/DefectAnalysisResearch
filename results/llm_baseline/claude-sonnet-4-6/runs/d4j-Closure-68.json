@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-68",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/parsing/JsDocInfoParser.java",
+  "src/com/google/javascript/jscomp/parsing/Annotation.java",
+  "src/com/google/javascript/jscomp/parsing/TypeSafeDispatcher.java",
+  "src/com/google/javascript/jscomp/parsing/NullErrorReporter.java",
+  "src/com/google/javascript/jscomp/parsing/Config.java",
+  "src/com/google/javascript/jscomp/parsing/JsDocToken.java",
+  "src/com/google/javascript/jscomp/parsing/ParserRunner.java"
+ ],
+ "timestamp": "2026-08-27T18:57:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  2,
+  7,
+  3,
+  6,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "5": 0.12,
+  "2": 0.08,
+  "7": 0.06,
+  "3": 0.04,
+  "6": 0.03,
+  "4": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.02,
+  0.06,
+  0.12,
+  0.03,
+  0.08,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  3,
+  1,
+  5,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1012,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [1, 5, 2, 7, 3, 6, 4], \"confidence\": {\"1\": 0.82, \"5\": 0.12, \"2\": 0.08, \"7\": 0.06, \"3\": 0.04, \"6\": 0.03, \"4\": 0.02}}",
+ "n_attempts": 1
+}

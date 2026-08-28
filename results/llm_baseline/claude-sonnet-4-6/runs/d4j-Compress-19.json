@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Compress-19",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/zip/UnparseableExtraFieldData.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/Zip64ExtendedInformationExtraField.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/AbstractUnicodeExtraField.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/NioZipEncoding.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipMethod.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipConstants.java"
+ ],
+ "timestamp": "2026-08-27T19:02:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "2": 0.45,
+  "1": 0.3,
+  "4": 0.15,
+  "5": 0.1,
+  "6": 0.08,
+  "7": 0.05,
+  "8": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.55,
+  0.3,
+  0.45,
+  0.04,
+  0.1,
+  0.08,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  2,
+  1,
+  7,
+  4,
+  5,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1139,
+  "output_tokens": 549
+ },
+ "raw_response": "Looking at this failing test for defects4j:Compress-19, I need to identify which files are most likely defective.\n\nKey observations:\n- The test involves ZIP archive handling (all files are in the zip package)\n- The failure is an AssertionError\n- The `app_code_changed` flag is set\n\nLet me analyze the candidates:\n\n1. **ExtraFieldUtils.java** (commits=24, high churn=727) - Core utility for parsing extra fields in ZIP entries, frequently modified, high activity\n2. **ZipArchiveEntry.java** (commits=52, highest churn=1965) - The main ZIP entry class, most heavily modified file, very high commit frequency\n3. **UnparseableExtraFieldData.java** (commits=6, churn=124) - Handles unparseable extra field data, relatively recent activity\n4. **Zip64ExtendedInformationExtraField.java** (commits=12, churn=423) - Handles ZIP64 extra fields\n5. **AbstractUnicodeExtraField.java** (commits=11, churn=267) - Unicode extra field handling\n6. **NioZipEncoding.java** (commits=3, very recent age_days=25, high commit_freq=0.84) - Very recently modified, high commit frequency suggests active development/bug fixing\n7. **ZipMethod.java** (commits=4, age_days=124) - ZIP method enumeration\n8. **ZipConstants.java** (commits=7, age_days=254) - Constants file\n\nThe test name \"Compress-19\" likely relates to extra field parsing issues. `ExtraFieldUtils.java` and `ZipArchiveEntry.java` are the most likely candidates given their high activity. `UnparseableExtraFieldData.java` is also relevant as it deals with parsing edge cases. `NioZipEncoding.java` is very recently modified which could indicate a recent bug introduction.\n\n{\"ranking\": [3, 2, 1, 4, 5, 6, 7, 8], \"confidence\": {\"3\": 0.55, \"2\": 0.45, \"1\": 0.30, \"4\": 0.15, \"5\": 0.10, \"6\": 0.08, \"7\": 0.05, \"8\": 0.04}}",
+ "n_attempts": 1
+}

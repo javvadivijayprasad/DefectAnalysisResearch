@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-matplotlib-21",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "lib/matplotlib/tight_layout.py",
+  "lib/matplotlib/markers.py",
+  "lib/matplotlib/colorbar.py",
+  "lib/matplotlib/projections/polar.py",
+  "lib/matplotlib/axes/_axes.py",
+  "examples/userdemo/colormap_normalizations_symlognorm.py",
+  "lib/matplotlib/axes/_base.py",
+  "lib/matplotlib/_constrained_layout.py"
+ ],
+ "timestamp": "2026-08-27T19:38:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  7,
+  1,
+  2,
+  3,
+  6,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.1,
+  "3": 0.1,
+  "4": 0.15,
+  "5": 0.3,
+  "6": 0.05,
+  "7": 0.15,
+  "8": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.15,
+  0.05,
+  0.1,
+  0.1,
+  0.1,
+  0.05,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  7,
+  3,
+  5,
+  4,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 838,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [5, 4, 7, 1, 2, 3, 6, 8], \"confidence\": {\"1\": 0.10, \"2\": 0.10, \"3\": 0.10, \"4\": 0.15, \"5\": 0.30, \"6\": 0.05, \"7\": 0.15, \"8\": 0.05}}",
+ "n_attempts": 1
+}

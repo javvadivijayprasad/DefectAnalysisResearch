@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-youtube-dl-30",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "youtube_dl/downloader/f4m.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/extractor/arte.py",
+  "youtube_dl/extractor/minhateca.py",
+  "youtube_dl/YoutubeDL.py",
+  "youtube_dl/extractor/facebook.py"
+ ],
+ "timestamp": "2026-08-27T19:26:42",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  6,
+  2,
+  1,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "6": 0.25,
+  "2": 0.15,
+  "1": 0.1,
+  "3": 0.08,
+  "4": 0.07
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.25,
+  0.07,
+  0.08,
+  0.1,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  5,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 897,
+  "output_tokens": 414
+ },
+ "raw_response": "Looking at this failing test event for youtube-dl with an AssertionError:\n\nKey observations:\n1. Files 1-4 all have identical statistics (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833) - this is suspicious and suggests they may be part of the same commit or have similar history\n2. File 5 (YoutubeDL.py) has the most activity (6 commits, 2 devs, high churn=210) - core file with frequent changes\n3. File 6 (facebook.py) has moderate activity (3 commits, churn=105)\n\nFor an AssertionError in youtube-dl tests:\n- `YoutubeDL.py` is the core downloader class and frequently involved in bugs\n- `jsinterp.py` handles JavaScript interpretation which is commonly buggy\n- `facebook.py` extractor is complex and frequently updated\n- `f4m.py` handles F4M streaming format\n- The arte.py and minhateca.py extractors are less commonly involved in core failures\n\nThe AssertionError could come from many places, but given the change topology flag `app_code_changed` and the statistics, `YoutubeDL.py` with its higher commit frequency and churn is most likely to be the defective file. Among the identical-stats files, `jsinterp.py` is often involved in subtle bugs that cause assertion errors.\n\n{\"ranking\": [5, 6, 2, 1, 3, 4], \"confidence\": {\"5\": 0.45, \"6\": 0.25, \"2\": 0.15, \"1\": 0.10, \"3\": 0.08, \"4\": 0.07}}",
+ "n_attempts": 1
+}

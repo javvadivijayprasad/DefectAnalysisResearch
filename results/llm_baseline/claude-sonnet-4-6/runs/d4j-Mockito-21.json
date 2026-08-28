@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Mockito-21",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/org/mockito/internal/creation/instance/ObjenesisInstantiator.java",
+  "src/org/mockito/internal/creation/instance/InstantiatorProvider.java",
+  "src/org/mockito/internal/creation/instance/Instantiator.java",
+  "src/org/mockito/internal/creation/instance/InstantationException.java",
+  "src/org/mockito/internal/creation/instance/ConstructorInstantiator.java"
+ ],
+ "timestamp": "2026-08-27T19:14:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.75,
+  "5": 0.6,
+  "4": 0.55,
+  "2": 0.45,
+  "3": 0.4
+ },
+ "confidence_by_corpus_row": [
+  0.6,
+  0.4,
+  0.55,
+  0.75,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  2,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 901,
+  "output_tokens": 393
+ },
+ "raw_response": "Looking at the candidates:\n\n- File 1 (ObjenesisInstantiator.java): Very new (age_days=1), high commit_freq=3.0, recently active - strong signal\n- File 2 (InstantiatorProvider.java): Recent activity, moderate churn, commit_freq=0.72\n- File 3 (Instantiator.java): Recent activity, similar to file 2, commit_freq=0.72\n- File 4 (InstantationException.java): Very new (age_days=1), only 1 commit - newly created file, likely part of fix\n- File 5 (ConstructorInstantiator.java): Old file (age_days=4313), but has more commits and churn recently (7 commits, 2 devs, +81/-36)\n\nThe test failure involves instantiation. Files 1 and 4 are brand new (age_days=1), suggesting they were created as part of a fix. File 5 has significant recent churn with 2 developers involved. Files 2 and 3 are also recently active.\n\nThe combination of very new files (1, 4) plus the heavily churned ConstructorInstantiator (5) and the provider/interface files (2, 3) suggests this is a refactoring of the instantiation mechanism. The defective files are most likely the ones that were newly introduced or heavily modified.\n\n{\"ranking\": [1, 5, 4, 2, 3], \"confidence\": {\"1\": 0.75, \"5\": 0.60, \"4\": 0.55, \"2\": 0.45, \"3\": 0.40}}",
+ "n_attempts": 1
+}

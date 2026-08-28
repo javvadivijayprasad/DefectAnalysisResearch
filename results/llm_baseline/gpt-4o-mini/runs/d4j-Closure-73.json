@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-73",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/RenameLabels.java",
+  "src/com/google/javascript/jscomp/OperaCompoundAssignFix.java",
+  "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+  "src/com/google/javascript/jscomp/ScopeCreator.java",
+  "src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java",
+  "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "src/com/google/javascript/jscomp/FunctionNames.java"
+ ],
+ "timestamp": "2026-08-27T19:31:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  1,
+  3,
+  4,
+  7,
+  6
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "5": 0.3,
+  "1": 0.15,
+  "3": 0.1,
+  "4": 0.05,
+  "7": 0.03,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.3,
+  0.1,
+  0.03,
+  0.35,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  1,
+  3,
+  5,
+  0,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 817,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[2,5,1,3,4,7,6],\"confidence\":{\"2\":0.35,\"5\":0.30,\"1\":0.15,\"3\":0.10,\"4\":0.05,\"7\":0.03,\"6\":0.02}}",
+ "n_attempts": 1
+}

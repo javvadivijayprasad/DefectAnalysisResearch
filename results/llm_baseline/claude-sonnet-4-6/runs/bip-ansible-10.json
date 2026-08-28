@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-ansible-10",
+ "repo": "bugsinpy:ansible",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "lib/ansible/cli/galaxy.py",
+  "lib/ansible/modules/system/pamd.py",
+  "lib/ansible/modules/network/ios/ios_banner.py",
+  "lib/ansible/modules/network/eos/eos_eapi.py",
+  "lib/ansible/module_utils/network/eos/config/vlans/vlans.py"
+ ],
+ "timestamp": "2026-08-27T19:16:33",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "2": 0.15,
+  "3": 0.1,
+  "4": 0.07,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.1,
+  0.65,
+  0.07,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 867,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 4, 5], \"confidence\": {\"1\": 0.65, \"2\": 0.15, \"3\": 0.10, \"4\": 0.07, \"5\": 0.05}}",
+ "n_attempts": 1
+}

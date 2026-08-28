@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-JacksonDatabind-53",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ClassStack.java"
+ ],
+ "timestamp": "2026-08-27T19:06:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.88,
+  "2": 0.75,
+  "1": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.75,
+  0.88
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 803,
+  "output_tokens": 237
+ },
+ "raw_response": "Looking at the candidates:\n\n- `ClassStack.java` has only 2 commits, 1 developer, was created very recently (4 days old), and has a very high commit frequency (2.0/day). This strongly suggests it's a newly introduced file as part of a fix.\n- `TypeFactory.java` is the most heavily modified file with 69 commits and high churn - it's the core factory class that would likely need changes to use a new `ClassStack` helper.\n- `TypeBindings.java` has moderate activity but less likely to be the primary fix location.\n\nThe pattern here is clear: `ClassStack.java` appears to be a brand new file introduced as part of the fix (age_days=4, commit_freq=2.0), and `TypeFactory.java` is the main workhorse that would have been modified to use it.\n\n{\"ranking\": [3, 2, 1], \"confidence\": {\"3\": 0.88, \"2\": 0.75, \"1\": 0.15}}",
+ "n_attempts": 1
+}

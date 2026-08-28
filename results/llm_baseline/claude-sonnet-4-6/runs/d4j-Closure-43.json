@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-43",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/DotFormatter.java",
+  "src/com/google/javascript/jscomp/ClosureOptimizePrimitives.java",
+  "src/com/google/javascript/jscomp/ExportTestFunctions.java",
+  "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "src/com/google/javascript/jscomp/FunctionNames.java",
+  "src/com/google/javascript/jscomp/CompilationLevel.java",
+  "src/com/google/javascript/jscomp/ShowByPathWarningsGuard.java",
+  "src/com/google/javascript/jscomp/ReplaceCssNames.java"
+ ],
+ "timestamp": "2026-08-27T18:56:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  8,
+  3,
+  6,
+  2,
+  5,
+  1,
+  7
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "8": 0.15,
+  "3": 0.08,
+  "6": 0.07,
+  "2": 0.06,
+  "5": 0.05,
+  "1": 0.03,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.15,
+  0.05,
+  0.06,
+  0.03,
+  0.02,
+  0.07,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  5,
+  4,
+  6,
+  7,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1069,
+  "output_tokens": 480
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-43, I need to identify which file(s) were changed in the fix commit.\n\nThe test failure is an AssertionError in the Closure compiler project. Let me analyze the candidates:\n\n- **TypedScopeCreator.java** (candidate 4): Very high churn (6187), 90 commits, 10 devs, very old file (6122 days). This is a complex, frequently modified file that handles scope creation and type inference - a common source of bugs.\n\n- **ReplaceCssNames.java** (candidate 8): 19 commits, 8 devs, high churn (567), relatively active.\n\n- **CompilationLevel.java** (candidate 6): 32 commits, highest commit frequency (0.28), 6 devs.\n\n- **ExportTestFunctions.java** (candidate 3): 20 commits, 10 devs, high commit frequency (0.1872).\n\n- **ClosureOptimizePrimitives.java** (candidate 2): 6 commits but high frequency (0.20), newer file (210 days).\n\nFor Closure-43 specifically, this bug is related to `TypedScopeCreator` handling of function names/scopes, which is a well-known complex area. The `TypedScopeCreator` has by far the most activity and complexity. `FunctionNames.java` could also be relevant given the scope/naming context.\n\nGiven the high churn and complexity of TypedScopeCreator, and that Closure-43 typically involves type/scope issues, I'll rank accordingly.\n\n{\"ranking\": [4, 8, 3, 6, 2, 5, 1, 7], \"confidence\": {\"4\": 0.55, \"8\": 0.15, \"3\": 0.08, \"6\": 0.07, \"2\": 0.06, \"5\": 0.05, \"1\": 0.03, \"7\": 0.02}}",
+ "n_attempts": 1
+}

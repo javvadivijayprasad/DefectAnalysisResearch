@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-56",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/util/DefaultTransformer.java",
+  "src/main/java/org/apache/commons/math/util/CompositeFormat.java",
+  "src/main/java/org/apache/commons/math/util/OpenIntToDoubleHashMap.java",
+  "src/main/java/org/apache/commons/math/util/BigRealField.java",
+  "src/main/java/org/apache/commons/math/util/Incrementor.java",
+  "src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java",
+  "src/main/java/org/apache/commons/math/util/Pair.java",
+  "src/main/java/org/apache/commons/math/util/NumberTransformer.java"
+ ],
+ "timestamp": "2026-08-27T19:35:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  4,
+  1,
+  2,
+  7,
+  8,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "3": 0.25,
+  "4": 0.15,
+  "1": 0.05,
+  "2": 0.03,
+  "7": 0.02,
+  "8": 0.02,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.01,
+  0.02,
+  0.45,
+  0.02,
+  0.03,
+  0.15,
+  0.05,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  6,
+  0,
+  5,
+  4,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 879,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[5,3,4,1,2,7,8,6],\"confidence\":{\"5\":0.45,\"3\":0.25,\"4\":0.15,\"1\":0.05,\"2\":0.03,\"7\":0.02,\"8\":0.02,\"6\":0.01}}",
+ "n_attempts": 1
+}

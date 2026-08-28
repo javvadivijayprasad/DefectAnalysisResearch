@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-youtube-dl-2",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "youtube_dl/extractor/common.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/postprocessor/ffmpeg.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/facebook.py"
+ ],
+ "timestamp": "2026-08-27T19:40:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.3,
+  "2": 0.25,
+  "3": 0.2,
+  "5": 0.15,
+  "4": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.15,
+  0.25,
+  0.2,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 706,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 5, 4], \"confidence\": {\"1\": 0.30, \"2\": 0.25, \"3\": 0.20, \"5\": 0.15, \"4\": 0.10}}",
+ "n_attempts": 1
+}

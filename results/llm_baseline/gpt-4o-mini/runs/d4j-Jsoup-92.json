@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-92",
+ "repo": "defects4j:Jsoup",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/ParseSettings.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/nodes/Attribute.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java",
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/nodes/DocumentType.java"
+ ],
+ "timestamp": "2026-08-27T19:35:00",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  6,
+  2,
+  5,
+  1,
+  7
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "4": 0.25,
+  "6": 0.2,
+  "2": 0.1,
+  "5": 0.05,
+  "1": 0.03,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.35,
+  0.03,
+  0.1,
+  0.05,
+  0.02,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  5,
+  3,
+  4,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 827,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[3,4,6,2,5,1,7],\"confidence\":{\"3\":0.35,\"4\":0.25,\"6\":0.20,\"2\":0.10,\"5\":0.05,\"1\":0.03,\"7\":0.02}}",
+ "n_attempts": 1
+}

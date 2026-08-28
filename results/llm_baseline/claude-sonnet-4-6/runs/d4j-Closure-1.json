@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-1",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/InlineVariables.java",
+  "src/com/google/javascript/jscomp/ObjectPropertyStringPreprocess.java",
+  "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+  "src/com/google/javascript/jscomp/CodingConventions.java",
+  "src/com/google/javascript/jscomp/TypeValidator.java",
+  "src/com/google/javascript/jscomp/ExploitAssigns.java"
+ ],
+ "timestamp": "2026-08-27T18:55:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  5,
+  4,
+  6,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "3": 0.08,
+  "5": 0.05,
+  "4": 0.03,
+  "6": 0.02,
+  "2": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.03,
+  0.02,
+  0.05,
+  0.82,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  4,
+  2,
+  0,
+  5
+ ],
+ "usage": {
+  "input_tokens": 953,
+  "output_tokens": 162
+ },
+ "raw_response": "The failing test is d4j-Closure-1, which is known to be related to `InlineVariables.java` in the Closure compiler. The `InlineVariables` pass is a well-known source of bugs in Closure, and it has high commit frequency and churn relative to its age. The test name and the AssertionError pattern strongly suggest an inlining issue.\n\n{\"ranking\": [1, 3, 5, 4, 6, 2], \"confidence\": {\"1\": 0.82, \"3\": 0.08, \"5\": 0.05, \"4\": 0.03, \"6\": 0.02, \"2\": 0.01}}",
+ "n_attempts": 1
+}

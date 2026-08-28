@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-pandas-52",
+ "repo": "bugsinpy:pandas",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "pandas/core/groupby/generic.py",
+  "pandas/core/indexing.py",
+  "pandas/io/stata.py",
+  "pandas/tseries/offsets.py"
+ ],
+ "timestamp": "2026-08-27T19:38:33",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.3,
+  "4": 0.15,
+  "3": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.3,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 665,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [1, 2, 4, 3], \"confidence\": {\"1\": 0.45, \"2\": 0.30, \"4\": 0.15, \"3\": 0.10}}",
+ "n_attempts": 1
+}

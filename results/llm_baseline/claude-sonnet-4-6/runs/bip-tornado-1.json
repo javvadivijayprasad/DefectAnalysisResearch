@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-tornado-1",
+ "repo": "bugsinpy:tornado",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "tornado/platform/asyncio.py",
+  "tornado/auth.py",
+  "tornado/gen.py",
+  "tornado/httputil.py",
+  "tornado/web.py",
+  "setup.py",
+  "tornado/websocket.py"
+ ],
+ "timestamp": "2026-08-27T19:25:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  7,
+  3,
+  4,
+  1,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "7": 0.35,
+  "3": 0.25,
+  "4": 0.2,
+  "1": 0.15,
+  "2": 0.08,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.15,
+  0.25,
+  0.05,
+  0.08,
+  0.45,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  2,
+  6,
+  5,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 905,
+  "output_tokens": 432
+ },
+ "raw_response": "Looking at the failing test event for tornado with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n1. Files 5 (tornado/web.py) and 7 (tornado/websocket.py) have higher commit frequency (0.25 vs 0.0833) and more churn (105 vs 35), suggesting they've been more actively modified recently.\n2. The test involves an AssertionError with http_status=0, which could relate to HTTP handling in web.py or websocket.py.\n3. tornado/gen.py is core to tornado's async functionality and could cause AssertionErrors in many contexts.\n4. tornado/platform/asyncio.py is relevant for async operations.\n5. The `app_code_changed` flag suggests application-level code changes.\n\nFor a tornado test with AssertionError and http_status=0:\n- `tornado/web.py` is the core web framework and most likely to affect HTTP status codes\n- `tornado/websocket.py` handles WebSocket connections which could have status issues\n- `tornado/gen.py` handles coroutines/generators which are fundamental to tornado\n- `tornado/httputil.py` handles HTTP utilities\n- `tornado/platform/asyncio.py` handles asyncio integration\n\nFiles 5 and 7 have 3x more commits and higher churn, making them more likely candidates for recent bugs. Between web.py and websocket.py, web.py is more central to HTTP handling.\n\n{\"ranking\": [5, 7, 3, 4, 1, 2, 6], \"confidence\": {\"5\": 0.45, \"7\": 0.35, \"3\": 0.25, \"4\": 0.20, \"1\": 0.15, \"2\": 0.08, \"6\": 0.05}}",
+ "n_attempts": 1
+}

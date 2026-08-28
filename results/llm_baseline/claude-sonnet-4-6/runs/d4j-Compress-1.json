@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Compress-1",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveEntry.java",
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioUtil.java",
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioConstants.java",
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java"
+ ],
+ "timestamp": "2026-08-27T19:01:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.65,
+  "3": 0.3,
+  "4": 0.45,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.65,
+  0.3,
+  0.35,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 937,
+  "output_tokens": 382
+ },
+ "raw_response": "Looking at the candidates:\n\n- File 2 (CpioUtil.java): Very new file (age_days=2), only 2 commits, 1 developer, pure additions. This looks like a newly introduced utility class that could contain bugs.\n- File 4 (CpioConstants.java): Extremely new (age_days=1), 1 commit, pure additions. Also very new.\n- File 1 (CpioArchiveEntry.java): Recent file (age_days=70), moderate activity, significant additions.\n- File 3 (CpioArchiveInputStream.java): Recent file (age_days=69), high commit frequency, significant changes.\n- File 5 (CpioArchiveOutputStream.java): Very old file (age_days=6418), low commit frequency.\n\nThe defects4j Compress-1 bug is related to CPIO archive handling. The very new files (CpioUtil.java and CpioConstants.java) were likely introduced as part of a refactoring that introduced the bug. CpioUtil.java with its high commit frequency (2.0) and being brand new is highly suspicious. CpioArchiveEntry.java is also likely involved as it's relatively new and has significant changes. The fix likely involved CpioUtil.java and possibly CpioArchiveEntry.java or CpioArchiveInputStream.java.\n\n{\"ranking\": [2, 4, 1, 3, 5], \"confidence\": {\"1\": 0.35, \"2\": 0.65, \"3\": 0.30, \"4\": 0.45, \"5\": 0.05}}",
+ "n_attempts": 1
+}

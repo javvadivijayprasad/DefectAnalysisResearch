@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-youtube-dl-2",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "youtube_dl/extractor/common.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/postprocessor/ffmpeg.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/facebook.py"
+ ],
+ "timestamp": "2026-08-27T19:25:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.55,
+  "3": 0.4,
+  "4": 0.15,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.1,
+  0.55,
+  0.4,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  0,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 844,
+  "output_tokens": 425
+ },
+ "raw_response": "Looking at this failing test event for youtube-dl with an AssertionError:\n\nKey observations:\n1. Files 1, 2, 3 all have identical stats (commits=1, devs=1, +20/-15, age_days=30, freq=0.0833) - these look like they were all modified in the same recent commit\n2. File 4 (utils.py) has very high activity (33 commits, 11 devs, high churn) - a core utility file\n3. File 5 (facebook.py) has moderate activity (3 commits, 1 dev)\n\nThe test is \"bip-youtube-dl-2\" which suggests it's testing a specific extractor or core functionality. The AssertionError in youtube-dl tests often relates to extractor behavior or utility functions.\n\nFiles 1, 2, 3 having identical stats strongly suggests they were all touched in the same fix/change commit. The bug being fixed likely involves one or more of these files. Given the test name doesn't specify \"facebook\", and the identical stats on files 1-3 suggest a coordinated change, the defective files are likely among those three.\n\nFor youtube-dl, `jsinterp.py` (JavaScript interpreter) is commonly involved in bugs related to YouTube signature decryption. `common.py` is the base extractor. `utils.py` is heavily used everywhere.\n\nThe identical commit stats for files 1-3 suggest they were all part of the same fix commit. The bug likely involves jsinterp.py or common.py given the AssertionError pattern.\n\n{\"ranking\": [2, 1, 3, 5, 4], \"confidence\": {\"1\": 0.45, \"2\": 0.55, \"3\": 0.40, \"4\": 0.15, \"5\": 0.10}}",
+ "n_attempts": 1
+}

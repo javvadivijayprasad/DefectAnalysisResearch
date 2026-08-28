@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-100",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/WarningsGuard.java",
+  "src/com/google/javascript/jscomp/CheckProvides.java",
+  "src/com/google/javascript/jscomp/CheckGlobalThis.java",
+  "src/com/google/javascript/jscomp/JSModuleGraph.java",
+  "src/com/google/javascript/jscomp/LatticeElement.java",
+  "src/com/google/javascript/jscomp/SyntheticAst.java",
+  "src/com/google/javascript/jscomp/NameAnalyzer.java",
+  "src/com/google/javascript/jscomp/AnonymousFunctionNamingCallback.java"
+ ],
+ "timestamp": "2026-08-27T18:58:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  7,
+  2,
+  4,
+  8,
+  6,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "7": 0.45,
+  "2": 0.25,
+  "4": 0.15,
+  "8": 0.1,
+  "6": 0.08,
+  "1": 0.07,
+  "5": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.25,
+  0.15,
+  0.08,
+  0.1,
+  0.04,
+  0.45,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  5,
+  4,
+  7,
+  1,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1068,
+  "output_tokens": 555
+ },
+ "raw_response": "Looking at the failing test for defects4j:Closure-100, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure involves an `AssertionError`\n- Flags indicate `app_code_changed` and `validator_changed`\n- The `validator_changed` flag suggests a checking/validation pass was modified\n\nAnalyzing candidates:\n\n1. **CheckGlobalThis.java** (index 3) - A checker/validator pass, `validator_changed` flag is set. Has 4 commits, 3 devs, moderate churn. This is a strong candidate given the validator_changed flag.\n\n2. **CheckProvides.java** (index 2) - Another checker pass, recently active (145 days old, 2 commits). Also fits `validator_changed`.\n\n3. **NameAnalyzer.java** (index 7) - Very high churn (2186), high commit frequency (0.4529), recently active (170 days). `app_code_changed` flag fits this well.\n\n4. **JSModuleGraph.java** (index 4) - High commit frequency (0.2049), significant additions. Could be app code.\n\n5. **AnonymousFunctionNamingCallback.java** (index 8) - Brand new file (age=1 day), but commit_freq=1.0 suggests it was just added. New files are sometimes part of fixes.\n\n6. **SyntheticAst.java** (index 6) - Recently added, moderate activity.\n\n7. **WarningsGuard.java** (index 1) - Low activity, could be related to validator changes.\n\n8. **LatticeElement.java** (index 5) - Low activity, less likely.\n\nGiven `validator_changed` + `app_code_changed`, the most likely combination is CheckGlobalThis.java (validator) and NameAnalyzer.java (app code). CheckProvides.java is also a validator candidate.\n\n{\"ranking\": [3, 7, 2, 4, 8, 6, 1, 5], \"confidence\": {\"3\": 0.55, \"7\": 0.45, \"2\": 0.25, \"4\": 0.15, \"8\": 0.10, \"6\": 0.08, \"1\": 0.07, \"5\": 0.04}}",
+ "n_attempts": 1
+}

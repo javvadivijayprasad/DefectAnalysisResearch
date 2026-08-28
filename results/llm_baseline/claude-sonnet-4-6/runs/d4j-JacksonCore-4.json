@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonCore-4",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java",
+  "src/main/java/com/fasterxml/jackson/core/util/ByteArrayBuilder.java",
+  "src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java",
+  "src/main/java/com/fasterxml/jackson/core/util/MinimalPrettyPrinter.java",
+  "src/main/java/com/fasterxml/jackson/core/util/JsonGeneratorDelegate.java",
+  "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+  "src/main/java/com/fasterxml/jackson/core/util/package-info.java"
+ ],
+ "timestamp": "2026-08-27T18:50:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  5,
+  3,
+  6,
+  2,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "4": 0.25,
+  "5": 0.08,
+  "3": 0.06,
+  "6": 0.04,
+  "2": 0.03,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.25,
+  0.65,
+  0.04,
+  0.01,
+  0.08,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  0,
+  4,
+  6,
+  2,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1051,
+  "output_tokens": 195
+ },
+ "raw_response": "The failing test is about pretty printing (based on the defects4j JacksonCore-4 bug). The most likely defective files are related to pretty printing functionality.\n\n`DefaultPrettyPrinter.java` (candidate 1) is the primary pretty printer implementation with high commit frequency and significant churn. `MinimalPrettyPrinter.java` (candidate 4) is another pretty printer with notable activity. These are the most likely candidates for a pretty-printing related bug.\n\n{\"ranking\": [1, 4, 5, 3, 6, 2, 7], \"confidence\": {\"1\": 0.65, \"4\": 0.25, \"5\": 0.08, \"3\": 0.06, \"6\": 0.04, \"2\": 0.03, \"7\": 0.01}}",
+ "n_attempts": 1
+}

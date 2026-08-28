@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-17",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CheckUnreachableCode.java",
+  "src/com/google/javascript/jscomp/HotSwapCompilerPass.java",
+  "src/com/google/javascript/jscomp/FindExportableNodes.java",
+  "src/com/google/javascript/jscomp/TypeInferencePass.java",
+  "src/com/google/javascript/jscomp/AstChangeProxy.java",
+  "src/com/google/javascript/jscomp/Normalize.java",
+  "src/com/google/javascript/jscomp/TypedScopeCreator.java"
+ ],
+ "timestamp": "2026-08-27T18:55:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  4,
+  6,
+  1,
+  3,
+  5,
+  2
+ ],
+ "llm_confidence_presented": {
+  "7": 0.55,
+  "4": 0.3,
+  "6": 0.15,
+  "1": 0.08,
+  "3": 0.07,
+  "5": 0.06,
+  "2": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.15,
+  0.3,
+  0.07,
+  0.08,
+  0.06,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  4,
+  3,
+  5,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1011,
+  "output_tokens": 511
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-17, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure compiler, dealing with type inference/scope creation\n\nLet me analyze the candidates:\n\n1. **TypedScopeCreator.java** (index 7) - Extremely high churn (6298), 100 commits, 10 devs, very old file (6122 days). This is a complex, frequently modified file that handles typed scope creation - a common source of bugs in type inference.\n\n2. **TypeInferencePass.java** (index 4) - 20 commits, 9 devs, moderate churn (278). Directly related to type inference which is a common source of AssertionErrors in Closure.\n\n3. **Normalize.java** (index 6) - Highest commit frequency (0.2948), 39 commits, very high churn (1705). Frequently modified, suggesting active development and potential for bugs.\n\n4. **CheckUnreachableCode.java** (index 1) - 15 commits, moderate activity.\n\n5. **FindExportableNodes.java** (index 3) - 14 commits, moderate activity.\n\n6. **AstChangeProxy.java** (index 5) - 11 commits, lower churn.\n\n7. **HotSwapCompilerPass.java** (index 2) - Fewest commits (5), lowest churn (87), youngest file (393 days).\n\nFor Closure-17 specifically, the bug is typically related to type inference or scope creation. TypedScopeCreator and TypeInferencePass are the most likely candidates given the nature of type-related AssertionErrors.\n\n{\"ranking\": [7, 4, 6, 1, 3, 5, 2], \"confidence\": {\"7\": 0.55, \"4\": 0.30, \"6\": 0.15, \"1\": 0.08, \"3\": 0.07, \"5\": 0.06, \"2\": 0.04}}",
+ "n_attempts": 1
+}

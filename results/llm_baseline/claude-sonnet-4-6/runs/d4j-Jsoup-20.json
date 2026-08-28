@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-20",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/HttpConnection.java",
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/helper/StringUtil.java",
+  "src/main/java/org/jsoup/helper/DescendableLinkedList.java",
+  "src/main/java/org/jsoup/helper/Validate.java"
+ ],
+ "timestamp": "2026-08-27T19:08:32",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.85,
+  "1": 0.45,
+  "2": 0.15,
+  "5": 0.08,
+  "3": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.45,
+  0.06,
+  0.08,
+  0.85
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 889,
+  "output_tokens": 249
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- `DescendableLinkedList.java` has `age_days=1` and `commit_freq=2.0000` - this is an extremely new file (1 day old) with very high commit frequency, strongly suggesting it was recently created/modified as part of a fix\n- `HttpConnection.java` has high commit frequency (0.3463) and many commits (28), suggesting active development\n- The other files are less likely candidates\n\nThe `DescendableLinkedList.java` stands out dramatically - age of 1 day means it was essentially just created, which is a very strong signal it's part of the fix. `HttpConnection.java` is also a likely candidate given its high activity.\n\n{\"ranking\": [4, 1, 2, 5, 3], \"confidence\": {\"4\": 0.85, \"1\": 0.45, \"2\": 0.15, \"5\": 0.08, \"3\": 0.06}}",
+ "n_attempts": 1
+}

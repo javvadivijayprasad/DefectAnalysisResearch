@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Codec-8",
+ "repo": "defects4j:Codec",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/java/org/apache/commons/codec/binary/Base64.java",
+  "src/java/org/apache/commons/codec/binary/Base64InputStream.java",
+  "src/java/org/apache/commons/codec/binary/StringUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:00:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "3": 0.25,
+  "2": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.15,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 781,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [1, 3, 2], \"confidence\": {\"1\": 0.65, \"3\": 0.25, \"2\": 0.15}}",
+ "n_attempts": 1
+}

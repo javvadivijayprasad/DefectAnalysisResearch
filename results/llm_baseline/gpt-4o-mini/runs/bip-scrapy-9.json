@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-scrapy-9",
+ "repo": "bugsinpy:scrapy",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "scrapy/downloadermiddlewares/redirect.py",
+  "scrapy/utils/datatypes.py",
+  "scrapy/core/downloader/handlers/http11.py",
+  "scrapy/dupefilters.py",
+  "scrapy/mail.py"
+ ],
+ "timestamp": "2026-08-27T19:39:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.15,
+  "3": 0.1,
+  "4": 0.1,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.15,
+  0.55,
+  0.1,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 706,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 4, 5], \"confidence\": {\"1\": 0.55, \"2\": 0.15, \"3\": 0.10, \"4\": 0.10, \"5\": 0.10}}",
+ "n_attempts": 1
+}

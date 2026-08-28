@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonXml-1",
+ "repo": "defects4j:JacksonXml",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlBeanDeserializerModifier.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTextDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/ElementWrapper.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/WrapperHandlingDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlReadContext.java"
+ ],
+ "timestamp": "2026-08-27T19:34:17",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  3,
+  1,
+  6,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "4": 0.35,
+  "2": 0.25,
+  "3": 0.15,
+  "1": 0.1,
+  "6": 0.08,
+  "5": 0.05,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.08,
+  0.35,
+  0.25,
+  0.1,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  4,
+  0,
+  1,
+  3,
+  6
+ ],
+ "usage": {
+  "input_tokens": 868,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [4, 2, 3, 1, 6, 5, 7], \"confidence\": {\"4\": 0.35, \"2\": 0.25, \"3\": 0.15, \"1\": 0.10, \"6\": 0.08, \"5\": 0.05, \"7\": 0.02}}",
+ "n_attempts": 1
+}

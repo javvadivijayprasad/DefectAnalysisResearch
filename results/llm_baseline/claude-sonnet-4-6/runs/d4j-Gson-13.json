@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Gson-13",
+ "repo": "defects4j:Gson",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "gson/src/main/java/com/google/gson/stream/JsonScope.java",
+  "gson/src/main/java/com/google/gson/stream/JsonWriter.java",
+  "gson/src/main/java/com/google/gson/stream/MalformedJsonException.java",
+  "gson/src/main/java/com/google/gson/stream/JsonReader.java",
+  "gson/src/main/java/com/google/gson/stream/JsonToken.java"
+ ],
+ "timestamp": "2026-08-27T19:03:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.55,
+  "4": 0.35,
+  "1": 0.1,
+  "5": 0.08,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.05,
+  0.55,
+  0.08,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 905,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [2, 4, 1, 5, 3], \"confidence\": {\"2\": 0.55, \"4\": 0.35, \"1\": 0.10, \"5\": 0.08, \"3\": 0.05}}",
+ "n_attempts": 1
+}

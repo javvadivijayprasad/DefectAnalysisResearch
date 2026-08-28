@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-36",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/fraction/FractionFormat.java",
+  "src/main/java/org/apache/commons/math/fraction/Fraction.java",
+  "src/main/java/org/apache/commons/math/fraction/AbstractFormat.java",
+  "src/main/java/org/apache/commons/math/fraction/BigFractionField.java",
+  "src/main/java/org/apache/commons/math/fraction/package-info.java",
+  "src/main/java/org/apache/commons/math/fraction/BigFraction.java",
+  "src/main/java/org/apache/commons/math/fraction/FractionConversionException.java"
+ ],
+ "timestamp": "2026-08-27T19:12:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  1,
+  3,
+  7,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.82,
+  "2": 0.12,
+  "1": 0.04,
+  "3": 0.03,
+  "7": 0.02,
+  "4": 0.01,
+  "5": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.12,
+  0.03,
+  0.04,
+  0.01,
+  0.02,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  2,
+  6,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1031,
+  "output_tokens": 150
+ },
+ "raw_response": "The test is d4j-Math-36, which is about `BigFraction` conversion to double/float returning incorrect values (a known bug where `BigFraction.doubleValue()` or `floatValue()` was broken). The fix was in `BigFraction.java`.\n\n{\"ranking\": [6, 2, 1, 3, 7, 4, 5], \"confidence\": {\"6\": 0.82, \"2\": 0.12, \"1\": 0.04, \"3\": 0.03, \"7\": 0.02, \"4\": 0.01, \"5\": 0.01}}",
+ "n_attempts": 1
+}

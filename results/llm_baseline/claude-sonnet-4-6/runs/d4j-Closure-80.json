@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-80",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/CheckRegExp.java",
+  "src/com/google/javascript/jscomp/ChainableReverseAbstractInterpreter.java",
+  "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java",
+  "src/com/google/javascript/jscomp/NodeIterators.java"
+ ],
+ "timestamp": "2026-08-27T18:57:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.3,
+  "2": 0.45,
+  "3": 0.1,
+  "4": 0.12,
+  "5": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.06,
+  0.12,
+  0.1,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  2,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 896,
+  "output_tokens": 441
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-80, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is a Closure compiler issue\n\nLet me analyze the candidates:\n\n1. **NodeUtil.java** - Very high commit count (73), many developers, large churn. This is a core utility file that's frequently modified and central to many operations. High likelihood of being involved in fixes.\n\n2. **CheckRegExp.java** - Very high commit frequency (0.1620), relatively new file (216 days), small but focused. The high commit frequency suggests active development/fixing.\n\n3. **ChainableReverseAbstractInterpreter.java** - Moderate commits, high churn relative to size, type inference related.\n\n4. **PeepholeOptimizationsPass.java** - Small file, moderate activity. Peephole optimizations could cause assertion errors.\n\n5. **NodeIterators.java** - Low commits, moderate size.\n\nFor Closure-80 specifically, this test relates to CheckRegExp functionality. The CheckRegExp.java file has a very high commit frequency for its age, suggesting it was actively being worked on. However, NodeUtil.java is the most commonly modified file and many bugs trace back to it.\n\nGiven the test name pattern (Closure-80) and the nature of AssertionError failures in the Closure compiler, CheckRegExp.java seems most likely as it's a focused, recently active file. NodeUtil.java is also a strong candidate as it underpins many operations.\n\n{\"ranking\": [2, 1, 4, 3, 5], \"confidence\": {\"1\": 0.30, \"2\": 0.45, \"3\": 0.10, \"4\": 0.12, \"5\": 0.06}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-31",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/util/Converter.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/EmptyIterator.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ObjectBuffer.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/StdDateFormat.java"
+ ],
+ "timestamp": "2026-08-27T19:05:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  1,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.45,
+  "3": 0.05,
+  "4": 0.08,
+  "5": 0.25
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.08,
+  0.05,
+  0.15,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 926,
+  "output_tokens": 519
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is defect d4j-JacksonDatabind-31\n\nLet me analyze the candidates:\n\n1. **Converter.java** - Very recent file (153 days old), low commits (3), but high churn relative to size. The recency and the fact it's a utility converter class could be relevant.\n\n2. **TokenBuffer.java** - Very high activity (47 commits, 7 devs, large churn). This is a core utility class that's frequently modified and could easily have bugs.\n\n3. **EmptyIterator.java** - Low activity, older file. Less likely to be the source of a defect.\n\n4. **ObjectBuffer.java** - Low commits, moderate age. Less likely.\n\n5. **StdDateFormat.java** - Moderate activity (16 commits), relatively high churn. Date formatting issues are common sources of bugs in Jackson.\n\nFor JacksonDatabind-31, based on the nature of the defect (AssertionError) and the file characteristics:\n- `TokenBuffer.java` is the most frequently modified and complex utility class, making it a prime candidate for bugs\n- `StdDateFormat.java` has significant activity and date-related bugs are common\n- `Converter.java` is very new (153 days) which could indicate it was recently introduced with bugs\n\nThe high recency of `Converter.java` combined with its relatively high commit frequency suggests it might be the newly introduced/modified file. However, `TokenBuffer.java`'s complexity and high churn make it a strong candidate too.\n\nGiven the defect number (31) and typical Jackson issues, `TokenBuffer.java` seems most likely for an AssertionError scenario, with `StdDateFormat.java` as secondary.\n\n{\"ranking\": [2, 5, 1, 4, 3], \"confidence\": {\"1\": 0.15, \"2\": 0.45, \"3\": 0.05, \"4\": 0.08, \"5\": 0.25}}",
+ "n_attempts": 1
+}

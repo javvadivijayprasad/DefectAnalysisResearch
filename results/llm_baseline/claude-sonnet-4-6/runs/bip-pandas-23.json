@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-pandas-23",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "pandas/core/indexes/datetimes.py",
+  "pandas/core/frame.py",
+  "pandas/core/indexes/datetimelike.py",
+  "pandas/core/nanops.py",
+  "pandas/core/groupby/grouper.py",
+  "pandas/core/window/common.py",
+  "pandas/tseries/offsets.py"
+ ],
+ "timestamp": "2026-08-27T19:19:17",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  5,
+  2,
+  4,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "3": 0.4,
+  "5": 0.35,
+  "2": 0.25,
+  "4": 0.2,
+  "6": 0.1,
+  "7": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.2,
+  0.45,
+  0.35,
+  0.1,
+  0.1,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  0,
+  2,
+  5,
+  6,
+  3
+ ],
+ "usage": {
+  "input_tokens": 934,
+  "output_tokens": 529
+ },
+ "raw_response": "Looking at this failing test in pandas with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError (likely from a test assertion or internal assertion)\n- `app_code_changed` flag is set\n- This is bip-pandas-23, which I need to reason about based on file statistics\n\nAnalyzing the candidates:\n\n1. **pandas/core/indexes/datetimes.py** - High commit frequency (0.25), recent activity (90 days), moderate churn. DateTime index operations are common sources of bugs.\n\n2. **pandas/core/frame.py** - Very high commit frequency (0.9167), significant churn (385), relatively recent. Core DataFrame operations are frequently modified and buggy.\n\n3. **pandas/core/indexes/datetimelike.py** - Moderate activity, related to datetime operations. Often paired with datetimes.py fixes.\n\n4. **pandas/core/nanops.py** - Very low commits (1), recent (30 days), small churn. Single-commit files can indicate targeted fixes or introductions of bugs.\n\n5. **pandas/core/groupby/grouper.py** - Moderate activity, groupby operations can interact with datetime indexes.\n\n6. **pandas/core/window/common.py** - Lower activity, window operations.\n\n7. **pandas/tseries/offsets.py** - Lower activity, time series offsets.\n\nFor pandas bug #23, this is likely related to datetime/groupby operations. The combination of datetimes.py and datetimelike.py being recently modified together suggests they could be co-defective. The groupby/grouper.py also has similar stats to datetimelike.py and could be involved in a groupby+datetime bug.\n\nnanops.py with only 1 commit and very recent age (30 days) is suspicious as a targeted change that introduced a bug.\n\n{\"ranking\": [1, 3, 5, 2, 4, 6, 7], \"confidence\": {\"1\": 0.45, \"3\": 0.40, \"5\": 0.35, \"2\": 0.25, \"4\": 0.20, \"6\": 0.10, \"7\": 0.10}}",
+ "n_attempts": 1
+}

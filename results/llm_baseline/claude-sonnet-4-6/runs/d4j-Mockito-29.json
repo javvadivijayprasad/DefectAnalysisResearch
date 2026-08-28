@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Mockito-29",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/org/mockito/internal/matchers/CompareEqual.java",
+  "src/org/mockito/internal/matchers/Any.java",
+  "src/org/mockito/internal/matchers/Same.java",
+  "src/org/mockito/internal/matchers/GreaterThan.java"
+ ],
+ "timestamp": "2026-08-27T19:15:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "4": 0.6,
+  "2": 0.15,
+  "3": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.6,
+  0.65,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 826,
+  "output_tokens": 352
+ },
+ "raw_response": "Looking at this failing test in Mockito-29, which involves matchers and an AssertionError.\n\nKey observations:\n- The test is about matchers (the package is `internal/matchers`)\n- `CompareEqual.java` and `GreaterThan.java` have identical statistics (commits=6, devs=2, +30/-4, churn=34, age_days=733, commit_freq=0.0573), suggesting they were modified together in the same commits\n- `CompareEqual` is directly related to equality comparison which could cause AssertionError in tests\n- `GreaterThan` is a comparison matcher that likely extends similar base classes as `CompareEqual`\n- Both `CompareEqual` and `GreaterThan` have the same age (733 days) and same commit history, strongly suggesting they were introduced/modified together\n- `Any.java` has more commits but different stats\n- `Same.java` is much older (6842 days) and less frequently modified\n\nThe Mockito-29 defect is related to comparison matchers. `CompareEqual` and `GreaterThan` having identical statistics strongly suggests they were both part of the same fix commit. The `CompareEqual` matcher is particularly suspicious for an AssertionError as it deals with equality comparisons.\n\n{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.65, \"4\": 0.60, \"2\": 0.15, \"3\": 0.08}}",
+ "n_attempts": 1
+}

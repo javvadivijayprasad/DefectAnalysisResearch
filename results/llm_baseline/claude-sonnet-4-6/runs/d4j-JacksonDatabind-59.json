@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-59",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/ObjectReader.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/MapLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/JavaType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java"
+ ],
+ "timestamp": "2026-08-27T19:06:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  4,
+  5,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.55,
+  "3": 0.35,
+  "4": 0.3,
+  "5": 0.25,
+  "1": 0.1,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.3,
+  0.35,
+  0.55,
+  0.1,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  1,
+  0,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 994,
+  "output_tokens": 75
+ },
+ "raw_response": "{\"ranking\": [6, 3, 4, 5, 1, 2], \"confidence\": {\"6\": 0.55, \"3\": 0.35, \"4\": 0.30, \"5\": 0.25, \"1\": 0.10, \"2\": 0.03}}",
+ "n_attempts": 1
+}

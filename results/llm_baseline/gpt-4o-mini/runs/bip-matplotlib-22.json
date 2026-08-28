@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-matplotlib-22",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "lib/matplotlib/text.py",
+  "lib/matplotlib/colors.py",
+  "lib/matplotlib/axes/_axes.py",
+  "examples/userdemo/colormap_normalizations.py",
+  "lib/matplotlib/projections/polar.py",
+  "lib/matplotlib/axis.py",
+  "lib/matplotlib/backend_bases.py"
+ ],
+ "timestamp": "2026-08-27T19:38:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  6,
+  1,
+  5,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.15,
+  "3": 0.3,
+  "4": 0.05,
+  "5": 0.1,
+  "6": 0.2,
+  "7": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.05,
+  0.1,
+  0.1,
+  0.2,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  3,
+  4,
+  2,
+  1,
+  6
+ ],
+ "usage": {
+  "input_tokens": 790,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [3, 2, 6, 1, 5, 4, 7], \"confidence\": {\"1\": 0.10, \"2\": 0.15, \"3\": 0.30, \"4\": 0.05, \"5\": 0.10, \"6\": 0.20, \"7\": 0.10}}",
+ "n_attempts": 1
+}

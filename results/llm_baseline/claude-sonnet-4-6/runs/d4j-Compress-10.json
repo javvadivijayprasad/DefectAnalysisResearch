@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Compress-10",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipShort.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/UnrecognizedExtraField.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/UnixStat.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipFile.java"
+ ],
+ "timestamp": "2026-08-27T19:01:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  5,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "2": 0.35,
+  "5": 0.15,
+  "1": 0.08,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.04,
+  0.08,
+  0.55,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  4,
+  3,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 932,
+  "output_tokens": 434
+ },
+ "raw_response": "Looking at this failing test in defects4j:Compress-10, which involves ZIP archive handling with an AssertionError.\n\nThe test is related to ZIP extra fields handling. Let me analyze the candidates:\n\n1. **ZipShort.java** - Utility class for ZIP short integers, moderate activity\n2. **UnrecognizedExtraField.java** - Handles unrecognized extra fields in ZIP, relatively recent with good commit frequency\n3. **UnixStat.java** - Unix stat constants, very few commits, recent but simple\n4. **ExtraFieldUtils.java** - Utilities for extra fields, high commit count and churn, older file\n5. **ZipFile.java** - Main ZIP file handling, very high commits and churn\n\nFor Compress-10, the bug is related to extra field parsing/handling. The `ExtraFieldUtils.java` has the highest number of commits (18) and significant churn (703), making it a prime candidate for bugs. `UnrecognizedExtraField.java` also has notable activity and is directly related to extra field handling.\n\nThe `ExtraFieldUtils.java` is the most likely defective file as it orchestrates extra field parsing logic, and bugs there would cause AssertionErrors in tests. `UnrecognizedExtraField.java` is the second most likely as it handles the data storage for unrecognized fields.\n\n`ZipFile.java` has enormous churn but is more of a general file; `ZipShort.java` is a utility that's less likely to have the specific bug; `UnixStat.java` is very simple with few commits.\n\n{\"ranking\": [4, 2, 5, 1, 3], \"confidence\": {\"4\": 0.55, \"2\": 0.35, \"5\": 0.15, \"1\": 0.08, \"3\": 0.04}}",
+ "n_attempts": 1
+}

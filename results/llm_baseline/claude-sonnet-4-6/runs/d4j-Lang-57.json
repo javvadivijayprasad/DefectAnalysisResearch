@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Lang-57",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/NullArgumentException.java",
+  "src/java/org/apache/commons/lang/CharSetUtils.java",
+  "src/java/org/apache/commons/lang/ObjectUtils.java",
+  "src/java/org/apache/commons/lang/WordUtils.java",
+  "src/java/org/apache/commons/lang/UnhandledException.java",
+  "src/java/org/apache/commons/lang/LocaleUtils.java",
+  "src/java/org/apache/commons/lang/IllegalClassException.java"
+ ],
+ "timestamp": "2026-08-27T19:11:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  2,
+  4,
+  7,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.82,
+  "3": 0.07,
+  "2": 0.05,
+  "4": 0.04,
+  "7": 0.03,
+  "1": 0.02,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.03,
+  0.02,
+  0.07,
+  0.02,
+  0.04,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  6,
+  1,
+  5,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 996,
+  "output_tokens": 220
+ },
+ "raw_response": "The failing test is d4j-Lang-57. Looking at the defects4j Lang bug database, Lang-57 is related to `LocaleUtils` - specifically a bug in `LocaleUtils.availableLocaleList()` or similar locale-related functionality.\n\n`LocaleUtils.java` stands out with a very high age (7662 days) and very low commit frequency (0.0100), which is unusual - it suggests it was added early and rarely touched, which fits a bug that went unnoticed. The defects4j Lang-57 bug is indeed in `LocaleUtils`.\n\n{\"ranking\": [6, 3, 2, 4, 7, 1, 5], \"confidence\": {\"6\": 0.82, \"3\": 0.07, \"2\": 0.05, \"4\": 0.04, \"7\": 0.03, \"1\": 0.02, \"5\": 0.02}}",
+ "n_attempts": 1
+}

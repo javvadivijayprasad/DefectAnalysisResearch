@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-158",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CheckRequiresForConstructors.java",
+  "src/com/google/javascript/jscomp/JSSourceFile.java",
+  "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "src/com/google/javascript/jscomp/DiagnosticGroups.java",
+  "src/com/google/javascript/jscomp/SourceFile.java",
+  "src/com/google/javascript/jscomp/CommandLineRunner.java",
+  "src/com/google/javascript/jscomp/StrictModeCheck.java"
+ ],
+ "timestamp": "2026-08-27T18:59:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  7,
+  5,
+  2,
+  6,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "4": 0.25,
+  "7": 0.15,
+  "5": 0.1,
+  "2": 0.08,
+  "6": 0.07,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.07,
+  0.25,
+  0.15,
+  0.08,
+  0.1,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  5,
+  1,
+  2,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1007,
+  "output_tokens": 546
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-158, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The flag `app_code_changed` is set\n- The test is related to Closure compiler\n\nLet me analyze the candidates:\n\n1. **CheckRequiresForConstructors.java** - Recent file (373 days), moderate activity, related to checking requires for constructors\n2. **JSSourceFile.java** - Recent file (373 days), low activity, source file handling\n3. **AbstractCommandLineRunner.java** - Old file (6122 days), high churn, command line runner\n4. **DiagnosticGroups.java** - Old file (6122 days), moderate activity, diagnostic groups\n5. **SourceFile.java** - Recent file (373 days), moderate activity, source file handling\n6. **CommandLineRunner.java** - Old file (6122 days), high churn, command line runner\n7. **StrictModeCheck.java** - Moderate age (516 days), moderate activity, strict mode checking\n\nThe Closure-158 defect is related to `CheckRequiresForConstructors` - this check verifies that constructors have proper `goog.require` calls. The test likely involves checking that the diagnostic group for this check is properly configured.\n\nFiles 1 (CheckRequiresForConstructors.java) and 4 (DiagnosticGroups.java) are the most likely candidates - the bug could be in the check itself or in how the diagnostic group is registered. File 7 (StrictModeCheck.java) could also be involved if the test relates to strict mode interactions.\n\nGiven the recent age and commit patterns of files 1, 2, and 5, and the nature of the test (AssertionError likely from a unit test checking behavior), CheckRequiresForConstructors.java is the primary suspect, with DiagnosticGroups.java as secondary.\n\n{\"ranking\": [1, 4, 7, 5, 2, 6, 3], \"confidence\": {\"1\": 0.55, \"4\": 0.25, \"7\": 0.15, \"5\": 0.10, \"2\": 0.08, \"6\": 0.07, \"3\": 0.05}}",
+ "n_attempts": 1
+}

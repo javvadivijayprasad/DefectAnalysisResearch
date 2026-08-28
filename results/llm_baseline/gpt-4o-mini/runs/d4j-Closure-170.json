@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-170",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+  "src/com/google/javascript/jscomp/PeepholeCollectPropertyAssignments.java",
+  "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+  "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "src/com/google/javascript/jscomp/VerboseMessageFormatter.java"
+ ],
+ "timestamp": "2026-08-27T19:32:08",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  1,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.25,
+  "3": 0.1,
+  "4": 0.4,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.25,
+  0.4,
+  0.1,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  0,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 743,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [4, 2, 1, 3, 5], \"confidence\": {\"1\": 0.15, \"2\": 0.25, \"3\": 0.10, \"4\": 0.40, \"5\": 0.10}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Compress-6",
+ "repo": "defects4j:Compress",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/UnrecognizedExtraField.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/FallbackZipEncoding.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipShort.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/UnicodeCommentExtraField.java"
+ ],
+ "timestamp": "2026-08-27T19:32:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  6,
+  1,
+  2,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "6": 0.3,
+  "1": 0.15,
+  "2": 0.1,
+  "4": 0.05,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.35,
+  0.15,
+  0.05,
+  0.1,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  0,
+  2,
+  4,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 822,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\":[3,6,1,2,4,5],\"confidence\":{\"3\":0.35,\"6\":0.30,\"1\":0.15,\"2\":0.10,\"4\":0.05,\"5\":0.05}}",
+ "n_attempts": 1
+}

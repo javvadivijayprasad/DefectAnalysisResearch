@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-95",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/ClassKey.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeBase.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/PlaceholderForType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeModifier.java"
+ ],
+ "timestamp": "2026-08-27T19:07:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  7,
+  3,
+  1,
+  6,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.92,
+  "5": 0.75,
+  "7": 0.45,
+  "3": 0.25,
+  "1": 0.1,
+  "6": 0.1,
+  "2": 0.07
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.07,
+  0.25,
+  0.1,
+  0.92,
+  0.45,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  6,
+  3,
+  5,
+  0,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1056,
+  "output_tokens": 462
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n1. **Candidate 4 (PlaceholderForType.java)**: age_days=1, commits=1, commit_freq=1.0000 - This is a brand new file, almost certainly created as part of the fix commit. This is the strongest signal.\n\n2. **Candidate 5 (TypeFactory.java)**: Very high commit frequency (0.1087), most commits (83), highest churn (4490). TypeFactory is the central class for type resolution in Jackson Databind. It's very commonly involved in type-related fixes.\n\n3. **Candidate 7 (TypeModifier.java)**: age_days=22, commit_freq=0.9545 - Very recently modified, high commit frequency. Likely part of the fix.\n\n4. **Candidate 3 (TypeBase.java)**: Moderate activity, could be involved.\n\n5. **Candidate 1 (ClassKey.java)**: Recent activity (age_days=435), small number of commits.\n\n6. **Candidate 2 (TypeParser.java)**: Older file, less likely.\n\n7. **Candidate 6 (CollectionLikeType.java)**: Moderate activity.\n\nThe PlaceholderForType.java being brand new (age=1 day, 1 commit) is the strongest indicator - it was created as part of the fix. TypeFactory.java is almost always involved in type-related fixes. TypeModifier.java being very recently modified (22 days, near-daily commits) also suggests involvement.\n\n{\"ranking\": [4, 5, 7, 3, 1, 6, 2], \"confidence\": {\"4\": 0.92, \"5\": 0.75, \"7\": 0.45, \"3\": 0.25, \"1\": 0.10, \"6\": 0.10, \"2\": 0.07}}",
+ "n_attempts": 1
+}

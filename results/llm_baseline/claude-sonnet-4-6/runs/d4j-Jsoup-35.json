@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-35",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/Parser.java",
+  "src/main/java/org/jsoup/parser/package-info.java"
+ ],
+ "timestamp": "2026-08-27T19:08:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  6,
+  4,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.55,
+  "3": 0.45,
+  "4": 0.1,
+  "5": 0.08,
+  "6": 0.15,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.45,
+  0.1,
+  0.25,
+  0.01,
+  0.08,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  2,
+  6,
+  5,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1004,
+  "output_tokens": 494
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an `AssertionError` in Jsoup's parser\n- `app_code_changed` flag is set\n- This is defect d4j-Jsoup-35, which relates to HTML parsing\n\nAnalyzing candidates:\n1. **Token.java** - Moderate activity, single dev, reasonable churn. Token handling is fundamental to parsing.\n2. **HtmlTreeBuilderState.java** - High churn (1605), multiple devs, very old file. State machine for HTML tree building - complex and bug-prone.\n3. **HtmlTreeBuilder.java** - High commit frequency (0.1035), single dev, significant churn. Core tree building logic.\n4. **TokenQueue.java** - Very high commit frequency (0.2776), multiple devs, high churn. Frequently modified.\n5. **CharacterReader.java** - Moderate activity, single dev.\n6. **Parser.java** - Highest commit frequency (0.3590), very high churn (1522), multiple devs. Most actively changed file.\n7. **package-info.java** - Only 1 commit, 4 lines added, age 1 day. Almost certainly not defective.\n\nFor Jsoup-35 specifically, this bug is related to HTML parsing behavior. The `HtmlTreeBuilderState.java` and `HtmlTreeBuilder.java` are the most likely candidates for parsing logic bugs. `Token.java` could also be involved. `Parser.java` has the highest churn but is often a facade. The `HtmlTreeBuilderState` handles the complex state machine logic where many parsing bugs originate.\n\n{\"ranking\": [2, 3, 1, 6, 4, 5, 7], \"confidence\": {\"1\": 0.25, \"2\": 0.55, \"3\": 0.45, \"4\": 0.10, \"5\": 0.08, \"6\": 0.15, \"7\": 0.01}}",
+ "n_attempts": 1
+}

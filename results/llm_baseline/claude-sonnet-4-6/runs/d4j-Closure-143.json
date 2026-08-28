@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-143",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/MessageFormatter.java",
+  "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "src/com/google/javascript/jscomp/RemoveConstantExpressions.java",
+  "src/com/google/javascript/jscomp/ExternExportsPass.java",
+  "src/com/google/javascript/jscomp/ChainCalls.java",
+  "src/com/google/javascript/jscomp/CodingConvention.java"
+ ],
+ "timestamp": "2026-08-27T18:59:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  6,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.72,
+  "2": 0.15,
+  "3": 0.05,
+  "4": 0.78,
+  "5": 0.08,
+  "6": 0.25
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.05,
+  0.78,
+  0.25,
+  0.08,
+  0.72
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  5,
+  0,
+  2,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 949,
+  "output_tokens": 384
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files are most likely to be defective (changed in the fix commit).\n\nKey observations:\n- Files 1 and 4 have `commits=1`, `age_days=1`, and `commit_freq=1.0000` - these are brand new files added in a single commit, which strongly suggests they were introduced as part of the fix commit.\n- File 6 (CodingConvention.java) has relatively recent activity with 6 commits and moderate churn.\n- File 2 (AbstractCommandLineRunner.java) has high churn but is older.\n- Files 3 and 5 are less likely candidates.\n\nThe `age_days=1` for files 1 and 4 is a very strong signal - these files were created very recently (likely as part of the fix). The `commit_freq=1.0000` confirms they were created in a single commit.\n\nFile 4 (ExternExportsPass.java) with 388 lines added is a substantial new file, and File 1 (MessageFormatter.java) with 34 lines added is a smaller new file. Both being brand new strongly suggests they're part of the fix.\n\nFile 6 (CodingConvention.java) with recent activity could also be part of the fix as an existing file that was modified.\n\n{\"ranking\": [4, 1, 6, 2, 5, 3], \"confidence\": {\"1\": 0.72, \"2\": 0.15, \"3\": 0.05, \"4\": 0.78, \"5\": 0.08, \"6\": 0.25}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-37",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/extractor/clipsyndicate.py",
+  "youtube_dl/downloader/f4m.py",
+  "youtube_dl/extractor/arte.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/youtube.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/extractor/npo.py"
+ ],
+ "timestamp": "2026-08-27T19:40:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  5,
+  6,
+  7,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.15,
+  "3": 0.15,
+  "4": 0.05,
+  "5": 0.15,
+  "6": 0.15,
+  "7": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.15,
+  0.15,
+  0.15,
+  0.15,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  2,
+  4,
+  3,
+  5,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 786,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 5, 6, 7, 4], \"confidence\": {\"1\": 0.15, \"2\": 0.15, \"3\": 0.15, \"4\": 0.05, \"5\": 0.15, \"6\": 0.15, \"7\": 0.15}}",
+ "n_attempts": 1
+}

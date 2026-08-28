@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-94",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/math/util/DefaultTransformer.java",
+  "src/java/org/apache/commons/math/util/MathUtils.java",
+  "src/java/org/apache/commons/math/util/ResizableDoubleArray.java",
+  "src/java/org/apache/commons/math/util/OpenIntToDoubleHashMap.java",
+  "src/java/org/apache/commons/math/util/DoubleArray.java"
+ ],
+ "timestamp": "2026-08-27T19:14:08",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.92,
+  "3": 0.04,
+  "1": 0.02,
+  "5": 0.02,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.02,
+  0.02,
+  0.01,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 905,
+  "output_tokens": 145
+ },
+ "raw_response": "The failing test is in defects4j:Math-94. This bug is known to be in `MathUtils.java` - specifically related to the `gcd` (greatest common divisor) method which had an integer overflow bug. The `MathUtils.java` file is the most heavily modified file and is the core utility class where such arithmetic bugs would reside.\n\n{\"ranking\": [2, 3, 1, 5, 4], \"confidence\": {\"2\": 0.92, \"3\": 0.04, \"1\": 0.02, \"5\": 0.02, \"4\": 0.01}}",
+ "n_attempts": 1
+}

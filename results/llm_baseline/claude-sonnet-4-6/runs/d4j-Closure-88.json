@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Closure-88",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/PassConfig.java",
+  "src/com/google/javascript/jscomp/LiveVariablesAnalysis.java",
+  "src/com/google/javascript/jscomp/SourceMapLegacy.java",
+  "src/com/google/javascript/jscomp/DeadAssignmentsElimination.java"
+ ],
+ "timestamp": "2026-08-27T18:57:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "2": 0.35,
+  "1": 0.08,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.08,
+  0.03,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 839,
+  "output_tokens": 178
+ },
+ "raw_response": "The test is d4j-Closure-88, which relates to dead assignments elimination. The `DeadAssignmentsElimination.java` and `LiveVariablesAnalysis.java` are the most relevant files for this kind of bug. `DeadAssignmentsElimination` has high churn and many devs, and is the primary pass being tested. `LiveVariablesAnalysis` supports it and has recent activity. The others (PassConfig, SourceMapLegacy) are less likely to be involved in a dead assignments test failure.\n\n{\"ranking\": [4, 2, 1, 3], \"confidence\": {\"4\": 0.55, \"2\": 0.35, \"1\": 0.08, \"3\": 0.03}}",
+ "n_attempts": 1
+}

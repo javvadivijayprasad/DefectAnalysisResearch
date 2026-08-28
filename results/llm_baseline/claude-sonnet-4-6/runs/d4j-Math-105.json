@@ -1,0 +1,30 @@
+{
+ "event_id": "d4j-Math-105",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 1,
+ "presented_files": [
+  "src/java/org/apache/commons/math/stat/regression/SimpleRegression.java"
+ ],
+ "timestamp": "2026-08-27T19:14:19",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.95
+ },
+ "confidence_by_corpus_row": [
+  0.95
+ ],
+ "rankpos_by_corpus_row": [
+  0
+ ],
+ "usage": {
+  "input_tokens": 666,
+  "output_tokens": 20
+ },
+ "raw_response": "{\"ranking\": [1], \"confidence\": {\"1\": 0.95}}",
+ "n_attempts": 1
+}

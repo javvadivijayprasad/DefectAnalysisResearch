@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Compress-45",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/tar/TarConstants.java",
+  "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveInputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveSparseEntry.java",
+  "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveEntry.java",
+  "src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:02:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  3,
+  6,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "5": 0.65,
+  "2": 0.45,
+  "3": 0.25,
+  "6": 0.15,
+  "1": 0.1,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.65,
+  0.05,
+  0.1,
+  0.25,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  5,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1011,
+  "output_tokens": 421
+ },
+ "raw_response": "Looking at this failing test for defects4j:Compress-45, I need to identify which files were likely changed in the fix commit.\n\nThe test involves TAR archive handling with an AssertionError. Let me analyze the candidates:\n\n- **TarArchiveEntry.java** (candidate 5): Highest churn (7371), very active file (80 commits, 9 devs), core entry class that handles TAR entry metadata. Very likely to be involved in bugs.\n\n- **TarArchiveInputStream.java** (candidate 2): Second highest churn (4370), very active (81 commits), handles reading TAR archives. Frequently modified and central to TAR processing.\n\n- **TarArchiveOutputStream.java** (candidate 3): High churn (3603), 77 commits, handles writing TAR archives.\n\n- **TarUtils.java** (candidate 6): 53 commits, utility functions used across TAR handling.\n\n- **TarConstants.java** (candidate 1): 21 commits, constants file - less likely to be defective but possible if a constant was wrong.\n\n- **TarArchiveSparseEntry.java** (candidate 4): Only 3 commits, very low activity - least likely.\n\nFor Compress-45 specifically, this bug relates to TAR sparse file handling or entry parsing. The most likely candidates are TarArchiveEntry and TarArchiveInputStream, as they handle the core logic. TarArchiveEntry is the most frequently modified and central to entry representation.\n\n{\"ranking\": [5, 2, 3, 6, 1, 4], \"confidence\": {\"5\": 0.65, \"2\": 0.45, \"3\": 0.25, \"6\": 0.15, \"1\": 0.10, \"4\": 0.05}}",
+ "n_attempts": 1
+}

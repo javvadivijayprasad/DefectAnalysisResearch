@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Lang-49",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/math/RandomUtils.java",
+  "src/java/org/apache/commons/lang/math/Fraction.java",
+  "src/java/org/apache/commons/lang/math/JVMRandom.java",
+  "src/java/org/apache/commons/lang/math/IntRange.java"
+ ],
+ "timestamp": "2026-08-27T19:11:43",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.88,
+  "3": 0.06,
+  "4": 0.04,
+  "1": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.88,
+  0.04,
+  0.06,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 836,
+  "output_tokens": 178
+ },
+ "raw_response": "The failing test is d4j-Lang-49. In the defects4j Lang dataset, bug 49 is known to be related to `Fraction.java` - specifically a bug in the `reduce()` method or arithmetic operations in the `Fraction` class that causes an `AssertionError`.\n\nThe `Fraction.java` file has the highest churn (1713), most commits (26), and most developers (7), making it the most actively modified and complex file. The `AssertionError` in a math test strongly points to fraction arithmetic logic.\n\n{\"ranking\": [2, 3, 4, 1], \"confidence\": {\"2\": 0.88, \"3\": 0.06, \"4\": 0.04, \"1\": 0.02}}",
+ "n_attempts": 1
+}

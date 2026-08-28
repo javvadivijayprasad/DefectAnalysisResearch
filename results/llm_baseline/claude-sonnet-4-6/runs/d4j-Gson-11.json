@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Gson-11",
+ "repo": "defects4j:Gson",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "gson/src/main/java/com/google/gson/internal/bind/SqlDateTypeAdapter.java",
+  "gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java",
+  "gson/src/main/java/com/google/gson/internal/bind/TreeTypeAdapter.java",
+  "gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java"
+ ],
+ "timestamp": "2026-08-27T19:03:34",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.08,
+  "2": 0.45,
+  "3": 0.2,
+  "4": 0.35
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.45,
+  0.2,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 862,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [2, 4, 3, 1], \"confidence\": {\"1\": 0.08, \"2\": 0.45, \"3\": 0.20, \"4\": 0.35}}",
+ "n_attempts": 1
+}

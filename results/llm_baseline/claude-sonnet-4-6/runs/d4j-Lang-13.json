@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-13",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/SerializationUtils.java",
+  "src/main/java/org/apache/commons/lang3/StringUtils.java",
+  "src/main/java/org/apache/commons/lang3/RandomStringUtils.java",
+  "src/main/java/org/apache/commons/lang3/ClassUtils.java",
+  "src/main/java/org/apache/commons/lang3/SerializationException.java",
+  "src/main/java/org/apache/commons/lang3/JavaVersion.java"
+ ],
+ "timestamp": "2026-08-27T19:11:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  4,
+  2,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "5": 0.08,
+  "4": 0.04,
+  "2": 0.03,
+  "3": 0.02,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.04,
+  0.02,
+  0.03,
+  0.01,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  3,
+  5,
+  1
+ ],
+ "usage": {
+  "input_tokens": 962,
+  "output_tokens": 128
+ },
+ "raw_response": "The test is d4j-Lang-13, which is about `SerializationUtils`. The failing test is an `AssertionError` in the serialization utilities. The most likely defective file is `SerializationUtils.java`.\n\n{\"ranking\": [1, 5, 4, 2, 3, 6], \"confidence\": {\"1\": 0.82, \"5\": 0.08, \"4\": 0.04, \"2\": 0.03, \"3\": 0.02, \"6\": 0.01}}",
+ "n_attempts": 1
+}

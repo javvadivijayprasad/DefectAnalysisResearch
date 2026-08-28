@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-scrapy-32",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "scrapy/item.py",
+  "scrapy/settings/__init__.py",
+  "scrapy/crawler.py",
+  "scrapy/http/response/__init__.py",
+  "scrapy/utils/misc.py"
+ ],
+ "timestamp": "2026-08-27T19:24:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "1": 0.35,
+  "2": 0.15,
+  "5": 0.1,
+  "4": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.08,
+  0.1,
+  0.15,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 831,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [3, 1, 2, 5, 4], \"confidence\": {\"3\": 0.45, \"1\": 0.35, \"2\": 0.15, \"5\": 0.10, \"4\": 0.08}}",
+ "n_attempts": 1
+}

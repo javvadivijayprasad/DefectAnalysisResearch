@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Lang-31",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/StringEscapeUtils.java",
+  "src/main/java/org/apache/commons/lang3/Validate.java",
+  "src/main/java/org/apache/commons/lang3/Pair.java",
+  "src/main/java/org/apache/commons/lang3/StringUtils.java",
+  "src/main/java/org/apache/commons/lang3/EnumUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:35:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "1": 0.25,
+  "2": 0.15,
+  "5": 0.1,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.25,
+  0.05,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 748,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [4, 1, 2, 5, 3], \"confidence\": {\"4\": 0.45, \"1\": 0.25, \"2\": 0.15, \"5\": 0.10, \"3\": 0.05}}",
+ "n_attempts": 1
+}

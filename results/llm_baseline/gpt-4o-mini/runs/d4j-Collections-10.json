@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Collections-10",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/collections/map/AbstractOrderedMapDecorator.java",
+  "src/java/org/apache/commons/collections/map/AbstractReferenceMap.java",
+  "src/java/org/apache/commons/collections/map/UnmodifiableOrderedMap.java",
+  "src/java/org/apache/commons/collections/map/CaseInsensitiveMap.java",
+  "src/java/org/apache/commons/collections/map/MultiValueMap.java"
+ ],
+ "timestamp": "2026-08-27T19:32:26",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.35,
+  "3": 0.2,
+  "4": 0.25,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.35,
+  0.15,
+  0.25,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 759,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [2, 4, 1, 3, 5], \"confidence\": {\"1\": 0.15, \"2\": 0.35, \"3\": 0.20, \"4\": 0.25, \"5\": 0.05}}",
+ "n_attempts": 1
+}

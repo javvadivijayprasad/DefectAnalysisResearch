@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-spacy-10",
+ "repo": "bugsinpy:spacy",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "spacy/cli/converters/conllu2json.py",
+  "spacy/language.py",
+  "spacy/errors.py",
+  "bin/wiki_entity_linking/wikipedia_processor.py",
+  "spacy/util.py",
+  "examples/information_extraction/entity_relations.py"
+ ],
+ "timestamp": "2026-08-27T19:39:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  5,
+  1,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.2,
+  "3": 0.4,
+  "4": 0.05,
+  "5": 0.15,
+  "6": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.15,
+  0.05,
+  0.1,
+  0.2,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  3,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 746,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [3, 2, 5, 1, 4, 6], \"confidence\": {\"1\": 0.10, \"2\": 0.20, \"3\": 0.40, \"4\": 0.05, \"5\": 0.15, \"6\": 0.10}}",
+ "n_attempts": 1
+}

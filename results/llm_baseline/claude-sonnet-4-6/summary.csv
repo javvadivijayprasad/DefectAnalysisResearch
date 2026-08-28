@@ -1,0 +1,2 @@
+method,n_events,n_rows,p1_mean,p3_mean,r5_mean,mrr_mean,triage_s_mean,ece_10bin,n_unparsed_fallback,n_ok_after_retry,parse_failure_rate,total_input_tokens,total_output_tokens
+llm_claude-sonnet-4-6,1323,6988,0.4906,0.3181,0.9329,0.6702,6.56,0.0585,0,0,0.0,1189245,293420

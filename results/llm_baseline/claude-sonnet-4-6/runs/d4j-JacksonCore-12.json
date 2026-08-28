@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonCore-12",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+  "src/main/java/com/fasterxml/jackson/core/json/PackageVersion.java",
+  "src/main/java/com/fasterxml/jackson/core/json/ByteSourceJsonBootstrapper.java",
+  "src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java",
+  "src/main/java/com/fasterxml/jackson/core/json/JsonReadContext.java",
+  "src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java"
+ ],
+ "timestamp": "2026-08-27T19:04:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  1,
+  4,
+  5,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.55,
+  "1": 0.35,
+  "4": 0.15,
+  "5": 0.1,
+  "3": 0.08,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.55,
+  0.15,
+  0.08,
+  0.02,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2,
+  4,
+  5,
+  3
+ ],
+ "usage": {
+  "input_tokens": 998,
+  "output_tokens": 456
+ },
+ "raw_response": "Looking at this failing test in JacksonCore, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a parsing or generation issue\n- The `app_code_changed` flag indicates application code was modified\n- This is in the `json` package\n\nAnalyzing candidates:\n1. `ReaderBasedJsonParser.java` - Very high activity (71 commits, churn=4630), one of the main parser implementations. High likelihood of containing bugs.\n2. `PackageVersion.java` - Very low activity (3 commits, churn=26), unlikely to be defective.\n3. `ByteSourceJsonBootstrapper.java` - Moderate activity, handles bootstrapping/encoding detection.\n4. `UTF8JsonGenerator.java` - High activity (37 commits, churn=3160, highest commit_freq=0.1810), JSON generation code.\n5. `JsonReadContext.java` - Moderate activity, handles read context tracking.\n6. `UTF8StreamJsonParser.java` - Highest activity overall (95 commits, churn=6164), the UTF-8 stream parser.\n\nFor JacksonCore defect #12, the most likely candidates are the parser implementations. `UTF8StreamJsonParser` has the most commits and churn, making it a prime candidate. `ReaderBasedJsonParser` is also highly active. Given that this is an AssertionError (likely a parsing assertion), the parser files are most suspect.\n\n`UTF8StreamJsonParser` and `ReaderBasedJsonParser` are the most likely defective files based on their high activity metrics and relevance to parsing failures.\n\n{\"ranking\": [6, 1, 4, 5, 3, 2], \"confidence\": {\"6\": 0.55, \"1\": 0.35, \"4\": 0.15, \"5\": 0.10, \"3\": 0.08, \"2\": 0.02}}",
+ "n_attempts": 1
+}

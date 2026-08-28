@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Collections-23",
+ "repo": "defects4j:Collections",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/org/apache/commons/collections4/trie/AbstractBitwiseTrie.java",
+  "src/main/java/org/apache/commons/collections4/trie/UnmodifiableTrie.java",
+  "src/main/java/org/apache/commons/collections4/trie/PatriciaTrie.java"
+ ],
+ "timestamp": "2026-08-27T19:01:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.65,
+  "1": 0.25,
+  "2": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.25,
+  0.65
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 799,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [3, 1, 2], \"confidence\": {\"3\": 0.65, \"1\": 0.25, \"2\": 0.10}}",
+ "n_attempts": 1
+}

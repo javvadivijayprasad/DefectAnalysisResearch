@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-41",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CheckAccidentalSemicolon.java",
+  "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+  "src/com/google/javascript/jscomp/NameAnonymousFunctionsMapped.java",
+  "src/com/google/javascript/jscomp/CheckLevelLegacy.java",
+  "src/com/google/javascript/jscomp/CreateSyntheticBlocks.java",
+  "src/com/google/javascript/jscomp/TypedCodeGenerator.java"
+ ],
+ "timestamp": "2026-08-27T18:56:32",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  5,
+  1,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.55,
+  "6": 0.25,
+  "5": 0.08,
+  "1": 0.05,
+  "3": 0.04,
+  "4": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.08,
+  0.25,
+  0.04,
+  0.05,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 958,
+  "output_tokens": 422
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-41, I need to identify which file(s) are likely defective.\n\nKey observations:\n- The failure is an AssertionError (test assertion failure)\n- The flag `app_code_changed` is set\n- This is Closure compiler issue #41\n\nLet me analyze the candidates:\n\n1. **CheckAccidentalSemicolon.java** - Moderate activity, checking for accidental semicolons\n2. **FunctionTypeBuilder.java** - High activity (45 commits, 1626 churn), handles function type building - very active file\n3. **NameAnonymousFunctionsMapped.java** - Lower activity, names anonymous functions\n4. **CheckLevelLegacy.java** - Low activity, legacy check levels\n5. **CreateSyntheticBlocks.java** - Moderate activity, creates synthetic blocks\n6. **TypedCodeGenerator.java** - High commit frequency (0.2663), generates typed code\n\nFor Closure-41, this is related to type checking/function types. The `FunctionTypeBuilder.java` has the highest churn and many commits, making it a prime candidate for bugs. `TypedCodeGenerator.java` has the highest commit frequency which also suggests active development with potential for bugs.\n\nGiven the nature of Closure compiler bug #41 which typically involves type-related issues, `FunctionTypeBuilder.java` is the most likely candidate. `TypedCodeGenerator.java` with its high commit frequency is also suspicious.\n\n{\"ranking\": [2, 6, 5, 1, 3, 4], \"confidence\": {\"2\": 0.55, \"6\": 0.25, \"5\": 0.08, \"1\": 0.05, \"3\": 0.04, \"4\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-thefuck-20",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "thefuck/rules/php_s.py",
+  "thefuck/rules/dirty_unzip.py",
+  "thefuck/rules/vagrant_up.py",
+  "thefuck/shells/fish.py",
+  "thefuck/rules/man.py",
+  "thefuck/rules/git_branch_exists.py"
+ ],
+ "timestamp": "2026-08-27T19:25:00",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  6,
+  1,
+  2,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "6": 0.2,
+  "1": 0.1,
+  "2": 0.1,
+  "3": 0.1,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.1,
+  0.45,
+  0.1,
+  0.1,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  0,
+  5,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 898,
+  "output_tokens": 456
+ },
+ "raw_response": "Looking at this failing test event for the thefuck project, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n1. The test name is `bip-thefuck-20` - \"bip\" suggests this might relate to a specific bug\n2. The `app_code_changed` flag is set, indicating application code was modified\n3. Files 1-3 and 5 all have identical stats (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833)\n4. File 4 (fish.py) has notably more activity (commits=4, higher churn, older)\n5. File 6 (git_branch_exists.py) has 2 commits and is 60 days old\n\nThe test failure is an AssertionError, which is common in unit tests for rules. The `thefuck/shells/fish.py` file stands out with significantly more commits and churn, suggesting it's been actively modified. However, the bug fix could be in any of the rules files.\n\nLooking at the pattern - files 1, 2, 3, 5 are identical in stats, suggesting they may have been part of a batch change. File 6 has slightly more history. File 4 (fish.py) is the most actively changed file.\n\nGiven that the test is likely testing shell behavior or a specific rule, and `fish.py` has the most activity and highest commit frequency, it's the most likely candidate for a bug fix. The `git_branch_exists.py` with 2 commits is the second most likely among the rules files.\n\n{\"ranking\": [4, 6, 1, 2, 3, 5], \"confidence\": {\"4\": 0.45, \"6\": 0.20, \"1\": 0.10, \"2\": 0.10, \"3\": 0.10, \"5\": 0.10}}",
+ "n_attempts": 1
+}

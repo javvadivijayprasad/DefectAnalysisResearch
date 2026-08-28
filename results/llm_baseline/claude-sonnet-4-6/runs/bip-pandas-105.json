@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-pandas-105",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "pandas/io/parquet.py",
+  "pandas/core/frame.py",
+  "pandas/core/generic.py",
+  "pandas/core/indexes/numeric.py",
+  "pandas/io/formats/excel.py",
+  "pandas/core/arrays/categorical.py",
+  "pandas/core/dtypes/missing.py",
+  "pandas/core/apply.py"
+ ],
+ "timestamp": "2026-08-27T19:20:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  7,
+  6,
+  4,
+  8,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.08,
+  "2": 0.55,
+  "3": 0.45,
+  "4": 0.12,
+  "5": 0.06,
+  "6": 0.25,
+  "7": 0.3,
+  "8": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.55,
+  0.06,
+  0.3,
+  0.25,
+  0.08,
+  0.1,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  7,
+  2,
+  3,
+  6,
+  5,
+  4
+ ],
+ "usage": {
+  "input_tokens": 971,
+  "output_tokens": 489
+ },
+ "raw_response": "Looking at this failing test in pandas with an AssertionError, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test involves pandas core functionality (AssertionError suggests a data integrity/type check issue)\n- Files 1, 4, 5, 8 have very low activity (commits=1, single dev, age=30 days) - these look like recently added/modified files that could be the source of a bug\n- Files 2, 3, 6, 7 have higher activity suggesting more established code\n\nThe bug is in `bugsinpy:pandas` test bip-pandas-105. Looking at the statistics:\n- `pandas/core/frame.py` (file 2) has very high activity and is central to pandas operations\n- `pandas/core/generic.py` (file 3) is also highly active and foundational\n- `pandas/core/arrays/categorical.py` (file 6) has significant activity\n- `pandas/core/dtypes/missing.py` (file 7) handles missing data detection\n\nThe recently modified files (commits=1, age=30 days) - files 1, 4, 5, 8 - are suspicious as they were recently touched and could have introduced bugs. Among these, `pandas/core/indexes/numeric.py` (file 4) and `pandas/core/apply.py` (file 8) are more likely to cause AssertionErrors in core operations.\n\nGiven the AssertionError pattern and the mix of recently changed files vs. established ones, `frame.py` and `generic.py` are most likely involved in the fix, along with possibly `dtypes/missing.py` for type-checking issues.\n\n{\"ranking\": [2, 3, 7, 6, 4, 8, 1, 5], \"confidence\": {\"1\": 0.08, \"2\": 0.55, \"3\": 0.45, \"4\": 0.12, \"5\": 0.06, \"6\": 0.25, \"7\": 0.30, \"8\": 0.10}}",
+ "n_attempts": 1
+}

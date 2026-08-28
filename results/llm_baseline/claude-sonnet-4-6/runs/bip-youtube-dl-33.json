@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-youtube-dl-33",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "youtube_dl/extractor/drtv.py",
+  "youtube_dl/downloader/f4m.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/metacritic.py",
+  "youtube_dl/postprocessor/ffmpeg.py",
+  "youtube_dl/extractor/clipsyndicate.py",
+  "youtube_dl/extractor/minhateca.py",
+  "youtube_dl/jsinterp.py"
+ ],
+ "timestamp": "2026-08-27T19:26:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  8,
+  2,
+  5,
+  1,
+  4,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "8": 0.15,
+  "2": 0.12,
+  "5": 0.08,
+  "1": 0.06,
+  "4": 0.06,
+  "6": 0.05,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.06,
+  0.05,
+  0.12,
+  0.15,
+  0.05,
+  0.06,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  6,
+  2,
+  1,
+  7,
+  5,
+  3
+ ],
+ "usage": {
+  "input_tokens": 999,
+  "output_tokens": 485
+ },
+ "raw_response": "Looking at this failing test event, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n1. The failure is an `AssertionError` in youtube-dl\n2. The `app_code_changed` flag is set\n3. Most candidates (1,2,4,5,6,7,8) have identical stats: commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833 - these look like distractor files with similar recent activity\n4. `youtube_dl/utils.py` (candidate 3) stands out dramatically with commits=33, devs=11, much higher churn, and very high commit_freq=2.75 - this is the most actively maintained file\n\nFor youtube-dl bugs, `utils.py` is the central utility module that many extractors depend on. An `AssertionError` could easily originate from utility functions used across the codebase.\n\nHowever, the identical stats for candidates 1,2,4,5,6,7,8 suggest they might all be from the same commit batch, and one of them could be the actual fix. The `jsinterp.py` (8) is notable as JavaScript interpreter issues are common in youtube-dl failures. The `f4m.py` (2) downloader is also a common source of issues.\n\nGiven the AssertionError and the nature of youtube-dl bugs, `utils.py` is the most likely candidate due to its high activity and central role. Among the identical-stats files, `jsinterp.py` and `f4m.py` are more likely to cause assertion errors than extractors for specific sites.\n\n{\"ranking\": [3, 8, 2, 5, 1, 4, 6, 7], \"confidence\": {\"3\": 0.45, \"8\": 0.15, \"2\": 0.12, \"5\": 0.08, \"1\": 0.06, \"4\": 0.06, \"6\": 0.05, \"7\": 0.05}}",
+ "n_attempts": 1
+}

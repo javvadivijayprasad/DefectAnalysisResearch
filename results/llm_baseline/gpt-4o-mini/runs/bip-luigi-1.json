@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-luigi-1",
+ "repo": "bugsinpy:luigi",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "luigi/contrib/hive.py",
+  "luigi/interface.py",
+  "luigi/task_register.py",
+  "luigi/parameter.py",
+  "luigi/contrib/spark.py",
+  "luigi/task.py",
+  "luigi/server.py"
+ ],
+ "timestamp": "2026-08-27T19:37:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  3,
+  1,
+  5,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.25,
+  "3": 0.15,
+  "4": 0.25,
+  "5": 0.05,
+  "6": 0.15,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.25,
+  0.15,
+  0.05,
+  0.05,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  2,
+  1,
+  5,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 772,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [2, 4, 3, 1, 5, 6, 7], \"confidence\": {\"1\": 0.05, \"2\": 0.25, \"3\": 0.15, \"4\": 0.25, \"5\": 0.05, \"6\": 0.15, \"7\": 0.05}}",
+ "n_attempts": 1
+}

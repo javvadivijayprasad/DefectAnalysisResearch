@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-175",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/AbstractMessageFormatter.java",
+  "src/com/google/javascript/jscomp/FunctionInjector.java",
+  "src/com/google/javascript/jscomp/TightenTypes.java",
+  "src/com/google/javascript/jscomp/OptimizeParameters.java",
+  "src/com/google/javascript/jscomp/UseSite.java",
+  "src/com/google/javascript/jscomp/TransformAMDToCJSModule.java"
+ ],
+ "timestamp": "2026-08-27T19:00:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  3,
+  5,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.45,
+  "3": 0.2,
+  "4": 0.35,
+  "5": 0.15,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.35,
+  0.15,
+  0.05,
+  0.03,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  4,
+  5,
+  2
+ ],
+ "usage": {
+  "input_tokens": 957,
+  "output_tokens": 430
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-175, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure compiler issue #175\n\nLet me analyze the candidates:\n\n1. **FunctionInjector.java** - High churn (1632), many commits (39), very old file (6122 days). Function inlining is a complex area prone to bugs.\n\n2. **OptimizeParameters.java** - High churn (1954), many commits (30), relatively recent (1295 days). Parameter optimization is complex.\n\n3. **TightenTypes.java** - High churn (1694), many commits (30), high commit frequency (0.1706). Type tightening is complex.\n\n4. **UseSite.java** - Small file (82 churn), but related to use-site tracking which connects to FunctionInjector.\n\n5. **AbstractMessageFormatter.java** - Small file, low activity.\n\n6. **TransformAMDToCJSModule.java** - Newer file, moderate activity.\n\nFor Closure-175, the issue likely relates to function inlining or parameter optimization based on the AssertionError pattern. FunctionInjector.java is a prime candidate given its complexity and age. OptimizeParameters.java is also highly likely given its high churn and commit frequency. UseSite.java could be involved as it's related to inlining decisions.\n\n{\"ranking\": [2, 4, 3, 5, 1, 6], \"confidence\": {\"1\": 0.05, \"2\": 0.45, \"3\": 0.20, \"4\": 0.35, \"5\": 0.15, \"6\": 0.03}}",
+ "n_attempts": 1
+}

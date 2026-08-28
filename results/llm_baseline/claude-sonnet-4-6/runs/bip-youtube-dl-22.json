@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-22",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/extractor/clipsyndicate.py",
+  "youtube_dl/extractor/drtv.py",
+  "youtube_dl/extractor/npo.py",
+  "youtube_dl/extractor/mtv.py",
+  "youtube_dl/extractor/minhateca.py",
+  "youtube_dl/extractor/facebook.py",
+  "youtube_dl/utils.py"
+ ],
+ "timestamp": "2026-08-27T19:26:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  6,
+  4,
+  1,
+  2,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "7": 0.55,
+  "6": 0.25,
+  "4": 0.08,
+  "1": 0.06,
+  "2": 0.06,
+  "3": 0.06,
+  "5": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.06,
+  0.06,
+  0.25,
+  0.06,
+  0.06,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  3,
+  1,
+  5,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 948,
+  "output_tokens": 403
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) are most likely defective.\n\nKey observations:\n1. File 7 (youtube_dl/utils.py) stands out dramatically - 33 commits, 11 devs, much higher churn and commit frequency. This is a core utility file that many extractors depend on.\n2. File 6 (facebook.py) has 3 commits vs 1 for others, suggesting more activity.\n3. Files 1-5 all have identical stats (1 commit, 1 dev, +20/-15, age 30 days) - these look like they were all modified in the same batch commit, possibly a refactoring.\n\nThe test failure is an AssertionError with no HTTP status, suggesting it's likely a code logic issue rather than a network problem. The `utils.py` file is the most likely candidate given its high activity and central role.\n\nThe fact that files 1-5 all have identical statistics suggests they were part of the same commit - possibly a batch change to multiple extractors. File 6 (facebook.py) has 3x the commits of files 1-5.\n\nGiven the AssertionError and the test name \"bip-youtube-dl-22\", this could relate to a utility function or a specific extractor. The high churn in utils.py makes it the prime suspect, with facebook.py as secondary.\n\n{\"ranking\": [7, 6, 4, 1, 2, 3, 5], \"confidence\": {\"7\": 0.55, \"6\": 0.25, \"4\": 0.08, \"1\": 0.06, \"2\": 0.06, \"3\": 0.06, \"5\": 0.06}}",
+ "n_attempts": 1
+}

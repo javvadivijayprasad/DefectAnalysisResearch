@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonCore-25",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+  "src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java",
+  "src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+  "src/main/java/com/fasterxml/jackson/core/json/package-info.java",
+  "src/main/java/com/fasterxml/jackson/core/json/DupDetector.java",
+  "src/main/java/com/fasterxml/jackson/core/json/PackageVersion.java",
+  "src/main/java/com/fasterxml/jackson/core/json/JsonReadContext.java",
+  "src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java"
+ ],
+ "timestamp": "2026-08-27T19:04:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  7,
+  2,
+  5,
+  8,
+  6,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.15,
+  "3": 0.45,
+  "4": 0.01,
+  "5": 0.1,
+  "6": 0.02,
+  "7": 0.18,
+  "8": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.1,
+  0.01,
+  0.08,
+  0.18,
+  0.15,
+  0.02,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  7,
+  5,
+  2,
+  3,
+  6,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1117,
+  "output_tokens": 549
+ },
+ "raw_response": "Looking at this failing test in JacksonCore, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a logic/state issue\n- The `app_code_changed` flag is set\n- This is in the `json` package of JacksonCore\n\nAnalyzing candidates:\n1. `ReaderBasedJsonParser.java` - Very high activity (98 commits, 10 devs, high churn), one of the core parsers\n2. `JsonWriteContext.java` - Moderate activity, write context tracking\n3. `UTF8StreamJsonParser.java` - Highest activity (133 commits, 12 devs, highest churn), the other core parser\n4. `package-info.java` - Only 1 commit, age_days=1, essentially a new/trivial file - very unlikely to be defective\n5. `DupDetector.java` - Low activity, duplicate field detection\n6. `PackageVersion.java` - Very low activity, version info - unlikely\n7. `JsonReadContext.java` - Moderate activity, read context tracking\n8. `JsonGeneratorImpl.java` - Low-moderate activity, generator implementation\n\nFor an AssertionError in JacksonCore, the most likely culprits are:\n- The high-churn parser files (1 and 3) which handle complex parsing logic\n- Context tracking files (2 and 7) which maintain state\n- `DupDetector.java` (5) which is relatively new and handles duplicate detection logic\n\nThe `UTF8StreamJsonParser` and `ReaderBasedJsonParser` are the most active and complex files. `JsonReadContext` and `JsonWriteContext` handle state that could cause assertion errors. `DupDetector` is relatively new with few commits.\n\nGiven the defects4j JacksonCore-25 context, this likely involves a parsing issue in one of the main parser files or context tracking.\n\n{\"ranking\": [3, 1, 7, 2, 5, 8, 6, 4], \"confidence\": {\"1\": 0.35, \"2\": 0.15, \"3\": 0.45, \"4\": 0.01, \"5\": 0.10, \"6\": 0.02, \"7\": 0.18, \"8\": 0.08}}",
+ "n_attempts": 1
+}

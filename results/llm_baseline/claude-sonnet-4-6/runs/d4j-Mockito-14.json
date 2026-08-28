@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Mockito-14",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/org/mockito/internal/MockHandlerInterface.java",
+  "src/org/mockito/internal/InOrderImpl.java",
+  "src/org/mockito/internal/MockitoCore.java",
+  "src/org/mockito/internal/MockHandler.java",
+  "src/org/mockito/internal/MockitoInvocationHandler.java"
+ ],
+ "timestamp": "2026-08-27T19:14:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "5": 0.4,
+  "1": 0.3,
+  "2": 0.15,
+  "3": 0.12
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.12,
+  0.3,
+  0.4,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 877,
+  "output_tokens": 500
+ },
+ "raw_response": "Looking at this failing test in Mockito, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an `AssertionError` with `app_code_changed` flag set\n- This is Mockito-14 in defects4j\n\nLet me analyze the candidates:\n\n1. **MockHandlerInterface.java** - Interface file, relatively new (120 days), low churn (44), small file. Interfaces are sometimes modified when behavior contracts change.\n\n2. **InOrderImpl.java** - High commit frequency (0.3824), moderate churn (308), older file. InOrder verification is a common area for bugs.\n\n3. **MockitoCore.java** - Very old file (6324 days), moderate commit frequency, significant churn (560). Core functionality.\n\n4. **MockHandler.java** - Very high churn (2519), many commits (147), old file (6842 days). This is the central handler for mock invocations - very likely to be involved in bugs.\n\n5. **MockitoInvocationHandler.java** - Very new file (86 days), highest commit frequency (0.6512), very low churn (35). Recently created/modified files with high commit frequency often indicate active development where bugs are introduced.\n\nThe `MockHandler.java` has the highest churn and most commits, making it a prime candidate for defects. `MockitoInvocationHandler.java` is very new with high commit frequency suggesting recent changes. `MockHandlerInterface.java` being an interface that's relatively new could be part of a refactoring that introduced a bug.\n\nGiven the pattern of a new interface (`MockHandlerInterface`) and a new invocation handler (`MockitoInvocationHandler`) being created around the same time (both relatively new), this looks like a refactoring that may have introduced the bug, with `MockHandler.java` being the core implementation.\n\n{\"ranking\": [4, 5, 1, 2, 3], \"confidence\": {\"4\": 0.55, \"5\": 0.40, \"1\": 0.30, \"2\": 0.15, \"3\": 0.12}}",
+ "n_attempts": 1
+}

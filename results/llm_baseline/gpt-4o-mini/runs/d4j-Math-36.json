@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-36",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/fraction/FractionFormat.java",
+  "src/main/java/org/apache/commons/math/fraction/Fraction.java",
+  "src/main/java/org/apache/commons/math/fraction/AbstractFormat.java",
+  "src/main/java/org/apache/commons/math/fraction/BigFractionField.java",
+  "src/main/java/org/apache/commons/math/fraction/package-info.java",
+  "src/main/java/org/apache/commons/math/fraction/BigFraction.java",
+  "src/main/java/org/apache/commons/math/fraction/FractionConversionException.java"
+ ],
+ "timestamp": "2026-08-27T19:35:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  6,
+  3,
+  4,
+  7,
+  5
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "1": 0.25,
+  "6": 0.15,
+  "3": 0.1,
+  "4": 0.08,
+  "7": 0.05,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.35,
+  0.1,
+  0.25,
+  0.02,
+  0.05,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  3,
+  1,
+  6,
+  5,
+  4
+ ],
+ "usage": {
+  "input_tokens": 844,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[2,1,6,3,4,7,5],\"confidence\":{\"2\":0.35,\"1\":0.25,\"6\":0.15,\"3\":0.10,\"4\":0.08,\"7\":0.05,\"5\":0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-69",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/FieldProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdReader.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/TypeWrappedDeserializer.java"
+ ],
+ "timestamp": "2026-08-27T19:06:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "2": 0.3,
+  "1": 0.2,
+  "4": 0.15,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.15,
+  0.2,
+  0.3,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 950,
+  "output_tokens": 500
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError (likely a test assertion failure, not a crash)\n- The `app_code_changed` flag is set\n- This is defect #69 in JacksonDatabind\n\nLet me analyze the candidates:\n\n1. **FieldProperty.java** - Handles field-based property deserialization. Moderate churn, relatively recent.\n\n2. **InnerClassProperty.java** - Handles inner class property deserialization. This is a specialized class that deals with inner class instantiation, which often has tricky edge cases. Moderate activity.\n\n3. **CreatorCollector.java** - Collects creator methods (constructors, factory methods). High churn (821), many commits (31), many devs (6), very old file (5343 days). This high activity suggests it's a complex, frequently-modified file prone to bugs.\n\n4. **ObjectIdReader.java** - Handles object ID reading. Moderate churn, highest commit frequency (0.0946).\n\n5. **TypeWrappedDeserializer.java** - Wraps deserializers with type info. Low activity, old file.\n\nFor JacksonDatabind issue #69, based on the nature of the bug (AssertionError in deserialization), `CreatorCollector` is a prime candidate given its high churn and complexity. `InnerClassProperty` is also a strong candidate as inner class handling is notoriously tricky. `FieldProperty` could also be involved.\n\nThe high commit frequency of `ObjectIdReader` (0.0946) and `CreatorCollector`'s high overall churn make them candidates. However, `CreatorCollector` with its very high churn and many contributors is most likely to have defects.\n\n{\"ranking\": [3, 2, 1, 4, 5], \"confidence\": {\"3\": 0.45, \"2\": 0.30, \"1\": 0.20, \"4\": 0.15, \"5\": 0.05}}",
+ "n_attempts": 1
+}

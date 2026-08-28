@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-74",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "src/com/google/javascript/jscomp/ComposeWarningsGuard.java",
+  "src/com/google/javascript/jscomp/Compiler.java",
+  "src/com/google/javascript/jscomp/SanityCheck.java",
+  "src/com/google/javascript/jscomp/VariableNameGenerator.java"
+ ],
+ "timestamp": "2026-08-27T18:57:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  4,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.88,
+  "3": 0.07,
+  "4": 0.03,
+  "2": 0.02,
+  "5": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.88,
+  0.01,
+  0.07,
+  0.03,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 895,
+  "output_tokens": 154
+ },
+ "raw_response": "The failing test is d4j-Closure-74, which is about `PeepholeFoldConstants`. This is a peephole optimization pass that folds constant expressions. The test name and the file `PeepholeFoldConstants.java` strongly correlate - it has high churn (5837), many commits (56), and is the most likely candidate for a constant-folding bug fix.\n\n{\"ranking\": [1, 3, 4, 2, 5], \"confidence\": {\"1\": 0.88, \"3\": 0.07, \"4\": 0.03, \"2\": 0.02, \"5\": 0.01}}",
+ "n_attempts": 1
+}

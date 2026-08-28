@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-thefuck-27",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "thefuck/rules/man.py",
+  "thefuck/rules/open.py",
+  "thefuck/rules/php_s.py"
+ ],
+ "timestamp": "2026-08-27T19:25:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.45,
+  "3": 0.3
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.25,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 748,
+  "output_tokens": 349
+ },
+ "raw_response": "Looking at this failing test, I need to determine which file(s) were changed in the fix commit.\n\nThe test is from `thefuck` project, bug index 27. The failure signal is an AssertionError. All three candidates have identical statistics (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833), which makes them statistically indistinguishable.\n\nGiven the test name context \"bip-thefuck-27\" and the nature of the files:\n- `man.py` - rule for man command\n- `open.py` - rule for open command  \n- `php_s.py` - rule for php -S command\n\nSince all files have identical statistics, I need to reason about which is most likely to have a bug. The `php_s.py` rule is for a more specific/niche command (`php -S` for PHP's built-in server), which might be more prone to edge cases. However, `open.py` handles the `open` command which varies significantly between macOS and Linux, making it a common source of bugs.\n\nWithout additional distinguishing information, I'll distribute probabilities somewhat evenly but slightly favor `open.py` due to cross-platform complexity, then `php_s.py` for niche behavior, then `man.py`.\n\n{\"ranking\": [2, 3, 1], \"confidence\": {\"1\": 0.25, \"2\": 0.45, \"3\": 0.30}}",
+ "n_attempts": 1
+}

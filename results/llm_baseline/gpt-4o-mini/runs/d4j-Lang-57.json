@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Lang-57",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/NullArgumentException.java",
+  "src/java/org/apache/commons/lang/CharSetUtils.java",
+  "src/java/org/apache/commons/lang/ObjectUtils.java",
+  "src/java/org/apache/commons/lang/WordUtils.java",
+  "src/java/org/apache/commons/lang/UnhandledException.java",
+  "src/java/org/apache/commons/lang/LocaleUtils.java",
+  "src/java/org/apache/commons/lang/IllegalClassException.java"
+ ],
+ "timestamp": "2026-08-27T19:35:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  3,
+  1,
+  7,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "4": 0.25,
+  "3": 0.2,
+  "1": 0.1,
+  "7": 0.05,
+  "5": 0.03,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.05,
+  0.03,
+  0.2,
+  0.1,
+  0.25,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  4,
+  5,
+  2,
+  3,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 823,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[2,4,3,1,7,5,6],\"confidence\":{\"2\":0.35,\"4\":0.25,\"3\":0.20,\"1\":0.10,\"7\":0.05,\"5\":0.03,\"6\":0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-scrapy-11",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "scrapy/settings/__init__.py",
+  "scrapy/utils/datatypes.py",
+  "scrapy/http/request/__init__.py",
+  "scrapy/utils/gz.py",
+  "scrapy/core/engine.py",
+  "scrapy/http/request/form.py",
+  "scrapy/exporters.py",
+  "scrapy/pipelines/images.py"
+ ],
+ "timestamp": "2026-08-27T19:22:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  3,
+  1,
+  5,
+  4,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "2": 0.2,
+  "3": 0.18,
+  "1": 0.12,
+  "5": 0.1,
+  "4": 0.08,
+  "7": 0.07,
+  "8": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.12,
+  0.45,
+  0.06,
+  0.07,
+  0.18,
+  0.1,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  3,
+  0,
+  7,
+  6,
+  2,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 976,
+  "output_tokens": 429
+ },
+ "raw_response": "Looking at this failing test in scrapy with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError (likely a test assertion failing due to incorrect behavior)\n- The `app_code_changed` flag is set\n- Files 1-3, 5 have identical low stats (commits=1, +20/-15, age_days=30)\n- Files 4, 7, 8 have moderate stats (commits=2, +40/-30, age_days=60)\n- File 6 (`scrapy/http/request/form.py`) has the highest activity (commits=3, +60/-45, age_days=90, commit_freq=0.25)\n\nFor scrapy bug bip-scrapy-11, the test involves form requests. The `form.py` file has the most commits and highest churn, suggesting it's been actively modified. Form-related bugs often cause AssertionErrors in tests that check form data encoding/handling.\n\nThe `scrapy/utils/datatypes.py` is also relevant as it provides data structures used throughout scrapy, including in form handling.\n\n`scrapy/settings/__init__.py` and `scrapy/http/request/__init__.py` are also candidates as they're core components.\n\nGiven the highest activity in `form.py` and the nature of AssertionError (likely testing specific output values), I'll rank accordingly:\n\n{\"ranking\": [6, 2, 3, 1, 5, 4, 7, 8], \"confidence\": {\"6\": 0.45, \"2\": 0.20, \"3\": 0.18, \"1\": 0.12, \"5\": 0.10, \"4\": 0.08, \"7\": 0.07, \"8\": 0.06}}",
+ "n_attempts": 1
+}

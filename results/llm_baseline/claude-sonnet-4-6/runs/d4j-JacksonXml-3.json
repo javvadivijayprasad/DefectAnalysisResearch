@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonXml-3",
+ "repo": "defects4j:JacksonXml",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTokenStream.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/WrapperHandlingDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlTextDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlBeanDeserializerModifier.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/ElementWrapper.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/deser/XmlReadContext.java"
+ ],
+ "timestamp": "2026-08-27T19:07:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  7,
+  1,
+  5,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "6": 0.82,
+  "7": 0.45,
+  "1": 0.3,
+  "5": 0.25,
+  "4": 0.15,
+  "2": 0.12,
+  "3": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.15,
+  0.45,
+  0.12,
+  0.82,
+  0.3,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  1,
+  5,
+  0,
+  2,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1089,
+  "output_tokens": 239
+ },
+ "raw_response": "The key signal here is candidate 6 (ElementWrapper.java): age_days=6 and commit_freq=3.0000, meaning it's a very recently created/modified file \u2014 almost certainly part of the fix or the bug introduction. This is a strong indicator.\n\nCandidate 7 (XmlReadContext.java) also has relatively recent activity and is closely related to XML reading context which could interact with wrapper handling.\n\nCandidate 1 (XmlTokenStream.java) has high churn and many commits, making it a common source of bugs.\n\nCandidate 5 (FromXmlParser.java) is the largest and most-committed file, often involved in parsing bugs.\n\n{\"ranking\": [6, 7, 1, 5, 4, 2, 3], \"confidence\": {\"6\": 0.82, \"7\": 0.45, \"1\": 0.30, \"5\": 0.25, \"4\": 0.15, \"2\": 0.12, \"3\": 0.08}}",
+ "n_attempts": 1
+}

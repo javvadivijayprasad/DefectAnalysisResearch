@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Collections-18",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/collections/set/AbstractSortedSetDecorator.java",
+  "src/main/java/org/apache/commons/collections/set/CompositeSet.java",
+  "src/main/java/org/apache/commons/collections/set/TransformedSortedSet.java",
+  "src/main/java/org/apache/commons/collections/set/ListOrderedSet.java"
+ ],
+ "timestamp": "2026-08-27T19:32:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.15,
+  "3": 0.45,
+  "4": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.45,
+  0.15,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 710,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [3, 1, 2, 4], \"confidence\": {\"1\": 0.25, \"2\": 0.15, \"3\": 0.45, \"4\": 0.15}}",
+ "n_attempts": 1
+}

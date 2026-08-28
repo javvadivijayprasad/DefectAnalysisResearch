@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Mockito-30",
+ "repo": "defects4j:Mockito",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/org/mockito/exceptions/Pluralizer.java",
+  "src/org/mockito/exceptions/Discrepancy.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java",
+  "src/org/mockito/exceptions/PrintableInvocation.java",
+  "src/org/mockito/exceptions/Reporter.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/GloballyConfiguredAnswer.java"
+ ],
+ "timestamp": "2026-08-27T19:36:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  5,
+  3,
+  6,
+  8,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.2,
+  "4": 0.15,
+  "5": 0.15,
+  "3": 0.1,
+  "6": 0.05,
+  "8": 0.05,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.1,
+  0.2,
+  0.05,
+  0.25,
+  0.15,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  4,
+  1,
+  5,
+  0,
+  3,
+  2,
+  6
+ ],
+ "usage": {
+  "input_tokens": 873,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[1,2,4,5,3,6,8,7],\"confidence\":{\"1\":0.25,\"2\":0.20,\"4\":0.15,\"5\":0.15,\"3\":0.10,\"6\":0.05,\"8\":0.05,\"7\":0.05}}",
+ "n_attempts": 1
+}

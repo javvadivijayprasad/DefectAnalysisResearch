@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Lang-29",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/Range.java",
+  "src/main/java/org/apache/commons/lang3/SystemUtils.java",
+  "src/main/java/org/apache/commons/lang3/RandomStringUtils.java",
+  "src/main/java/org/apache/commons/lang3/Pair.java"
+ ],
+ "timestamp": "2026-08-27T19:11:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.82,
+  "4": 0.1,
+  "1": 0.06,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.02,
+  0.06,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 836,
+  "output_tokens": 219
+ },
+ "raw_response": "The failing test is d4j-Lang-29. Looking at the candidates:\n\n- `SystemUtils.java` is a very common source of Lang bugs related to system properties/version detection\n- The test is about `SystemUtils` methods (Lang-29 is known to be about `SystemUtils.toJavaVersionInt` or similar)\n- `Pair.java` is very new (7 days old) with high commit frequency, suggesting recent active changes\n- `Range.java` is relatively new with high commit frequency\n- `RandomStringUtils.java` is less likely\n\nLang-29 in defects4j is specifically about `SystemUtils` - the `isJavaVersionAtLeast` or float/int version parsing methods returning incorrect results.\n\n{\"ranking\": [2, 4, 1, 3], \"confidence\": {\"2\": 0.82, \"4\": 0.10, \"1\": 0.06, \"3\": 0.02}}",
+ "n_attempts": 1
+}

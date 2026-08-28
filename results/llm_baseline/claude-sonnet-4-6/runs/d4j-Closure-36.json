@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-36",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/InlineVariables.java",
+  "src/com/google/javascript/jscomp/AnonymousFunctionNamingPolicy.java",
+  "src/com/google/javascript/jscomp/UseSite.java",
+  "src/com/google/javascript/jscomp/StripCode.java",
+  "src/com/google/javascript/jscomp/AbstractCompiler.java",
+  "src/com/google/javascript/jscomp/CleanupPasses.java",
+  "src/com/google/javascript/jscomp/BasicErrorManager.java"
+ ],
+ "timestamp": "2026-08-27T18:56:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  1,
+  3,
+  5,
+  4,
+  7,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.82,
+  "1": 0.45,
+  "3": 0.12,
+  "5": 0.1,
+  "4": 0.07,
+  "7": 0.05,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.82,
+  0.1,
+  0.03,
+  0.07,
+  0.12,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  6,
+  4,
+  2,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1001,
+  "output_tokens": 185
+ },
+ "raw_response": "The key signal here is candidate 6 (CleanupPasses.java): it has commits=1, age_days=1, and commit_freq=1.0000 \u2014 meaning it was just created (brand new file) in a single commit. This is a very strong indicator that it's part of the fix commit. The test is about InlineVariables (candidate 1), which is a high-churn file that could also be involved.\n\n{\"ranking\": [6, 1, 3, 5, 4, 7, 2], \"confidence\": {\"6\": 0.82, \"1\": 0.45, \"3\": 0.12, \"5\": 0.10, \"4\": 0.07, \"7\": 0.05, \"2\": 0.03}}",
+ "n_attempts": 1
+}

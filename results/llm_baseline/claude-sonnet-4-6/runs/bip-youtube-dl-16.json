@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-youtube-dl-16",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "youtube_dl/postprocessor/ffmpeg.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/metacritic.py",
+  "youtube_dl/downloader/f4m.py"
+ ],
+ "timestamp": "2026-08-27T19:26:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "2": 0.35,
+  "1": 0.25,
+  "3": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.35,
+  0.45,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 801,
+  "output_tokens": 420
+ },
+ "raw_response": "Looking at the candidates:\n\n- Files 1, 3, 4 all have identical stats (commits=1, devs=1, +20/-15, churn=35, age_days=30, commit_freq=0.0833) - these look like they were all touched in the same commit, possibly a bulk formatting/refactoring change.\n- File 2 (utils.py) has very high activity (commits=33, devs=11, high churn) suggesting it's a core utility file frequently modified.\n\nThe failing test is an AssertionError in youtube-dl. The `utils.py` file is the most commonly changed file and central to many operations. However, the identical stats on files 1, 3, 4 suggest they were all part of the same commit.\n\nGiven the test failure involves an AssertionError (likely a test checking specific behavior), and `utils.py` is the most actively developed file with the most changes, it's a strong candidate. But the three files with identical stats could represent the actual fix commit.\n\nThe `f4m.py` downloader and `ffmpeg.py` postprocessor are more likely to cause assertion errors in download tests. `metacritic.py` is an extractor. Given the bug is about youtube-dl functionality, `utils.py` or `f4m.py` seem most likely.\n\nSince files 1, 3, 4 have identical stats suggesting they're from the same single commit (the fix commit), and `utils.py` has many commits making it harder to pinpoint, I'll rank the identical-stat files higher as they likely represent the actual fix.\n\n{\"ranking\": [4, 2, 1, 3], \"confidence\": {\"4\": 0.45, \"2\": 0.35, \"1\": 0.25, \"3\": 0.20}}",
+ "n_attempts": 1
+}

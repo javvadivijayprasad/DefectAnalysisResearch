@@ -1,0 +1,30 @@
+{
+ "event_id": "d4j-Math-105",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 1,
+ "presented_files": [
+  "src/java/org/apache/commons/math/stat/regression/SimpleRegression.java"
+ ],
+ "timestamp": "2026-08-27T19:36:17",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.95
+ },
+ "confidence_by_corpus_row": [
+  0.95
+ ],
+ "rankpos_by_corpus_row": [
+  0
+ ],
+ "usage": {
+  "input_tokens": 568,
+  "output_tokens": 17
+ },
+ "raw_response": "{\"ranking\": [1], \"confidence\": {\"1\": 0.95}}",
+ "n_attempts": 1
+}

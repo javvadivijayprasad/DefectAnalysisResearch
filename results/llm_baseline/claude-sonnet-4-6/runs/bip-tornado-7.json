@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-tornado-7",
+ "repo": "bugsinpy:tornado",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "tornado/httpclient.py",
+  "tornado/platform/asyncio.py",
+  "tornado/auth.py",
+  "tornado/http1connection.py",
+  "tornado/ioloop.py",
+  "tornado/httputil.py",
+  "tornado/websocket.py"
+ ],
+ "timestamp": "2026-08-27T19:25:42",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  7,
+  1,
+  2,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.08,
+  "2": 0.08,
+  "3": 0.08,
+  "4": 0.35,
+  "5": 0.45,
+  "6": 0.08,
+  "7": 0.3
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.08,
+  0.08,
+  0.08,
+  0.35,
+  0.3,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  5,
+  3,
+  1,
+  2,
+  6
+ ],
+ "usage": {
+  "input_tokens": 913,
+  "output_tokens": 484
+ },
+ "raw_response": "Looking at the failing test event for tornado (bip-tornado-7), I need to identify which files are most likely defective.\n\nKey observations:\n1. The failure is an AssertionError with `app_code_changed` flag set\n2. Files 4, 5, and 7 have higher commit frequency and churn compared to files 1, 2, 3, and 6\n3. Files 1, 2, 3, and 6 all have identical stats (commits=1, +20/-15, age_days=30) - these look like minor/unrelated changes\n4. Files 4 and 7 have commits=3, churn=105, age_days=90 - moderate activity\n5. File 5 (ioloop.py) has the highest activity: commits=4, churn=140, age_days=120\n\nFor tornado bug bip-tornado-7, this is likely related to HTTP/connection handling or IO loop issues. The `http1connection.py` and `ioloop.py` are core components that could cause AssertionErrors in tests. `websocket.py` is also a candidate given its similar stats to http1connection.py.\n\nThe higher commit frequency files (4, 5, 7) are more likely to contain the defect. Among these, `http1connection.py` and `ioloop.py` are fundamental to HTTP handling and could cause widespread test failures. `websocket.py` is more specialized.\n\nGiven the AssertionError nature and HTTP-related context, `http1connection.py` (file 4) and `ioloop.py` (file 5) seem most likely, with `websocket.py` (file 7) also being a candidate.\n\n{\"ranking\": [5, 4, 7, 1, 2, 3, 6], \"confidence\": {\"1\": 0.08, \"2\": 0.08, \"3\": 0.08, \"4\": 0.35, \"5\": 0.45, \"6\": 0.08, \"7\": 0.30}}",
+ "n_attempts": 1
+}

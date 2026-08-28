@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonXml-5",
+ "repo": "defects4j:JacksonXml",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/UnwrappingXmlBeanSerializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanPropertyWriter.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java"
+ ],
+ "timestamp": "2026-08-27T19:08:05",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.35,
+  "4": 0.25,
+  "5": 0.15,
+  "3": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.15,
+  0.25,
+  0.45,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  2,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 954,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [1, 2, 4, 5, 3], \"confidence\": {\"1\": 0.45, \"2\": 0.35, \"4\": 0.25, \"5\": 0.15, \"3\": 0.08}}",
+ "n_attempts": 1
+}

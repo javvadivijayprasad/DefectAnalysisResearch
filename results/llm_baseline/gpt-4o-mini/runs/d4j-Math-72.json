@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-72",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/analysis/solvers/LaguerreSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverFactoryImpl.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverFactory.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverImpl.java"
+ ],
+ "timestamp": "2026-08-27T19:36:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  7,
+  4,
+  1,
+  2,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.25,
+  "7": 0.22,
+  "4": 0.18,
+  "1": 0.14,
+  "2": 0.1,
+  "6": 0.08,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.03,
+  0.1,
+  0.18,
+  0.14,
+  0.22,
+  0.25,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  4,
+  2,
+  3,
+  1,
+  0,
+  5
+ ],
+ "usage": {
+  "input_tokens": 885,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[3,7,4,1,2,6,5],\"confidence\":{\"3\":0.25,\"7\":0.22,\"4\":0.18,\"1\":0.14,\"2\":0.10,\"6\":0.08,\"5\":0.03}}",
+ "n_attempts": 1
+}

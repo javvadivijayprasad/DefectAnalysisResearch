@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-16",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/internal/MockitoCore.java",
+  "src/org/mockito/Mockito.java",
+  "src/org/mockito/Matchers.java",
+  "src/org/mockito/internal/MockHandler.java",
+  "src/org/mockito/BDDMockito.java",
+  "src/org/mockito/MockitoDebugger.java"
+ ],
+ "timestamp": "2026-08-27T18:51:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  4,
+  5,
+  3,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.82,
+  "4": 0.45,
+  "5": 0.35,
+  "3": 0.2,
+  "1": 0.1,
+  "2": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.1,
+  0.45,
+  0.2,
+  0.35,
+  0.82
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  4,
+  1,
+  3,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 928,
+  "output_tokens": 427
+ },
+ "raw_response": "Looking at this failing test in Mockito, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an `AssertionError` with `app_code_changed` flag\n- `MockitoDebugger.java` (candidate 6) has extremely high commit frequency (4.0/day) and age of only 1 day - this strongly suggests it was very recently created/modified\n- `MockHandler.java` (candidate 4) has very high commit frequency (1.35/day) and is relatively young (731 days), suggesting active development\n- `Matchers.java` (candidate 3) also has high commit frequency (0.68/day) and is young (723 days)\n- `BDDMockito.java` (candidate 5) has moderate commit frequency and is young (211 days)\n\nThe `MockitoDebugger.java` file with age_days=1 and commit_freq=4.0 is almost certainly part of the fix - it was essentially just created. The `MockHandler.java` with very high churn and commit frequency is also a strong candidate as it's the core invocation handling logic.\n\n`BDDMockito.java` being young with moderate activity could also be involved. `Matchers.java` is frequently changed but less likely to be the root cause of an AssertionError in this context.\n\n`MockitoCore.java` and `Mockito.java` are older with lower relative churn rates, making them less likely candidates.\n\n{\"ranking\": [6, 4, 5, 3, 1, 2], \"confidence\": {\"6\": 0.82, \"4\": 0.45, \"5\": 0.35, \"3\": 0.20, \"1\": 0.10, \"2\": 0.08}}",
+ "n_attempts": 1
+}

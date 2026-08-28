@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-103",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+  "src/com/google/javascript/jscomp/LocaleUtil.java",
+  "src/com/google/javascript/jscomp/CrossModuleMethodMotion.java",
+  "src/com/google/javascript/jscomp/DisambiguateProperties.java",
+  "src/com/google/javascript/jscomp/ReferenceCollectingCallback.java",
+  "src/com/google/javascript/jscomp/CustomPassExecutionTime.java"
+ ],
+ "timestamp": "2026-08-27T18:58:32",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  6,
+  5,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.05,
+  "3": 0.7,
+  "4": 0.08,
+  "5": 0.2,
+  "6": 0.55
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.08,
+  0.2,
+  0.7,
+  0.55,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  2,
+  0,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 955,
+  "output_tokens": 472
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit for this failing test.\n\nKey observations:\n- The test is in Closure compiler (JavaScript compiler)\n- The failure is an AssertionError\n- The `app_code_changed` flag is set\n\nAnalyzing candidates:\n1. **ControlFlowAnalysis.java** - Core analysis file, moderate history, older file\n2. **LocaleUtil.java** - Utility file, very recent (100 days), small\n3. **CrossModuleMethodMotion.java** - Very new file (1 day old), single commit, 201 lines added - this looks like a newly added file that could be part of a fix\n4. **DisambiguateProperties.java** - Core analysis file, older, more active\n5. **ReferenceCollectingCallback.java** - Recent file (83 days), active development, 6 commits\n6. **CustomPassExecutionTime.java** - Very new file (1 day old), single commit, 28 lines added - also looks like a newly added file\n\nFiles 3 and 6 are both brand new (1 day old, 1 commit each), suggesting they were added together as part of a fix commit. CrossModuleMethodMotion (file 3) is a significant new class (201 lines) that could be the main fix, while CustomPassExecutionTime (file 6) is a small supporting enum/class.\n\nFile 5 (ReferenceCollectingCallback) is also relatively recent and actively developed, which could be part of the fix.\n\nThe combination of files 3 and 6 being created on the same day with single commits strongly suggests they are part of the same fix commit.\n\n{\"ranking\": [3, 6, 5, 1, 4, 2], \"confidence\": {\"1\": 0.10, \"2\": 0.05, \"3\": 0.70, \"4\": 0.08, \"5\": 0.20, \"6\": 0.55}}",
+ "n_attempts": 1
+}

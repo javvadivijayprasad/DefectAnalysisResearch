@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Compress-46",
+ "repo": "defects4j:Compress",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/zip/X5455_ExtendedTimestamp.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveInputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ResourceAlignmentExtraField.java"
+ ],
+ "timestamp": "2026-08-27T19:32:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "1": 0.3,
+  "2": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.15,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 677,
+  "output_tokens": 39
+ },
+ "raw_response": "{\"ranking\": [3, 1, 2], \"confidence\": {\"3\": 0.55, \"1\": 0.30, \"2\": 0.15}}",
+ "n_attempts": 1
+}

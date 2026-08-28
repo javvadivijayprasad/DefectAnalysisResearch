@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-24",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsMocks.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsMoreEmptyValues.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ForwardsInvocations.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/Answers.java"
+ ],
+ "timestamp": "2026-08-27T19:15:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  1,
+  3,
+  6,
+  4
+ ],
+ "llm_confidence_presented": {
+  "5": 0.55,
+  "2": 0.35,
+  "1": 0.15,
+  "3": 0.12,
+  "6": 0.07,
+  "4": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.04,
+  0.12,
+  0.07,
+  0.15,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  3,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 985,
+  "output_tokens": 522
+ },
+ "raw_response": "Looking at this failing test in Mockito (d4j-Mockito-24), I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test failure is an `AssertionError` related to default answers/return values\n- The `app_code_changed` flag is set\n- This is in the `defaultanswers` package\n\nAnalyzing candidates:\n\n1. **ReturnsEmptyValues.java** (index 5) - Most commits (45), most churn (448), oldest file, many devs. This is the core class for returning empty values and is frequently modified.\n\n2. **ReturnsMoreEmptyValues.java** (index 2) - Builds on ReturnsEmptyValues, moderate activity. Likely involved in returning empty/mock values.\n\n3. **ReturnsMocks.java** (index 1) - 20 commits, 4 devs, moderate churn. Returns mocks for unstubbed methods.\n\n4. **ReturnsDeepStubs.java** (index 3) - 21 commits, 5 devs, highest churn (346). Deep stubs are complex and often buggy.\n\n5. **Answers.java** (index 6) - 8 commits, 1 dev, low churn. Enum wrapper.\n\n6. **ForwardsInvocations.java** (index 4) - Very new file (23 days old), very few commits. New files can introduce bugs but it's a simple forwarding class.\n\nFor Mockito-24, the issue is typically related to returning empty values for iterables or similar collections. The `ReturnsEmptyValues` and `ReturnsMoreEmptyValues` are most likely candidates. Given the test is an `AssertionError` about what gets returned, `ReturnsEmptyValues` (most active, core class) and `ReturnsMoreEmptyValues` are top suspects.\n\n{\"ranking\": [5, 2, 1, 3, 6, 4], \"confidence\": {\"5\": 0.55, \"2\": 0.35, \"1\": 0.15, \"3\": 0.12, \"6\": 0.07, \"4\": 0.04}}",
+ "n_attempts": 1
+}

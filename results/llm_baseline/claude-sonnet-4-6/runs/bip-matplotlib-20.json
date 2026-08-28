@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-matplotlib-20",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "lib/matplotlib/_constrained_layout.py",
+  "lib/matplotlib/collections.py",
+  "lib/matplotlib/transforms.py",
+  "lib/matplotlib/tight_layout.py",
+  "lib/matplotlib/backend_bases.py"
+ ],
+ "timestamp": "2026-08-27T19:18:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "5": 0.4,
+  "1": 0.15,
+  "4": 0.12,
+  "2": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.15,
+  0.12,
+  0.1,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  3,
+  4,
+  0
+ ],
+ "usage": {
+  "input_tokens": 833,
+  "output_tokens": 381
+ },
+ "raw_response": "Looking at this failing test event for matplotlib with an AssertionError, I need to reason about which files are most likely defective.\n\nKey observations:\n1. Files 3 and 5 have twice the commits, churn, and commit frequency compared to files 1, 2, and 4 - suggesting they were more actively modified around the fix period.\n2. The test failure is an AssertionError, which could come from many places in matplotlib.\n3. `transforms.py` is a core file that handles coordinate transformations - very commonly involved in layout/rendering bugs.\n4. `backend_bases.py` handles the base backend functionality - also commonly involved in rendering issues.\n5. `_constrained_layout.py` and `tight_layout.py` deal with layout algorithms.\n6. `collections.py` handles collections of artists.\n\nThe higher commit frequency and churn of files 3 (`transforms.py`) and 5 (`backend_bases.py`) suggest they were the focus of recent changes. Between these two, `transforms.py` is extremely central to matplotlib's coordinate system and is frequently the source of subtle bugs that manifest as AssertionErrors in tests.\n\n`backend_bases.py` is also a strong candidate given its similar statistics.\n\nThe remaining files (1, 2, 4) have identical, lower statistics suggesting they may be distractors or less likely to be the primary defective files.\n\n{\"ranking\": [3, 5, 1, 4, 2], \"confidence\": {\"3\": 0.45, \"5\": 0.40, \"1\": 0.15, \"4\": 0.12, \"2\": 0.10}}",
+ "n_attempts": 1
+}

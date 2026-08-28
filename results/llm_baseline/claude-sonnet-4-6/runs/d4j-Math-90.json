@@ -1,0 +1,35 @@
+{
+ "event_id": "d4j-Math-90",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 2,
+ "presented_files": [
+  "src/java/org/apache/commons/math/stat/Frequency.java",
+  "src/java/org/apache/commons/math/stat/StatUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:14:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.85,
+  "2": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.85,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 722,
+  "output_tokens": 31
+ },
+ "raw_response": "{\"ranking\": [1, 2], \"confidence\": {\"1\": 0.85, \"2\": 0.15}}",
+ "n_attempts": 1
+}

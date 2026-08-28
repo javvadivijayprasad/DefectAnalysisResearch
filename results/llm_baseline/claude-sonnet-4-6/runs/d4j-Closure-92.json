@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-92",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/Result.java",
+  "src/com/google/javascript/jscomp/DisambiguateProperties.java",
+  "src/com/google/javascript/jscomp/CoalesceVariableNames.java",
+  "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "src/com/google/javascript/jscomp/LightweightMessageFormatter.java",
+  "src/com/google/javascript/jscomp/PrepareAst.java"
+ ],
+ "timestamp": "2026-08-27T18:57:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  6,
+  3,
+  2,
+  8,
+  7,
+  1
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "5": 0.35,
+  "6": 0.2,
+  "3": 0.12,
+  "2": 0.1,
+  "8": 0.07,
+  "7": 0.04,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.07,
+  0.45,
+  0.12,
+  0.04,
+  0.35,
+  0.1,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  5,
+  0,
+  3,
+  6,
+  1,
+  4,
+  7
+ ],
+ "usage": {
+  "input_tokens": 1063,
+  "output_tokens": 501
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-92, I need to identify which files are most likely defective.\n\nThe test failure is an AssertionError. Let me analyze the candidates:\n\n- **CodeGenerator.java** (index 4): Very high commit frequency (0.655), many commits (32), large churn (1352). Code generation is a common source of bugs in compiler projects.\n- **NodeUtil.java** (index 5): Highest commit frequency (0.9305), most commits (44), largest churn (2977). This utility class is heavily modified and central to many operations.\n- **ProcessClosurePrimitives.java** (index 6): Many commits (25), large churn (1742), but very old file (6122 days) with low commit frequency (0.0286) - suggesting it's stable.\n- **DisambiguateProperties.java** (index 2): Moderate commits (14), high churn (1076), decent commit frequency (0.3131).\n- **CoalesceVariableNames.java** (index 3): High commits (17), decent churn (880), high commit frequency (0.3778).\n- **PrepareAst.java** (index 8): Moderate stats, relatively young file (201 days).\n- **LightweightMessageFormatter.java** (index 7): Low commits, low churn.\n- **Result.java** (index 1): Very few commits (3), small churn (79).\n\nFor Closure-92 specifically, this bug relates to code generation/output. CodeGenerator.java and NodeUtil.java are the most likely candidates given their high activity. ProcessClosurePrimitives is also plausible given its large churn despite low recent frequency.\n\n{\"ranking\": [4, 5, 6, 3, 2, 8, 7, 1], \"confidence\": {\"4\": 0.45, \"5\": 0.35, \"6\": 0.20, \"3\": 0.12, \"2\": 0.10, \"8\": 0.07, \"7\": 0.04, \"1\": 0.03}}",
+ "n_attempts": 1
+}

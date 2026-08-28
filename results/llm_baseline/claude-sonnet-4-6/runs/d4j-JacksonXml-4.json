@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonXml-4",
+ "repo": "defects4j:JacksonXml",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanPropertyWriter.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializerBase.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/UnwrappingXmlBeanSerializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializerModifier.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+ ],
+ "timestamp": "2026-08-27T19:08:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  4,
+  1,
+  6,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.12,
+  "2": 0.35,
+  "3": 0.45,
+  "4": 0.25,
+  "5": 0.08,
+  "6": 0.1,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.1,
+  0.25,
+  0.12,
+  0.35,
+  0.08,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  4,
+  2,
+  3,
+  1,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1095,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [3, 2, 4, 1, 6, 5, 7], \"confidence\": {\"1\": 0.12, \"2\": 0.35, \"3\": 0.45, \"4\": 0.25, \"5\": 0.08, \"6\": 0.10, \"7\": 0.05}}",
+ "n_attempts": 1
+}

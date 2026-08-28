@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-JacksonDatabind-38",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/MapType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ClassKey.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java"
+ ],
+ "timestamp": "2026-08-27T19:05:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "1": 0.35,
+  "3": 0.3,
+  "2": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.35,
+  0.45,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 861,
+  "output_tokens": 362
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind related to type handling, I need to assess which files are most likely defective.\n\nKey observations:\n- The test involves type system (all candidates are in the `type` package)\n- `ClassKey.java` has very high commit frequency (0.0644) and is relatively young (435 days vs 5343 for others), suggesting recent active development\n- `SimpleType.java` has the most commits (19) and highest churn (675), indicating it's frequently modified\n- `MapType.java` and `CollectionType.java` have similar histories\n\nFor JacksonDatabind issue #38, this relates to type handling. The `SimpleType` is the most fundamental type class and has the most activity. `MapType` and `CollectionType` extend from it and handle specific collection types.\n\nThe `ClassKey` file is notably younger and more recently active, which could indicate it was recently introduced or modified, potentially causing issues. However, for type-related assertion errors, `SimpleType` or `MapType`/`CollectionType` are more likely culprits.\n\nGiven the test failure is an AssertionError in type handling, and considering that `MapType` and `CollectionType` deal with complex generic type handling that often has edge cases, while `SimpleType` is the base that everything depends on, I'll rank accordingly.\n\n{\"ranking\": [4, 1, 3, 2], \"confidence\": {\"4\": 0.45, \"1\": 0.35, \"3\": 0.30, \"2\": 0.10}}",
+ "n_attempts": 1
+}

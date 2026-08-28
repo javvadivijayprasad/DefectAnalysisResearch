@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonCore-22",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/filter/JsonPointerBasedFilter.java",
+  "src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java",
+  "src/main/java/com/fasterxml/jackson/core/filter/TokenFilterContext.java",
+  "src/main/java/com/fasterxml/jackson/core/filter/TokenFilter.java",
+  "src/main/java/com/fasterxml/jackson/core/filter/FilteringGeneratorDelegate.java"
+ ],
+ "timestamp": "2026-08-27T19:04:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.8,
+  "4": 0.65,
+  "3": 0.3,
+  "2": 0.2,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.65,
+  0.1,
+  0.8,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  4,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 925,
+  "output_tokens": 392
+ },
+ "raw_response": "Looking at the candidates:\n\n- File 1 (`JsonPointerBasedFilter.java`): age_days=1, commits=1, commit_freq=1.0 \u2014 brand new file, very suspicious as it's likely part of a new feature being introduced.\n- File 4 (`TokenFilter.java`): age_days=20, commit_freq=2.8 \u2014 very recently and frequently modified, high activity.\n- File 3 (`TokenFilterContext.java`): commit_freq=0.1736, moderate churn \u2014 reasonably active.\n- File 2 (`FilteringParserDelegate.java`): high churn, many commits/devs \u2014 core filtering logic.\n- File 5 (`FilteringGeneratorDelegate.java`): highest churn, many commits \u2014 but generator-side less likely for parser tests.\n\nThe test failure is an AssertionError. The brand-new file (1) and the very recently modified file (4) are most suspicious. File 1 being age_days=1 strongly suggests it's part of the fix/change being introduced. File 4 with commit_freq=2.8 (very high) and age_days=20 also looks like it was recently changed. These two together likely form the fix commit.\n\nFile 3 (TokenFilterContext) is also plausible as supporting infrastructure. File 2 (FilteringParserDelegate) has high historical churn but less recent activity.\n\n{\"ranking\": [1, 4, 3, 2, 5], \"confidence\": {\"1\": 0.80, \"4\": 0.65, \"3\": 0.30, \"2\": 0.20, \"5\": 0.10}}",
+ "n_attempts": 1
+}

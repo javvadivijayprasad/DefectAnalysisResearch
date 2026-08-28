@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Lang-54",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/LocaleUtils.java",
+  "src/java/org/apache/commons/lang/StringEscapeUtils.java",
+  "src/java/org/apache/commons/lang/NumberRange.java",
+  "src/java/org/apache/commons/lang/IntHashMap.java",
+  "src/java/org/apache/commons/lang/Entities.java",
+  "src/java/org/apache/commons/lang/UnhandledException.java",
+  "src/java/org/apache/commons/lang/ArrayUtils.java"
+ ],
+ "timestamp": "2026-08-27T19:11:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  2,
+  7,
+  3,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.85,
+  "5": 0.06,
+  "2": 0.04,
+  "7": 0.03,
+  "3": 0.01,
+  "4": 0.01,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.85,
+  0.01,
+  0.01,
+  0.04,
+  0.06,
+  0.03,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  5,
+  2,
+  1,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1002,
+  "output_tokens": 146
+ },
+ "raw_response": "The test is d4j-Lang-54. Looking at the defects4j Lang bug database, Lang-54 is related to `LocaleUtils.toLocale()` throwing an exception when passed an empty string. The fix was in `LocaleUtils.java`.\n\n{\"ranking\": [1, 5, 2, 7, 3, 4, 6], \"confidence\": {\"1\": 0.85, \"5\": 0.06, \"2\": 0.04, \"7\": 0.03, \"3\": 0.01, \"4\": 0.01, \"6\": 0.01}}",
+ "n_attempts": 1
+}

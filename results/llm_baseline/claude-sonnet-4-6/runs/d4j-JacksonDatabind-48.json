@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-48",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java",
+  "src/main/java/com/fasterxml/jackson/databind/PropertyName.java",
+  "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+  "src/main/java/com/fasterxml/jackson/databind/JsonDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/PropertyMetadata.java",
+  "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+  "src/main/java/com/fasterxml/jackson/databind/PropertyNamingStrategy.java",
+  "src/main/java/com/fasterxml/jackson/databind/MappingJsonFactory.java"
+ ],
+ "timestamp": "2026-08-27T19:06:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2,
+  5,
+  4,
+  7,
+  6,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "3": 0.4,
+  "2": 0.25,
+  "5": 0.12,
+  "4": 0.1,
+  "7": 0.08,
+  "6": 0.06,
+  "8": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.45,
+  0.03,
+  0.06,
+  0.08,
+  0.1,
+  0.25,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  7,
+  6,
+  5,
+  4,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1114,
+  "output_tokens": 516
+ },
+ "raw_response": "Looking at this failing test event for JacksonDatabind-48, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an `AssertionError` with `config_changed` flag set\n- This suggests a configuration-related change\n\nLet me analyze the candidates:\n\n1. **SerializationConfig.java** - High activity (51 commits, churn=3619), directly related to serialization configuration. The `config_changed` flag is very relevant here.\n\n2. **PropertyName.java** - Moderate activity (15 commits), relatively recent (age_days=1038), high commit frequency (0.1012). PropertyName is often involved in naming/mapping issues.\n\n3. **DeserializationConfig.java** - High activity (57 commits, churn=3284), directly related to deserialization configuration. Also very relevant to `config_changed`.\n\n4. **JsonDeserializer.java** - High commit frequency (0.1405), but less directly related to config changes.\n\n5. **PropertyMetadata.java** - Low activity (5 commits), young file (541 days), could be a newer addition that needed fixes.\n\n6. **JsonMappingException.java** - Moderate activity, less likely related to config changes.\n\n7. **PropertyNamingStrategy.java** - Low activity, could be related to naming issues.\n\n8. **MappingJsonFactory.java** - Low activity, least likely.\n\nThe `config_changed` flag strongly points to SerializationConfig and/or DeserializationConfig. PropertyName is also a common source of issues in Jackson serialization/deserialization. Given the defect index (48) and typical Jackson issues around property naming and configuration, I'll weight SerializationConfig and DeserializationConfig highly, with PropertyName as a secondary candidate.\n\n{\"ranking\": [1, 3, 2, 5, 4, 7, 6, 8], \"confidence\": {\"1\": 0.45, \"3\": 0.40, \"2\": 0.25, \"5\": 0.12, \"4\": 0.10, \"7\": 0.08, \"6\": 0.06, \"8\": 0.03}}",
+ "n_attempts": 1
+}

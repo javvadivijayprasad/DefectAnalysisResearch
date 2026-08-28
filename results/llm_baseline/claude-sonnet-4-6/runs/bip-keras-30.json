@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-keras-30",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "keras/engine/sequential.py",
+  "keras/backend/cntk_backend.py",
+  "keras/utils/generic_utils.py",
+  "keras/initializers.py",
+  "keras/engine/training.py",
+  "keras/engine/training_generator.py",
+  "keras/utils/np_utils.py",
+  "keras/backend/numpy_backend.py"
+ ],
+ "timestamp": "2026-08-27T19:17:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  6,
+  2,
+  3,
+  4,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "1": 0.25,
+  "6": 0.2,
+  "2": 0.1,
+  "3": 0.08,
+  "4": 0.06,
+  "7": 0.05,
+  "8": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.25,
+  0.06,
+  0.08,
+  0.05,
+  0.1,
+  0.2,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  5,
+  4,
+  6,
+  3,
+  2,
+  7
+ ],
+ "usage": {
+  "input_tokens": 972,
+  "output_tokens": 97
+ },
+ "raw_response": "{\"ranking\": [5, 1, 6, 2, 3, 4, 7, 8], \"confidence\": {\"5\": 0.45, \"1\": 0.25, \"6\": 0.20, \"2\": 0.10, \"3\": 0.08, \"4\": 0.06, \"7\": 0.05, \"8\": 0.04}}",
+ "n_attempts": 1
+}

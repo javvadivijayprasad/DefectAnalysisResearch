@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-youtube-dl-26",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/drtv.py",
+  "youtube_dl/extractor/clipsyndicate.py"
+ ],
+ "timestamp": "2026-08-27T19:26:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.55,
+  "3": 0.35,
+  "1": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.35,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 752,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [2, 3, 1], \"confidence\": {\"2\": 0.55, \"3\": 0.35, \"1\": 0.15}}",
+ "n_attempts": 1
+}

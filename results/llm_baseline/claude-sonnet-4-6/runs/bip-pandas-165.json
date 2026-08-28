@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-pandas-165",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "pandas/core/arrays/numpy_.py",
+  "pandas/core/dtypes/cast.py",
+  "pandas/core/dtypes/missing.py",
+  "pandas/core/arrays/datetimelike.py",
+  "pandas/core/dtypes/common.py",
+  "pandas/core/computation/expressions.py",
+  "pandas/core/indexes/accessors.py"
+ ],
+ "timestamp": "2026-08-27T19:21:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  2,
+  1,
+  5,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.08,
+  "2": 0.18,
+  "3": 0.45,
+  "4": 0.4,
+  "5": 0.07,
+  "6": 0.05,
+  "7": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.18,
+  0.05,
+  0.45,
+  0.07,
+  0.08,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  5,
+  0,
+  4,
+  3,
+  6
+ ],
+ "usage": {
+  "input_tokens": 937,
+  "output_tokens": 470
+ },
+ "raw_response": "Looking at this failing test in pandas, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a value mismatch or type check failure\n- `app_code_changed` flag is set\n- Files 3 and 4 have significantly higher activity (commits=5, churn=175, age_days=150) compared to others\n- Files 1, 2, 5, 6, 7 have lower activity\n\nFor a pandas bug involving AssertionError:\n- `pandas/core/dtypes/missing.py` (file 3) handles NA/missing value detection - very commonly involved in assertion errors\n- `pandas/core/arrays/datetimelike.py` (file 4) handles datetime array operations - also frequently involved\n- `pandas/core/dtypes/cast.py` (file 2) handles type casting - moderately likely\n- `pandas/core/arrays/numpy_.py` (file 1) - numpy array wrapper\n- `pandas/core/dtypes/common.py` (file 5) - common dtype utilities\n- `pandas/core/computation/expressions.py` (file 6) - computation expressions\n- `pandas/core/indexes/accessors.py` (file 7) - index accessors\n\nFiles 3 and 4 have the most activity and are most central to pandas operations. The `missing.py` file is particularly prone to causing AssertionErrors when NA detection logic changes. `datetimelike.py` is also a complex file with many edge cases.\n\nFile 2 (`cast.py`) has moderate activity and casting bugs often manifest as AssertionErrors.\n\n{\"ranking\": [3, 4, 2, 1, 5, 6, 7], \"confidence\": {\"1\": 0.08, \"2\": 0.18, \"3\": 0.45, \"4\": 0.40, \"5\": 0.07, \"6\": 0.05, \"7\": 0.06}}",
+ "n_attempts": 1
+}

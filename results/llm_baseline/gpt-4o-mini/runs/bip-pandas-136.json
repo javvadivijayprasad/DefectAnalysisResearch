@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-pandas-136",
+ "repo": "bugsinpy:pandas",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "pandas/tseries/offsets.py",
+  "pandas/core/series.py",
+  "pandas/core/dtypes/dtypes.py",
+  "pandas/io/parsers.py",
+  "pandas/core/reshape/tile.py",
+  "pandas/core/reshape/merge.py",
+  "pandas/core/frame.py",
+  "pandas/core/nanops.py"
+ ],
+ "timestamp": "2026-08-27T19:39:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  7,
+  6,
+  1,
+  3,
+  5,
+  4,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.12,
+  "2": 0.25,
+  "3": 0.1,
+  "4": 0.05,
+  "5": 0.1,
+  "6": 0.15,
+  "7": 0.2,
+  "8": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.25,
+  0.03,
+  0.2,
+  0.1,
+  0.05,
+  0.1,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  7,
+  1,
+  5,
+  6,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 813,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [2, 7, 6, 1, 3, 5, 4, 8], \"confidence\": {\"1\": 0.12, \"2\": 0.25, \"3\": 0.10, \"4\": 0.05, \"5\": 0.10, \"6\": 0.15, \"7\": 0.20, \"8\": 0.03}}",
+ "n_attempts": 1
+}
