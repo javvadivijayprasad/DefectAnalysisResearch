@@ -11,7 +11,7 @@ authors:
 version: 2.0.0
 date-released: 2026-08-09
 license: CC-BY-4.0
-repository-code: "https://github.com/javvadivijayprasad/DefectAnalysisReserch"
+repository-code: "https://github.com/javvadivijayprasad/DefectAnalysisResearch"
 keywords:
   - defect-attribution
   - fault-localization

@@ -84,8 +84,8 @@ zenodo_bundle_v2.0.0/
 ## Quick reproduction
 
 ```bash
-git clone https://github.com/javvadivijayprasad/DefectAnalysisReserch.git
-cd DefectAnalysisReserch
+git clone https://github.com/javvadivijayprasad/DefectAnalysisResearch.git
+cd DefectAnalysisResearch
 git checkout paperF-jss-v1.0
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
