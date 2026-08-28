@@ -308,10 +308,15 @@ def call_anthropic(model: str, system: str, user: str,
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
         sys.exit("ERROR: ANTHROPIC_API_KEY is not set in the environment.")
+    headers = {"x-api-key": key, "anthropic-version": "2023-06-01",
+               "content-type": "application/json"}
+    # Identity-linked API keys require the workspace id header.
+    ws = os.environ.get("ANTHROPIC_WORKSPACE_ID")
+    if ws:
+        headers["anthropic-workspace-id"] = ws
     out = _post_json(
         "https://api.anthropic.com/v1/messages",
-        {"x-api-key": key, "anthropic-version": "2023-06-01",
-         "content-type": "application/json"},
+        headers,
         {"model": model, "max_tokens": max_tokens, "temperature": 0,
          "system": system,
          "messages": [{"role": "user", "content": user}]})
