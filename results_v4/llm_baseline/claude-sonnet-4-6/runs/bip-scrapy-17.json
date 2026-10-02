@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-scrapy-17",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "scrapy/utils/sitemap.py",
+  "scrapy/utils/boto.py",
+  "scrapy/utils/response.py",
+  "scrapy/utils/spider.py"
+ ],
+ "timestamp": "2026-10-02T15:33:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.82,
+  "1": 0.15,
+  "4": 0.08,
+  "3": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.15,
+  0.08,
+  0.82
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 791,
+  "output_tokens": 212
+ },
+ "raw_response": "Looking at the candidates:\n\n- File 2 (scrapy/utils/boto.py) has extremely unusual stats: age_days=1 and commit_freq=2.0000, meaning it was essentially just created/heavily modified. This strongly suggests it's a newly added or recently changed file that's part of the fix commit.\n\n- File 1 (scrapy/utils/sitemap.py) has moderate activity and could be related.\n\n- Files 3 and 4 are older, more stable files with typical churn patterns.\n\nThe age_days=1 and commit_freq=2.0000 for boto.py is a very strong signal that this file was recently changed as part of the fix.\n\n{\"ranking\": [2, 1, 4, 3], \"confidence\": {\"2\": 0.82, \"1\": 0.15, \"4\": 0.08, \"3\": 0.06}}",
+ "n_attempts": 1
+}

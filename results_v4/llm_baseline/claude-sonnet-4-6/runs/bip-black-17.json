@@ -1,0 +1,35 @@
+{
+ "event_id": "bip-black-17",
+ "repo": "bugsinpy:black",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 2,
+ "presented_files": [
+  "setup.py",
+  "black.py"
+ ],
+ "timestamp": "2026-10-02T15:23:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.97,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.97,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 686,
+  "output_tokens": 31
+ },
+ "raw_response": "{\"ranking\": [2, 1], \"confidence\": {\"2\": 0.97, \"1\": 0.03}}",
+ "n_attempts": 1
+}

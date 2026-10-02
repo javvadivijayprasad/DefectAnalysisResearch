@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-ansible-3",
+ "repo": "bugsinpy:ansible",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "lib/ansible/module_utils/facts/system/service_mgr.py",
+  "lib/ansible/module_utils/facts/system/selinux.py",
+  "lib/ansible/module_utils/facts/system/distribution.py",
+  "lib/ansible/module_utils/facts/system/date_time.py"
+ ],
+ "timestamp": "2026-10-02T15:50:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "1": 0.25,
+  "2": 0.15,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.25,
+  0.55,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 692,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [4, 1, 2, 3], \"confidence\": {\"4\": 0.55, \"1\": 0.25, \"2\": 0.15, \"3\": 0.05}}",
+ "n_attempts": 1
+}

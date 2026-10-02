@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-29",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanAsArrayDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/NoClassDefFoundDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/FieldProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java"
+ ],
+ "timestamp": "2026-10-02T15:46:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  1,
+  5,
+  7,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "6": 0.3,
+  "1": 0.15,
+  "5": 0.1,
+  "7": 0.07,
+  "3": 0.02,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.07,
+  0.35,
+  0.1,
+  0.3,
+  0.15,
+  0.02,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  3,
+  1,
+  2,
+  5,
+  6
+ ],
+ "usage": {
+  "input_tokens": 889,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[2,6,1,5,7,3,4],\"confidence\":{\"2\":0.35,\"6\":0.30,\"1\":0.15,\"5\":0.10,\"7\":0.07,\"3\":0.02,\"4\":0.01}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-pandas-77",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "pandas/core/ops/__init__.py",
+  "pandas/core/ops/methods.py",
+  "pandas/core/ops/mask_ops.py",
+  "pandas/core/ops/array_ops.py",
+  "pandas/core/ops/invalid.py"
+ ],
+ "timestamp": "2026-10-02T15:30:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  1,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.65,
+  "4": 0.45,
+  "1": 0.25,
+  "2": 0.1,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.65,
+  0.1,
+  0.05,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 844,
+  "output_tokens": 304
+ },
+ "raw_response": "Looking at the failing test (AssertionError in pandas ops), I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- `mask_ops.py` is extremely new (9 days old) with very high commit frequency (1.5556) and only 2 commits - this suggests it was recently created/modified, likely as part of a recent change that introduced a bug\n- `array_ops.py` is also relatively new (140 days) with moderate activity\n- `__init__.py` has massive history but is a common target for fixes\n- `methods.py` and `invalid.py` are newer files with less activity\n\nThe very high churn rate and recency of `mask_ops.py` (9 days old, 1.5556 commit_freq) strongly suggests it's a recently introduced file that may contain the defect. `array_ops.py` is also a candidate given its moderate activity and relative newness.\n\n`__init__.py` is always a candidate for ops-related fixes given its central role.\n\n{\"ranking\": [3, 4, 1, 2, 5], \"confidence\": {\"3\": 0.65, \"4\": 0.45, \"1\": 0.25, \"2\": 0.10, \"5\": 0.05}}",
+ "n_attempts": 1
+}

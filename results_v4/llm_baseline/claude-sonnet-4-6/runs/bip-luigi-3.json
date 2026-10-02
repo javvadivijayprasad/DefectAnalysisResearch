@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-luigi-3",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "luigi/setup_logging.py",
+  "luigi/task.py",
+  "luigi/parameter.py",
+  "luigi/metrics.py",
+  "luigi/process.py",
+  "luigi/lock.py"
+ ],
+ "timestamp": "2026-10-02T15:25:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.85,
+  "1": 0.55,
+  "2": 0.35,
+  "3": 0.25,
+  "5": 0.08,
+  "6": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.85,
+  0.35,
+  0.06,
+  0.55,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  2,
+  5,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 869,
+  "output_tokens": 355
+ },
+ "raw_response": "Looking at the failing test event for luigi (Python) with an AssertionError:\n\nKey observations:\n- `luigi/metrics.py` has commits=1, devs=1, age_days=1, commit_freq=1.0 - this is a brand new file, very likely part of the fix commit\n- `luigi/setup_logging.py` has very high commit_freq=0.875 and is relatively new (age_days=24), suggesting recent active development\n- `luigi/task.py` and `luigi/parameter.py` are heavily modified core files with many commits and developers\n- `luigi/process.py` and `luigi/lock.py` are less likely candidates\n\nThe metrics.py file being brand new (age_days=1, single commit) strongly suggests it was introduced as part of the fix. setup_logging.py being very recently active is also suspicious. The AssertionError could relate to task parameters or core task functionality.\n\nGiven that metrics.py is essentially a new file (age_days=1), it's almost certainly part of the fix commit. setup_logging.py with its high recent activity is also a strong candidate. task.py and parameter.py are core files that often need changes when new features/fixes are introduced.\n\n{\"ranking\": [4, 1, 2, 3, 5, 6], \"confidence\": {\"4\": 0.85, \"1\": 0.55, \"2\": 0.35, \"3\": 0.25, \"5\": 0.08, \"6\": 0.06}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Compress-26",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+  "src/main/java/org/apache/commons/compress/utils/CountingInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/CRC32VerifyingInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/BoundedInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/CharsetNames.java",
+  "src/main/java/org/apache/commons/compress/utils/ChecksumVerifyingInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/Charsets.java",
+  "src/main/java/org/apache/commons/compress/utils/CountingOutputStream.java"
+ ],
+ "timestamp": "2026-10-02T15:01:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  6,
+  2,
+  1,
+  8,
+  7,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "3": 0.3,
+  "6": 0.25,
+  "2": 0.2,
+  "1": 0.1,
+  "8": 0.08,
+  "7": 0.04,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.04,
+  0.3,
+  0.02,
+  0.08,
+  0.2,
+  0.45,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  6,
+  1,
+  7,
+  5,
+  3,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1089,
+  "output_tokens": 491
+ },
+ "raw_response": "Looking at this failing test in defects4j:Compress-26, I need to identify which files are likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is in the `utils` package of commons-compress\n\nLet me analyze the candidates:\n\n1. **BoundedInputStream** (file 4): Very young file (161 days), relatively few commits (4), high commit frequency (0.1739). New files often have bugs.\n\n2. **CRC32VerifyingInputStream** (file 3): Young file (213 days), 9 commits, very high commit frequency (0.2958). High churn relative to age suggests active bug fixing.\n\n3. **ChecksumVerifyingInputStream** (file 6): Same age as CRC32 (213 days), 6 commits, high commit frequency (0.1972). Related to checksum verification.\n\n4. **CountingInputStream** (file 2): 14 commits, moderate age (1361 days), decent commit frequency.\n\n5. **IOUtils** (file 1): Older file, moderate activity.\n\nThe Compress-26 bug is related to reading/counting bytes in streams. The `BoundedInputStream` is very new and has high commit frequency suggesting it's been actively fixed. `CRC32VerifyingInputStream` and `ChecksumVerifyingInputStream` are also young with high activity. \n\nGiven that Compress-26 involves an AssertionError (likely a count/boundary check), `BoundedInputStream` seems most suspicious as it's the newest file with boundary-related functionality. `CountingInputStream` is also relevant for counting-related assertions.\n\n{\"ranking\": [4, 3, 6, 2, 1, 8, 7, 5], \"confidence\": {\"4\": 0.45, \"3\": 0.30, \"6\": 0.25, \"2\": 0.20, \"1\": 0.10, \"8\": 0.08, \"7\": 0.04, \"5\": 0.02}}",
+ "n_attempts": 1
+}

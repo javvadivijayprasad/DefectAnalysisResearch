@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Cli-39",
+ "repo": "defects4j:Cli",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/cli/ParseException.java",
+  "src/main/java/org/apache/commons/cli/TypeHandler.java",
+  "src/main/java/org/apache/commons/cli/Util.java",
+  "src/main/java/org/apache/commons/cli/OptionValidator.java",
+  "src/main/java/org/apache/commons/cli/Parser.java",
+  "src/main/java/org/apache/commons/cli/MissingOptionException.java",
+  "src/main/java/org/apache/commons/cli/AlreadySelectedException.java"
+ ],
+ "timestamp": "2026-10-02T15:43:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  4,
+  1,
+  3,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "2": 0.2,
+  "4": 0.15,
+  "1": 0.1,
+  "3": 0.05,
+  "6": 0.03,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.45,
+  0.05,
+  0.1,
+  0.03,
+  0.15,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  4,
+  3,
+  5,
+  2,
+  6
+ ],
+ "usage": {
+  "input_tokens": 836,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[5,2,4,1,3,6,7],\"confidence\":{\"5\":0.45,\"2\":0.20,\"4\":0.15,\"1\":0.10,\"3\":0.05,\"6\":0.03,\"7\":0.02}}",
+ "n_attempts": 1
+}

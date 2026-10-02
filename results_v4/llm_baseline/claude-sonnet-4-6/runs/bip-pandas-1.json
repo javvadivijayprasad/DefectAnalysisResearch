@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-pandas-1",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "pandas/core/dtypes/common.py",
+  "pandas/core/dtypes/api.py",
+  "pandas/core/dtypes/__init__.py",
+  "pandas/core/dtypes/cast.py",
+  "pandas/core/dtypes/generic.py",
+  "pandas/core/dtypes/dtypes.py",
+  "pandas/core/dtypes/missing.py"
+ ],
+ "timestamp": "2026-10-02T15:27:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  6,
+  7,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "1": 0.35,
+  "6": 0.2,
+  "7": 0.15,
+  "2": 0.08,
+  "5": 0.05,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.45,
+  0.2,
+  0.08,
+  0.15,
+  0.01,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2,
+  4,
+  3,
+  6,
+  5
+ ],
+ "usage": {
+  "input_tokens": 954,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [4, 1, 6, 7, 2, 5, 3], \"confidence\": {\"4\": 0.45, \"1\": 0.35, \"6\": 0.20, \"7\": 0.15, \"2\": 0.08, \"5\": 0.05, \"3\": 0.01}}",
+ "n_attempts": 1
+}

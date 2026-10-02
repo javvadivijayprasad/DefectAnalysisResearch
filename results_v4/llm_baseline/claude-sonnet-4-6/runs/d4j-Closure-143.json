@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-143",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/Scope.java",
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/AbstractCommandLineRunner.java",
+  "src/com/google/javascript/jscomp/TypeInference.java",
+  "src/com/google/javascript/jscomp/RemoveConstantExpressions.java",
+  "src/com/google/javascript/jscomp/WarningLevel.java",
+  "src/com/google/javascript/rhino/jstype/UnionTypeBuilder.java"
+ ],
+ "timestamp": "2026-10-02T14:56:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  4,
+  1,
+  7,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.65,
+  "2": 0.3,
+  "4": 0.2,
+  "1": 0.1,
+  "7": 0.08,
+  "3": 0.06,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.3,
+  0.65,
+  0.08,
+  0.03,
+  0.1,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  1,
+  0,
+  4,
+  6,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1003,
+  "output_tokens": 500
+ },
+ "raw_response": "Looking at this failing test for Closure-143, I need to identify which files are likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is a Closure compiler defect\n\nLet me analyze the candidates:\n\n1. **RemoveConstantExpressions.java** (candidate 5) - age_days=1, commits=1, devs=1, churn=134. This is a brand new file (1 day old) with only one commit. New files often introduce bugs. This is highly suspicious.\n\n2. **TypeInference.java** (candidate 4) - High churn (1360), relatively recent, many commits. Type inference is complex and often involved in assertion errors.\n\n3. **NodeUtil.java** (candidate 2) - Very high churn (2278), most commits (18), high commit frequency. Utility files with high churn are often defective.\n\n4. **AbstractCommandLineRunner.java** (candidate 3) - Highest commits (25) and high churn, but less likely related to an AssertionError in type/expression handling.\n\n5. **UnionTypeBuilder.java** (candidate 7) - Low commits but related to type system.\n\n6. **Scope.java** (candidate 1) - Moderate activity, related to scoping.\n\n7. **WarningLevel.java** (candidate 6) - Low churn, unlikely to cause AssertionError.\n\nThe brand-new `RemoveConstantExpressions.java` (age=1 day, single commit) is the most suspicious - it's a newly introduced file that likely contains the bug. `NodeUtil.java` with its very high churn is also a strong candidate as it's frequently modified and could have introduced a regression.\n\n{\"ranking\": [5, 2, 4, 1, 7, 3, 6], \"confidence\": {\"5\": 0.65, \"2\": 0.30, \"4\": 0.20, \"1\": 0.10, \"7\": 0.08, \"3\": 0.06, \"6\": 0.03}}",
+ "n_attempts": 1
+}

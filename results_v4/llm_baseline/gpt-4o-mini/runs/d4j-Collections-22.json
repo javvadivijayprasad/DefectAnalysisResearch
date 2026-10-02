@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Collections-22",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/collections4/map/FixedSizeMap.java",
+  "src/main/java/org/apache/commons/collections4/map/Flat3Map.java",
+  "src/main/java/org/apache/commons/collections4/map/CompositeMap.java",
+  "src/main/java/org/apache/commons/collections4/map/StaticBucketMap.java",
+  "src/main/java/org/apache/commons/collections4/map/package-info.java",
+  "src/main/java/org/apache/commons/collections4/map/ListOrderedMap.java",
+  "src/main/java/org/apache/commons/collections4/map/FixedSizeSortedMap.java"
+ ],
+ "timestamp": "2026-10-02T15:45:17",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  4,
+  1,
+  3,
+  7,
+  5
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "6": 0.3,
+  "4": 0.15,
+  "1": 0.1,
+  "3": 0.05,
+  "7": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.1,
+  0.02,
+  0.03,
+  0.05,
+  0.35,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  6,
+  5,
+  4,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 860,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[2,6,4,1,3,7,5],\"confidence\":{\"2\":0.35,\"6\":0.30,\"4\":0.15,\"1\":0.10,\"3\":0.05,\"7\":0.03,\"5\":0.02}}",
+ "n_attempts": 1
+}

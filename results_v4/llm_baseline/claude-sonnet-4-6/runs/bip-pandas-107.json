@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-pandas-107",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "pandas/core/frame.py",
+  "pandas/core/algorithms.py",
+  "pandas/core/generic.py",
+  "pandas/core/nanops.py",
+  "pandas/core/strings.py",
+  "pandas/core/apply.py",
+  "pandas/core/__init__.py",
+  "pandas/core/common.py"
+ ],
+ "timestamp": "2026-10-02T15:31:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  6,
+  2,
+  8,
+  5,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "3": 0.3,
+  "6": 0.2,
+  "2": 0.15,
+  "8": 0.1,
+  "5": 0.08,
+  "4": 0.07,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.07,
+  0.3,
+  0.01,
+  0.08,
+  0.2,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  1,
+  7,
+  5,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 989,
+  "output_tokens": 474
+ },
+ "raw_response": "Looking at this failing test event for pandas with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError (likely from a test assertion failing due to incorrect behavior)\n- `app_code_changed` flag is set\n- This is pandas bug #107 in bugsinpy\n\nLet me analyze the candidates:\n\n1. **frame.py** - Very high activity (2040 commits, 389 devs), core DataFrame implementation. Very likely to be involved in many bugs.\n\n2. **algorithms.py** - Moderate activity, contains core algorithms used across pandas.\n\n3. **generic.py** - High activity (1061 commits), base class for DataFrame/Series. Frequently involved in bugs.\n\n4. **nanops.py** - Lower activity, handles NaN operations.\n\n5. **strings.py** - Moderate activity, string operations.\n\n6. **apply.py** - Lower activity but relatively recent (731 days old), handles apply operations.\n\n7. **__init__.py** - 1 commit, 0 churn - almost certainly not defective (placeholder/empty).\n\n8. **common.py** - High activity, common utilities.\n\nFor pandas bug #107, considering the AssertionError pattern and the nature of common bugs, `frame.py` and `generic.py` are the most likely candidates given their size and complexity. `apply.py` is interesting as it's newer and has moderate churn relative to its age. `algorithms.py` is also a candidate for assertion-related bugs.\n\nThe `__init__.py` with 0 churn is almost certainly not defective.\n\n{\"ranking\": [1, 3, 6, 2, 8, 5, 4, 7], \"confidence\": {\"1\": 0.45, \"3\": 0.30, \"6\": 0.20, \"2\": 0.15, \"8\": 0.10, \"5\": 0.08, \"4\": 0.07, \"7\": 0.01}}",
+ "n_attempts": 1
+}

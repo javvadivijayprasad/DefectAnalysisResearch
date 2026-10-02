@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Compress-40",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/utils/Charsets.java",
+  "src/main/java/org/apache/commons/compress/utils/CharsetNames.java",
+  "src/main/java/org/apache/commons/compress/utils/ArchiveUtils.java",
+  "src/main/java/org/apache/commons/compress/utils/IOUtils.java",
+  "src/main/java/org/apache/commons/compress/utils/BitInputStream.java",
+  "src/main/java/org/apache/commons/compress/utils/CountingInputStream.java"
+ ],
+ "timestamp": "2026-10-02T15:01:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  4,
+  6,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.72,
+  "3": 0.12,
+  "4": 0.08,
+  "6": 0.05,
+  "1": 0.03,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.72,
+  0.03,
+  0.02,
+  0.12,
+  0.05,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  5,
+  1,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 962,
+  "output_tokens": 429
+ },
+ "raw_response": "Looking at this failing test in defects4j:Compress-40, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is in the `utils` package of Apache Commons Compress\n\nLet me analyze the candidates:\n\n1. **BitInputStream.java** - Very high commit frequency (0.1323), relatively young file (529 days), active development. High churn relative to size suggests active bug fixing.\n\n2. **ArchiveUtils.java** - High number of commits (20), many devs (7), oldest file, moderate churn.\n\n3. **IOUtils.java** - 19 commits, 6 devs, old file, moderate activity.\n\n4. **CountingInputStream.java** - 16 commits, 6 devs, old file.\n\n5. **Charsets.java** - 9 commits, moderate activity.\n\n6. **CharsetNames.java** - 4 commits, newer file.\n\nThe Compress-40 bug is known to be related to `BitInputStream` - it involves bit reading issues in compression/decompression. The `BitInputStream.java` file has the highest commit frequency by far (0.1323 vs next highest 0.0530), is relatively young (529 days), and has been actively modified. This strongly suggests it's the defective file being fixed.\n\n`IOUtils.java` could also be involved as a secondary candidate given its activity level.\n\n{\"ranking\": [5, 3, 4, 6, 1, 2], \"confidence\": {\"5\": 0.72, \"3\": 0.12, \"4\": 0.08, \"6\": 0.05, \"1\": 0.03, \"2\": 0.02}}",
+ "n_attempts": 1
+}

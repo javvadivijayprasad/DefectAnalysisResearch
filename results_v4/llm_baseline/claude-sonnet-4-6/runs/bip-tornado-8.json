@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-tornado-8",
+ "repo": "bugsinpy:tornado",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "tornado/websocket.py",
+  "tornado/iostream.py",
+  "tornado/web.py",
+  "tornado/auth.py",
+  "tornado/locale.py",
+  "tornado/http1connection.py",
+  "tornado/log.py"
+ ],
+ "timestamp": "2026-10-02T15:36:14",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  6,
+  3,
+  4,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.28,
+  "2": 0.35,
+  "3": 0.12,
+  "4": 0.06,
+  "5": 0.03,
+  "6": 0.2,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.28,
+  0.03,
+  0.06,
+  0.12,
+  0.2,
+  0.03,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  4,
+  3,
+  2,
+  6,
+  0
+ ],
+ "usage": {
+  "input_tokens": 927,
+  "output_tokens": 402
+ },
+ "raw_response": "The test is \"bip-tornado-8\" and the failure is an AssertionError. Given the test name references tornado and the failure signal, I need to consider which files are most likely involved.\n\nKey considerations:\n- `websocket.py` (1): High churn, many commits, WebSocket is a complex area prone to bugs\n- `iostream.py` (2): Very high commits/devs, core I/O stream handling\n- `web.py` (3): Highest activity of all, but very broad\n- `http1connection.py` (6): Relatively newer file (age_days=1219), high commit frequency relative to age, HTTP connection handling\n- `auth.py` (4): High churn but more specialized\n- `locale.py` (5): Lower activity, less likely\n- `log.py` (7): Lower activity, less likely\n\nFor tornado bug #8, based on the pattern of bugs in tornado's bugsinpy collection, this is likely related to HTTP/WebSocket connection handling. The `iostream.py` and `websocket.py` are strong candidates. The `http1connection.py` is newer and has high commit frequency suggesting active development/bug fixing.\n\nGiven the AssertionError and the typical nature of tornado bugs, `iostream.py` and `websocket.py` are the most likely candidates, with `http1connection.py` also being plausible.\n\n{\"ranking\": [2, 1, 6, 3, 4, 5, 7], \"confidence\": {\"1\": 0.28, \"2\": 0.35, \"3\": 0.12, \"4\": 0.06, \"5\": 0.03, \"6\": 0.20, \"7\": 0.03}}",
+ "n_attempts": 1
+}

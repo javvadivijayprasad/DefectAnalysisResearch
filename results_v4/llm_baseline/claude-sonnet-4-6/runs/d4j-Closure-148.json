@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-148",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "src/com/google/javascript/jscomp/CollapseVariableDeclarations.java",
+  "src/com/google/javascript/jscomp/FunctionTypeBuilder.java",
+  "src/com/google/javascript/jscomp/Position.java",
+  "src/com/google/javascript/jscomp/SourceMap.java",
+  "src/com/google/javascript/jscomp/GroupVariableDeclarations.java"
+ ],
+ "timestamp": "2026-10-02T14:56:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  6,
+  3,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.25,
+  "6": 0.15,
+  "3": 0.08,
+  "5": 0.05,
+  "4": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.03,
+  0.05,
+  0.08,
+  0.15,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  4,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 950,
+  "output_tokens": 493
+ },
+ "raw_response": "Looking at this failing test for Closure-148, I need to identify which files are likely defective.\n\nKey observations:\n- The test failure is an AssertionError (likely a compiler optimization test)\n- `app_code_changed` flag is set\n- Files 4 (Position.java) and 6 (GroupVariableDeclarations.java) are brand new (age_days=1, commits=1) - these are newly added files, not bug fixes\n- The test name \"Closure-148\" suggests a peephole optimization or variable declaration issue\n\nAnalysis of candidates:\n1. **PeepholeFoldConstants.java** - Very active file (18 commits, high churn=4301), deals with constant folding optimizations. AssertionErrors in Closure tests often come from optimization passes. High probability.\n2. **CollapseVariableDeclarations.java** - Deals with variable declarations, moderate activity. Related to variable declaration handling.\n3. **FunctionTypeBuilder.java** - Type checking related, less likely for an AssertionError in optimization tests.\n4. **Position.java** - Brand new file (age=1 day), likely a new utility class added alongside a fix.\n5. **SourceMap.java** - Source map related, less likely for optimization failures.\n6. **GroupVariableDeclarations.java** - Brand new file (age=1 day), newly added. The name suggests it groups variable declarations, which could be related to CollapseVariableDeclarations.\n\nThe defect likely involves `PeepholeFoldConstants.java` as the primary suspect given its high activity and relevance to AssertionErrors in optimization tests. `CollapseVariableDeclarations.java` could also be involved given the variable declaration theme matching `GroupVariableDeclarations.java` (new file).\n\n{\"ranking\": [1, 2, 6, 3, 5, 4], \"confidence\": {\"1\": 0.55, \"2\": 0.25, \"6\": 0.15, \"3\": 0.08, \"5\": 0.05, \"4\": 0.03}}",
+ "n_attempts": 1
+}

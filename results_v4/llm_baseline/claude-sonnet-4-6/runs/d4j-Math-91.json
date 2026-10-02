@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-91",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/math/fraction/FractionFormat.java",
+  "src/java/org/apache/commons/math/fraction/AbstractFormat.java",
+  "src/java/org/apache/commons/math/fraction/BigFractionFormat.java",
+  "src/java/org/apache/commons/math/fraction/ProperFractionFormat.java",
+  "src/java/org/apache/commons/math/fraction/Fraction.java",
+  "src/java/org/apache/commons/math/fraction/BigFraction.java"
+ ],
+ "timestamp": "2026-10-02T15:18:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  4,
+  2,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.85,
+  "1": 0.08,
+  "4": 0.05,
+  "2": 0.02,
+  "3": 0.02,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.85,
+  0.05,
+  0.08,
+  0.02,
+  0.02,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 957,
+  "output_tokens": 256
+ },
+ "raw_response": "The failing test is in the Fraction package. The test name suggests it's about Fraction comparison/equals (d4j-Math-91 is known to be about `Fraction.compareTo`). \n\nLooking at the candidates:\n- `Fraction.java` (index 5) has the most commits and churn, and is the most likely location for a `compareTo` bug\n- `FractionFormat.java` (index 1) is also heavily modified\n- Files 2, 3, 6 have age_days=1, suggesting they're newly added files (not the defective ones being fixed)\n- `ProperFractionFormat.java` (index 4) is less likely\n\nThe defect in Math-91 is specifically in `Fraction.compareTo()` method.\n\n{\"ranking\": [5, 1, 4, 2, 3, 6], \"confidence\": {\"5\": 0.85, \"1\": 0.08, \"4\": 0.05, \"2\": 0.02, \"3\": 0.02, \"6\": 0.02}}",
+ "n_attempts": 1
+}

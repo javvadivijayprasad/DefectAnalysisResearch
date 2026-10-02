@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Time-19",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/joda/time/DateTimeZone.java",
+  "src/main/java/org/joda/time/LocalDate.java",
+  "src/main/java/org/joda/time/Years.java",
+  "src/main/java/org/joda/time/ReadWritableDateTime.java",
+  "src/main/java/org/joda/time/YearMonth.java",
+  "src/main/java/org/joda/time/Seconds.java"
+ ],
+ "timestamp": "2026-10-02T15:21:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  4,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.85,
+  "2": 0.08,
+  "5": 0.05,
+  "4": 0.02,
+  "3": 0.01,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.85,
+  0.05,
+  0.08,
+  0.01,
+  0.02,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 950,
+  "output_tokens": 117
+ },
+ "raw_response": "The defects4j Time-19 bug is about `DateTimeZone.getOffsetFromLocal()` returning wrong results. The fix is in `DateTimeZone.java`.\n\n{\"ranking\": [1, 2, 5, 4, 3, 6], \"confidence\": {\"1\": 0.85, \"2\": 0.08, \"5\": 0.05, \"4\": 0.02, \"3\": 0.01, \"6\": 0.01}}",
+ "n_attempts": 1
+}

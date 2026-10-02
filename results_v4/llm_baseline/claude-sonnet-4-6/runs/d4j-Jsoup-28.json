@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-28",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/DocumentType.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Parser.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/parser/ParseError.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java"
+ ],
+ "timestamp": "2026-10-02T15:10:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  7,
+  3,
+  4,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "2": 0.45,
+  "7": 0.25,
+  "3": 0.2,
+  "4": 0.1,
+  "6": 0.05,
+  "5": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.2,
+  0.1,
+  0.25,
+  0.65,
+  0.45,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  3,
+  4,
+  2,
+  0,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1000,
+  "output_tokens": 506
+ },
+ "raw_response": "Looking at this failing test in Jsoup (d4j-Jsoup-28), I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test involves an AssertionError, suggesting a parsing or output mismatch\n- The `app_code_changed` flag is set\n- This is Jsoup bug #28\n\nLet me analyze the candidates:\n\n1. **DocumentType.java** - Very young file (43 days), high commit frequency (0.4884), small but recent changes. DocumentType handling is often involved in parsing edge cases.\n\n2. **TreeBuilder.java** - High churn (1452), many commits (10), very active file. Core parsing logic.\n\n3. **Parser.java** - Most commits (56), high churn (1499), oldest file (819 days), high commit frequency. Central parsing class.\n\n4. **Tokeniser.java** - Moderate activity, handles tokenization which is fundamental to parsing.\n\n5. **Entities.java** - Highest churn (4690), but this is mostly entity encoding/decoding.\n\n6. **ParseError.java** - Low activity, error handling.\n\n7. **TokeniserState.java** - High churn (1995), handles tokenizer state machine.\n\nFor Jsoup bug #28, which relates to DOCTYPE handling and parsing, `DocumentType.java` stands out as very suspicious due to its extreme youth (43 days old) and high commit frequency - it's a recently added/modified file. `TreeBuilder.java` and `TokeniserState.java` are also likely candidates as they handle the core parsing state machine that would affect DOCTYPE processing.\n\nThe very young age of DocumentType.java (43 days) combined with high commit frequency strongly suggests it's the recently introduced defective file. TreeBuilder.java with its high churn is also a strong candidate.\n\n{\"ranking\": [1, 2, 7, 3, 4, 6, 5], \"confidence\": {\"1\": 0.65, \"2\": 0.45, \"7\": 0.25, \"3\": 0.20, \"4\": 0.10, \"6\": 0.05, \"5\": 0.04}}",
+ "n_attempts": 1
+}

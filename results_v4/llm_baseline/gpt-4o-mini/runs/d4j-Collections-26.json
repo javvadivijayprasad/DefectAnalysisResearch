@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Collections-26",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/collections4/keyvalue/UnmodifiableMapEntry.java",
+  "src/main/java/org/apache/commons/collections4/keyvalue/DefaultMapEntry.java",
+  "src/main/java/org/apache/commons/collections4/keyvalue/DefaultKeyValue.java",
+  "src/main/java/org/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator.java",
+  "src/main/java/org/apache/commons/collections4/keyvalue/MultiKey.java",
+  "src/main/java/org/apache/commons/collections4/keyvalue/package-info.java"
+ ],
+ "timestamp": "2026-10-02T15:45:19",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  1,
+  2,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "4": 0.25,
+  "1": 0.15,
+  "2": 0.1,
+  "5": 0.1,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.25,
+  0.15,
+  0.05,
+  0.35,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  2,
+  5,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 813,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\":[3,4,1,2,5,6],\"confidence\":{\"3\":0.35,\"4\":0.25,\"1\":0.15,\"2\":0.10,\"5\":0.10,\"6\":0.05}}",
+ "n_attempts": 1
+}

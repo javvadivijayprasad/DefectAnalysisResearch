@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-31",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/util/ContinuedFraction.java",
+  "src/main/java/org/apache/commons/math3/util/MathArrays.java",
+  "src/main/java/org/apache/commons/math3/util/Precision.java",
+  "src/main/java/org/apache/commons/math3/util/Pair.java",
+  "src/main/java/org/apache/commons/math3/util/FastMathLiteralArrays.java",
+  "src/main/java/org/apache/commons/math3/util/Decimal64.java",
+  "src/main/java/org/apache/commons/math3/util/TransformerMap.java"
+ ],
+ "timestamp": "2026-10-02T15:16:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2,
+  4,
+  7,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.88,
+  "3": 0.08,
+  "2": 0.05,
+  "4": 0.03,
+  "7": 0.03,
+  "5": 0.01,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.88,
+  0.05,
+  0.03,
+  0.03,
+  0.01,
+  0.08,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  4,
+  6,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1040,
+  "output_tokens": 142
+ },
+ "raw_response": "The failing test is Math-31, which in defects4j relates to `ContinuedFraction` evaluation (specifically the `evaluate` method having issues with convergence/infinity handling). This is a well-known defect in the Commons Math project.\n\n{\"ranking\": [1, 3, 2, 4, 7, 5, 6], \"confidence\": {\"1\": 0.88, \"3\": 0.08, \"2\": 0.05, \"4\": 0.03, \"7\": 0.03, \"5\": 0.01, \"6\": 0.01}}",
+ "n_attempts": 1
+}

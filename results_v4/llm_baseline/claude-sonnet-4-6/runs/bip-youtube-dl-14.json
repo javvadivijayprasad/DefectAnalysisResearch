@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-youtube-dl-14",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "youtube_dl/extractor/esri.py",
+  "youtube_dl/extractor/youtube.py",
+  "youtube_dl/extractor/awaan.py",
+  "youtube_dl/extractor/francetv.py"
+ ],
+ "timestamp": "2026-10-02T15:37:14",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.75,
+  "4": 0.12,
+  "3": 0.08,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.08,
+  0.12,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 808,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [2, 4, 3, 1], \"confidence\": {\"2\": 0.75, \"4\": 0.12, \"3\": 0.08, \"1\": 0.05}}",
+ "n_attempts": 1
+}

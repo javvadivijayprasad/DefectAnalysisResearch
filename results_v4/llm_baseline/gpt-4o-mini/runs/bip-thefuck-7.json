@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-thefuck-7",
+ "repo": "bugsinpy:thefuck",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "thefuck/rules/mkdir_p.py",
+  "thefuck/rules/prove_recursively.py",
+  "thefuck/rules/php_s.py",
+  "thefuck/rules/git_push_force.py",
+  "thefuck/rules/django_south_ghost.py",
+  "thefuck/rules/git_push.py",
+  "thefuck/rules/cp_omitting_directory.py"
+ ],
+ "timestamp": "2026-10-02T15:54:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  6,
+  1,
+  4,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.35,
+  "3": 0.25,
+  "4": 0.08,
+  "5": 0.05,
+  "6": 0.12,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.1,
+  0.12,
+  0.05,
+  0.08,
+  0.35,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  2,
+  6,
+  4,
+  0,
+  5
+ ],
+ "usage": {
+  "input_tokens": 796,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [2, 3, 6, 1, 4, 5, 7], \"confidence\": {\"1\": 0.10, \"2\": 0.35, \"3\": 0.25, \"4\": 0.08, \"5\": 0.05, \"6\": 0.12, \"7\": 0.05}}",
+ "n_attempts": 1
+}

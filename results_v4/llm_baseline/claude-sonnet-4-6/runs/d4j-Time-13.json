@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Time-13",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/joda/time/format/PeriodFormatterBuilder.java",
+  "src/main/java/org/joda/time/format/DateTimeParserBucket.java",
+  "src/main/java/org/joda/time/format/DateTimePrinter.java",
+  "src/main/java/org/joda/time/format/DateTimeFormat.java",
+  "src/main/java/org/joda/time/format/PeriodFormat.java"
+ ],
+ "timestamp": "2026-10-02T15:21:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.75,
+  "5": 0.2,
+  "4": 0.05,
+  "2": 0.03,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.03,
+  0.02,
+  0.2,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 914,
+  "output_tokens": 220
+ },
+ "raw_response": "The failing test is in defects4j:Time-13, which is about period formatting. The test name and the \"Time-13\" designation strongly suggest this is related to `PeriodFormatterBuilder` or `PeriodFormat`. The `app_code_changed` flag indicates application code was modified.\n\nGiven the context:\n- `PeriodFormatterBuilder.java` is the most active file (highest commits, churn) and directly related to period formatting\n- `PeriodFormat.java` is also directly related to period formatting\n- The other files (DateTimeParserBucket, DateTimePrinter, DateTimeFormat) are less likely to be involved in a Period-related test failure\n\n{\"ranking\": [1, 5, 4, 2, 3], \"confidence\": {\"1\": 0.75, \"5\": 0.20, \"4\": 0.05, \"2\": 0.03, \"3\": 0.02}}",
+ "n_attempts": 1
+}

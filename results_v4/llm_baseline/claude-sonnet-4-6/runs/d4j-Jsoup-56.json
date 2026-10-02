@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Jsoup-56",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/nodes/DocumentType.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Token.java"
+ ],
+ "timestamp": "2026-10-02T15:11:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  5,
+  4,
+  6,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "2": 0.35,
+  "5": 0.25,
+  "4": 0.15,
+  "6": 0.1,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.35,
+  0.1,
+  0.15,
+  0.25,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  3,
+  2,
+  5
+ ],
+ "usage": {
+  "input_tokens": 953,
+  "output_tokens": 491
+ },
+ "raw_response": "Looking at this failing test in Jsoup (d4j-Jsoup-56), I need to reason about which files are likely defective.\n\nThe test involves an AssertionError, which in Jsoup tests typically means an assertion about parsed HTML/XML output didn't match expectations.\n\nKey considerations:\n- `DocumentType.java` (candidate 3) - has relatively few commits (9), few devs (2), low churn (107), and is a focused class. DocumentType handling is a common source of bugs in HTML parsers.\n- `HtmlTreeBuilderState.java` (candidate 2) - heavily modified file dealing with HTML tree building states, which handles DOCTYPE nodes among other things.\n- `TokeniserState.java` (candidate 4) - handles tokenization states, very active file.\n- `Token.java` (candidate 6) - token representations, moderately active.\n- `Attributes.java` (candidate 1) - attribute handling.\n- `XmlTreeBuilder.java` (candidate 5) - XML parsing, single developer, moderate activity.\n\nFor Jsoup issue 56 (defects4j numbering), this is likely related to DocumentType handling or XML/HTML tree building. The `DocumentType.java` file has low activity but is specifically about document type nodes. The `HtmlTreeBuilderState.java` handles DOCTYPE processing in the tree builder. `XmlTreeBuilder.java` with only one developer and moderate churn could also be involved.\n\nGiven the pattern of the bug (AssertionError in parsing), and that DocumentType is a specialized class that could have subtle bugs, combined with HtmlTreeBuilderState handling DOCTYPE insertion, I'll rank accordingly. The `DocumentType.java` and `HtmlTreeBuilderState.java` seem most likely, with `XmlTreeBuilder.java` also being a candidate.\n\n{\"ranking\": [3, 2, 5, 4, 6, 1], \"confidence\": {\"3\": 0.55, \"2\": 0.35, \"5\": 0.25, \"4\": 0.15, \"6\": 0.10, \"1\": 0.05}}",
+ "n_attempts": 1
+}

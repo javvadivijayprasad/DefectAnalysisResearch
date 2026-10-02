@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-29",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/Comment.java",
+  "src/main/java/org/jsoup/nodes/Document.java",
+  "src/main/java/org/jsoup/nodes/TextNode.java",
+  "src/main/java/org/jsoup/nodes/Attribute.java",
+  "src/main/java/org/jsoup/nodes/Element.java",
+  "src/main/java/org/jsoup/nodes/Node.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/nodes/XmlDeclaration.java"
+ ],
+ "timestamp": "2026-10-02T15:10:05",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  3,
+  6,
+  5,
+  2,
+  4,
+  1,
+  8
+ ],
+ "llm_confidence_presented": {
+  "7": 0.45,
+  "3": 0.4,
+  "6": 0.25,
+  "5": 0.2,
+  "2": 0.15,
+  "4": 0.08,
+  "1": 0.06,
+  "8": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.05,
+  0.2,
+  0.08,
+  0.06,
+  0.4,
+  0.25,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  7,
+  3,
+  5,
+  6,
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1051,
+  "output_tokens": 458
+ },
+ "raw_response": "Looking at this failing test in Jsoup (defects4j:Jsoup-29), I need to identify which files were likely changed in the fix commit.\n\nJsoup-29 is related to parsing/output issues. Let me analyze the candidates:\n\n- The test involves an AssertionError, suggesting output doesn't match expected\n- The `app_code_changed` flag indicates application code was modified\n- Looking at the nodes package files, the most likely candidates for a bug fix would be core node classes\n\nKey observations:\n1. **TextNode.java** (3) - High commit frequency (0.4461), relatively young file (408 days), significant churn. TextNode handling is often involved in output/parsing bugs.\n2. **Node.java** (6) - Very high commits (53), high churn (881), core class that many things depend on. Frequently modified.\n3. **Element.java** (5) - Highest commits (76), highest churn (1775), most active file. Core class.\n4. **Entities.java** (7) - Massive churn (4741 lines), likely had entity encoding changes. Entity handling bugs are common in HTML parsers.\n5. **Document.java** (2) - Moderate activity, output settings often changed here.\n\nFor Jsoup-29 specifically, this bug is related to entity encoding/output. The Entities.java file has enormous churn suggesting major rewrites. TextNode.java handles text output which involves entity encoding. These two together are strong candidates.\n\nNode.java is also frequently involved as the base class for output operations.\n\n{\"ranking\": [7, 3, 6, 5, 2, 4, 1, 8], \"confidence\": {\"7\": 0.45, \"3\": 0.40, \"6\": 0.25, \"5\": 0.20, \"2\": 0.15, \"4\": 0.08, \"1\": 0.06, \"8\": 0.05}}",
+ "n_attempts": 1
+}

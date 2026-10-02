@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-luigi-24",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "luigi/contrib/pyspark_runner.py",
+  "luigi/contrib/target.py",
+  "luigi/contrib/esindex.py",
+  "luigi/contrib/hive.py",
+  "luigi/contrib/mysqldb.py",
+  "luigi/contrib/spark.py",
+  "luigi/contrib/redshift.py"
+ ],
+ "timestamp": "2026-10-02T15:26:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  4,
+  7,
+  3,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "6": 0.35,
+  "4": 0.08,
+  "7": 0.06,
+  "3": 0.05,
+  "2": 0.04,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.03,
+  0.05,
+  0.04,
+  0.55,
+  0.08,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  6,
+  4,
+  5,
+  0,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 927,
+  "output_tokens": 371
+ },
+ "raw_response": "Looking at the failing test event for luigi (Python) with an AssertionError, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n1. `pyspark_runner.py` (candidate 1) has extremely high commit frequency (1.1667 commits/day) and very recent age (12 days), suggesting it was actively being developed/fixed around the time of this bug.\n2. `spark.py` (candidate 6) has high churn (1401) and many commits (23), suggesting it's a complex, frequently modified file that could have bugs.\n3. The pyspark_runner.py is closely related to spark.py - pyspark is a component of spark, and they likely interact.\n4. The very recent age of pyspark_runner.py (12 days) combined with high commit frequency strongly suggests it was recently introduced/modified and may contain the defect.\n5. spark.py has significant churn and many developers, making it prone to bugs.\n\nThe combination of pyspark_runner.py being very new (12 days) with high commit frequency, and its relationship to spark functionality, makes it the most likely defective file. spark.py as the related infrastructure file is the second most likely candidate.\n\n{\"ranking\": [1, 6, 4, 7, 3, 2, 5], \"confidence\": {\"1\": 0.55, \"6\": 0.35, \"4\": 0.08, \"7\": 0.06, \"3\": 0.05, \"2\": 0.04, \"5\": 0.03}}",
+ "n_attempts": 1
+}

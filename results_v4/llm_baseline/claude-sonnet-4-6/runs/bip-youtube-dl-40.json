@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-youtube-dl-40",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "youtube_dl/InfoExtractors.py",
+  "youtube_dl/downloader/rtmp.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/downloader/common.py",
+  "youtube_dl/downloader/f4m.py"
+ ],
+ "timestamp": "2026-10-02T15:38:08",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.65,
+  "4": 0.25,
+  "1": 0.2,
+  "3": 0.12,
+  "2": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.12,
+  0.08,
+  0.25,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 851,
+  "output_tokens": 268
+ },
+ "raw_response": "The key signal here is candidate 5: `youtube_dl/downloader/f4m.py` with commits=1, age_days=1, and commit_freq=1.0. This is a brand new file (1 day old, only 1 commit) that was just added. New files often introduce bugs that need immediate fixes. The failing test with an AssertionError suggests something in newly added code.\n\nCandidate 4 (`downloader/common.py`) is also relatively new (123 days, 3 commits) and could be related.\n\nCandidate 1 (`InfoExtractors.py`) is the most heavily modified file in the project and is always a candidate.\n\nCandidate 3 (`utils.py`) is frequently modified and could contain utility bugs.\n\nCandidate 2 (`downloader/rtmp.py`) is new but less likely given the f4m file is newer.\n\n{\"ranking\": [5, 4, 1, 3, 2], \"confidence\": {\"5\": 0.65, \"4\": 0.25, \"1\": 0.20, \"3\": 0.12, \"2\": 0.08}}",
+ "n_attempts": 1
+}

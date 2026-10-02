@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-79",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/ShowByPathWarningsGuard.java",
+  "src/com/google/javascript/jscomp/PerformanceTracker.java",
+  "src/com/google/javascript/jscomp/ChainCalls.java",
+  "src/com/google/javascript/jscomp/LoggerErrorManager.java",
+  "src/com/google/javascript/jscomp/Normalize.java",
+  "src/com/google/javascript/jscomp/NodeTraversal.java",
+  "src/com/google/javascript/jscomp/NameReferenceGraph.java",
+  "src/com/google/javascript/jscomp/VarCheck.java"
+ ],
+ "timestamp": "2026-10-02T14:53:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  5,
+  6,
+  7,
+  4,
+  3,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "8": 0.55,
+  "5": 0.45,
+  "6": 0.15,
+  "7": 0.1,
+  "4": 0.06,
+  "3": 0.05,
+  "2": 0.05,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.55,
+  0.15,
+  0.1,
+  0.05,
+  0.05,
+  0.06,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2,
+  3,
+  5,
+  6,
+  4,
+  7
+ ],
+ "usage": {
+  "input_tokens": 1063,
+  "output_tokens": 525
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-79, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure involves an `AssertionError` \n- Flags indicate `app_code_changed` and `validator_changed`\n- The test is in the Closure compiler project\n\nLet me analyze the candidates:\n\n1. **Normalize.java** (index 5) - Very high commit frequency (0.4632), high churn (1524), many commits (27). This is a heavily modified file dealing with normalization, which is a core transformation pass. High likelihood of containing bugs.\n\n2. **VarCheck.java** (index 8) - High commit frequency (0.3934), significant churn (449), many commits (24). VarCheck is a validator, and the `validator_changed` flag is set. This is a strong candidate.\n\n3. **NodeTraversal.java** (index 6) - Moderate-high commit frequency (0.2310), high churn (730). Core traversal infrastructure that many passes depend on.\n\n4. **NameReferenceGraph.java** (index 7) - Moderate commit frequency (0.1954), decent churn (454).\n\n5. **LoggerErrorManager.java** (index 4) - Moderate commits (8), lower churn.\n\n6. **ChainCalls.java** (index 3) - Similar stats to LoggerErrorManager.\n\n7. **PerformanceTracker.java** (index 2) - Similar stats.\n\n8. **ShowByPathWarningsGuard.java** (index 1) - Lowest activity.\n\nThe `validator_changed` flag strongly suggests VarCheck.java (a validator). The `app_code_changed` flag combined with the AssertionError points to Normalize.java as a likely companion change.\n\n{\"ranking\": [8, 5, 6, 7, 4, 3, 2, 1], \"confidence\": {\"8\": 0.55, \"5\": 0.45, \"6\": 0.15, \"7\": 0.10, \"4\": 0.06, \"3\": 0.05, \"2\": 0.05, \"1\": 0.03}}",
+ "n_attempts": 1
+}

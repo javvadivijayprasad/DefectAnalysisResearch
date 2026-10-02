@@ -1,0 +1,1011 @@
+{
+ "corpus": {
+  "events": 1267,
+  "rows": 6716,
+  "projects": 33,
+  "defect_fraction": 0.253,
+  "mean_files_per_event": 5.3,
+  "events_d4j": 774,
+  "events_bip": 493,
+  "rows_d4j": 4178,
+  "rows_bip": 2538,
+  "projects_d4j": 16,
+  "projects_bip": 17,
+  "skipped": {
+   "no distractor available (no sibling source file)": 37,
+   "no non-test source file in fix diff": 25,
+   "checkout failed": 23,
+   "revision.id.buggy not in history": 3
+  },
+  "skipped_by_corpus": {
+   "bip|no distractor available (no sibling source file)": 6,
+   "bip|no non-test source file in fix diff": 2,
+   "d4j|checkout failed": 23,
+   "d4j|no distractor available (no sibling source file)": 31,
+   "d4j|no non-test source file in fix diff": 23,
+   "d4j|revision.id.buggy not in history": 3
+  },
+  "fix_files_per_event_mean": 1.34,
+  "events_with_one_fix_file": 1008
+ },
+ "pooled": {
+  "pre_only": {
+   "n_events": 1267,
+   "p1": 0.5406,
+   "p3": 0.3567,
+   "r5": 0.9566,
+   "mrr": 0.7184,
+   "triage_s": 5.7,
+   "ece": 0.0247
+  },
+  "fused_rule": {
+   "n_events": 1267,
+   "p1": 0.5406,
+   "p3": 0.3567,
+   "r5": 0.9566,
+   "mrr": 0.7184,
+   "triage_s": 5.7,
+   "ece": 0.0912
+  },
+  "fused_ml": {
+   "n_events": 1267,
+   "p1": 0.4957,
+   "p3": 0.3441,
+   "r5": 0.9444,
+   "mrr": 0.6857,
+   "triage_s": 6.13,
+   "ece": 0.0816
+  },
+  "fail_only": {
+   "n_events": 1267,
+   "p1": 0.2431,
+   "p3": 0.2639,
+   "r5": 0.8823,
+   "mrr": 0.4904,
+   "triage_s": 8.85,
+   "ece": 0.747
+  },
+  "claude-sonnet-4-6": {
+   "n_events": 1267,
+   "p1": 0.532,
+   "p3": 0.356,
+   "r5": 0.9642,
+   "mrr": 0.709,
+   "triage_s": 5.85,
+   "ece": 0.0651
+  },
+  "gpt-4o-mini": {
+   "n_events": 1267,
+   "p1": 0.4609,
+   "p3": 0.3391,
+   "r5": 0.9343,
+   "mrr": 0.6619,
+   "triage_s": 6.45,
+   "ece": 0.0652
+  }
+ },
+ "per_corpus": {
+  "pre_only": {
+   "defects4j": {
+    "n_events": 774,
+    "p1": 0.5827,
+    "p3": 0.3783,
+    "r5": 0.9546,
+    "mrr": 0.7437,
+    "triage_s": 5.45,
+    "ece": 0.0225
+   },
+   "bugsinpy": {
+    "n_events": 493,
+    "p1": 0.4746,
+    "p3": 0.3229,
+    "r5": 0.9598,
+    "mrr": 0.6785,
+    "triage_s": 6.09,
+    "ece": 0.0651
+   }
+  },
+  "fused_rule": {
+   "defects4j": {
+    "n_events": 774,
+    "p1": 0.5827,
+    "p3": 0.3783,
+    "r5": 0.9546,
+    "mrr": 0.7437,
+    "triage_s": 5.45,
+    "ece": 0.065
+   },
+   "bugsinpy": {
+    "n_events": 493,
+    "p1": 0.4746,
+    "p3": 0.3229,
+    "r5": 0.9598,
+    "mrr": 0.6785,
+    "triage_s": 6.09,
+    "ece": 0.1346
+   }
+  },
+  "fused_ml": {
+   "defects4j": {
+    "n_events": 774,
+    "p1": 0.5413,
+    "p3": 0.3702,
+    "r5": 0.943,
+    "mrr": 0.717,
+    "triage_s": 5.78,
+    "ece": 0.0621
+   },
+   "bugsinpy": {
+    "n_events": 493,
+    "p1": 0.4239,
+    "p3": 0.3032,
+    "r5": 0.9467,
+    "mrr": 0.6366,
+    "triage_s": 6.7,
+    "ece": 0.1137
+   }
+  },
+  "fail_only": {
+   "defects4j": {
+    "n_events": 774,
+    "p1": 0.2584,
+    "p3": 0.275,
+    "r5": 0.8687,
+    "mrr": 0.4988,
+    "triage_s": 8.84,
+    "ece": 0.7312
+   },
+   "bugsinpy": {
+    "n_events": 493,
+    "p1": 0.2191,
+    "p3": 0.2465,
+    "r5": 0.9037,
+    "mrr": 0.4773,
+    "triage_s": 8.87,
+    "ece": 0.773
+   }
+  },
+  "claude-sonnet-4-6": {
+   "defects4j": {
+    "n_events": 774,
+    "p1": 0.5891,
+    "p3": 0.3732,
+    "r5": 0.9559,
+    "mrr": 0.7427,
+    "triage_s": 5.6,
+    "ece": 0.0691
+   },
+   "bugsinpy": {
+    "n_events": 493,
+    "p1": 0.4422,
+    "p3": 0.3289,
+    "r5": 0.9771,
+    "mrr": 0.6562,
+    "triage_s": 6.24,
+    "ece": 0.0583
+   }
+  },
+  "gpt-4o-mini": {
+   "defects4j": {
+    "n_events": 774,
+    "p1": 0.4793,
+    "p3": 0.3641,
+    "r5": 0.9309,
+    "mrr": 0.6774,
+    "triage_s": 6.25,
+    "ece": 0.0834
+   },
+   "bugsinpy": {
+    "n_events": 493,
+    "p1": 0.432,
+    "p3": 0.2999,
+    "r5": 0.9398,
+    "mrr": 0.6376,
+    "triage_s": 6.75,
+    "ece": 0.0448
+   }
+  }
+ },
+ "pairwise": {
+  "fused_rule_minus_pre_only_p1": {
+   "mean_diff": 0.0,
+   "ci_lo": 0.0,
+   "ci_hi": 0.0
+  },
+  "fused_rule_minus_pre_only_p1_defects4j": {
+   "mean_diff": 0.0,
+   "ci_lo": 0.0,
+   "ci_hi": 0.0
+  },
+  "fused_rule_minus_pre_only_p1_bugsinpy": {
+   "mean_diff": 0.0,
+   "ci_lo": 0.0,
+   "ci_hi": 0.0
+  },
+  "fused_ml_minus_pre_only_p1": {
+   "mean_diff": -0.045,
+   "ci_lo": -0.0647,
+   "ci_hi": -0.0253
+  },
+  "fused_ml_minus_pre_only_p1_defects4j": {
+   "mean_diff": -0.0413,
+   "ci_lo": -0.0646,
+   "ci_hi": -0.0181
+  },
+  "fused_ml_minus_pre_only_p1_bugsinpy": {
+   "mean_diff": -0.0507,
+   "ci_lo": -0.0852,
+   "ci_hi": -0.0162
+  },
+  "fail_only_minus_pre_only_p1": {
+   "mean_diff": -0.2976,
+   "ci_lo": -0.3315,
+   "ci_hi": -0.2636
+  },
+  "fail_only_minus_pre_only_p1_defects4j": {
+   "mean_diff": -0.3243,
+   "ci_lo": -0.3669,
+   "ci_hi": -0.2804
+  },
+  "fail_only_minus_pre_only_p1_bugsinpy": {
+   "mean_diff": -0.2556,
+   "ci_lo": -0.3103,
+   "ci_hi": -0.2008
+  },
+  "claude-sonnet-4-6_minus_pre_only_p1": {
+   "mean_diff": -0.0087,
+   "ci_lo": -0.0418,
+   "ci_hi": 0.0245
+  },
+  "claude-sonnet-4-6_minus_pre_only_p1_defects4j": {
+   "mean_diff": 0.0065,
+   "ci_lo": -0.0375,
+   "ci_hi": 0.0504
+  },
+  "claude-sonnet-4-6_minus_pre_only_p1_bugsinpy": {
+   "mean_diff": -0.0325,
+   "ci_lo": -0.0852,
+   "ci_hi": 0.0183
+  },
+  "gpt-4o-mini_minus_pre_only_p1": {
+   "mean_diff": -0.0797,
+   "ci_lo": -0.1097,
+   "ci_hi": -0.0497
+  },
+  "gpt-4o-mini_minus_pre_only_p1_defects4j": {
+   "mean_diff": -0.1034,
+   "ci_lo": -0.1395,
+   "ci_hi": -0.0659
+  },
+  "gpt-4o-mini_minus_pre_only_p1_bugsinpy": {
+   "mean_diff": -0.0426,
+   "ci_lo": -0.0953,
+   "ci_hi": 0.0081
+  },
+  "fused_rule_minus_pre_only_mrr": {
+   "mean_diff": 0.0,
+   "ci_lo": 0.0,
+   "ci_hi": 0.0
+  },
+  "fused_ml_minus_pre_only_mrr": {
+   "mean_diff": -0.0326,
+   "ci_lo": -0.0436,
+   "ci_hi": -0.0219
+  },
+  "fail_only_minus_pre_only_mrr": {
+   "mean_diff": -0.2279,
+   "ci_lo": -0.2497,
+   "ci_hi": -0.2053
+  },
+  "claude-sonnet-4-6_minus_pre_only_mrr": {
+   "mean_diff": -0.0093,
+   "ci_lo": -0.03,
+   "ci_hi": 0.011
+  },
+  "gpt-4o-mini_minus_pre_only_mrr": {
+   "mean_diff": -0.0564,
+   "ci_lo": -0.0748,
+   "ci_hi": -0.0381
+  }
+ },
+ "per_project": {
+  "table": [
+   {
+    "repo": "bugsinpy:PySnooper",
+    "pre_only": 0.5,
+    "fused_rule": 0.5,
+    "fused_ml": 0.5,
+    "fail_only": 0.0,
+    "claude-sonnet-4-6": 0.5,
+    "gpt-4o-mini": 0.5,
+    "n_events": 2
+   },
+   {
+    "repo": "bugsinpy:ansible",
+    "pre_only": 0.556,
+    "fused_rule": 0.556,
+    "fused_ml": 0.5,
+    "fail_only": 0.111,
+    "claude-sonnet-4-6": 0.278,
+    "gpt-4o-mini": 0.5,
+    "n_events": 18
+   },
+   {
+    "repo": "bugsinpy:black",
+    "pre_only": 0.957,
+    "fused_rule": 0.957,
+    "fused_ml": 0.957,
+    "fail_only": 0.348,
+    "claude-sonnet-4-6": 0.957,
+    "gpt-4o-mini": 0.783,
+    "n_events": 23
+   },
+   {
+    "repo": "bugsinpy:cookiecutter",
+    "pre_only": 0.75,
+    "fused_rule": 0.75,
+    "fused_ml": 0.5,
+    "fail_only": 0.25,
+    "claude-sonnet-4-6": 0.75,
+    "gpt-4o-mini": 0.5,
+    "n_events": 4
+   },
+   {
+    "repo": "bugsinpy:fastapi",
+    "pre_only": 0.667,
+    "fused_rule": 0.667,
+    "fused_ml": 0.533,
+    "fail_only": 0.2,
+    "claude-sonnet-4-6": 0.467,
+    "gpt-4o-mini": 0.467,
+    "n_events": 15
+   },
+   {
+    "repo": "bugsinpy:httpie",
+    "pre_only": 0.4,
+    "fused_rule": 0.4,
+    "fused_ml": 0.6,
+    "fail_only": 0.0,
+    "claude-sonnet-4-6": 0.2,
+    "gpt-4o-mini": 0.2,
+    "n_events": 5
+   },
+   {
+    "repo": "bugsinpy:keras",
+    "pre_only": 0.5,
+    "fused_rule": 0.5,
+    "fused_ml": 0.477,
+    "fail_only": 0.136,
+    "claude-sonnet-4-6": 0.5,
+    "gpt-4o-mini": 0.364,
+    "n_events": 44
+   },
+   {
+    "repo": "bugsinpy:luigi",
+    "pre_only": 0.576,
+    "fused_rule": 0.576,
+    "fused_ml": 0.394,
+    "fail_only": 0.394,
+    "claude-sonnet-4-6": 0.515,
+    "gpt-4o-mini": 0.545,
+    "n_events": 33
+   },
+   {
+    "repo": "bugsinpy:matplotlib",
+    "pre_only": 0.633,
+    "fused_rule": 0.633,
+    "fused_ml": 0.6,
+    "fail_only": 0.167,
+    "claude-sonnet-4-6": 0.333,
+    "gpt-4o-mini": 0.567,
+    "n_events": 30
+   },
+   {
+    "repo": "bugsinpy:pandas",
+    "pre_only": 0.386,
+    "fused_rule": 0.386,
+    "fused_ml": 0.355,
+    "fail_only": 0.187,
+    "claude-sonnet-4-6": 0.367,
+    "gpt-4o-mini": 0.373,
+    "n_events": 166
+   },
+   {
+    "repo": "bugsinpy:sanic",
+    "pre_only": 0.6,
+    "fused_rule": 0.6,
+    "fused_ml": 0.4,
+    "fail_only": 0.4,
+    "claude-sonnet-4-6": 0.4,
+    "gpt-4o-mini": 0.6,
+    "n_events": 5
+   },
+   {
+    "repo": "bugsinpy:scrapy",
+    "pre_only": 0.325,
+    "fused_rule": 0.325,
+    "fused_ml": 0.2,
+    "fail_only": 0.35,
+    "claude-sonnet-4-6": 0.475,
+    "gpt-4o-mini": 0.45,
+    "n_events": 40
+   },
+   {
+    "repo": "bugsinpy:spacy",
+    "pre_only": 0.5,
+    "fused_rule": 0.5,
+    "fused_ml": 0.7,
+    "fail_only": 0.1,
+    "claude-sonnet-4-6": 0.3,
+    "gpt-4o-mini": 0.5,
+    "n_events": 10
+   },
+   {
+    "repo": "bugsinpy:thefuck",
+    "pre_only": 0.226,
+    "fused_rule": 0.226,
+    "fused_ml": 0.161,
+    "fail_only": 0.194,
+    "claude-sonnet-4-6": 0.355,
+    "gpt-4o-mini": 0.258,
+    "n_events": 31
+   },
+   {
+    "repo": "bugsinpy:tornado",
+    "pre_only": 0.5,
+    "fused_rule": 0.5,
+    "fused_ml": 0.5,
+    "fail_only": 0.25,
+    "claude-sonnet-4-6": 0.375,
+    "gpt-4o-mini": 0.625,
+    "n_events": 16
+   },
+   {
+    "repo": "bugsinpy:tqdm",
+    "pre_only": 0.778,
+    "fused_rule": 0.778,
+    "fused_ml": 0.778,
+    "fail_only": 0.111,
+    "claude-sonnet-4-6": 0.667,
+    "gpt-4o-mini": 0.444,
+    "n_events": 9
+   },
+   {
+    "repo": "bugsinpy:youtube-dl",
+    "pre_only": 0.452,
+    "fused_rule": 0.452,
+    "fused_ml": 0.381,
+    "fail_only": 0.262,
+    "claude-sonnet-4-6": 0.524,
+    "gpt-4o-mini": 0.333,
+    "n_events": 42
+   },
+   {
+    "repo": "defects4j:Cli",
+    "pre_only": 0.457,
+    "fused_rule": 0.457,
+    "fused_ml": 0.286,
+    "fail_only": 0.314,
+    "claude-sonnet-4-6": 0.457,
+    "gpt-4o-mini": 0.4,
+    "n_events": 35
+   },
+   {
+    "repo": "defects4j:Closure",
+    "pre_only": 0.675,
+    "fused_rule": 0.675,
+    "fused_ml": 0.59,
+    "fail_only": 0.307,
+    "claude-sonnet-4-6": 0.56,
+    "gpt-4o-mini": 0.633,
+    "n_events": 166
+   },
+   {
+    "repo": "defects4j:Codec",
+    "pre_only": 0.588,
+    "fused_rule": 0.588,
+    "fused_ml": 0.588,
+    "fail_only": 0.353,
+    "claude-sonnet-4-6": 0.529,
+    "gpt-4o-mini": 0.294,
+    "n_events": 17
+   },
+   {
+    "repo": "defects4j:Collections",
+    "pre_only": 0.393,
+    "fused_rule": 0.393,
+    "fused_ml": 0.464,
+    "fail_only": 0.286,
+    "claude-sonnet-4-6": 0.429,
+    "gpt-4o-mini": 0.464,
+    "n_events": 28
+   },
+   {
+    "repo": "defects4j:Compress",
+    "pre_only": 0.477,
+    "fused_rule": 0.477,
+    "fused_ml": 0.477,
+    "fail_only": 0.227,
+    "claude-sonnet-4-6": 0.5,
+    "gpt-4o-mini": 0.341,
+    "n_events": 44
+   },
+   {
+    "repo": "defects4j:Csv",
+    "pre_only": 0.562,
+    "fused_rule": 0.562,
+    "fused_ml": 0.5,
+    "fail_only": 0.375,
+    "claude-sonnet-4-6": 0.438,
+    "gpt-4o-mini": 0.5,
+    "n_events": 16
+   },
+   {
+    "repo": "defects4j:Gson",
+    "pre_only": 0.625,
+    "fused_rule": 0.625,
+    "fused_ml": 0.562,
+    "fail_only": 0.25,
+    "claude-sonnet-4-6": 0.5,
+    "gpt-4o-mini": 0.5,
+    "n_events": 16
+   },
+   {
+    "repo": "defects4j:JacksonCore",
+    "pre_only": 0.826,
+    "fused_rule": 0.826,
+    "fused_ml": 0.87,
+    "fail_only": 0.304,
+    "claude-sonnet-4-6": 0.478,
+    "gpt-4o-mini": 0.696,
+    "n_events": 23
+   },
+   {
+    "repo": "defects4j:JacksonDatabind",
+    "pre_only": 0.674,
+    "fused_rule": 0.674,
+    "fused_ml": 0.568,
+    "fail_only": 0.2,
+    "claude-sonnet-4-6": 0.463,
+    "gpt-4o-mini": 0.421,
+    "n_events": 95
+   },
+   {
+    "repo": "defects4j:JacksonXml",
+    "pre_only": 0.5,
+    "fused_rule": 0.5,
+    "fused_ml": 0.5,
+    "fail_only": 0.333,
+    "claude-sonnet-4-6": 0.0,
+    "gpt-4o-mini": 0.0,
+    "n_events": 6
+   },
+   {
+    "repo": "defects4j:Jsoup",
+    "pre_only": 0.494,
+    "fused_rule": 0.494,
+    "fused_ml": 0.471,
+    "fail_only": 0.241,
+    "claude-sonnet-4-6": 0.368,
+    "gpt-4o-mini": 0.425,
+    "n_events": 87
+   },
+   {
+    "repo": "defects4j:JxPath",
+    "pre_only": 0.632,
+    "fused_rule": 0.632,
+    "fused_ml": 0.632,
+    "fail_only": 0.158,
+    "claude-sonnet-4-6": 0.737,
+    "gpt-4o-mini": 0.632,
+    "n_events": 19
+   },
+   {
+    "repo": "defects4j:Lang",
+    "pre_only": 0.459,
+    "fused_rule": 0.459,
+    "fused_ml": 0.459,
+    "fail_only": 0.148,
+    "claude-sonnet-4-6": 0.902,
+    "gpt-4o-mini": 0.262,
+    "n_events": 61
+   },
+   {
+    "repo": "defects4j:Math",
+    "pre_only": 0.561,
+    "fused_rule": 0.561,
+    "fused_ml": 0.551,
+    "fail_only": 0.286,
+    "claude-sonnet-4-6": 0.939,
+    "gpt-4o-mini": 0.52,
+    "n_events": 98
+   },
+   {
+    "repo": "defects4j:Mockito",
+    "pre_only": 0.703,
+    "fused_rule": 0.703,
+    "fused_ml": 0.703,
+    "fail_only": 0.297,
+    "claude-sonnet-4-6": 0.595,
+    "gpt-4o-mini": 0.568,
+    "n_events": 37
+   },
+   {
+    "repo": "defects4j:Time",
+    "pre_only": 0.462,
+    "fused_rule": 0.462,
+    "fused_ml": 0.462,
+    "fail_only": 0.154,
+    "claude-sonnet-4-6": 0.731,
+    "gpt-4o-mini": 0.385,
+    "n_events": 26
+   }
+  ],
+  "fused_rule_vs_pre_only": {
+   "wins": 0,
+   "losses": 0,
+   "ties": 33,
+   "significant_95": 0,
+   "projects": 33
+  },
+  "fused_ml_vs_pre_only": {
+   "wins": 4,
+   "losses": 18,
+   "ties": 11,
+   "significant_95": 4,
+   "projects": 33
+  },
+  "fail_only_vs_pre_only": {
+   "wins": 1,
+   "losses": 32,
+   "ties": 0,
+   "significant_95": 18,
+   "projects": 33
+  },
+  "claude-sonnet-4-6_vs_pre_only": {
+   "wins": 9,
+   "losses": 19,
+   "ties": 5,
+   "significant_95": 8,
+   "projects": 33
+  },
+  "gpt-4o-mini_vs_pre_only": {
+   "wins": 4,
+   "losses": 25,
+   "ties": 4,
+   "significant_95": 4,
+   "projects": 33
+  }
+ },
+ "calibration": {
+  "pre_only_reliability": [
+   {
+    "bin": "[0.0,0.1]",
+    "n": 1078,
+    "mean_conf": 0.077,
+    "frac_pos": 0.1
+   },
+   {
+    "bin": "[0.1,0.2]",
+    "n": 2122,
+    "mean_conf": 0.143,
+    "frac_pos": 0.136
+   },
+   {
+    "bin": "[0.2,0.3]",
+    "n": 1181,
+    "mean_conf": 0.246,
+    "frac_pos": 0.273
+   },
+   {
+    "bin": "[0.3,0.4]",
+    "n": 894,
+    "mean_conf": 0.345,
+    "frac_pos": 0.315
+   },
+   {
+    "bin": "[0.4,0.5]",
+    "n": 623,
+    "mean_conf": 0.45,
+    "frac_pos": 0.443
+   },
+   {
+    "bin": "[0.5,0.6]",
+    "n": 496,
+    "mean_conf": 0.546,
+    "frac_pos": 0.502
+   },
+   {
+    "bin": "[0.6,0.7]",
+    "n": 235,
+    "mean_conf": 0.64,
+    "frac_pos": 0.532
+   },
+   {
+    "bin": "[0.7,0.8]",
+    "n": 74,
+    "mean_conf": 0.739,
+    "frac_pos": 0.541
+   },
+   {
+    "bin": "[0.8,0.9]",
+    "n": 13,
+    "mean_conf": 0.827,
+    "frac_pos": 0.692
+   }
+  ],
+  "precision_at_threshold_0.5": {
+   "n_rows": 818,
+   "share_of_rows": 0.122,
+   "fraction_defect": 0.517,
+   "defects4j": {
+    "n_rows": 401,
+    "fraction_defect": 0.626
+   },
+   "bugsinpy": {
+    "n_rows": 417,
+    "fraction_defect": 0.412
+   }
+  },
+  "precision_at_threshold_0.6": {
+   "n_rows": 322,
+   "share_of_rows": 0.048,
+   "fraction_defect": 0.54,
+   "defects4j": {
+    "n_rows": 161,
+    "fraction_defect": 0.658
+   },
+   "bugsinpy": {
+    "n_rows": 161,
+    "fraction_defect": 0.422
+   }
+  },
+  "precision_at_threshold_0.7": {
+   "n_rows": 87,
+   "share_of_rows": 0.013,
+   "fraction_defect": 0.563,
+   "defects4j": {
+    "n_rows": 49,
+    "fraction_defect": 0.735
+   },
+   "bugsinpy": {
+    "n_rows": 38,
+    "fraction_defect": 0.342
+   }
+  },
+  "precision_at_threshold_0.8": {
+   "n_rows": 13,
+   "share_of_rows": 0.002,
+   "fraction_defect": 0.692,
+   "defects4j": {
+    "n_rows": 5,
+    "fraction_defect": 1.0
+   },
+   "bugsinpy": {
+    "n_rows": 8,
+    "fraction_defect": 0.5
+   }
+  }
+ },
+ "llm": {
+  "claude-sonnet-4-6_per_project_columns": [
+   "repo",
+   "n_events",
+   "p1_mean",
+   "p3_mean",
+   "r5_mean",
+   "mrr_mean",
+   "triage_s_mean",
+   "ece_10bin"
+  ],
+  "gpt-4o-mini_per_project_columns": [
+   "repo",
+   "n_events",
+   "p1_mean",
+   "p3_mean",
+   "r5_mean",
+   "mrr_mean",
+   "triage_s_mean",
+   "ece_10bin"
+  ],
+  "claude_tokens": {
+   "total_input_tokens": 1142698,
+   "total_output_tokens": 274943
+  },
+  "claude-sonnet-4-6_rows_matched": 6716,
+  "claude-sonnet-4-6_ece_pooled_from_runs": 0.0651,
+  "gpt-4o-mini_rows_matched": 6716,
+  "gpt-4o-mini_ece_pooled_from_runs": 0.0652,
+  "pre_only_p1_d4j_LangMathTime": 0.5135,
+  "pre_only_p1_d4j_other13": 0.6044,
+  "pre_only_n_LangMathTime": 185,
+  "claude-sonnet-4-6_p1_d4j_LangMathTime": 0.8973,
+  "claude-sonnet-4-6_p1_d4j_other13": 0.4924,
+  "claude-sonnet-4-6_n_LangMathTime": 185,
+  "gpt-4o-mini_p1_d4j_LangMathTime": 0.4162,
+  "gpt-4o-mini_p1_d4j_other13": 0.4992,
+  "gpt-4o-mini_n_LangMathTime": 185
+ },
+ "sensitivity": [
+  {
+   "k": "2",
+   "method": "pre_only",
+   "n_events": 1267,
+   "n_rows": 2966,
+   "base_rate": 0.5728,
+   "ece_10bin": 0.2759,
+   "p1_mean": 0.7916
+  },
+  {
+   "k": "2",
+   "method": "fused_rule",
+   "n_events": 1267,
+   "n_rows": 2966,
+   "base_rate": 0.5728,
+   "ece_10bin": 0.1955,
+   "p1_mean": 0.7916
+  },
+  {
+   "k": "2",
+   "method": "fused_ml",
+   "n_events": 1267,
+   "n_rows": 2966,
+   "base_rate": 0.5728,
+   "ece_10bin": 0.2672,
+   "p1_mean": 0.7648
+  },
+  {
+   "k": "2",
+   "method": "llm_sonnet",
+   "n_events": 1267,
+   "n_rows": 2966,
+   "base_rate": 0.5728,
+   "ece_10bin": 0.2718,
+   "p1_mean": 0.7648
+  },
+  {
+   "k": "2",
+   "method": "llm_gpt4omini",
+   "n_events": 1267,
+   "n_rows": 2966,
+   "base_rate": 0.5728,
+   "ece_10bin": 0.3408,
+   "p1_mean": 0.723
+  },
+  {
+   "k": "3",
+   "method": "pre_only",
+   "n_events": 1195,
+   "n_rows": 3916,
+   "base_rate": 0.3897,
+   "ece_10bin": 0.1128,
+   "p1_mean": 0.6536
+  },
+  {
+   "k": "3",
+   "method": "fused_rule",
+   "n_events": 1195,
+   "n_rows": 3916,
+   "base_rate": 0.3897,
+   "ece_10bin": 0.0358,
+   "p1_mean": 0.6536
+  },
+  {
+   "k": "3",
+   "method": "fused_ml",
+   "n_events": 1195,
+   "n_rows": 3916,
+   "base_rate": 0.3897,
+   "ece_10bin": 0.1332,
+   "p1_mean": 0.6084
+  },
+  {
+   "k": "3",
+   "method": "llm_sonnet",
+   "n_events": 1195,
+   "n_rows": 3916,
+   "base_rate": 0.3897,
+   "ece_10bin": 0.1326,
+   "p1_mean": 0.6301
+  },
+  {
+   "k": "3",
+   "method": "llm_gpt4omini",
+   "n_events": 1195,
+   "n_rows": 3916,
+   "base_rate": 0.3897,
+   "ece_10bin": 0.1774,
+   "p1_mean": 0.5665
+  },
+  {
+   "k": "4",
+   "method": "pre_only",
+   "n_events": 948,
+   "n_rows": 4011,
+   "base_rate": 0.2909,
+   "ece_10bin": 0.0299,
+   "p1_mean": 0.5686
+  },
+  {
+   "k": "4",
+   "method": "fused_rule",
+   "n_events": 948,
+   "n_rows": 4011,
+   "base_rate": 0.2909,
+   "ece_10bin": 0.0594,
+   "p1_mean": 0.5686
+  },
+  {
+   "k": "4",
+   "method": "fused_ml",
+   "n_events": 948,
+   "n_rows": 4011,
+   "base_rate": 0.2909,
+   "ece_10bin": 0.0829,
+   "p1_mean": 0.5243
+  },
+  {
+   "k": "4",
+   "method": "llm_sonnet",
+   "n_events": 948,
+   "n_rows": 4011,
+   "base_rate": 0.2909,
+   "ece_10bin": 0.087,
+   "p1_mean": 0.5485
+  },
+  {
+   "k": "4",
+   "method": "llm_gpt4omini",
+   "n_events": 948,
+   "n_rows": 4011,
+   "base_rate": 0.2909,
+   "ece_10bin": 0.1085,
+   "p1_mean": 0.4789
+  },
+  {
+   "k": "all",
+   "method": "pre_only",
+   "n_events": 1267,
+   "n_rows": 6716,
+   "base_rate": 0.253,
+   "ece_10bin": 0.0247,
+   "p1_mean": 0.5406
+  },
+  {
+   "k": "all",
+   "method": "fused_rule",
+   "n_events": 1267,
+   "n_rows": 6716,
+   "base_rate": 0.253,
+   "ece_10bin": 0.0912,
+   "p1_mean": 0.5406
+  },
+  {
+   "k": "all",
+   "method": "fused_ml",
+   "n_events": 1267,
+   "n_rows": 6716,
+   "base_rate": 0.253,
+   "ece_10bin": 0.0816,
+   "p1_mean": 0.4957
+  },
+  {
+   "k": "all",
+   "method": "llm_sonnet",
+   "n_events": 1267,
+   "n_rows": 6716,
+   "base_rate": 0.253,
+   "ece_10bin": 0.0651,
+   "p1_mean": 0.532
+  },
+  {
+   "k": "all",
+   "method": "llm_gpt4omini",
+   "n_events": 1267,
+   "n_rows": 6716,
+   "base_rate": 0.253,
+   "ece_10bin": 0.0652,
+   "p1_mean": 0.4609
+  }
+ ]
+}

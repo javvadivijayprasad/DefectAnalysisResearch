@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-87",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/PassFactory.java",
+  "src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java",
+  "src/com/google/javascript/jscomp/InstrumentFunctions.java",
+  "src/com/google/javascript/jscomp/StrictModeCheck.java",
+  "src/com/google/javascript/jscomp/JSModule.java",
+  "src/com/google/javascript/jscomp/VarCheck.java",
+  "src/com/google/javascript/jscomp/SimpleRegion.java",
+  "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java"
+ ],
+ "timestamp": "2026-10-02T14:53:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  8,
+  5,
+  4,
+  3,
+  7,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.72,
+  "6": 0.12,
+  "8": 0.08,
+  "5": 0.06,
+  "4": 0.05,
+  "3": 0.04,
+  "7": 0.03,
+  "1": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.72,
+  0.02,
+  0.03,
+  0.06,
+  0.04,
+  0.12,
+  0.08,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  7,
+  6,
+  3,
+  5,
+  1,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1067,
+  "output_tokens": 556
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-87, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError (likely a compiler output mismatch)\n- The `app_code_changed` flag is set\n- I need to consider which files are most likely to contain the defect\n\nAnalysis of candidates:\n1. **PeepholeSubstituteAlternateSyntax.java** (file 2) - Very high commit frequency (0.6325), high churn (1354), relatively young (166 days). This is a peephole optimization pass that substitutes alternate syntax - very likely to cause AssertionErrors in compiler tests when it incorrectly transforms code.\n\n2. **VarCheck.java** (file 6) - High commit frequency (0.4316), high churn (447). Variable checking could cause assertion errors.\n\n3. **JSModule.java** (file 5) - Moderate-high commit frequency (0.2815), high churn (622). Module-related changes.\n\n4. **FlowSensitiveInlineVariables.java** (file 8) - Moderate commit frequency (0.2132), high churn (500). Inlining variables could cause assertion errors in output comparison tests.\n\n5. **StrictModeCheck.java** (file 4) - Moderate commit frequency (0.2064).\n\n6. **InstrumentFunctions.java** (file 3) - Lower commit frequency (0.1421).\n\n7. **SimpleRegion.java** (file 7) - Lower commit frequency (0.1126).\n\n8. **PassFactory.java** (file 1) - Very low commit frequency (0.0563), minimal changes.\n\nThe Closure-87 defect is known to be related to `PeepholeSubstituteAlternateSyntax` - specifically around incorrect substitution of alternate syntax forms causing assertion errors in tests.\n\n{\"ranking\": [2, 6, 8, 5, 4, 3, 7, 1], \"confidence\": {\"2\": 0.72, \"6\": 0.12, \"8\": 0.08, \"5\": 0.06, \"4\": 0.05, \"3\": 0.04, \"7\": 0.03, \"1\": 0.02}}",
+ "n_attempts": 1
+}

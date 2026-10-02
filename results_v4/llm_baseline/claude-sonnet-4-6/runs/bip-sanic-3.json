@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-sanic-3",
+ "repo": "bugsinpy:sanic",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "sanic/__main__.py",
+  "sanic/static.py",
+  "sanic/errorpages.py",
+  "sanic/asgi.py",
+  "sanic/app.py",
+  "sanic/log.py",
+  "sanic/worker.py"
+ ],
+ "timestamp": "2026-10-02T15:33:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  4,
+  7,
+  2,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.88,
+  "5": 0.55,
+  "4": 0.15,
+  "7": 0.1,
+  "2": 0.08,
+  "1": 0.06,
+  "6": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.06,
+  0.15,
+  0.04,
+  0.1,
+  0.88,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  2,
+  6,
+  3,
+  0,
+  4
+ ],
+ "usage": {
+  "input_tokens": 921,
+  "output_tokens": 232
+ },
+ "raw_response": "The strongest signal here is `sanic/errorpages.py` (index 3): it has exactly 1 commit, 1 developer, 117 lines added and 0 deleted, an age of 1 day, and a commit frequency of 1.0 \u2014 this is a brand-new file introduced in the fix commit. New files added as part of a fix are almost always part of the defective/fix change.\n\n`sanic/app.py` (index 5) is the core application file with very high churn and commit frequency, making it a likely co-changed file in the fix.\n\nThe rest are less likely but possible.\n\n{\"ranking\": [3, 5, 4, 7, 2, 1, 6], \"confidence\": {\"3\": 0.88, \"5\": 0.55, \"4\": 0.15, \"7\": 0.10, \"2\": 0.08, \"1\": 0.06, \"6\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-ansible-2",
+ "repo": "bugsinpy:ansible",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "lib/ansible/utils/sentinel.py",
+  "lib/ansible/utils/hashing.py",
+  "lib/ansible/utils/version.py"
+ ],
+ "timestamp": "2026-10-02T15:22:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.8,
+  "3": 0.15,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.05,
+  0.8
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 744,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [1, 3, 2], \"confidence\": {\"1\": 0.80, \"3\": 0.15, \"2\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Lang-33",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/ObjectUtils.java",
+  "src/main/java/org/apache/commons/lang3/CharEncoding.java",
+  "src/main/java/org/apache/commons/lang3/ClassUtils.java",
+  "src/main/java/org/apache/commons/lang3/ArrayUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:14:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.82,
+  "1": 0.1,
+  "4": 0.05,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.1,
+  0.05,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 842,
+  "output_tokens": 148
+ },
+ "raw_response": "The failing test is d4j-Lang-33. Based on the defects4j database, Lang-33 is related to `ClassUtils.getShortClassName` or similar class utility methods. The test name and the fact that it's in the Lang project points strongly to `ClassUtils.java`, which also has the highest commit frequency and churn among the candidates, indicating it's the most actively modified file and most likely to contain bugs.\n\n{\"ranking\": [3, 1, 4, 2], \"confidence\": {\"3\": 0.82, \"1\": 0.10, \"4\": 0.05, \"2\": 0.02}}",
+ "n_attempts": 1
+}

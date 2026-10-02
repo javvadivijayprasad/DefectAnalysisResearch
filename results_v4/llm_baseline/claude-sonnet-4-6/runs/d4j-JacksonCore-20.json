@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonCore-20",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/JsonGenerator.java",
+  "src/main/java/com/fasterxml/jackson/core/JsonTokenId.java",
+  "src/main/java/com/fasterxml/jackson/core/JsonGenerationException.java",
+  "src/main/java/com/fasterxml/jackson/core/JsonpCharacterEscapes.java",
+  "src/main/java/com/fasterxml/jackson/core/package-info.java",
+  "src/main/java/com/fasterxml/jackson/core/ObjectCodec.java"
+ ],
+ "timestamp": "2026-10-02T15:04:05",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  6,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.65,
+  "3": 0.05,
+  "4": 0.45,
+  "5": 0.03,
+  "6": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.65,
+  0.03,
+  0.45,
+  0.05,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  5,
+  1,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 972,
+  "output_tokens": 396
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- `JsonTokenId.java` (candidate 2): age_days=1, commit_freq=2.0 - extremely new file, very recently created/modified\n- `JsonpCharacterEscapes.java` (candidate 4): age_days=1, commit_freq=1.0 - also extremely new, created recently\n- `JsonGenerator.java` (candidate 1): high commit frequency (0.2889), many commits (69), large churn - frequently modified core file\n- The other files are older and less frequently modified\n\nThe test failure is an AssertionError in JacksonCore. Files with age_days=1 are the most recently touched and most likely part of the fix commit. `JsonTokenId.java` has the highest commit frequency (2.0) suggesting it was very recently created or heavily modified. `JsonpCharacterEscapes.java` is also brand new (age_days=1).\n\n`JsonGenerator.java` is a core file with high activity and could be involved in a fix related to generation features.\n\nThe combination of `JsonTokenId.java` (new token ID constants) and `JsonGenerator.java` (generator using those constants) seems most likely for a fix involving token handling. `JsonpCharacterEscapes.java` being new could also be part of the fix.\n\n{\"ranking\": [2, 4, 1, 6, 3, 5], \"confidence\": {\"1\": 0.35, \"2\": 0.65, \"3\": 0.05, \"4\": 0.45, \"5\": 0.03, \"6\": 0.08}}",
+ "n_attempts": 1
+}

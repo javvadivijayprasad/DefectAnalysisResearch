@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-ansible-3",
+ "repo": "bugsinpy:ansible",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "lib/ansible/module_utils/facts/system/service_mgr.py",
+  "lib/ansible/module_utils/facts/system/selinux.py",
+  "lib/ansible/module_utils/facts/system/distribution.py",
+  "lib/ansible/module_utils/facts/system/date_time.py"
+ ],
+ "timestamp": "2026-10-02T15:22:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.82,
+  "3": 0.25,
+  "1": 0.12,
+  "2": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.12,
+  0.82,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 820,
+  "output_tokens": 255
+ },
+ "raw_response": "Looking at the candidates:\n\n- File 4 (date_time.py): age_days=1, commits=1, commit_freq=1.0 \u2014 this is a brand new file, very recently added. This is a strong signal that it's the file introduced/changed in the fix commit.\n- File 3 (distribution.py): high churn (873), many commits (36), many devs (26) \u2014 frequently modified, could be defective.\n- File 1 (service_mgr.py): moderate activity, some recent changes.\n- File 2 (selinux.py): relatively young (125 days), low commits.\n\nThe extremely new file (age_days=1, commit_freq=1.0) is almost certainly the file that was just added/changed in the fix commit. Distribution.py with its high churn is also a reasonable candidate for a secondary change.\n\n{\"ranking\": [4, 3, 1, 2], \"confidence\": {\"4\": 0.82, \"3\": 0.25, \"1\": 0.12, \"2\": 0.08}}",
+ "n_attempts": 1
+}

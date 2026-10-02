@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-thefuck-1",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "thefuck/rules/ln_s_order.py",
+  "thefuck/rules/pip_unknown_command.py",
+  "thefuck/rules/rm_dir.py",
+  "thefuck/rules/apt_list_upgradable.py",
+  "thefuck/rules/git_branch_delete.py",
+  "thefuck/rules/brew_link.py"
+ ],
+ "timestamp": "2026-10-02T15:34:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  6,
+  1,
+  3,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "5": 0.35,
+  "6": 0.25,
+  "1": 0.2,
+  "3": 0.1,
+  "2": 0.06,
+  "4": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.1,
+  0.2,
+  0.04,
+  0.35,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  2,
+  5,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 909,
+  "output_tokens": 513
+ },
+ "raw_response": "Looking at this failing test with AssertionError in a thefuck project, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError, typical of test assertion failures\n- `app_code_changed` flag is set, indicating application code (not test code) was changed\n- I need to look at the statistics to identify the most likely defective file(s)\n\nAnalyzing the candidates:\n\n1. **ln_s_order.py** - Very few commits (2), young file (429 days), low churn. Could be a newer file with bugs.\n2. **pip_unknown_command.py** - More commits (6), older (861 days), moderate activity.\n3. **rm_dir.py** - Most commits (7), oldest (864 days), highest commit frequency among older files.\n4. **apt_list_upgradable.py** - Few commits (3), moderate age (641 days), very low churn (18).\n5. **git_branch_delete.py** - Most commits (8), high frequency (0.0724), moderate age. High churn suggests active development/bug fixing.\n6. **brew_link.py** - Few commits (3), youngest file (335 days), highest commit frequency (0.0627) relative to age.\n\nThe `git_branch_delete.py` has the highest commit frequency and most commits, suggesting it's been actively modified - possibly where a bug was introduced. `brew_link.py` is young with relatively high commit frequency, also suspicious. `ln_s_order.py` is very new with minimal commits, which could indicate a recently added file with issues.\n\nGiven the test name pattern \"bip-thefuck-1\" and the nature of thefuck rules, `git_branch_delete.py` with its high activity and `brew_link.py` with its youth seem most likely candidates.\n\n{\"ranking\": [5, 6, 1, 3, 2, 4], \"confidence\": {\"5\": 0.35, \"6\": 0.25, \"1\": 0.20, \"3\": 0.10, \"2\": 0.06, \"4\": 0.04}}",
+ "n_attempts": 1
+}

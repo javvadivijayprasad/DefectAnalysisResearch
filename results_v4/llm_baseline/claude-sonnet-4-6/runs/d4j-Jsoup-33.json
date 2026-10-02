@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-33",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/ParseErrorList.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java"
+ ],
+ "timestamp": "2026-10-02T15:10:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  6,
+  2,
+  7,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.95,
+  "5": 0.65,
+  "6": 0.55,
+  "2": 0.3,
+  "7": 0.2,
+  "1": 0.1,
+  "3": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.2,
+  0.65,
+  0.95,
+  0.1,
+  0.08,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  4,
+  1,
+  0,
+  5,
+  6,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1003,
+  "output_tokens": 414
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test is about parsing (Jsoup-33), involving the parser package\n- `ParseErrorList.java` (candidate 4) has extremely unusual stats: commits=1, age_days=1, commit_freq=1.0000 - this strongly suggests it was newly created as part of the fix\n- The fix likely involves error tracking/reporting during parsing, which would require changes to the tokeniser or tree builder to use the new ParseErrorList\n- `Tokeniser.java` (candidate 5) would naturally need to be modified to record parse errors using the new ParseErrorList\n- `HtmlTreeBuilder.java` (candidate 6) manages the parsing state and would likely need to integrate error tracking\n- `CharacterReader.java` (candidate 2) has relatively recent activity and could be involved in error position tracking\n\nThe brand-new `ParseErrorList.java` is almost certainly part of the fix (age_days=1, single commit). The fix for parse error tracking would also likely touch `Tokeniser.java` and/or `HtmlTreeBuilder.java` to wire in the error list.\n\n`TokenQueue.java` has high churn but is older and less likely to be the specific fix. `Token.java` and `HtmlTreeBuilderState.java` are less likely to be the primary fix files.\n\n{\"ranking\": [4, 5, 6, 2, 7, 1, 3], \"confidence\": {\"4\": 0.95, \"5\": 0.65, \"6\": 0.55, \"2\": 0.30, \"7\": 0.20, \"1\": 0.10, \"3\": 0.08}}",
+ "n_attempts": 1
+}

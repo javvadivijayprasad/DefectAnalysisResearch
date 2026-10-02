@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-84",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/MapLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeBase.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ArrayType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ClassKey.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ClassStack.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java"
+ ],
+ "timestamp": "2026-10-02T15:07:59",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  7,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.82,
+  "7": 0.55,
+  "1": 0.45,
+  "2": 0.15,
+  "3": 0.1,
+  "4": 0.08,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.45,
+  0.1,
+  0.15,
+  0.03,
+  0.08,
+  0.82
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  3,
+  6,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1055,
+  "output_tokens": 217
+ },
+ "raw_response": "The key signal here is file 6 (`ClassStack.java`) with `age_days=4` and `commit_freq=2.0000` \u2014 this file was essentially just created (4 days old) and has extremely high commit frequency, strongly suggesting it was introduced as part of the fix. File 7 (`ResolvedRecursiveType.java`) also has relatively recent activity and high commit frequency, suggesting it may be related to recursive type handling fixes. File 1 (`TypeFactory.java`) is the most heavily modified file in the package and is often involved in type-related fixes.\n\n{\"ranking\": [6, 7, 1, 2, 3, 4, 5], \"confidence\": {\"6\": 0.82, \"7\": 0.55, \"1\": 0.45, \"2\": 0.15, \"3\": 0.10, \"4\": 0.08, \"5\": 0.03}}",
+ "n_attempts": 1
+}

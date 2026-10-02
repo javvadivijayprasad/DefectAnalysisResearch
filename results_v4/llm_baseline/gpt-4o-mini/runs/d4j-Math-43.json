@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-43",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/stat/descriptive/MultivariateSummaryStatistics.java",
+  "src/main/java/org/apache/commons/math/stat/descriptive/SynchronizedSummaryStatistics.java",
+  "src/main/java/org/apache/commons/math/stat/descriptive/StatisticalSummaryValues.java",
+  "src/main/java/org/apache/commons/math/stat/descriptive/AggregateSummaryStatistics.java",
+  "src/main/java/org/apache/commons/math/stat/descriptive/SynchronizedMultivariateSummaryStatistics.java",
+  "src/main/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java"
+ ],
+ "timestamp": "2026-10-02T15:49:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  4,
+  3,
+  5,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.3,
+  "6": 0.25,
+  "4": 0.2,
+  "3": 0.15,
+  "5": 0.08,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.02,
+  0.08,
+  0.3,
+  0.15,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  4,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 814,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 6, 4, 3, 5, 2], \"confidence\": {\"1\": 0.30, \"6\": 0.25, \"4\": 0.20, \"3\": 0.15, \"5\": 0.08, \"2\": 0.02}}",
+ "n_attempts": 1
+}

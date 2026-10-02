@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-thefuck-7",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "thefuck/rules/mkdir_p.py",
+  "thefuck/rules/prove_recursively.py",
+  "thefuck/rules/php_s.py",
+  "thefuck/rules/git_push_force.py",
+  "thefuck/rules/django_south_ghost.py",
+  "thefuck/rules/git_push.py",
+  "thefuck/rules/cp_omitting_directory.py"
+ ],
+ "timestamp": "2026-10-02T15:34:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  6,
+  4,
+  7,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.65,
+  "3": 0.55,
+  "4": 0.06,
+  "5": 0.04,
+  "6": 0.08,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.05,
+  0.08,
+  0.05,
+  0.06,
+  0.65,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  2,
+  4,
+  3,
+  0,
+  6
+ ],
+ "usage": {
+  "input_tokens": 956,
+  "output_tokens": 412
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- `prove_recursively.py` has age_days=1 and commit_freq=2.0000 - extremely new file, very recently created/modified\n- `php_s.py` has age_days=1 and commit_freq=1.0000 - also extremely new file\n- The test failure is an AssertionError, suggesting a logic/implementation issue in application code (app_code_changed flag is set)\n- The other files are older with lower commit frequencies\n\nFiles with age_days=1 are the most recently changed files, making them the most likely candidates for the defective files that caused the test failure. Between the two:\n- `prove_recursively.py` has commits=2, suggesting it was created and then modified (or created with some history)\n- `php_s.py` has commits=1, suggesting it was just created\n\nBoth are very new files. The failing test could be related to either or both. Given that `prove_recursively.py` has 2 commits and higher churn relative to its age, it might be slightly more likely to be the defective one, but `php_s.py` is also a strong candidate.\n\nThe other files (1, 4, 5, 6, 7) are older with normal commit patterns and are less likely to be the defective files.\n\n{\"ranking\": [2, 3, 6, 4, 7, 1, 5], \"confidence\": {\"1\": 0.05, \"2\": 0.65, \"3\": 0.55, \"4\": 0.06, \"5\": 0.04, \"6\": 0.08, \"7\": 0.05}}",
+ "n_attempts": 1
+}

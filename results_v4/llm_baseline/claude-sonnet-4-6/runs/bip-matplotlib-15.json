@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-matplotlib-15",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "lib/matplotlib/colors.py",
+  "lib/matplotlib/path.py",
+  "lib/matplotlib/texmanager.py",
+  "examples/userdemo/colormap_normalizations.py",
+  "tutorials/colors/colormapnorms.py",
+  "examples/userdemo/colormap_normalizations_symlognorm.py",
+  "examples/userdemo/anchored_box03.py"
+ ],
+ "timestamp": "2026-10-02T15:27:10",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  6,
+  4,
+  2,
+  3,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.72,
+  "5": 0.15,
+  "6": 0.1,
+  "4": 0.06,
+  "2": 0.04,
+  "3": 0.03,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.1,
+  0.72,
+  0.15,
+  0.04,
+  0.01,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  0,
+  1,
+  4,
+  6,
+  5
+ ],
+ "usage": {
+  "input_tokens": 959,
+  "output_tokens": 253
+ },
+ "raw_response": "The failing test involves an AssertionError in matplotlib. The test name \"bip-matplotlib-15\" and the candidates suggest this is related to color normalization (SymLogNorm or similar). The most active and relevant file is `colors.py` which handles color normalization including SymLogNorm. The example files related to colormap normalizations could also be involved but are less likely to be the defective source file.\n\nGiven the failure signal and the candidates:\n- `colors.py` is the most likely defective file (high commit frequency, handles color normalization logic)\n- `colormapnorms.py` tutorial could be involved if it demonstrates broken behavior\n- The symlognorm example is specifically about SymLogNorm which could be related\n\n{\"ranking\": [1, 5, 6, 4, 2, 3, 7], \"confidence\": {\"1\": 0.72, \"5\": 0.15, \"6\": 0.10, \"4\": 0.06, \"2\": 0.04, \"3\": 0.03, \"7\": 0.01}}",
+ "n_attempts": 1
+}

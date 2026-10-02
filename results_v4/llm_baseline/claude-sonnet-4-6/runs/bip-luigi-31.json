@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-luigi-31",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "luigi/postgres.py",
+  "luigi/task_history.py",
+  "luigi/scheduler.py",
+  "luigi/hive.py"
+ ],
+ "timestamp": "2026-10-02T15:26:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "2": 0.25,
+  "1": 0.12,
+  "4": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.08,
+  0.12,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 780,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [3, 2, 1, 4], \"confidence\": {\"3\": 0.55, \"2\": 0.25, \"1\": 0.12, \"4\": 0.08}}",
+ "n_attempts": 1
+}

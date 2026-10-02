@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-123",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "src/com/google/javascript/jscomp/SpecializationAwareCompilerPass.java",
+  "src/com/google/javascript/jscomp/GatherRawExports.java",
+  "src/com/google/javascript/jscomp/AngularPass.java",
+  "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+  "src/com/google/javascript/jscomp/FunctionArgumentInjector.java",
+  "src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java",
+  "src/com/google/javascript/jscomp/FunctionTypeBuilder.java"
+ ],
+ "timestamp": "2026-10-02T14:55:32",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  8,
+  5,
+  6,
+  7,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.4,
+  "4": 0.25,
+  "8": 0.2,
+  "5": 0.12,
+  "6": 0.1,
+  "7": 0.06,
+  "2": 0.05,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.2,
+  0.12,
+  0.04,
+  0.25,
+  0.06,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  7,
+  1,
+  5,
+  6,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1078,
+  "output_tokens": 485
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-123, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError\n- The flag `app_code_changed` is set\n- I need to consider file characteristics: commit frequency, churn, age, and relevance to common Closure compiler bugs\n\nAnalysis:\n1. **CodeGenerator.java** - Very high commit frequency (0.43), high churn (2333), actively maintained. Code generation issues often cause AssertionError in tests.\n2. **FunctionTypeBuilder.java** - High commit frequency (0.37), high churn (2061), actively maintained. Type-related issues are common.\n3. **AngularPass.java** - Highest commit frequency (0.50), relatively new file (112 days), high churn ratio. New files are more likely to have bugs.\n4. **MakeDeclaredNamesUnique.java** - Moderate commit frequency, high churn.\n5. **FunctionArgumentInjector.java** - Moderate commit frequency, high churn.\n6. **CheckPathsBetweenNodes.java** - Moderate commit frequency.\n7. **SpecializationAwareCompilerPass.java** - Lower commit frequency.\n8. **GatherRawExports.java** - Lowest commit frequency.\n\nFor Closure-123 specifically, this is related to code generation or function handling. The CodeGenerator.java is the most likely candidate given its high activity and the nature of AssertionErrors in code generation tests. AngularPass.java being very new (112 days) and having the highest commit frequency suggests active development with potential bugs.\n\n{\"ranking\": [1, 4, 8, 5, 6, 7, 2, 3], \"confidence\": {\"1\": 0.40, \"4\": 0.25, \"8\": 0.20, \"5\": 0.12, \"6\": 0.10, \"7\": 0.06, \"2\": 0.05, \"3\": 0.04}}",
+ "n_attempts": 1
+}

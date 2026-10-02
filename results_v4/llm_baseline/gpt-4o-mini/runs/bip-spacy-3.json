@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-spacy-3",
+ "repo": "bugsinpy:spacy",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "bin/wiki_entity_linking/wikidata_train_entity_linker.py",
+  "bin/wiki_entity_linking/kb_creator.py",
+  "bin/wiki_entity_linking/train_descriptions.py",
+  "bin/wiki_entity_linking/__init__.py",
+  "bin/wiki_entity_linking/wikipedia_processor.py",
+  "bin/wiki_entity_linking/wiki_namespaces.py"
+ ],
+ "timestamp": "2026-10-02T15:54:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  3,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.3,
+  "2": 0.25,
+  "5": 0.2,
+  "3": 0.15,
+  "4": 0.05,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.3,
+  0.15,
+  0.05,
+  0.25,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  3,
+  4,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 765,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 2, 5, 3, 4, 6], \"confidence\": {\"1\": 0.30, \"2\": 0.25, \"5\": 0.20, \"3\": 0.15, \"4\": 0.05, \"6\": 0.05}}",
+ "n_attempts": 1
+}

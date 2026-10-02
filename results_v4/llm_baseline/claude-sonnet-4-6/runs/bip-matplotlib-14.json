@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-matplotlib-14",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "lib/matplotlib/text.py",
+  "lib/matplotlib/fontconfig_pattern.py",
+  "lib/matplotlib/_cm_listed.py",
+  "lib/matplotlib/contour.py",
+  "lib/matplotlib/cm.py"
+ ],
+ "timestamp": "2026-10-02T15:27:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.15,
+  "3": 0.05,
+  "4": 0.45,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.1,
+  0.45,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  0,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 849,
+  "output_tokens": 411
+ },
+ "raw_response": "Looking at this failing test for matplotlib with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey considerations:\n- The test involves matplotlib functionality\n- AssertionError suggests a condition check failed\n- I need to consider file activity, relevance, and churn\n\nAnalysis:\n1. `text.py` - Very high activity (414 commits, 58 devs, high churn). Core text rendering file, frequently modified.\n2. `fontconfig_pattern.py` - Lower activity, deals with font configuration patterns. Could relate to text/font issues.\n3. `_cm_listed.py` - Mostly data file for colormaps, lower commit frequency relative to size.\n4. `contour.py` - High activity (328 commits, 49 devs). Contour plotting is complex and frequently buggy.\n5. `cm.py` - Moderate activity, colormap management.\n\nFor bugsinpy:matplotlib bug #14, this is likely related to contour or text functionality given the AssertionError. `contour.py` has very high churn and commit frequency suggesting it's a complex, bug-prone file. `text.py` is also highly active. The colormap files (`cm.py`, `_cm_listed.py`) are less likely to cause AssertionErrors in typical test scenarios.\n\nGiven the high activity and complexity of `contour.py` and `text.py`, and that `fontconfig_pattern.py` could be involved in font-related assertion failures:\n\n{\"ranking\": [4, 1, 2, 5, 3], \"confidence\": {\"1\": 0.25, \"2\": 0.15, \"3\": 0.05, \"4\": 0.45, \"5\": 0.10}}",
+ "n_attempts": 1
+}

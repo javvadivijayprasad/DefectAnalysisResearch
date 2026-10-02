@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-thefuck-9",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "thefuck/rules/git_fix_stash.py",
+  "thefuck/rules/man.py",
+  "thefuck/rules/git_push_force.py",
+  "thefuck/rules/git_bisect_usage.py",
+  "thefuck/rules/sudo.py",
+  "thefuck/rules/git_push.py",
+  "thefuck/rules/react_native_command_unrecognized.py",
+  "thefuck/rules/rm_dir.py"
+ ],
+ "timestamp": "2026-10-02T15:35:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  7,
+  1,
+  3,
+  5,
+  6,
+  2,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.05,
+  "3": 0.12,
+  "4": 0.65,
+  "5": 0.08,
+  "6": 0.07,
+  "7": 0.6,
+  "8": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.07,
+  0.12,
+  0.08,
+  0.05,
+  0.05,
+  0.6,
+  0.15,
+  0.65
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  3,
+  4,
+  7,
+  6,
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1008,
+  "output_tokens": 384
+ },
+ "raw_response": "Looking at the failing test event for bugsinpy:thefuck with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- Files 4 (`git_bisect_usage.py`) and 7 (`react_native_command_unrecognized.py`) both have `commits=1, devs=1, age_days=1, commit_freq=1.0000` - these are brand new files, likely added in the fix commit itself\n- The test name `bip-thefuck-9` suggests this is bug #9 in the thefuck project\n- New files with age_days=1 are very likely to be part of the fix commit\n- The `app_code_changed` flag confirms application code was modified\n\nFiles 4 and 7 being brand new (age_days=1, single commit) strongly suggests they were introduced as part of the fix. New rule files in thefuck are typically added to handle new cases.\n\nThe other files with higher churn and more commits are less likely to be the defective files, though `git_fix_stash.py` (file 1) has relatively high activity and `git_push_force.py` (file 3) also has notable activity.\n\n{\"ranking\": [4, 7, 1, 3, 5, 6, 2, 8], \"confidence\": {\"1\": 0.15, \"2\": 0.05, \"3\": 0.12, \"4\": 0.65, \"5\": 0.08, \"6\": 0.07, \"7\": 0.60, \"8\": 0.05}}",
+ "n_attempts": 1
+}

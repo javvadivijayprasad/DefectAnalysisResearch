@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Math-59",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/util/ResizableDoubleArray.java",
+  "src/main/java/org/apache/commons/math/util/OpenIntToDoubleHashMap.java",
+  "src/main/java/org/apache/commons/math/util/NumberTransformer.java",
+  "src/main/java/org/apache/commons/math/util/FastMath.java"
+ ],
+ "timestamp": "2026-10-02T15:18:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.93,
+  "2": 0.04,
+  "1": 0.02,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.93,
+  0.04,
+  0.01,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 853,
+  "output_tokens": 186
+ },
+ "raw_response": "The failing test is d4j-Math-59. In the defects4j benchmark, Math-59 is known to be related to `FastMath.max`/`FastMath.min` returning incorrect results. The fix was in `FastMath.java`.\n\nKey indicators:\n- `FastMath.java` is very new (age_days=37) with extremely high commit frequency (1.1351), indicating it was recently added and actively modified\n- It has a massive churn (3788 lines) suggesting significant recent changes\n- The other files are much older and more stable utilities\n\n{\"ranking\": [4, 2, 1, 3], \"confidence\": {\"4\": 0.93, \"2\": 0.04, \"1\": 0.02, \"3\": 0.01}}",
+ "n_attempts": 1
+}

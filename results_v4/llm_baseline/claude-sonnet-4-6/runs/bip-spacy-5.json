@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-spacy-5",
+ "repo": "bugsinpy:spacy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "spacy/errors.py",
+  "spacy/scorer.py",
+  "spacy/__main__.py",
+  "spacy/language.py",
+  "spacy/__init__.py",
+  "spacy/compat.py",
+  "spacy/glossary.py",
+  "spacy/lookups.py"
+ ],
+ "timestamp": "2026-10-02T15:34:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  8,
+  1,
+  5,
+  3,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "2": 0.25,
+  "8": 0.15,
+  "1": 0.1,
+  "5": 0.08,
+  "3": 0.05,
+  "6": 0.04,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.1,
+  0.15,
+  0.08,
+  0.25,
+  0.03,
+  0.05,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  4,
+  1,
+  7,
+  5,
+  6
+ ],
+ "usage": {
+  "input_tokens": 964,
+  "output_tokens": 97
+ },
+ "raw_response": "{\"ranking\": [4, 2, 8, 1, 5, 3, 6, 7], \"confidence\": {\"4\": 0.45, \"2\": 0.25, \"8\": 0.15, \"1\": 0.10, \"5\": 0.08, \"3\": 0.05, \"6\": 0.04, \"7\": 0.03}}",
+ "n_attempts": 1
+}

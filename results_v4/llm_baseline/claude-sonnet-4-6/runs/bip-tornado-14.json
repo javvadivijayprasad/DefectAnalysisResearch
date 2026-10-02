@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-tornado-14",
+ "repo": "bugsinpy:tornado",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "tornado/ioloop.py",
+  "tornado/locks.py",
+  "tornado/wsgi.py"
+ ],
+ "timestamp": "2026-10-02T15:36:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.7,
+  "1": 0.25,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.7,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 739,
+  "output_tokens": 352
+ },
+ "raw_response": "Looking at this failing test in tornado, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError in tornado\n- The `app_code_changed` flag is set\n- `tornado/locks.py` has very unusual statistics: only 24 commits but a commit_freq of 2.6667 (commits per day), with age_days of only 63 days. This means it was very recently created/heavily modified in a short period - this is a strong signal of recent active development where bugs are likely introduced.\n- `tornado/ioloop.py` is the most heavily modified file overall (3363 churn, 166 commits) and is central to tornado's functionality\n- `tornado/wsgi.py` has moderate activity\n\nThe extremely high commit frequency of `locks.py` (2.6667 commits/day over 63 days) strongly suggests this is a recently added/refactored file that's still being actively debugged. This is a very strong signal for a defective file.\n\n`tornado/ioloop.py` is also a candidate given its central role and high overall activity, though its commit frequency is more moderate.\n\n`tornado/wsgi.py` seems least likely given the nature of the failure (AssertionError, likely in async/locking code rather than WSGI interface code).\n\n{\"ranking\": [2, 1, 3], \"confidence\": {\"2\": 0.70, \"1\": 0.25, \"3\": 0.05}}",
+ "n_attempts": 1
+}

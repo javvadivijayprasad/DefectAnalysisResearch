@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-thefuck-30",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "thefuck/rules/rm_root.py",
+  "thefuck/rules/java.py",
+  "thefuck/rules/python_execute.py",
+  "thefuck/rules/fix_file.py"
+ ],
+ "timestamp": "2026-10-02T15:35:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "1": 0.25,
+  "3": 0.15,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.15,
+  0.05,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 799,
+  "output_tokens": 287
+ },
+ "raw_response": "Looking at the candidates:\n\n- File 4 (fix_file.py): Very recent (age_days=1), high churn (66), only 1 developer - strong signal of a new/recently modified file that could introduce bugs.\n- File 1 (rm_root.py): Very recent (age_days=3), high commit frequency (6.0/day) - also very active recently.\n- File 3 (python_execute.py): Recent (age_days=5), moderate commit frequency (3.0/day).\n- File 2 (java.py): Older (age_days=29), low commit frequency.\n\nThe test name \"bip-thefuck-30\" and the AssertionError suggest a logic error in one of these rule files. File 4 (fix_file.py) stands out with the highest churn and most recent changes, making it the most likely defective file. File 1 (rm_root.py) is also very suspicious given its high commit frequency and recency.\n\n{\"ranking\": [4, 1, 3, 2], \"confidence\": {\"4\": 0.55, \"1\": 0.25, \"3\": 0.15, \"2\": 0.05}}",
+ "n_attempts": 1
+}

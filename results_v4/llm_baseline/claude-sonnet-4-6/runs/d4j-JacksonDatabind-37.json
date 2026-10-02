@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-37",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/SimpleType.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeDeserializerBase.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/StdSubtypeResolver.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/AsPropertyTypeDeserializer.java"
+ ],
+ "timestamp": "2026-10-02T15:06:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  4,
+  1,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "2": 0.35,
+  "4": 0.15,
+  "1": 0.1,
+  "3": 0.08,
+  "5": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.1,
+  0.06,
+  0.15,
+  0.45,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  5,
+  2,
+  0,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1016,
+  "output_tokens": 475
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind related to type deserialization (AssertionError), I need to consider which files are most likely involved in the fix.\n\nThe test involves type handling/deserialization. Key observations:\n\n1. **AsPropertyTypeDeserializer** (file 6) - High commit frequency (0.1186), many commits (25), deals with \"as property\" type deserialization which is a common source of bugs. This is a core type deserializer implementation.\n\n2. **TypeDeserializerBase** (file 2) - Highest commit frequency (0.1438), most commits (30), base class for type deserializers. Very active file suggesting ongoing bug fixes.\n\n3. **StdTypeResolverBuilder** (file 4) - High commit frequency (0.1107), 20 commits, builds type resolvers which could affect how types are resolved.\n\n4. **SimpleType** (file 1) - 15 commits, moderate activity. SimpleType is fundamental but less likely to be the source of a specific deserialization bug.\n\n5. **CollectionType** (file 3) - 14 commits, could be involved if the test involves collection type handling.\n\n6. **StdSubtypeResolver** (file 5) - Lowest commit frequency (0.0501), fewer commits. Less likely but possible if subtype resolution is involved.\n\nThe test failure is an AssertionError in type deserialization. The `AsPropertyTypeDeserializer` and `TypeDeserializerBase` are the most directly involved in type deserialization logic. Given the \"as property\" pattern is a common source of issues in Jackson polymorphic deserialization, file 6 is my top pick, followed by file 2.\n\n{\"ranking\": [6, 2, 4, 1, 3, 5], \"confidence\": {\"6\": 0.45, \"2\": 0.35, \"4\": 0.15, \"1\": 0.10, \"3\": 0.08, \"5\": 0.06}}",
+ "n_attempts": 1
+}

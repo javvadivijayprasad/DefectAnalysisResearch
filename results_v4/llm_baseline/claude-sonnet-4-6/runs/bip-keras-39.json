@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-keras-39",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "keras/utils/np_utils.py",
+  "keras/utils/generic_utils.py",
+  "keras/utils/__init__.py",
+  "keras/utils/conv_utils.py",
+  "keras/utils/vis_utils.py",
+  "keras/utils/io_utils.py",
+  "keras/utils/data_utils.py"
+ ],
+ "timestamp": "2026-10-02T15:24:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  2,
+  1,
+  5,
+  6,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "7": 0.4,
+  "2": 0.3,
+  "1": 0.12,
+  "5": 0.08,
+  "6": 0.06,
+  "4": 0.05,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.05,
+  0.06,
+  0.12,
+  0.4,
+  0.08,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  4,
+  2,
+  0,
+  3,
+  6
+ ],
+ "usage": {
+  "input_tokens": 934,
+  "output_tokens": 412
+ },
+ "raw_response": "Looking at this failing test in keras with an AssertionError, I need to identify which utility file is most likely defective.\n\nKey observations:\n- The test involves `keras/utils/` package files\n- AssertionError suggests a logical/validation error in code\n- `app_code_changed` flag indicates application code was modified\n\nAnalyzing candidates by likelihood:\n\n1. **data_utils.py** (7): High churn (1521), many commits (63), many devs (25), high commit frequency - very active file prone to bugs\n2. **generic_utils.py** (2): Highest churn (1170), most commits (74), most devs (31), highest commit frequency - very active\n3. **np_utils.py** (1): Moderate activity, numpy utilities often involved in shape/assertion errors\n4. **vis_utils.py** (5): Moderate activity, visualization utilities\n5. **io_utils.py** (6): Moderate activity\n6. **conv_utils.py** (4): Newer file (329 days), moderate activity\n7. **__init__.py** (3): Minimal changes, unlikely to be defective\n\nThe AssertionError in keras tests often relates to data processing or utility functions. `data_utils.py` has the highest overall churn and activity suggesting it's most frequently modified and bug-prone. `generic_utils.py` is also a strong candidate given its high activity.\n\n{\"ranking\": [7, 2, 1, 5, 6, 4, 3], \"confidence\": {\"7\": 0.40, \"2\": 0.30, \"1\": 0.12, \"5\": 0.08, \"6\": 0.06, \"4\": 0.05, \"3\": 0.02}}",
+ "n_attempts": 1
+}

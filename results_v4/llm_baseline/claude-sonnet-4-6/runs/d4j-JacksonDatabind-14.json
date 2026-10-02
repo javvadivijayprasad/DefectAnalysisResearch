@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-14",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/ObjectReader.java",
+  "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+  "src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java",
+  "src/main/java/com/fasterxml/jackson/databind/RuntimeJsonMappingException.java"
+ ],
+ "timestamp": "2026-10-02T15:05:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  1,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "5": 0.9,
+  "2": 0.65,
+  "1": 0.25,
+  "4": 0.15,
+  "3": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.9,
+  0.15,
+  0.1,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 926,
+  "output_tokens": 358
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an `AssertionError` \n- `app_code_changed` flag is set\n- Candidate 5 (`RuntimeJsonMappingException.java`) has extremely unusual stats: commits=1, devs=1, age_days=1, commit_freq=1.0 \u2014 this strongly suggests it's a newly created file, which is a hallmark of a fix commit introducing a new class\n- The `RuntimeJsonMappingException` name suggests it wraps `JsonMappingException` into a runtime exception, which is a common pattern when fixing issues with unchecked exceptions\n- `ObjectReader.java` (candidate 2) is highly active and often involved in fixes; it might throw or catch such exceptions\n- `DatabindContext.java` (candidate 1) has relatively few commits but some recent activity\n\nThe newly created `RuntimeJsonMappingException.java` is almost certainly part of the fix. The fix likely also modified `ObjectReader.java` to use this new exception class (since ObjectReader is the primary reading interface where runtime exceptions would be thrown).\n\n`DatabindContext.java` could also be involved given its recent activity pattern.\n\n{\"ranking\": [5, 2, 1, 4, 3], \"confidence\": {\"5\": 0.90, \"2\": 0.65, \"1\": 0.25, \"4\": 0.15, \"3\": 0.10}}",
+ "n_attempts": 1
+}

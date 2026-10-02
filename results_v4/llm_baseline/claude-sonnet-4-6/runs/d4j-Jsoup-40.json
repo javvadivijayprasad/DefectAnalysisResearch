@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-40",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/nodes/Document.java",
+  "src/main/java/org/jsoup/nodes/DocumentType.java",
+  "src/main/java/org/jsoup/nodes/FormElement.java"
+ ],
+ "timestamp": "2026-10-02T15:10:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  6,
+  4,
+  5,
+  3,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.55,
+  "3": 0.15,
+  "4": 0.2,
+  "5": 0.1,
+  "6": 0.25,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.2,
+  0.1,
+  0.15,
+  0.05,
+  0.55,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 999,
+  "output_tokens": 537
+ },
+ "raw_response": "Looking at this failing test in Jsoup (d4j-Jsoup-40), I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is Jsoup issue #40\n\nLet me analyze the candidates:\n\n1. **TreeBuilder.java** - High commit frequency (0.2229), high churn (1452), recently active (314 days). Core parser component, very likely to be involved in fixes.\n\n2. **XmlTreeBuilder.java** - Moderate activity, XML parsing specific. Could be relevant if the test involves XML parsing.\n\n3. **package-info.java** - Only 1 commit, 4 lines added, age 1 day. This looks like it was just added (possibly as part of the fix commit to add package documentation), but unlikely to be the core fix.\n\n4. **TokeniserState.java** - High churn (2301), high commits (17), very active. Tokenizer state changes are common sources of parsing bugs.\n\n5. **Document.java** - Very high commits (38), long history. Could be involved but less likely for a specific test failure.\n\n6. **DocumentType.java** - Low activity, but DocumentType handling is a specific area that could cause AssertionErrors in tests.\n\n7. **FormElement.java** - Low commits, recently added. Less likely unless the test is form-related.\n\nFor Jsoup-40, looking at the pattern: the XmlTreeBuilder and TreeBuilder are strong candidates for parsing-related fixes. The package-info.java with age_days=1 suggests it was added very recently (possibly in the same commit). DocumentType.java could be relevant for DOCTYPE handling tests.\n\nThe combination of XmlTreeBuilder (XML parsing fix) and possibly TreeBuilder seems most likely. The package-info.java being brand new (age=1 day) suggests it was added in the fix commit.\n\n{\"ranking\": [2, 1, 6, 4, 5, 3, 7], \"confidence\": {\"1\": 0.35, \"2\": 0.55, \"3\": 0.15, \"4\": 0.20, \"5\": 0.10, \"6\": 0.25, \"7\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-matplotlib-8",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "lib/matplotlib/axes/_subplots.py",
+  "lib/matplotlib/axes/__init__.py",
+  "lib/matplotlib/axes/_base.py",
+  "lib/matplotlib/axes/_axes.py",
+  "lib/matplotlib/axes/_secondary_axes.py"
+ ],
+ "timestamp": "2026-10-02T15:26:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "5": 0.55,
+  "3": 0.25,
+  "1": 0.1,
+  "4": 0.07,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.55,
+  0.03,
+  0.1,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  4,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 851,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [5, 3, 1, 4, 2], \"confidence\": {\"5\": 0.55, \"3\": 0.25, \"1\": 0.10, \"4\": 0.07, \"2\": 0.03}}",
+ "n_attempts": 1
+}

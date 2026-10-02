@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-154",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CodePrinter.java",
+  "src/com/google/javascript/jscomp/AliasExternals.java",
+  "src/com/google/javascript/jscomp/TypeCheck.java",
+  "src/com/google/javascript/jscomp/TypeValidator.java",
+  "src/com/google/javascript/jscomp/VerboseMessageFormatter.java",
+  "src/com/google/javascript/jscomp/RenameLabels.java"
+ ],
+ "timestamp": "2026-10-02T14:56:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  2,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.65,
+  "3": 0.45,
+  "1": 0.15,
+  "2": 0.08,
+  "5": 0.05,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.65,
+  0.08,
+  0.03,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  5,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 947,
+  "output_tokens": 181
+ },
+ "raw_response": "The failing test is in Closure with flags `app_code_changed` and `validator_changed`. The `validator_changed` flag strongly suggests `TypeValidator.java` is involved. The test failure is an `AssertionError` which is common in type-checking related tests. `TypeCheck.java` is also a strong candidate given its high commit frequency and the nature of the failure. `CodePrinter.java` could be involved if output formatting is part of the test assertion.\n\n{\"ranking\": [4, 3, 1, 2, 5, 6], \"confidence\": {\"4\": 0.65, \"3\": 0.45, \"1\": 0.15, \"2\": 0.08, \"5\": 0.05, \"6\": 0.03}}",
+ "n_attempts": 1
+}

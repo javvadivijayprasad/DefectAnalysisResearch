@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-52",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/StringEscapeUtils.java",
+  "src/java/org/apache/commons/lang/SystemUtils.java",
+  "src/java/org/apache/commons/lang/CharEncoding.java",
+  "src/java/org/apache/commons/lang/IncompleteArgumentException.java",
+  "src/java/org/apache/commons/lang/CharRange.java",
+  "src/java/org/apache/commons/lang/BooleanUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:15:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  6,
+  3,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "5": 0.07,
+  "6": 0.04,
+  "3": 0.03,
+  "4": 0.02,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.03,
+  0.02,
+  0.04,
+  0.02,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  2,
+  5,
+  1
+ ],
+ "usage": {
+  "input_tokens": 949,
+  "output_tokens": 158
+ },
+ "raw_response": "The failing test is in defects4j:Lang-52. This bug is known to be related to `StringEscapeUtils` - specifically an issue with HTML/XML escaping (the `escapeHtml` or similar method). The `StringEscapeUtils.java` file has high commit frequency and churn, and is the most likely candidate for this type of bug.\n\n{\"ranking\": [1, 5, 6, 3, 4, 2], \"confidence\": {\"1\": 0.82, \"5\": 0.07, \"6\": 0.04, \"3\": 0.03, \"4\": 0.02, \"2\": 0.02}}",
+ "n_attempts": 1
+}

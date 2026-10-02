@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-35",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/MockSettings.java",
+  "src/org/mockito/internal/progress/SequenceNumber.java",
+  "src/org/mockito/Matchers.java",
+  "src/org/mockito/internal/progress/ArgumentMatcherStorage.java",
+  "src/org/mockito/internal/progress/HandyReturnValues.java",
+  "src/org/mockito/internal/util/Primitives.java"
+ ],
+ "timestamp": "2026-10-02T15:20:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  6,
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "5": 0.35,
+  "6": 0.25,
+  "2": 0.15,
+  "3": 0.1,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.35,
+  0.25,
+  0.15,
+  0.05,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  2,
+  3,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 929,
+  "output_tokens": 497
+ },
+ "raw_response": "Looking at this failing test in Mockito, I need to identify which files are likely defective.\n\nKey observations:\n- The test failure is an `AssertionError` with `app_code_changed` flag\n- This is Mockito-35, related to argument matchers and return values\n\nLet me analyze the candidates:\n\n1. **MockSettings.java** - Interface for mock settings, moderate activity\n2. **SequenceNumber.java** - Very new file (76 days), small, recently added\n3. **Matchers.java** - Very high activity, core matchers file, high churn\n4. **ArgumentMatcherStorage.java** - Very recent (18 days old!), very high commit frequency (1.5556), small but active - this is suspicious\n5. **HandyReturnValues.java** - Returns values for matchers, moderate activity\n6. **Primitives.java** - Utility for primitives, moderate activity\n\nThe test name \"Mockito-35\" and the `AssertionError` suggest issues with matcher return values or primitive handling. \n\nKey signals:\n- **ArgumentMatcherStorage.java** (index 4): Extremely recent (18 days), highest commit frequency, recently modified - very likely to contain a bug\n- **HandyReturnValues.java** (index 5): Handles return values for matchers, relevant to AssertionError in matcher context\n- **Primitives.java** (index 6): Primitive handling utility, relevant if the test involves primitive matchers\n- **SequenceNumber.java** (index 2): Very new file, could be related\n\nThe combination of ArgumentMatcherStorage being brand new (18 days) with very high commit frequency strongly suggests it's being actively developed and likely contains the defect. HandyReturnValues and Primitives are also candidates given the AssertionError nature.\n\n{\"ranking\": [4, 5, 6, 2, 3, 1], \"confidence\": {\"4\": 0.55, \"5\": 0.35, \"6\": 0.25, \"2\": 0.15, \"3\": 0.10, \"1\": 0.05}}",
+ "n_attempts": 1
+}

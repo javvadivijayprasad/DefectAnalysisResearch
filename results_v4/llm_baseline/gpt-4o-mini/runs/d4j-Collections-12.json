@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Collections-12",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/java/org/apache/commons/collections/ExtendedProperties.java",
+  "src/java/org/apache/commons/collections/SetUtils.java",
+  "src/java/org/apache/commons/collections/OrderedIterator.java",
+  "src/java/org/apache/commons/collections/SequencedHashMap.java",
+  "src/java/org/apache/commons/collections/Closure.java",
+  "src/java/org/apache/commons/collections/CollectionUtils.java",
+  "src/java/org/apache/commons/collections/MultiMap.java"
+ ],
+ "timestamp": "2026-10-02T15:45:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  1,
+  4,
+  2,
+  3,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "6": 0.35,
+  "1": 0.25,
+  "4": 0.15,
+  "2": 0.1,
+  "3": 0.08,
+  "5": 0.04,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.1,
+  0.08,
+  0.04,
+  0.35,
+  0.15,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  4,
+  5,
+  0,
+  2,
+  6
+ ],
+ "usage": {
+  "input_tokens": 838,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [6, 1, 4, 2, 3, 5, 7], \"confidence\": {\"6\": 0.35, \"1\": 0.25, \"4\": 0.15, \"2\": 0.10, \"3\": 0.08, \"5\": 0.04, \"7\": 0.03}}",
+ "n_attempts": 1
+}

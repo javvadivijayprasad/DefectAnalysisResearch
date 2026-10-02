@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-29",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/cache.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/__main__.py",
+  "youtube_dl/aes.py",
+  "youtube_dl/swfinterp.py",
+  "youtube_dl/compat.py",
+  "youtube_dl/options.py"
+ ],
+ "timestamp": "2026-10-02T15:37:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  1,
+  5,
+  4,
+  7,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.55,
+  "3": 0.03,
+  "4": 0.08,
+  "5": 0.12,
+  "6": 0.2,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.03,
+  0.15,
+  0.12,
+  0.08,
+  0.2,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  2,
+  3,
+  4,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 936,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [2, 6, 1, 5, 4, 7, 3], \"confidence\": {\"1\": 0.15, \"2\": 0.55, \"3\": 0.03, \"4\": 0.08, \"5\": 0.12, \"6\": 0.20, \"7\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Math-62",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/optimization/univariate/UnivariateRealOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/univariate/BaseUnivariateRealOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/univariate/AbstractUnivariateRealOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/univariate/MultiStartUnivariateRealOptimizer.java"
+ ],
+ "timestamp": "2026-10-02T15:18:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "4": 0.75,
+  "2": 0.65,
+  "3": 0.25,
+  "1": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.08,
+  0.25,
+  0.65
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 884,
+  "output_tokens": 266
+ },
+ "raw_response": "Looking at the candidates:\n\n- File 4 (MultiStartUnivariateRealOptimizer.java): age_days=1, commits=1 - brand new file, very likely part of the fix/change\n- File 2 (BaseUnivariateRealOptimizer.java): age_days=8, commits=3, very high commit_freq=2.625 - very recently active\n- File 3 (AbstractUnivariateRealOptimizer.java): moderate activity, older\n- File 1 (UnivariateRealOptimizer.java): interface file, older, less likely to be defective\n\nThe test failure is an AssertionError in Math optimization. The MultiStartUnivariateRealOptimizer is brand new (1 day old, 1 commit) and BaseUnivariateRealOptimizer is very recently modified. These are the most likely defective files.\n\n{\"ranking\": [4, 2, 3, 1], \"confidence\": {\"4\": 0.75, \"2\": 0.65, \"3\": 0.25, \"1\": 0.08}}",
+ "n_attempts": 1
+}

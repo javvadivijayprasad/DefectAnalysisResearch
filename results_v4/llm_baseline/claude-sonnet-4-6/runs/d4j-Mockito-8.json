@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Mockito-8",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/org/mockito/internal/util/reflection/GenericMetadataSupport.java",
+  "src/org/mockito/internal/util/reflection/FieldCopier.java",
+  "src/org/mockito/internal/util/reflection/GenericMaster.java",
+  "src/org/mockito/internal/util/reflection/BeanPropertySetter.java",
+  "src/org/mockito/internal/util/reflection/FieldInitializer.java"
+ ],
+ "timestamp": "2026-10-02T15:19:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  3,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.72,
+  "5": 0.15,
+  "3": 0.08,
+  "4": 0.04,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.72,
+  0.02,
+  0.04,
+  0.15,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 903,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [1, 5, 3, 4, 2], \"confidence\": {\"1\": 0.72, \"5\": 0.15, \"3\": 0.08, \"4\": 0.04, \"2\": 0.02}}",
+ "n_attempts": 1
+}

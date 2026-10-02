@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-thefuck-15",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "thefuck/rules/django_south_merge.py",
+  "thefuck/rules/git_remote_seturl_add.py",
+  "thefuck/rules/cd_parent.py",
+  "thefuck/rules/whois.py",
+  "thefuck/rules/dirty_unzip.py",
+  "thefuck/rules/git_add.py",
+  "thefuck/rules/git_pull_clone.py",
+  "thefuck/rules/apt_get_search.py"
+ ],
+ "timestamp": "2026-10-02T15:35:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  7,
+  5,
+  6,
+  4,
+  1,
+  8,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.65,
+  "7": 0.2,
+  "5": 0.1,
+  "6": 0.08,
+  "4": 0.06,
+  "1": 0.05,
+  "8": 0.04,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.65,
+  0.03,
+  0.06,
+  0.05,
+  0.04,
+  0.1,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  7,
+  4,
+  5,
+  6,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1008,
+  "output_tokens": 602
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- `app_code_changed` flag is set, indicating application code was modified\n- The failure is an `AssertionError`, suggesting a test assertion failed\n- I need to look for files that are most likely to have been recently modified or have characteristics suggesting they contain the bug\n\nAnalysis of candidates:\n1. `git_remote_seturl_add.py` - commits=1, age_days=1, commit_freq=1.0000 - This is brand new (1 day old, 1 commit). A newly added file with no prior history is very suspicious as it could be the file that introduced the bug or was added as the fix.\n2. `git_pull_clone.py` - commits=6, age_days=48, commit_freq=0.8750 - High commit frequency, relatively recent, suggesting active development/bug fixing.\n3. `dirty_unzip.py` - commits=12, age_days=191, commit_freq=0.4398 - Most commits, high churn (96), suggesting it's been frequently modified and may have bugs.\n4. `whois.py` - commits=7, age_days=166, commit_freq=0.2952 - Moderate activity.\n5. `git_add.py` - commits=9, age_days=268, commit_freq=0.2351 - Moderate activity.\n6. `django_south_merge.py` - commits=3, age_days=109, commit_freq=0.1927\n7. `apt_get_search.py` - commits=4, age_days=170, commit_freq=0.1647\n8. `cd_parent.py` - commits=3, age_days=142, commit_freq=0.1479\n\nThe file `git_remote_seturl_add.py` with age_days=1 and commit_freq=1.0 is extremely suspicious - it's essentially a brand new file that was just added, which strongly suggests it's the defective/fixed file. `git_pull_clone.py` with high commit frequency is also suspicious.\n\n{\"ranking\": [2, 7, 5, 6, 4, 1, 8, 3], \"confidence\": {\"2\": 0.65, \"7\": 0.20, \"5\": 0.10, \"6\": 0.08, \"4\": 0.06, \"1\": 0.05, \"8\": 0.04, \"3\": 0.03}}",
+ "n_attempts": 1
+}

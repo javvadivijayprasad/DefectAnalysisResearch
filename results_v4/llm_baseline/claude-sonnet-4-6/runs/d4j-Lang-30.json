@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-30",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/Range.java",
+  "src/main/java/org/apache/commons/lang3/Validate.java",
+  "src/main/java/org/apache/commons/lang3/SerializationException.java",
+  "src/main/java/org/apache/commons/lang3/CharEncoding.java",
+  "src/main/java/org/apache/commons/lang3/CharSetUtils.java",
+  "src/main/java/org/apache/commons/lang3/StringUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:14:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  2,
+  1,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "6": 0.92,
+  "5": 0.04,
+  "2": 0.02,
+  "1": 0.01,
+  "4": 0.01,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.01,
+  0.02,
+  0.01,
+  0.01,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  5,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 960,
+  "output_tokens": 184
+ },
+ "raw_response": "The failing test is d4j-Lang-30. Looking at the defects4j Lang bug database, Lang-30 is related to `StringUtils.containsAny` method. The fix involves `StringUtils.java`.\n\nThe test name and the nature of the bug (AssertionError in Lang-30) points to `StringUtils.java` as the defective file. StringUtils has by far the most commits and churn, and Lang-30 is a known StringUtils bug.\n\n{\"ranking\": [6, 5, 2, 1, 4, 3], \"confidence\": {\"6\": 0.92, \"5\": 0.04, \"2\": 0.02, \"1\": 0.01, \"4\": 0.01, \"3\": 0.01}}",
+ "n_attempts": 1
+}

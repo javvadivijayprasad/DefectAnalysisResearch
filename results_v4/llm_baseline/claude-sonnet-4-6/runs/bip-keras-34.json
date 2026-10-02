@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-keras-34",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "keras/utils/training_utils.py",
+  "keras/utils/vis_utils.py",
+  "keras/engine/training.py",
+  "keras/utils/conv_utils.py",
+  "keras/utils/data_utils.py",
+  "keras/engine/__init__.py",
+  "keras/utils/np_utils.py",
+  "keras/utils/__init__.py"
+ ],
+ "timestamp": "2026-10-02T15:24:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  5,
+  7,
+  4,
+  2,
+  8,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "3": 0.4,
+  "5": 0.12,
+  "7": 0.08,
+  "4": 0.06,
+  "2": 0.05,
+  "8": 0.04,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.12,
+  0.02,
+  0.04,
+  0.08,
+  0.05,
+  0.55,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  7,
+  6,
+  3,
+  5,
+  0,
+  4
+ ],
+ "usage": {
+  "input_tokens": 978,
+  "output_tokens": 333
+ },
+ "raw_response": "Looking at this failing test in keras with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- The test involves training utilities (bip-keras-34 suggests a training-related bug)\n- `training_utils.py` has very high commit frequency (0.7568) for its age (111 days), suggesting it's a recently active/volatile file\n- `training.py` has extremely high activity (212 commits, 2.108 freq) - the core training file\n- The bug involves an AssertionError which could come from validation/assertion checks in training code\n\n`training_utils.py` stands out as particularly suspicious:\n- Very young file (111 days) with high churn relative to its age\n- High commit frequency suggests it's been actively modified\n- Training utilities are a common source of assertion errors\n\n`training.py` is also highly likely given it's the most active file and central to training operations.\n\n`data_utils.py` has significant activity and could be involved in data pipeline assertions.\n\n{\"ranking\": [1, 3, 5, 7, 4, 2, 8, 6], \"confidence\": {\"1\": 0.55, \"3\": 0.40, \"5\": 0.12, \"7\": 0.08, \"4\": 0.06, \"2\": 0.05, \"8\": 0.04, \"6\": 0.02}}",
+ "n_attempts": 1
+}

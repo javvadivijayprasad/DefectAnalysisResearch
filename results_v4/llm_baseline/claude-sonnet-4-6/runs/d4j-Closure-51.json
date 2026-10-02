@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-51",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CustomPassExecutionTime.java",
+  "src/com/google/javascript/jscomp/FunctionToBlockMutator.java",
+  "src/com/google/javascript/jscomp/CheckMissingReturn.java",
+  "src/com/google/javascript/jscomp/CollapseProperties.java",
+  "src/com/google/javascript/jscomp/CodeConsumer.java",
+  "src/com/google/javascript/jscomp/CodingConventions.java"
+ ],
+ "timestamp": "2026-10-02T14:52:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  4,
+  3,
+  5,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.04,
+  "2": 0.55,
+  "3": 0.12,
+  "4": 0.15,
+  "5": 0.1,
+  "6": 0.45
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.04,
+  0.55,
+  0.15,
+  0.12,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  5,
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 949,
+  "output_tokens": 478
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-51, I need to identify which files are most likely defective.\n\nKey observations:\n\n1. **File 6 (CodingConventions.java)**: commits=1, age_days=1, commit_freq=1.0 - This is a brand new file with only 1 commit. This is highly suspicious as it could be a newly introduced file that contains bugs, or it could be the fix file itself. However, new files with single commits are often part of the fix rather than the defect.\n\n2. **File 2 (FunctionToBlockMutator.java)**: High commit frequency (0.2144), significant churn (740), relatively active file. This is a complex transformation pass that could easily have bugs.\n\n3. **File 4 (CollapseProperties.java)**: Highest commit frequency (0.4079), highest churn (1350), most commits (37). Very active file suggesting ongoing bug fixes.\n\n4. **File 3 (CheckMissingReturn.java)**: Moderate activity, 16 commits, 8 devs.\n\n5. **File 5 (CodeConsumer.java)**: 16 commits, 8 devs, moderate churn.\n\n6. **File 1 (CustomPassExecutionTime.java)**: Low activity, minimal changes.\n\nFor Closure-51 specifically, this is related to inlining functions. FunctionToBlockMutator is directly involved in function inlining transformations, making it a strong candidate. The AssertionError suggests a logic error in transformation code.\n\nCodingConventions.java being brand new (age_days=1) with a single commit strongly suggests it's part of the fix commit itself.\n\n{\"ranking\": [2, 6, 4, 3, 5, 1], \"confidence\": {\"1\": 0.04, \"2\": 0.55, \"3\": 0.12, \"4\": 0.15, \"5\": 0.10, \"6\": 0.45}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-87",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/math/optimization/linear/LinearConstraint.java",
+  "src/java/org/apache/commons/math/optimization/linear/AbstractLinearOptimizer.java",
+  "src/java/org/apache/commons/math/optimization/linear/SimplexTableau.java",
+  "src/java/org/apache/commons/math/optimization/linear/SimplexSolver.java",
+  "src/java/org/apache/commons/math/optimization/linear/Relationship.java",
+  "src/java/org/apache/commons/math/optimization/linear/LinearOptimizer.java"
+ ],
+ "timestamp": "2026-10-02T15:18:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  2,
+  1,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.65,
+  "4": 0.35,
+  "2": 0.1,
+  "1": 0.05,
+  "6": 0.05,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.35,
+  0.05,
+  0.02,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  5,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 962,
+  "output_tokens": 169
+ },
+ "raw_response": "The failing test is in the Simplex linear optimizer. The most likely defective files are those with the most churn and commits in the core algorithm. SimplexTableau (file 3) has the highest churn (617) and most commits (6), making it the prime suspect. SimplexSolver (file 4) is the next most likely as it drives the algorithm. The others are supporting infrastructure less likely to contain the bug.\n\n{\"ranking\": [3, 4, 2, 1, 6, 5], \"confidence\": {\"3\": 0.65, \"4\": 0.35, \"2\": 0.10, \"1\": 0.05, \"6\": 0.05, \"5\": 0.02}}",
+ "n_attempts": 1
+}

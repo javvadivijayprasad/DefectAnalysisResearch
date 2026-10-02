@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-7",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ISO8601Utils.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ByteBufferBackedInputStream.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ViewMatcher.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/Annotations.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/NameTransformer.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/SimpleBeanPropertyDefinition.java"
+ ],
+ "timestamp": "2026-10-02T15:04:43",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  1,
+  7,
+  5,
+  2,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "1": 0.3,
+  "7": 0.15,
+  "5": 0.08,
+  "2": 0.05,
+  "4": 0.04,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.04,
+  0.05,
+  0.45,
+  0.03,
+  0.08,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  4,
+  0,
+  6,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1057,
+  "output_tokens": 509
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is defects4j bug #7 in JacksonDatabind\n\nLet me analyze the candidates:\n\n1. **TokenBuffer.java** - High activity (37 commits, 5 devs, high churn), core utility class frequently modified\n2. **ISO8601Utils.java** - Moderate activity, date/time parsing utility\n3. **ByteBufferBackedInputStream.java** - Low activity, very recent (175 days), small file\n4. **ViewMatcher.java** - Low activity, view-related matching\n5. **Annotations.java** - Very recent (42 days), very high commit frequency (0.5/day), small changes\n6. **NameTransformer.java** - Very recent (9 days!), extremely high commit frequency (1.5556/day), moderate size\n7. **SimpleBeanPropertyDefinition.java** - Moderate activity, bean property related\n\nThe standout candidates are:\n- **NameTransformer.java** (index 6): Only 9 days old with extremely high commit frequency - this is very suspicious as a recently introduced/modified file\n- **TokenBuffer.java** (index 1): Highest overall activity and churn, core class\n- **SimpleBeanPropertyDefinition.java** (index 7): Moderate activity, bean property definitions are commonly involved in serialization bugs\n\nFor JacksonDatabind bug #7, based on the pattern of recent changes and the nature of the defect (AssertionError likely in serialization/deserialization), NameTransformer and TokenBuffer are the most likely candidates.\n\n{\"ranking\": [6, 1, 7, 5, 2, 4, 3], \"confidence\": {\"6\": 0.45, \"1\": 0.30, \"7\": 0.15, \"5\": 0.08, \"2\": 0.05, \"4\": 0.04, \"3\": 0.03}}",
+ "n_attempts": 1
+}

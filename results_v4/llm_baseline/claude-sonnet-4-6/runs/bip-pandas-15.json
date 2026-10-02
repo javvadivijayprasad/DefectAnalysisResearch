@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-pandas-15",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "pandas/core/indexes/datetimelike.py",
+  "pandas/core/arrays/datetimelike.py",
+  "pandas/core/arrays/numpy_.py",
+  "pandas/core/arrays/_ranges.py",
+  "pandas/core/indexes/extension.py",
+  "pandas/core/indexes/accessors.py",
+  "pandas/core/indexes/range.py",
+  "pandas/core/arrays/__init__.py"
+ ],
+ "timestamp": "2026-10-02T15:28:20",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  5,
+  7,
+  3,
+  6,
+  4,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.45,
+  "3": 0.12,
+  "4": 0.05,
+  "5": 0.25,
+  "6": 0.08,
+  "7": 0.1,
+  "8": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.35,
+  0.08,
+  0.12,
+  0.25,
+  0.03,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  5,
+  4,
+  2,
+  7,
+  6,
+  3
+ ],
+ "usage": {
+  "input_tokens": 996,
+  "output_tokens": 475
+ },
+ "raw_response": "Looking at this failing test in pandas related to datetime-like functionality, I need to assess which files are most likely to contain the defect.\n\nKey observations:\n1. The test involves datetime-like functionality (based on file names in candidates)\n2. The failure is an AssertionError\n3. `app_code_changed` flag is set\n\nAnalysis of candidates:\n- **File 2 (datetimelike.py arrays)**: Very high commit frequency (1.70/day), relatively young (662 days), high churn - actively developed, likely to have bugs\n- **File 1 (datetimelike.py indexes)**: High commit frequency (0.98/day), very high churn (6613), old file - core datetime index logic\n- **File 5 (extension.py indexes)**: Highest commit frequency (1.80/day), very young (105 days) - recently added, high likelihood of bugs\n- **File 7 (range.py)**: Moderate commit frequency, high churn\n- **File 3 (numpy_.py)**: Moderate activity\n- **File 6 (accessors.py)**: Lower commit frequency despite many commits\n- **File 4 (_ranges.py)**: Low activity\n- **File 8 (__init__.py)**: Low activity, unlikely to be defective\n\nThe test name \"bip-pandas-15\" and the datetime-like focus suggests the bug is likely in the core datetime array or index implementation. Files 2 and 1 are the most likely candidates given their high activity and direct relevance. File 5 being very young (105 days) with high commit frequency also makes it suspicious.\n\n{\"ranking\": [2, 1, 5, 7, 3, 6, 4, 8], \"confidence\": {\"1\": 0.35, \"2\": 0.45, \"3\": 0.12, \"4\": 0.05, \"5\": 0.25, \"6\": 0.08, \"7\": 0.10, \"8\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonXml-5",
+ "repo": "defects4j:JacksonXml",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/XmlMapper.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializerBase.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+ ],
+ "timestamp": "2026-10-02T15:47:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "4": 0.3,
+  "2": 0.15,
+  "3": 0.1,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.1,
+  0.3,
+  0.35,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 771,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 3, 5], \"confidence\": {\"1\": 0.35, \"4\": 0.30, \"2\": 0.15, \"3\": 0.10, \"5\": 0.10}}",
+ "n_attempts": 1
+}

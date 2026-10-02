@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-black-13",
+ "repo": "bugsinpy:black",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "blib2to3/pgen2/token.py",
+  "blib2to3/pgen2/pgen.py",
+  "blib2to3/pgen2/tokenize.py",
+  "blib2to3/pgen2/driver.py",
+  "blib2to3/pgen2/__init__.py",
+  "blib2to3/pgen2/conv.py",
+  "blib2to3/pgen2/parse.py"
+ ],
+ "timestamp": "2026-10-02T15:51:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  7,
+  5,
+  3,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.35,
+  "3": 0.15,
+  "4": 0.1,
+  "5": 0.1,
+  "6": 0.15,
+  "7": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.1,
+  0.35,
+  0.1,
+  0.1,
+  0.05,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  0,
+  2,
+  5,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 809,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [2, 6, 7, 5, 3, 4, 1], \"confidence\": {\"1\": 0.05, \"2\": 0.35, \"3\": 0.15, \"4\": 0.10, \"5\": 0.10, \"6\": 0.15, \"7\": 0.10}}",
+ "n_attempts": 1
+}

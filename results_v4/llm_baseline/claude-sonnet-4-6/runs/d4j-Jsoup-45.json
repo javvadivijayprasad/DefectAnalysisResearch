@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-45",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/ParseError.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java"
+ ],
+ "timestamp": "2026-10-02T15:10:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  4,
+  1,
+  6,
+  7,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.55,
+  "3": 0.45,
+  "4": 0.3,
+  "5": 0.05,
+  "6": 0.15,
+  "7": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.05,
+  0.45,
+  0.25,
+  0.3,
+  0.1,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  1,
+  3,
+  2,
+  5,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1002,
+  "output_tokens": 503
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError in Jsoup's parser\n- The `app_code_changed` flag is set\n- This is in the parser package\n\nAnalyzing candidates:\n\n1. **Token.java** - High activity (18 commits, 767 churn), core parsing component\n2. **HtmlTreeBuilder.java** - Very high activity (25 commits, 1107 churn), central to HTML parsing logic, high commit frequency\n3. **Tag.java** - Highest activity (56 commits, 1554 churn), very frequently modified\n4. **package-info.java** - Only 1 commit, 4 lines added, age_days=1 (brand new file, likely just documentation added in same commit)\n5. **ParseError.java** - Moderate activity, relatively recent (319 days)\n6. **CharacterReader.java** - Good activity, core tokenization\n7. **XmlTreeBuilder.java** - Lower activity, XML-specific\n\nFor Jsoup issue 45 (d4j-Jsoup-45), this typically involves HTML parsing behavior. The most likely candidates for a fix would be HtmlTreeBuilder.java (central parsing logic) and Tag.java (tag handling). Token.java is also plausible. The package-info.java being brand new (age_days=1) suggests it was added in the same commit as the fix, making it likely part of the fix commit's diff.\n\nHtmlTreeBuilder.java has the highest commit frequency among substantive files and is the core of HTML tree building logic. Tag.java has the most churn overall. The new package-info.java is suspicious as it was likely added alongside the fix.\n\n{\"ranking\": [2, 3, 4, 1, 6, 7, 5], \"confidence\": {\"1\": 0.25, \"2\": 0.55, \"3\": 0.45, \"4\": 0.30, \"5\": 0.05, \"6\": 0.15, \"7\": 0.10}}",
+ "n_attempts": 1
+}

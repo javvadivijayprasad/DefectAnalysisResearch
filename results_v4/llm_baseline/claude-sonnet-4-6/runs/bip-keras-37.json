@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-keras-37",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "keras/layers/convolutional.py",
+  "keras/layers/core.py",
+  "keras/layers/recurrent.py",
+  "keras/layers/advanced_activations.py",
+  "keras/layers/local.py",
+  "keras/layers/merge.py",
+  "keras/layers/cudnn_recurrent.py",
+  "keras/layers/wrappers.py"
+ ],
+ "timestamp": "2026-10-02T15:24:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  8,
+  6,
+  5,
+  7,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.18,
+  "2": 0.22,
+  "3": 0.28,
+  "4": 0.05,
+  "5": 0.08,
+  "6": 0.1,
+  "7": 0.07,
+  "8": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.28,
+  0.15,
+  0.08,
+  0.18,
+  0.22,
+  0.1,
+  0.05,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  5,
+  2,
+  1,
+  4,
+  7,
+  6
+ ],
+ "usage": {
+  "input_tokens": 989,
+  "output_tokens": 419
+ },
+ "raw_response": "Looking at this failing test in keras with an AssertionError, I need to consider which layer files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError, common in shape/dimension checks\n- `app_code_changed` flag is set\n- Looking at commit frequency and churn as indicators of active development (more bugs)\n\nAnalysis:\n- `core.py` (2) has the highest commit frequency (2.41) and churn (13043) - very active, high bug probability\n- `recurrent.py` (3) has high commits and churn, frequently modified\n- `convolutional.py` (1) also very active with high churn\n- `wrappers.py` (8) moderate activity, wraps other layers\n- `merge.py` (6) relatively new (331 days) with decent commit frequency\n- `cudnn_recurrent.py` (7) very new (87 days) but few commits\n- `local.py` (5) moderate activity\n- `advanced_activations.py` (4) lower activity\n\nFor keras bug #37, considering the test failure pattern and the nature of AssertionError in keras layers, recurrent layers and core layers are common sources. The `wrappers.py` file wraps recurrent layers and could cause assertion errors when checking shapes. `recurrent.py` is also a strong candidate given its high activity.\n\n{\"ranking\": [3, 2, 1, 8, 6, 5, 7, 4], \"confidence\": {\"1\": 0.18, \"2\": 0.22, \"3\": 0.28, \"4\": 0.05, \"5\": 0.08, \"6\": 0.10, \"7\": 0.07, \"8\": 0.15}}",
+ "n_attempts": 1
+}

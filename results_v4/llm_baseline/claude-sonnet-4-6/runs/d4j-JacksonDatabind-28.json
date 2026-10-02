@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-JacksonDatabind-28",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java"
+ ],
+ "timestamp": "2026-10-02T15:05:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.6,
+  "2": 0.25,
+  "1": 0.15,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.6,
+  0.25,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 439
+ },
+ "raw_response": "Looking at this failing test for JacksonDatabind-28, I need to reason about which files are likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a test assertion failed\n- The `app_code_changed` flag is set\n- This is in the deserializer package\n\nAnalyzing candidates:\n1. `PrimitiveArrayDeserializers.java` - Moderate activity, deals with primitive array deserialization\n2. `JsonNodeDeserializer.java` - Good activity, deals with JsonNode deserialization\n3. `deser/package-info.java` - Only 1 commit, 1 dev, 5 lines added, age_days=1 (very recently created/modified), commit_freq=1.0 (suspicious - created very recently)\n4. `BeanDeserializer.java` - Very high activity (92 commits, 6 devs), most churned file, highest commit frequency\n\nThe `package-info.java` with age_days=1 and commit_freq=1.0 is suspicious but package-info files rarely contain logic that causes test failures.\n\n`BeanDeserializer.java` has the highest churn and commit frequency, making it the most likely candidate for a bug fix. It's the most complex and frequently modified file.\n\n`JsonNodeDeserializer.java` is also a reasonable candidate given its activity level.\n\n`PrimitiveArrayDeserializers.java` is possible but less likely.\n\nFor JacksonDatabind-28 specifically, this is related to bean deserialization issues, making `BeanDeserializer.java` the most likely defective file.\n\n{\"ranking\": [4, 2, 1, 3], \"confidence\": {\"4\": 0.60, \"2\": 0.25, \"1\": 0.15, \"3\": 0.05}}",
+ "n_attempts": 1
+}

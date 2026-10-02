@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-youtube-dl-28",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "youtube_dl/YoutubeDL.py",
+  "youtube_dl/compat.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/aes.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/options.py",
+  "youtube_dl/cache.py",
+  "youtube_dl/swfinterp.py"
+ ],
+ "timestamp": "2026-10-02T15:37:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  3,
+  8,
+  2,
+  6,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.1,
+  "3": 0.2,
+  "4": 0.05,
+  "5": 0.35,
+  "6": 0.08,
+  "7": 0.03,
+  "8": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.03,
+  0.15,
+  0.05,
+  0.25,
+  0.1,
+  0.08,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  7,
+  3,
+  6,
+  1,
+  4,
+  5,
+  2
+ ],
+ "usage": {
+  "input_tokens": 990,
+  "output_tokens": 483
+ },
+ "raw_response": "Looking at this failing test with AssertionError in youtube-dl, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError, which suggests a logic/assertion failure in code\n- `app_code_changed` flag is set\n- The test is from bugsinpy:youtube-dl test #28\n\nAnalyzing candidates:\n1. **YoutubeDL.py** - Very high activity (482 commits, 44 devs), core file, high churn - likely candidate\n2. **compat.py** - Moderate activity, compatibility layer\n3. **jsinterp.py** - JavaScript interpreter, moderate activity\n4. **aes.py** - AES encryption, lower activity\n5. **utils.py** - Very high activity (376 commits, 26 devs), utility functions - very likely candidate\n6. **options.py** - Extremely high commits (921!), but mostly option parsing - less likely for AssertionError\n7. **cache.py** - Very low activity, recently added\n8. **swfinterp.py** - SWF interpreter, moderate activity, relatively recent\n\nFor youtube-dl bug #28, AssertionError often occurs in jsinterp.py (JavaScript interpreter) or utils.py when processing video data. The jsinterp.py has moderate churn and is a common source of assertion errors when parsing JavaScript. The swfinterp.py is also a candidate given its recent high activity.\n\nGiven the AssertionError nature and the test index (28), jsinterp.py and utils.py are strong candidates. YoutubeDL.py is always a candidate due to its size and activity.\n\n{\"ranking\": [5, 1, 3, 8, 2, 6, 4, 7], \"confidence\": {\"1\": 0.25, \"2\": 0.10, \"3\": 0.20, \"4\": 0.05, \"5\": 0.35, \"6\": 0.08, \"7\": 0.03, \"8\": 0.15}}",
+ "n_attempts": 1
+}

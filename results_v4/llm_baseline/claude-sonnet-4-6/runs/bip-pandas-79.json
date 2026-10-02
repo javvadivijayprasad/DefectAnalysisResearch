@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-pandas-79",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "pandas/core/accessor.py",
+  "pandas/core/indexes/multi.py",
+  "pandas/core/groupby/grouper.py",
+  "pandas/core/config_init.py",
+  "pandas/core/indexes/datetimes.py",
+  "pandas/core/series.py"
+ ],
+ "timestamp": "2026-10-02T15:30:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  6,
+  5,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.08,
+  "2": 0.35,
+  "3": 0.3,
+  "4": 0.03,
+  "5": 0.15,
+  "6": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.15,
+  0.35,
+  0.2,
+  0.08,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  0,
+  2,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 901,
+  "output_tokens": 406
+ },
+ "raw_response": "Looking at this failing test in pandas with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey considerations:\n- The test involves an AssertionError (likely a data integrity or type check failure)\n- `app_code_changed` flag is set\n- Bug 79 in pandas bugsinpy dataset\n\nLet me analyze the candidates:\n\n1. **multi.py** - Very high commit frequency, large file, MultiIndex is complex and frequently buggy\n2. **grouper.py** - Moderate commits, groupby operations often interact with indexes\n3. **series.py** - Extremely high activity, core data structure\n4. **datetimes.py** - High activity, datetime indexes are complex\n5. **accessor.py** - Lower activity, less likely\n6. **config_init.py** - Configuration, unlikely to cause AssertionError in data operations\n\nFor pandas bug #79 in bugsinpy, this is likely related to MultiIndex or groupby operations based on the nature of AssertionError failures. The `grouper.py` file has a relatively recent age (543 days) suggesting it was newer/more actively modified around the bug period. MultiIndex (`multi.py`) is also a strong candidate given its complexity.\n\nThe grouper.py file stands out with its relatively young age and high commit frequency relative to its size, suggesting active development where bugs are more likely. Series.py and multi.py are also strong candidates given their complexity.\n\n{\"ranking\": [2, 3, 6, 5, 1, 4], \"confidence\": {\"1\": 0.08, \"2\": 0.35, \"3\": 0.30, \"4\": 0.03, \"5\": 0.15, \"6\": 0.20}}",
+ "n_attempts": 1
+}

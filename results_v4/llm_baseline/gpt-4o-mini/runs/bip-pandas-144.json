@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-pandas-144",
+ "repo": "bugsinpy:pandas",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "pandas/plotting/_matplotlib/timeseries.py",
+  "pandas/plotting/_matplotlib/converter.py",
+  "pandas/plotting/_matplotlib/core.py",
+  "pandas/plotting/_matplotlib/misc.py"
+ ],
+ "timestamp": "2026-10-02T15:54:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.35,
+  "3": 0.15,
+  "4": 0.25
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.25,
+  0.25,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 692,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [2, 1, 4, 3], \"confidence\": {\"1\": 0.25, \"2\": 0.35, \"3\": 0.15, \"4\": 0.25}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Lang-9",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/time/DateParser.java",
+  "src/main/java/org/apache/commons/lang3/time/DateFormatUtils.java",
+  "src/main/java/org/apache/commons/lang3/time/FormatCache.java",
+  "src/main/java/org/apache/commons/lang3/time/FastDateParser.java"
+ ],
+ "timestamp": "2026-10-02T15:14:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.7,
+  "1": 0.25,
+  "3": 0.08,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.7,
+  0.08,
+  0.03,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 846,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [4, 1, 3, 2], \"confidence\": {\"4\": 0.70, \"1\": 0.25, \"3\": 0.08, \"2\": 0.03}}",
+ "n_attempts": 1
+}

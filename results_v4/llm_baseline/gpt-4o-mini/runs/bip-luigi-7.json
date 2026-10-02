@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-luigi-7",
+ "repo": "bugsinpy:luigi",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "luigi/local_target.py",
+  "luigi/scheduler.py",
+  "luigi/cmdline.py",
+  "luigi/task_history.py",
+  "luigi/task.py"
+ ],
+ "timestamp": "2026-10-02T15:51:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  1,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.35,
+  "3": 0.1,
+  "4": 0.2,
+  "5": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.2,
+  0.2,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 708,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [2, 5, 1, 4, 3], \"confidence\": {\"1\": 0.15, \"2\": 0.35, \"3\": 0.10, \"4\": 0.20, \"5\": 0.20}}",
+ "n_attempts": 1
+}

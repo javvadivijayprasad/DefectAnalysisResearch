@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-spacy-1",
+ "repo": "bugsinpy:spacy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "spacy/errors.py",
+  "spacy/lemmatizer.py",
+  "spacy/util.py",
+  "spacy/_ml.py",
+  "spacy/glossary.py",
+  "spacy/about.py",
+  "spacy/__init__.py",
+  "spacy/analysis.py"
+ ],
+ "timestamp": "2026-10-02T15:34:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  4,
+  3,
+  2,
+  1,
+  7,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "8": 0.45,
+  "4": 0.3,
+  "3": 0.2,
+  "2": 0.15,
+  "1": 0.12,
+  "7": 0.08,
+  "5": 0.05,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.45,
+  0.3,
+  0.08,
+  0.15,
+  0.05,
+  0.03,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  1,
+  5,
+  3,
+  6,
+  7,
+  2
+ ],
+ "usage": {
+  "input_tokens": 971,
+  "output_tokens": 406
+ },
+ "raw_response": "Looking at this failing test in spacy with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, which in spacy often relates to model/pipeline validation or version checks\n- `app_code_changed` flag is set, indicating application code was modified\n- `spacy/analysis.py` is very new (184 days old, only 3 commits, 2 devs) - new files are often where bugs are introduced\n- `spacy/_ml.py` has very high churn (5652) and high commit frequency - active development area prone to bugs\n- `spacy/util.py` also has high churn and many commits\n- `spacy/errors.py` has high commit frequency, often updated alongside bug fixes\n- `spacy/lemmatizer.py` is a core component with significant churn\n\nThe `analysis.py` file stands out as very new with few commits - this is a recently added file that could easily have bugs. The `_ml.py` file has the highest churn and commit frequency, making it another strong candidate. `util.py` is also heavily modified.\n\nFor an AssertionError specifically, it could be in validation logic in `analysis.py` (new file, likely has assertions), or in `_ml.py` (complex ML code with assertions).\n\n{\"ranking\": [8, 4, 3, 2, 1, 7, 5, 6], \"confidence\": {\"8\": 0.45, \"4\": 0.30, \"3\": 0.20, \"2\": 0.15, \"1\": 0.12, \"7\": 0.08, \"5\": 0.05, \"6\": 0.03}}",
+ "n_attempts": 1
+}

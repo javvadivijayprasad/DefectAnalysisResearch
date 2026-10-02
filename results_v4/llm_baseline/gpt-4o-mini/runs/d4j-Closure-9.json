@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-9",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/PeepholeFoldWithTypes.java",
+  "src/com/google/javascript/jscomp/JSSourceFile.java",
+  "src/com/google/javascript/jscomp/ProcessTweaks.java",
+  "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+  "src/com/google/javascript/jscomp/MemoizedScopeCreator.java",
+  "src/com/google/javascript/jscomp/ProcessCommonJSModules.java",
+  "src/com/google/javascript/jscomp/JsMessageVisitor.java"
+ ],
+ "timestamp": "2026-10-02T15:43:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  7,
+  1,
+  2,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.35,
+  "3": 0.25,
+  "7": 0.15,
+  "1": 0.1,
+  "2": 0.08,
+  "6": 0.05,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.25,
+  0.02,
+  0.35,
+  0.15,
+  0.1,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  1,
+  6,
+  0,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 821,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[4,3,7,1,2,6,5],\"confidence\":{\"4\":0.35,\"3\":0.25,\"7\":0.15,\"1\":0.10,\"2\":0.08,\"6\":0.05,\"5\":0.02}}",
+ "n_attempts": 1
+}

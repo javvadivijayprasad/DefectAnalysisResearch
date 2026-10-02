@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JxPath-20",
+ "repo": "defects4j:JxPath",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/java/org/apache/commons/jxpath/ri/compiler/Expression.java",
+  "src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationGreaterThan.java",
+  "src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationCompare.java",
+  "src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationRelationalExpression.java",
+  "src/java/org/apache/commons/jxpath/ri/compiler/TreeCompiler.java",
+  "src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationMod.java",
+  "src/java/org/apache/commons/jxpath/ri/compiler/CoreOperationAnd.java"
+ ],
+ "timestamp": "2026-10-02T15:48:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  5,
+  2,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.05,
+  "3": 0.2,
+  "4": 0.3,
+  "5": 0.15,
+  "6": 0.05,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.05,
+  0.15,
+  0.05,
+  0.15,
+  0.05,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  2,
+  6,
+  3,
+  5,
+  1
+ ],
+ "usage": {
+  "input_tokens": 851,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [4, 3, 1, 5, 2, 6, 7], \"confidence\": {\"1\": 0.15, \"2\": 0.05, \"3\": 0.20, \"4\": 0.30, \"5\": 0.15, \"6\": 0.05, \"7\": 0.05}}",
+ "n_attempts": 1
+}

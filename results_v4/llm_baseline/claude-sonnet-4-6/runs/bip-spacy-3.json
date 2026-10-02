@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-spacy-3",
+ "repo": "bugsinpy:spacy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "bin/wiki_entity_linking/wikidata_train_entity_linker.py",
+  "bin/wiki_entity_linking/kb_creator.py",
+  "bin/wiki_entity_linking/train_descriptions.py",
+  "bin/wiki_entity_linking/__init__.py",
+  "bin/wiki_entity_linking/wikipedia_processor.py",
+  "bin/wiki_entity_linking/wiki_namespaces.py"
+ ],
+ "timestamp": "2026-10-02T15:34:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  5,
+  3,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "6": 0.9,
+  "2": 0.65,
+  "5": 0.45,
+  "3": 0.4,
+  "1": 0.3,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.3,
+  0.4,
+  0.05,
+  0.65,
+  0.9
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  4,
+  3,
+  5,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 919,
+  "output_tokens": 429
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- File 6 (`wiki_namespaces.py`) has commits=1, devs=1, age_days=1, commit_freq=1.0 - this is a brand new file, very likely introduced as part of the fix\n- File 2 (`kb_creator.py`) has very high commit frequency (1.0000) and many commits (23), suggesting active development/fixing\n- File 3 (`train_descriptions.py`) also has high commit frequency (0.7481) and many commits\n- File 5 (`wikipedia_processor.py`) has significant churn and moderate commit frequency\n- File 1 (`wikidata_train_entity_linker.py`) has moderate activity\n- File 4 (`__init__.py`) has very low commit frequency despite many commits\n\nThe brand-new file (age_days=1) is almost certainly part of the fix - it was created as part of the fix commit. Files that reference or use this new namespace file would also need to be modified. The high-activity files (kb_creator.py, train_descriptions.py, wikipedia_processor.py) are likely candidates for co-modification.\n\nThe `wiki_namespaces.py` being brand new (age=1 day, 1 commit, 1 dev) strongly suggests it was introduced in the fix. The `kb_creator.py` with commit_freq=1.0 also suggests it was modified in the same commit.\n\n{\"ranking\": [6, 2, 5, 3, 1, 4], \"confidence\": {\"6\": 0.90, \"2\": 0.65, \"5\": 0.45, \"3\": 0.40, \"1\": 0.30, \"4\": 0.05}}",
+ "n_attempts": 1
+}

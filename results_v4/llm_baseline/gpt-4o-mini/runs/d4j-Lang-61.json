@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Lang-61",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/text/StrMatcher.java",
+  "src/java/org/apache/commons/lang/text/StrSubstitutor.java",
+  "src/java/org/apache/commons/lang/text/StrTokenizer.java",
+  "src/java/org/apache/commons/lang/text/StrBuilder.java",
+  "src/java/org/apache/commons/lang/text/CompositeFormat.java"
+ ],
+ "timestamp": "2026-10-02T15:49:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  3,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.45,
+  "3": 0.25,
+  "4": 0.15,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.25,
+  0.05,
+  0.45,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  3,
+  0,
+  4
+ ],
+ "usage": {
+  "input_tokens": 743,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [2, 4, 3, 1, 5], \"confidence\": {\"1\": 0.05, \"2\": 0.45, \"3\": 0.25, \"4\": 0.15, \"5\": 0.10}}",
+ "n_attempts": 1
+}

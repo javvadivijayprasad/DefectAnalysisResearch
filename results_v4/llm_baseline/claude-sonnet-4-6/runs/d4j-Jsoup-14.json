@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-14",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/TokenQueue.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/ParseError.java"
+ ],
+ "timestamp": "2026-10-02T15:09:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  4,
+  7,
+  6,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.75,
+  "3": 0.75,
+  "4": 0.7,
+  "5": 0.15,
+  "6": 0.55,
+  "7": 0.6
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.75,
+  0.75,
+  0.7,
+  0.15,
+  0.6,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  0,
+  1,
+  2,
+  6,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 998,
+  "output_tokens": 453
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- Files 2, 3, 6, 7 all have `commits=1, age_days=1, commit_freq=1.0000` - these are brand new files, likely introduced together in the same commit\n- File 4 (TokeniserState.java) has `commits=2, age_days=23` with massive churn (+1789/-9) - very recently active\n- File 1 (DataUtil.java) has moderate activity\n- File 5 (TokenQueue.java) has high commit frequency and substantial history\n\nThe failing test is an AssertionError in Jsoup's parsing. The new files (CharacterReader, Tokeniser, TokeniserState, package-info, ParseError) suggest a major refactoring of the parser was introduced. Files 2, 3, 6, 7 were all created on the same day (age_days=1), suggesting they're part of the same commit/fix.\n\nFile 4 (TokeniserState.java) with 2 commits and age_days=23 suggests it was created recently and then modified - likely part of the same refactoring effort.\n\nThe core parsing logic changes would be in:\n- CharacterReader (new, fundamental)\n- Tokeniser (new, fundamental)  \n- TokeniserState (new + modified)\n- ParseError (new)\n\nThese new parser files are most likely the defective ones introduced in the fix commit. DataUtil and TokenQueue are older files that may have been modified to work with the new parser.\n\n{\"ranking\": [2, 3, 4, 7, 6, 1, 5], \"confidence\": {\"1\": 0.25, \"2\": 0.75, \"3\": 0.75, \"4\": 0.70, \"5\": 0.15, \"6\": 0.55, \"7\": 0.60}}",
+ "n_attempts": 1
+}

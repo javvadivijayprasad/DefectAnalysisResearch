@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-48",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/SerializationConfig.java",
+  "src/main/java/com/fasterxml/jackson/databind/JavaType.java",
+  "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+  "src/main/java/com/fasterxml/jackson/databind/BeanProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/MappingIterator.java",
+  "src/main/java/com/fasterxml/jackson/databind/KeyDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/MapperFeature.java",
+  "src/main/java/com/fasterxml/jackson/databind/ObjectReader.java"
+ ],
+ "timestamp": "2026-10-02T15:06:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  1,
+  7,
+  8,
+  2,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.55,
+  "3": 0.35,
+  "1": 0.3,
+  "7": 0.25,
+  "8": 0.15,
+  "2": 0.08,
+  "4": 0.06,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.3,
+  0.15,
+  0.55,
+  0.25,
+  0.06,
+  0.08,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  0,
+  3,
+  6,
+  5,
+  7
+ ],
+ "usage": {
+  "input_tokens": 1113,
+  "output_tokens": 429
+ },
+ "raw_response": "Looking at this failing test event for JacksonDatabind-48 with `config_changed` flag set.\n\nKey observations:\n1. The `config_changed` flag suggests the fix involved configuration-related changes\n2. The test failure is an `AssertionError`\n3. `KeyDeserializer.java` (candidate 6) stands out dramatically - it's only 30 days old with a very high commit frequency (0.7000), suggesting it was recently added/modified, which correlates strongly with being the defective file\n4. `SerializationConfig.java` (1) and `DeserializationConfig.java` (3) are config files with high commit frequencies, relevant given `config_changed` flag\n5. `MapperFeature.java` (7) could be relevant as it defines features used by configs\n\nThe `config_changed` flag points toward config files (1, 3, 7). The extremely recent age and high commit frequency of `KeyDeserializer.java` (6) makes it suspicious as a recently introduced file. However, for JacksonDatabind-48 specifically, the issue likely relates to configuration handling.\n\nGiven the `config_changed` flag and the nature of the defect, `DeserializationConfig` and `SerializationConfig` are prime candidates. `MapperFeature` is also relevant as it defines features that configs use. `KeyDeserializer` being brand new (30 days) is very suspicious.\n\n{\"ranking\": [6, 3, 1, 7, 8, 2, 4, 5], \"confidence\": {\"6\": 0.55, \"3\": 0.35, \"1\": 0.30, \"7\": 0.25, \"8\": 0.15, \"2\": 0.08, \"4\": 0.06, \"5\": 0.05}}",
+ "n_attempts": 1
+}

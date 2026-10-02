@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Time-18",
+ "repo": "defects4j:Time",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/joda/time/chrono/BasicFixedMonthChronology.java",
+  "src/main/java/org/joda/time/chrono/GJLocaleSymbols.java",
+  "src/main/java/org/joda/time/chrono/BasicWeekyearDateTimeField.java",
+  "src/main/java/org/joda/time/chrono/EthiopicChronology.java",
+  "src/main/java/org/joda/time/chrono/GregorianChronology.java",
+  "src/main/java/org/joda/time/chrono/ZonedChronology.java",
+  "src/main/java/org/joda/time/chrono/GJChronology.java"
+ ],
+ "timestamp": "2026-10-02T15:50:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  6,
+  4,
+  5,
+  3,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.07,
+  "3": 0.1,
+  "4": 0.15,
+  "5": 0.12,
+  "6": 0.2,
+  "7": 0.31
+ },
+ "confidence_by_corpus_row": [
+  0.31,
+  0.05,
+  0.2,
+  0.12,
+  0.07,
+  0.1,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  1,
+  3,
+  5,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 851,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [7, 6, 4, 5, 3, 2, 1], \"confidence\": {\"1\": 0.05, \"2\": 0.07, \"3\": 0.10, \"4\": 0.15, \"5\": 0.12, \"6\": 0.20, \"7\": 0.31}}",
+ "n_attempts": 1
+}

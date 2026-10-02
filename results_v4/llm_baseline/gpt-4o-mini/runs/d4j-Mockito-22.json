@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Mockito-22",
+ "repo": "defects4j:Mockito",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/org/mockito/internal/matchers/NotNull.java",
+  "src/org/mockito/internal/matchers/Not.java",
+  "src/org/mockito/internal/matchers/Equals.java",
+  "src/org/mockito/internal/matchers/Matches.java",
+  "src/org/mockito/internal/matchers/Equality.java"
+ ],
+ "timestamp": "2026-10-02T15:50:20",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.2,
+  "2": 0.2,
+  "3": 0.4,
+  "4": 0.15,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.2,
+  0.2,
+  0.4
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 735,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [3, 1, 2, 4, 5], \"confidence\": {\"1\": 0.20, \"2\": 0.20, \"3\": 0.40, \"4\": 0.15, \"5\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonCore-22",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/filter/JsonPointerBasedFilter.java",
+  "src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java",
+  "src/main/java/com/fasterxml/jackson/core/filter/TokenFilterContext.java",
+  "src/main/java/com/fasterxml/jackson/core/filter/TokenFilter.java",
+  "src/main/java/com/fasterxml/jackson/core/filter/FilteringGeneratorDelegate.java"
+ ],
+ "timestamp": "2026-10-02T15:04:08",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.9,
+  "4": 0.65,
+  "2": 0.35,
+  "3": 0.25,
+  "5": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.65,
+  0.2,
+  0.9,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  4,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 924,
+  "output_tokens": 372
+ },
+ "raw_response": "Looking at the candidates:\n\n1. `JsonPointerBasedFilter.java` - commits=1, age_days=1, commit_freq=1.0 \u2014 This is a brand new file (1 commit, 1 day old). This is extremely suspicious as it's likely the newly added file in the fix commit.\n\n2. `FilteringParserDelegate.java` - High churn, many commits, active file. Could be involved in a fix.\n\n3. `TokenFilterContext.java` - Moderate activity, could be involved.\n\n4. `TokenFilter.java` - age_days=20, commit_freq=2.8 \u2014 Very recently active with high commit frequency. This suggests recent changes, possibly related to the fix.\n\n5. `FilteringGeneratorDelegate.java` - High churn, many commits, but slightly older.\n\nThe key signals:\n- File 1 is brand new (1 day old, 1 commit) \u2014 almost certainly part of the fix commit\n- File 4 has very high recent commit frequency (2.8/day over 20 days) \u2014 likely also modified recently\n- Files 2, 3, 5 are older with lower commit frequencies\n\nThe fix likely introduced `JsonPointerBasedFilter.java` as a new file and possibly modified `TokenFilter.java` or `FilteringParserDelegate.java`.\n\n{\"ranking\": [1, 4, 2, 3, 5], \"confidence\": {\"1\": 0.90, \"4\": 0.65, \"2\": 0.35, \"3\": 0.25, \"5\": 0.20}}",
+ "n_attempts": 1
+}

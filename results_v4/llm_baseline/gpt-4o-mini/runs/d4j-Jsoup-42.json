@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-42",
+ "repo": "defects4j:Jsoup",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/package-info.java",
+  "src/main/java/org/jsoup/nodes/Node.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/nodes/Attribute.java",
+  "src/main/java/org/jsoup/nodes/Document.java",
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/nodes/FormElement.java",
+  "src/main/java/org/jsoup/nodes/XmlDeclaration.java"
+ ],
+ "timestamp": "2026-10-02T15:47:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  5,
+  4,
+  6,
+  1,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.35,
+  "3": 0.25,
+  "4": 0.1,
+  "5": 0.15,
+  "6": 0.05,
+  "7": 0.02,
+  "8": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.03,
+  0.25,
+  0.15,
+  0.35,
+  0.05,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  7,
+  1,
+  2,
+  0,
+  5,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 868,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [2, 3, 5, 4, 6, 1, 7, 8], \"confidence\": {\"1\": 0.05, \"2\": 0.35, \"3\": 0.25, \"4\": 0.10, \"5\": 0.15, \"6\": 0.05, \"7\": 0.02, \"8\": 0.03}}",
+ "n_attempts": 1
+}

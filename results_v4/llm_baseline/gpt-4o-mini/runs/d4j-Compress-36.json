@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Compress-36",
+ "repo": "defects4j:Compress",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZFile.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/AES256SHA256Decoder.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/SevenZMethod.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/Archive.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/BindPair.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/LZMA2Decoder.java",
+  "src/main/java/org/apache/commons/compress/archivers/sevenz/Coder.java"
+ ],
+ "timestamp": "2026-10-02T15:45:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  2,
+  3,
+  4,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "6": 0.25,
+  "2": 0.15,
+  "3": 0.1,
+  "4": 0.03,
+  "5": 0.01,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.01,
+  0.1,
+  0.03,
+  0.01,
+  0.15,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  3,
+  4,
+  5,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 872,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[1,6,2,3,4,5,7],\"confidence\":{\"1\":0.45,\"6\":0.25,\"2\":0.15,\"3\":0.10,\"4\":0.03,\"5\":0.01,\"7\":0.01}}",
+ "n_attempts": 1
+}

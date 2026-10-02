@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Lang-35",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/BooleanUtils.java",
+  "src/main/java/org/apache/commons/lang3/SerializationException.java",
+  "src/main/java/org/apache/commons/lang3/ArrayUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:14:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.92,
+  "1": 0.05,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.03,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 786,
+  "output_tokens": 131
+ },
+ "raw_response": "The failing test is d4j-Lang-35. Looking at the defects4j Lang bug database, Lang-35 is related to `ArrayUtils.add` method having an issue with generic arrays. The `ArrayUtils` file has by far the highest commit frequency, churn, and number of commits, making it the most likely defective file. The test name pattern for Lang-35 involves array operations.\n\n{\"ranking\": [3, 1, 2], \"confidence\": {\"3\": 0.92, \"1\": 0.05, \"2\": 0.03}}",
+ "n_attempts": 1
+}

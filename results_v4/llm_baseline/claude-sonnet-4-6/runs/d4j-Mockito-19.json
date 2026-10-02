@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Mockito-19",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/org/mockito/internal/configuration/injection/filter/TypeBasedCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/filter/FinalMockCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/filter/NameBasedCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/ConstructorInjection.java",
+  "src/org/mockito/internal/configuration/injection/filter/MockCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/MockInjection.java",
+  "src/org/mockito/internal/configuration/injection/PropertyAndSetterInjection.java"
+ ],
+ "timestamp": "2026-10-02T15:20:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  7,
+  6,
+  2,
+  3,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "7": 0.3,
+  "6": 0.2,
+  "2": 0.1,
+  "3": 0.09,
+  "1": 0.08,
+  "5": 0.07
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.1,
+  0.07,
+  0.09,
+  0.08,
+  0.2,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  6,
+  4,
+  5,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1039,
+  "output_tokens": 437
+ },
+ "raw_response": "Looking at this failing test in Mockito related to injection, with the flag `config_changed` set.\n\nKey observations:\n- The test is about mock injection (d4j-Mockito-19)\n- `config_changed` flag suggests configuration-related changes\n- File 4 (`ConstructorInjection.java`) stands out with very high commit frequency (0.1716) and is very young (204 days), suggesting recent active development/fixes\n- File 7 (`PropertyAndSetterInjection.java`) has the most commits (14) and highest churn (373), indicating it's been heavily modified\n- File 6 (`MockInjection.java`) has moderate activity and is relatively newer (1122 days)\n- Files 1, 2, 3, 5 are all the same age (1672 days) and have lower activity\n\nThe `config_changed` flag combined with the injection-related failure points toward the injection configuration files. `ConstructorInjection.java` being very recently active (high commit_freq, young age) is a strong signal. `PropertyAndSetterInjection.java` with the most churn is also suspicious.\n\nThe `MockInjection.java` file coordinates the injection strategies and could be the configuration entry point that changed.\n\nGiven the `config_changed` flag and the injection failure, I'll rank `ConstructorInjection.java` highest due to its recency and activity, followed by `PropertyAndSetterInjection.java` and `MockInjection.java`.\n\n{\"ranking\": [4, 7, 6, 2, 3, 1, 5], \"confidence\": {\"4\": 0.55, \"7\": 0.30, \"6\": 0.20, \"2\": 0.10, \"3\": 0.09, \"1\": 0.08, \"5\": 0.07}}",
+ "n_attempts": 1
+}

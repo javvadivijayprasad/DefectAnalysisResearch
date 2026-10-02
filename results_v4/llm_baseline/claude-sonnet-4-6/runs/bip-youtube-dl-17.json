@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-youtube-dl-17",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "youtube_dl/swfinterp.py",
+  "youtube_dl/socks.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/update.py",
+  "youtube_dl/compat.py",
+  "youtube_dl/version.py",
+  "youtube_dl/__init__.py"
+ ],
+ "timestamp": "2026-10-02T15:37:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  6,
+  8,
+  5,
+  2,
+  7
+ ],
+ "llm_confidence_presented": {
+  "4": 0.4,
+  "3": 0.25,
+  "1": 0.15,
+  "6": 0.08,
+  "8": 0.06,
+  "5": 0.04,
+  "2": 0.03,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.4,
+  0.04,
+  0.08,
+  0.03,
+  0.06,
+  0.02,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  5,
+  3,
+  6,
+  4,
+  7,
+  2
+ ],
+ "usage": {
+  "input_tokens": 988,
+  "output_tokens": 500
+ },
+ "raw_response": "Looking at this failing test with AssertionError in youtube-dl, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError, which often relates to logic/parsing issues\n- The `app_code_changed` flag is set\n- Looking at the candidates, I need to consider which files are most likely to contain bugs related to YouTube-dl functionality\n\nAnalysis:\n- `jsinterp.py` (4): JavaScript interpreter - commonly buggy, moderate commit frequency, deals with complex parsing logic that could cause AssertionError\n- `utils.py` (3): Very high churn and commits, utility functions used everywhere\n- `swfinterp.py` (1): SWF interpreter - complex logic, could cause AssertionError\n- `compat.py` (6): Compatibility layer, high commits\n- `__init__.py` (8): Main init, very high churn\n- `version.py` (7): Mostly version bumps, very high commit frequency but low meaningful changes\n- `update.py` (5): Update functionality\n- `socks.py` (2): SOCKS proxy implementation\n\nFor BIP (bugs in Python) youtube-dl issue #17, AssertionError is commonly thrown in `jsinterp.py` when JavaScript interpretation fails, or in `utils.py` for various utility assertions. The `jsinterp.py` file has a moderate number of commits with multiple developers suggesting active bug fixing. `swfinterp.py` also deals with complex interpretation that could cause AssertionErrors.\n\nGiven the AssertionError signal and the nature of youtube-dl bugs, `jsinterp.py` is a strong candidate, followed by `utils.py` and `swfinterp.py`.\n\n{\"ranking\": [4, 3, 1, 6, 8, 5, 2, 7], \"confidence\": {\"4\": 0.40, \"3\": 0.25, \"1\": 0.15, \"6\": 0.08, \"8\": 0.06, \"5\": 0.04, \"2\": 0.03, \"7\": 0.02}}",
+ "n_attempts": 1
+}

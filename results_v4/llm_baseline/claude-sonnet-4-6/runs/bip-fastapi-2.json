@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-fastapi-2",
+ "repo": "bugsinpy:fastapi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "fastapi/param_functions.py",
+  "fastapi/utils.py",
+  "fastapi/routing.py",
+  "fastapi/params.py",
+  "fastapi/datastructures.py",
+  "fastapi/templating.py",
+  "fastapi/websockets.py"
+ ],
+ "timestamp": "2026-10-02T15:23:10",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  1,
+  2,
+  5,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.15,
+  "3": 0.55,
+  "4": 0.3,
+  "5": 0.05,
+  "6": 0.03,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.03,
+  0.15,
+  0.25,
+  0.05,
+  0.03,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  3,
+  2,
+  4,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 920,
+  "output_tokens": 431
+ },
+ "raw_response": "Looking at this failing test in fastapi, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError in fastapi\n- The `app_code_changed` flag is set\n- Files 5, 6, 7 have age_days=1 and commits=1 - these are brand new files, likely just added as new features, not bug fixes\n- File 1 (param_functions.py) has commits=2, age_days=20, very recent with significant additions (+254/-4) - this is a relatively new file with recent changes\n- File 3 (routing.py) has the highest churn and commit frequency, making it a prime candidate for bugs\n- File 4 (params.py) has moderate activity\n- File 2 (utils.py) has moderate activity\n\nThe bug bip-fastapi-2 is a known bug in fastapi. Given the AssertionError and the nature of fastapi bugs around parameter handling and routing, the most likely candidates are:\n\n- `routing.py` (file 3): Most active file, highest churn, core functionality\n- `params.py` (file 4): Parameter definitions, closely related to AssertionError in parameter validation\n- `param_functions.py` (file 1): Recent file with significant additions, parameter functions\n\nThe new files (5, 6, 7) are unlikely to be defective as they're brand new additions. The bug is more likely in established but actively modified code.\n\n{\"ranking\": [3, 4, 1, 2, 5, 6, 7], \"confidence\": {\"1\": 0.25, \"2\": 0.15, \"3\": 0.55, \"4\": 0.30, \"5\": 0.05, \"6\": 0.03, \"7\": 0.03}}",
+ "n_attempts": 1
+}

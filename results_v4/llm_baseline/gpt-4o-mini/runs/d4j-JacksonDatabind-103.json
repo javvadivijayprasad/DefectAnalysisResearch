@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-103",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ResolvableDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+  "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+  "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/InjectableValues.java"
+ ],
+ "timestamp": "2026-10-02T15:47:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3,
+  6,
+  7,
+  5,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.12,
+  "3": 0.1,
+  "4": 0.3,
+  "5": 0.05,
+  "6": 0.08,
+  "7": 0.1,
+  "8": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.1,
+  0.05,
+  0.12,
+  0.1,
+  0.05,
+  0.08,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  6,
+  2,
+  3,
+  7,
+  4,
+  0
+ ],
+ "usage": {
+  "input_tokens": 923,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [4, 1, 2, 3, 6, 7, 5, 8], \"confidence\": {\"1\": 0.15, \"2\": 0.12, \"3\": 0.10, \"4\": 0.30, \"5\": 0.05, \"6\": 0.08, \"7\": 0.10, \"8\": 0.05}}",
+ "n_attempts": 1
+}

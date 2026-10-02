@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-108",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/AliasExternals.java",
+  "src/com/google/javascript/jscomp/NameReferenceGraphReport.java",
+  "src/com/google/javascript/jscomp/LinkedFlowScope.java",
+  "src/com/google/javascript/jscomp/ScopedAliases.java",
+  "src/com/google/javascript/jscomp/TightenTypes.java"
+ ],
+ "timestamp": "2026-10-02T14:54:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  5,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.72,
+  "1": 0.12,
+  "5": 0.08,
+  "3": 0.05,
+  "2": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.72,
+  0.03,
+  0.05,
+  0.12,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 900,
+  "output_tokens": 424
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-108, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure-108, which relates to the `ScopedAliases` pass (goog.scope aliasing)\n\nLet me analyze the candidates:\n\n1. **AliasExternals.java** - Handles aliasing of extern symbols. Moderate activity.\n2. **NameReferenceGraphReport.java** - Generates name reference graph reports. Lower activity, less likely.\n3. **LinkedFlowScope.java** - Flow scope for type inference. Moderate activity.\n4. **ScopedAliases.java** - Handles `goog.scope` aliases. Highest commit frequency (0.1746), high churn (1107), many devs. This is the most active file and directly relates to aliasing.\n5. **TightenTypes.java** - Type tightening pass. High activity but more specialized.\n\nClosure-108 is known to be related to `ScopedAliases` - specifically issues with how aliases are handled in `goog.scope` blocks. The `ScopedAliases.java` file has the highest commit frequency and churn, suggesting it's actively being worked on and fixed. This strongly points to it being the defective file.\n\n`AliasExternals.java` is also alias-related but less likely given the specific test context.\n\n{\"ranking\": [4, 1, 5, 3, 2], \"confidence\": {\"4\": 0.72, \"1\": 0.12, \"5\": 0.08, \"3\": 0.05, \"2\": 0.03}}",
+ "n_attempts": 1
+}

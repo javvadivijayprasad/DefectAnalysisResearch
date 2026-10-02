@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-96",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CreateSyntheticBlocks.java",
+  "src/com/google/javascript/jscomp/AmbiguateProperties.java",
+  "src/com/google/javascript/jscomp/ReplaceStrings.java",
+  "src/com/google/javascript/jscomp/RenameVars.java",
+  "src/com/google/javascript/jscomp/RemoveConstantExpressions.java",
+  "src/com/google/javascript/jscomp/InvocationsCallback.java",
+  "src/com/google/javascript/jscomp/TypeCheck.java",
+  "src/com/google/javascript/jscomp/JSModuleGraph.java"
+ ],
+ "timestamp": "2026-10-02T14:54:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  4,
+  1,
+  2,
+  3,
+  8,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "7": 0.55,
+  "4": 0.2,
+  "1": 0.15,
+  "2": 0.1,
+  "3": 0.08,
+  "8": 0.06,
+  "5": 0.04,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.2,
+  0.03,
+  0.1,
+  0.08,
+  0.06,
+  0.04,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  7,
+  3,
+  4,
+  5,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1067,
+  "output_tokens": 481
+ },
+ "raw_response": "Looking at this failing test event for defects4j:Closure-96, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure involves an `AssertionError`\n- Flags indicate `app_code_changed` and `validator_changed`\n- The `validator_changed` flag is particularly interesting - it suggests a validator/checker was modified\n\nLet me analyze the candidates:\n\n1. **CreateSyntheticBlocks.java** - Relatively new file (287 days), moderate activity\n2. **AmbiguateProperties.java** - High commit frequency (0.3784), significant changes\n3. **ReplaceStrings.java** - Very new file (111 days), high commit frequency, large additions\n4. **RenameVars.java** - Moderate activity, variable renaming logic\n5. **RemoveConstantExpressions.java** - Low activity, small changes\n6. **InvocationsCallback.java** - Very low activity, small file\n7. **TypeCheck.java** - Highest commit frequency (0.4716), massive changes (+1838/-123), very active - TypeCheck is a validator\n8. **JSModuleGraph.java** - Moderate activity\n\nThe `validator_changed` flag strongly suggests TypeCheck.java (a type validator) is involved. TypeCheck.java has the highest commit frequency and largest churn, making it the most likely candidate.\n\nRenameVars.java is also a reasonable candidate given the test context (Closure compiler often has issues with variable renaming interacting with other passes).\n\nCreateSyntheticBlocks.java is interesting as it's relatively new and could interact with other passes in unexpected ways.\n\n{\"ranking\": [7, 4, 1, 2, 3, 8, 5, 6], \"confidence\": {\"7\": 0.55, \"4\": 0.20, \"1\": 0.15, \"2\": 0.10, \"3\": 0.08, \"8\": 0.06, \"5\": 0.04, \"6\": 0.03}}",
+ "n_attempts": 1
+}

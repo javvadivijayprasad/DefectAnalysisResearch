@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-thefuck-20",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "thefuck/rules/open.py",
+  "thefuck/rules/dirty_unzip.py",
+  "thefuck/rules/rm_root.py",
+  "thefuck/rules/pacman_not_found.py",
+  "thefuck/rules/mvn_unknown_lifecycle_phase.py",
+  "thefuck/rules/java.py"
+ ],
+ "timestamp": "2026-10-02T15:35:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  2,
+  1,
+  6,
+  3
+ ],
+ "llm_confidence_presented": {
+  "5": 0.35,
+  "4": 0.25,
+  "2": 0.2,
+  "1": 0.1,
+  "6": 0.07,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.05,
+  0.25,
+  0.35,
+  0.1,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  5,
+  1,
+  0,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 904,
+  "output_tokens": 479
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test name is \"bip-thefuck-20\" suggesting it's bug #20 in the thefuck project\n- The failure is an AssertionError\n- The flag `app_code_changed` is set, indicating application code (not test code) was changed\n\nAnalyzing the candidates by their statistics:\n- File 5 (`mvn_unknown_lifecycle_phase.py`): Very young (11 days), highest commit frequency (1.9091), recently active - suggests it's a newer file that may have bugs\n- File 4 (`pacman_not_found.py`): Young (25 days), high commit frequency (1.12), recently active\n- File 2 (`dirty_unzip.py`): Young (48 days), high commit frequency (0.875), recently active\n- File 1 (`open.py`): Moderate age (106 days), moderate commit frequency (0.4623)\n- File 6 (`java.py`): Moderate age (102 days), lower commit frequency (0.2745)\n- File 3 (`rm_root.py`): Older (141 days), lower commit frequency (0.3972)\n\nFiles with higher churn and recent activity tend to be more likely to contain bugs. File 5 has the highest commit frequency and is very young. File 2 has high churn relative to its size and is young. File 4 is also very young with high commit frequency.\n\nFor thefuck bug #20, based on the pattern of recent changes and the nature of AssertionError (likely a match/get_new_command function returning unexpected values), I'll rank by likelihood:\n\n{\"ranking\": [5, 4, 2, 1, 6, 3], \"confidence\": {\"5\": 0.35, \"4\": 0.25, \"2\": 0.20, \"1\": 0.10, \"6\": 0.07, \"3\": 0.05}}",
+ "n_attempts": 1
+}

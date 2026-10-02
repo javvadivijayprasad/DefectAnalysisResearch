@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-pandas-100",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "pandas/core/generic.py",
+  "pandas/core/base.py",
+  "pandas/core/resample.py",
+  "pandas/core/__init__.py",
+  "pandas/core/construction.py",
+  "pandas/core/strings.py",
+  "pandas/core/common.py",
+  "pandas/core/frame.py"
+ ],
+ "timestamp": "2026-10-02T15:31:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  1,
+  3,
+  6,
+  7,
+  2,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "8": 0.35,
+  "1": 0.28,
+  "3": 0.15,
+  "6": 0.1,
+  "7": 0.07,
+  "2": 0.05,
+  "5": 0.03,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.28,
+  0.03,
+  0.15,
+  0.1,
+  0.05,
+  0.01,
+  0.07,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  6,
+  2,
+  3,
+  5,
+  7,
+  4,
+  0
+ ],
+ "usage": {
+  "input_tokens": 988,
+  "output_tokens": 485
+ },
+ "raw_response": "Looking at this failing test in pandas with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError (likely from a test assertion failing due to incorrect behavior)\n- `app_code_changed` flag is set\n- This is bugsinpy:pandas bug #100\n\nLet me analyze the candidates:\n\n1. `pandas/core/generic.py` - Very high activity, core NDFrame functionality, frequently modified\n2. `pandas/core/base.py` - Moderate activity, base classes\n3. `pandas/core/resample.py` - Moderate activity, resampling functionality\n4. `pandas/core/__init__.py` - Essentially empty/no changes, very unlikely\n5. `pandas/core/construction.py` - Lower activity, array construction\n6. `pandas/core/strings.py` - High activity, string operations\n7. `pandas/core/common.py` - High activity, common utilities\n8. `pandas/core/frame.py` - Highest activity, DataFrame core\n\nFor pandas bug #100, considering the nature of AssertionError failures and the file statistics:\n- `frame.py` has the highest churn and commit frequency, making it a prime candidate\n- `generic.py` is also very active and central\n- `resample.py` is a specialized module that often has subtle bugs\n- `strings.py` has significant activity and string operations can be tricky\n\nThe high churn files (frame.py, generic.py) are most likely candidates. `resample.py` is also plausible for specific functional bugs. `__init__.py` with 0 churn is essentially impossible.\n\n{\"ranking\": [8, 1, 3, 6, 7, 2, 5, 4], \"confidence\": {\"8\": 0.35, \"1\": 0.28, \"3\": 0.15, \"6\": 0.10, \"7\": 0.07, \"2\": 0.05, \"5\": 0.03, \"4\": 0.01}}",
+ "n_attempts": 1
+}

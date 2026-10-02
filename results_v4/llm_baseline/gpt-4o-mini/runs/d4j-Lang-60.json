@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-60",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/text/CompositeFormat.java",
+  "src/java/org/apache/commons/lang/text/StrLookup.java",
+  "src/java/org/apache/commons/lang/text/StrMatcher.java",
+  "src/java/org/apache/commons/lang/text/StrTokenizer.java",
+  "src/java/org/apache/commons/lang/text/StrSubstitutor.java",
+  "src/java/org/apache/commons/lang/text/StrBuilder.java"
+ ],
+ "timestamp": "2026-10-02T15:49:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  1,
+  4,
+  6,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "5": 0.3,
+  "1": 0.15,
+  "4": 0.1,
+  "6": 0.05,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.35,
+  0.15,
+  0.1,
+  0.05,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  2,
+  3,
+  5,
+  1
+ ],
+ "usage": {
+  "input_tokens": 786,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\":[2,5,1,4,6,3],\"confidence\":{\"2\":0.35,\"5\":0.30,\"1\":0.15,\"4\":0.10,\"6\":0.05,\"3\":0.05}}",
+ "n_attempts": 1
+}

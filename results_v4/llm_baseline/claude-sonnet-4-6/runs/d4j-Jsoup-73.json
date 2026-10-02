@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Jsoup-73",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/helper/HttpConnection.java",
+  "src/main/java/org/jsoup/helper/Validate.java",
+  "src/main/java/org/jsoup/helper/W3CDom.java",
+  "src/main/java/org/jsoup/helper/ChangeNotifyingArrayList.java",
+  "src/main/java/org/jsoup/helper/StringUtil.java"
+ ],
+ "timestamp": "2026-10-02T15:12:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  2,
+  6,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "5": 0.82,
+  "1": 0.25,
+  "2": 0.15,
+  "6": 0.1,
+  "4": 0.07,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.07,
+  0.25,
+  0.1,
+  0.15,
+  0.04,
+  0.82
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  3,
+  2,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 949,
+  "output_tokens": 187
+ },
+ "raw_response": "The key signal here is candidate 5: `ChangeNotifyingArrayList.java` has commits=1, age_days=1, and commit_freq=1.0000 \u2014 this is a brand new file added in essentially one commit, which strongly suggests it's part of the fix commit. The `app_code_changed` flag also supports that application code was modified.\n\nDataUtil.java (1) is also a frequent target for changes and could be involved in a fix related to parsing/data handling.\n\n{\"ranking\": [5, 1, 2, 6, 4, 3], \"confidence\": {\"5\": 0.82, \"1\": 0.25, \"2\": 0.15, \"6\": 0.10, \"4\": 0.07, \"3\": 0.04}}",
+ "n_attempts": 1
+}

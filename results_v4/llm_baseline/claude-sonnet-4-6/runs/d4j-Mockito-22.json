@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Mockito-22",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/org/mockito/internal/matchers/NotNull.java",
+  "src/org/mockito/internal/matchers/Not.java",
+  "src/org/mockito/internal/matchers/Equals.java",
+  "src/org/mockito/internal/matchers/Matches.java",
+  "src/org/mockito/internal/matchers/Equality.java"
+ ],
+ "timestamp": "2026-10-02T15:20:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  1,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "5": 0.35,
+  "1": 0.08,
+  "2": 0.06,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.05,
+  0.08,
+  0.06,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  2,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 880,
+  "output_tokens": 202
+ },
+ "raw_response": "The test is about null handling in matchers. The `Equals` matcher has the highest churn and commit frequency, suggesting it's been modified most often. The `Equality` utility class is newer (713 days vs 1326) and has fewer commits/authors, suggesting it may have been introduced as a fix or helper. The failing test likely involves equality/null checking logic.\n\n`Equals.java` is the most active file and most likely to contain a defect. `Equality.java` as a newer utility could also be involved (perhaps it was introduced to fix null-handling but has a bug, or the fix involves both).\n\n{\"ranking\": [3, 5, 1, 2, 4], \"confidence\": {\"3\": 0.55, \"5\": 0.35, \"1\": 0.08, \"2\": 0.06, \"4\": 0.05}}",
+ "n_attempts": 1
+}

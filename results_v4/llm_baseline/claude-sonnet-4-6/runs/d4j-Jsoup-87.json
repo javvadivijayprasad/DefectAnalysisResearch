@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-87",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/FormElement.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/nodes/Element.java",
+  "src/main/java/org/jsoup/parser/ParseSettings.java"
+ ],
+ "timestamp": "2026-10-02T15:12:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  4,
+  2,
+  3,
+  1,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "7": 0.55,
+  "4": 0.45,
+  "2": 0.35,
+  "3": 0.25,
+  "1": 0.15,
+  "6": 0.1,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.35,
+  0.25,
+  0.55,
+  0.45,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  3,
+  0,
+  1,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1012,
+  "output_tokens": 465
+ },
+ "raw_response": "Looking at this failing test for Jsoup-87, I need to reason about which files are likely defective.\n\nThe test failure is an AssertionError in Jsoup. Let me analyze the candidates:\n\n- The issue is likely related to parsing or form handling based on the file candidates\n- `FormElement.java` (1) - low commits, relatively young file, deals with form elements\n- `HtmlTreeBuilder.java` (2) - high activity, core parser\n- `HtmlTreeBuilderState.java` (3) - high activity, parser states\n- `Tag.java` (4) - high activity, tag handling\n- `Entities.java` (5) - very high churn, entity handling\n- `Element.java` (6) - highest commit frequency, core element class\n- `ParseSettings.java` (7) - very few commits, young file, parse settings\n\nFor Jsoup bug 87, this is related to form element handling and parsing. The `FormElement.java` has relatively few commits but is specifically about forms. `HtmlTreeBuilder.java` and `HtmlTreeBuilderState.java` are the core parsing logic where form-related bugs often occur.\n\n`ParseSettings.java` is very young (631 days) with very few commits (4) - this could be a newly introduced file that has a bug. Its low commit count and young age suggest it might be a recently added feature with issues.\n\nGiven the nature of Jsoup-87 (which involves form element parsing and case sensitivity issues with ParseSettings), `ParseSettings.java` and `HtmlTreeBuilder.java` are strong candidates. `Tag.java` with its high churn is also suspect.\n\n{\"ranking\": [7, 4, 2, 3, 1, 6, 5], \"confidence\": {\"7\": 0.55, \"4\": 0.45, \"2\": 0.35, \"3\": 0.25, \"1\": 0.15, \"6\": 0.10, \"5\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-38",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/ArrayType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java",
+  "src/main/java/com/fasterxml/jackson/databind/JavaType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/MapLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/ObjectWriter.java"
+ ],
+ "timestamp": "2026-10-02T15:06:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  5,
+  2,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "4": 0.35,
+  "5": 0.3,
+  "2": 0.25,
+  "1": 0.2,
+  "6": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.2,
+  0.35,
+  0.25,
+  0.3,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  1,
+  3,
+  2,
+  5
+ ],
+ "usage": {
+  "input_tokens": 991,
+  "output_tokens": 466
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files were likely changed in the fix commit.\n\nThe test failure is an AssertionError, which suggests a type-related assertion failed. The candidates are mostly type-related classes (ArrayType, CollectionType, JavaType, CollectionLikeType, MapLikeType) plus ObjectWriter.\n\nKey observations:\n1. `JavaType.java` has the highest commit frequency (0.1242) among the type files and the most churn (839), suggesting it's frequently modified - likely a central class that gets updated often.\n2. `CollectionLikeType.java` and `MapLikeType.java` are parallel structures that often get modified together.\n3. `CollectionType.java` extends `CollectionLikeType` typically, so they may be related.\n4. `ArrayType.java` is another type class that could be involved.\n5. `ObjectWriter.java` has by far the most commits (61) and churn (3215), but it's less likely to be the source of a type-related AssertionError unless the fix involves serialization logic.\n\nFor defect d4j-JacksonDatabind-38, this is likely related to type handling. The fix probably involved changes to `JavaType` and possibly one or more of the concrete type classes. `JavaType` as the base class is a prime candidate. `CollectionLikeType` and `MapLikeType` are also frequently modified together.\n\nGiven the pattern of type-system bugs in Jackson, the fix likely touched `JavaType` (base class changes) and possibly `CollectionLikeType` or `MapLikeType` for concrete implementations.\n\n{\"ranking\": [3, 4, 5, 2, 1, 6], \"confidence\": {\"3\": 0.55, \"4\": 0.35, \"5\": 0.30, \"2\": 0.25, \"1\": 0.20, \"6\": 0.08}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-matplotlib-16",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "lib/matplotlib/texmanager.py",
+  "lib/matplotlib/blocking_input.py",
+  "lib/matplotlib/markers.py",
+  "lib/matplotlib/transforms.py",
+  "lib/matplotlib/cm.py",
+  "lib/matplotlib/image.py",
+  "lib/matplotlib/spines.py",
+  "lib/matplotlib/_constrained_layout.py"
+ ],
+ "timestamp": "2026-10-02T15:52:26",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  4,
+  1,
+  3,
+  5,
+  2,
+  8,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.05,
+  "3": 0.1,
+  "4": 0.2,
+  "5": 0.1,
+  "6": 0.3,
+  "7": 0.02,
+  "8": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.3,
+  0.1,
+  0.03,
+  0.1,
+  0.15,
+  0.05,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  4,
+  6,
+  3,
+  2,
+  5,
+  7
+ ],
+ "usage": {
+  "input_tokens": 852,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [6, 4, 1, 3, 5, 2, 8, 7], \"confidence\": {\"1\": 0.15, \"2\": 0.05, \"3\": 0.1, \"4\": 0.2, \"5\": 0.1, \"6\": 0.3, \"7\": 0.02, \"8\": 0.03}}",
+ "n_attempts": 1
+}

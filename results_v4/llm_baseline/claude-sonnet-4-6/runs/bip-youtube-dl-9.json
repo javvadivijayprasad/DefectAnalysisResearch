@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-youtube-dl-9",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "youtube_dl/aes.py",
+  "youtube_dl/update.py",
+  "youtube_dl/YoutubeDL.py",
+  "youtube_dl/cache.py",
+  "youtube_dl/options.py"
+ ],
+ "timestamp": "2026-10-02T15:37:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "3": 0.35,
+  "1": 0.12,
+  "2": 0.05,
+  "5": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.12,
+  0.04,
+  0.45,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 843,
+  "output_tokens": 382
+ },
+ "raw_response": "Looking at this failing test event for youtube-dl with an AssertionError:\n\nKey observations:\n- `app_code_changed` flag is set\n- AssertionError suggests a logic/assertion failure in application code\n- Need to identify which file most likely had a bug fix\n\nAnalysis of candidates:\n1. `aes.py` - Cryptographic operations, moderate activity, could cause assertion errors in decryption\n2. `update.py` - Update mechanism, moderate activity\n3. `YoutubeDL.py` - Core downloader, very high activity (461 commits, 42 devs), central to most operations\n4. `cache.py` - Cache handling, very recent (76 days old), high commit frequency relative to age - this is suspicious as a recently added/modified file\n5. `options.py` - Options parsing, extremely high churn but mostly configuration\n\nThe `cache.py` file stands out: it's very young (76 days), has a high commit frequency (0.4605), and cache-related bugs often cause AssertionErrors. The `YoutubeDL.py` is always a strong candidate given its central role and high activity. `aes.py` could be relevant if there's a decryption assertion failure.\n\nGiven the AssertionError and the recency of `cache.py` changes, combined with `YoutubeDL.py`'s central importance:\n\n{\"ranking\": [4, 3, 1, 2, 5], \"confidence\": {\"4\": 0.45, \"3\": 0.35, \"1\": 0.12, \"2\": 0.05, \"5\": 0.04}}",
+ "n_attempts": 1
+}

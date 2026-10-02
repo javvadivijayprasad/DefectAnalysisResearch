@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-8",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/SetterlessProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ExternalTypeHandler.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/FieldProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/CreatorCollector.java"
+ ],
+ "timestamp": "2026-10-02T15:04:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  4,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "3": 0.25,
+  "4": 0.15,
+  "2": 0.1,
+  "1": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.25,
+  0.1,
+  0.08,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 946,
+  "output_tokens": 446
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in JacksonDatabind deserialization\n- The candidates are all in `deser/impl` package\n- The test is about deserialization behavior\n\nLet me analyze the candidates:\n\n1. **SetterlessProperty.java** - handles properties without setters, moderate activity\n2. **InnerClassProperty.java** - handles inner class properties, moderate activity\n3. **ExternalTypeHandler.java** - handles external type information, higher commit frequency (0.1031), significant churn\n4. **FieldProperty.java** - handles field-based properties, moderate activity\n5. **CreatorCollector.java** - collects creator methods (constructors/factories), highest commit frequency (0.1214) and highest churn (547), most commits (19), most developers (4)\n\nThe `CreatorCollector.java` stands out with the highest activity metrics - most commits, most developers, highest churn, and highest commit frequency. This suggests it's a frequently modified file that's more likely to contain bugs.\n\n`ExternalTypeHandler.java` also has notably higher commit frequency than the others.\n\nFor defect d4j-JacksonDatabind-8, based on historical knowledge of Jackson issues, this is likely related to creator/constructor handling or external type handling. The `CreatorCollector` being the most active file with the most developers contributing makes it a prime candidate for defects.\n\n`FieldProperty.java` and `InnerClassProperty.java` are also reasonable candidates given deserialization issues.\n\n{\"ranking\": [5, 3, 4, 2, 1], \"confidence\": {\"5\": 0.45, \"3\": 0.25, \"4\": 0.15, \"2\": 0.10, \"1\": 0.08}}",
+ "n_attempts": 1
+}

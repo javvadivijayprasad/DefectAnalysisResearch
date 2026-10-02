@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-matplotlib-26",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "lib/matplotlib/fontconfig_pattern.py",
+  "lib/matplotlib/table.py",
+  "lib/matplotlib/axis.py",
+  "lib/matplotlib/sankey.py",
+  "lib/matplotlib/texmanager.py",
+  "lib/matplotlib/spines.py",
+  "lib/matplotlib/tight_bbox.py",
+  "lib/matplotlib/cm.py"
+ ],
+ "timestamp": "2026-10-02T15:52:33",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  5,
+  4,
+  1,
+  8,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.15,
+  "3": 0.35,
+  "4": 0.1,
+  "5": 0.2,
+  "6": 0.05,
+  "7": 0.02,
+  "8": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.03,
+  0.1,
+  0.2,
+  0.02,
+  0.15,
+  0.05,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  3,
+  2,
+  7,
+  1,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 848,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [3, 2, 5, 4, 1, 8, 6, 7], \"confidence\": {\"1\": 0.05, \"2\": 0.15, \"3\": 0.35, \"4\": 0.1, \"5\": 0.2, \"6\": 0.05, \"7\": 0.02, \"8\": 0.03}}",
+ "n_attempts": 1
+}

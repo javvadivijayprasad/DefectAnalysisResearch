@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-70",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ErrorThrowingDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdReferenceProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/PropertyValueBuffer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanPropertyMap.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdReader.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/PropertyBasedObjectIdGenerator.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ManagedReferenceProperty.java"
+ ],
+ "timestamp": "2026-10-02T15:46:57",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  2,
+  5,
+  4,
+  3,
+  8,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "6": 0.3,
+  "2": 0.1,
+  "5": 0.05,
+  "4": 0.05,
+  "3": 0.03,
+  "8": 0.01,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.03,
+  0.05,
+  0.01,
+  0.3,
+  0.45,
+  0.01,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  5,
+  3,
+  7,
+  1,
+  0,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 941,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[1,6,2,5,4,3,8,7],\"confidence\":{\"1\":0.45,\"6\":0.30,\"2\":0.10,\"5\":0.05,\"4\":0.05,\"3\":0.03,\"8\":0.01,\"7\":0.01}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Lang-42",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/Entities.java",
+  "src/java/org/apache/commons/lang/CharSet.java",
+  "src/java/org/apache/commons/lang/ArrayUtils.java",
+  "src/java/org/apache/commons/lang/IntHashMap.java",
+  "src/java/org/apache/commons/lang/ObjectUtils.java",
+  "src/java/org/apache/commons/lang/RandomStringUtils.java",
+  "src/java/org/apache/commons/lang/ClassUtils.java",
+  "src/java/org/apache/commons/lang/BooleanUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:15:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  7,
+  3,
+  5,
+  2,
+  8,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.88,
+  "4": 0.06,
+  "7": 0.03,
+  "3": 0.02,
+  "5": 0.02,
+  "2": 0.01,
+  "8": 0.01,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.88,
+  0.06,
+  0.02,
+  0.02,
+  0.03,
+  0.01,
+  0.01,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  4,
+  2,
+  5,
+  7,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1057,
+  "output_tokens": 178
+ },
+ "raw_response": "The failing test is d4j-Lang-42. This is a known defects4j bug related to `Entities.java` - specifically about HTML entity escaping/unescaping (the bug involves handling of high Unicode characters or specific entity encoding issues). The `Entities.java` file has the highest churn and is the most likely candidate for this type of bug.\n\n{\"ranking\": [1, 4, 7, 3, 5, 2, 8, 6], \"confidence\": {\"1\": 0.88, \"4\": 0.06, \"7\": 0.03, \"3\": 0.02, \"5\": 0.02, \"2\": 0.01, \"8\": 0.01, \"6\": 0.01}}",
+ "n_attempts": 1
+}

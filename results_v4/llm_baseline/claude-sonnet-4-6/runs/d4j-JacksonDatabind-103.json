@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-103",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/SerializerProvider.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ResolvableDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/JsonMappingException.java",
+  "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+  "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/InjectableValues.java"
+ ],
+ "timestamp": "2026-10-02T15:08:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  7,
+  3,
+  2,
+  1,
+  6,
+  5,
+  8
+ ],
+ "llm_confidence_presented": {
+  "4": 0.72,
+  "7": 0.35,
+  "3": 0.28,
+  "2": 0.15,
+  "1": 0.1,
+  "6": 0.08,
+  "5": 0.06,
+  "8": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.35,
+  0.06,
+  0.15,
+  0.28,
+  0.04,
+  0.08,
+  0.72
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  6,
+  3,
+  2,
+  7,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1134,
+  "output_tokens": 432
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an `AssertionError` in JacksonDatabind\n- The `app_code_changed` flag is set\n- Candidate 4 (`ResolvableDeserializer.java`) has an extremely high commit frequency (1.75 commits/day) and very young age (32 days), strongly suggesting it was recently modified\n- The test involves deserialization (based on the file names in the candidates)\n- `DeserializationContext.java` has very high activity (143 commits, 8 devs) and is a central class\n- `BasicDeserializerFactory.java` is also very active (188 commits, 13 devs)\n\nThe `ResolvableDeserializer.java` stands out dramatically with its age of only 32 days and commit frequency of 1.75 - this is almost certainly a recently added/modified file that's part of the fix. \n\n`DeserializationContext.java` is the most active deserialization-related file and is a common target for fixes. `BasicDeserializerFactory.java` is also highly active.\n\nThe combination of `ResolvableDeserializer.java` (very new, very active) and likely `DeserializationContext.java` or `BasicDeserializerFactory.java` seems most probable for this fix.\n\n{\"ranking\": [4, 7, 3, 2, 1, 6, 5, 8], \"confidence\": {\"4\": 0.72, \"7\": 0.35, \"3\": 0.28, \"2\": 0.15, \"1\": 0.10, \"6\": 0.08, \"5\": 0.06, \"8\": 0.04}}",
+ "n_attempts": 1
+}

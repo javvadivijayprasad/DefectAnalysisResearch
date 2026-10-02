@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-106",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/node/BooleanNode.java",
+  "src/main/java/com/fasterxml/jackson/databind/node/InternalNodeMapper.java",
+  "src/main/java/com/fasterxml/jackson/databind/node/TreeTraversingParser.java",
+  "src/main/java/com/fasterxml/jackson/databind/node/POJONode.java",
+  "src/main/java/com/fasterxml/jackson/databind/node/DecimalNode.java",
+  "src/main/java/com/fasterxml/jackson/databind/node/ContainerNode.java",
+  "src/main/java/com/fasterxml/jackson/databind/node/JsonNodeFactory.java"
+ ],
+ "timestamp": "2026-10-02T15:08:57",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  7,
+  6,
+  4,
+  5,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.88,
+  "3": 0.2,
+  "4": 0.08,
+  "5": 0.05,
+  "6": 0.1,
+  "7": 0.12
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.12,
+  0.08,
+  0.88,
+  0.05,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  0,
+  5,
+  6,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1057,
+  "output_tokens": 249
+ },
+ "raw_response": "The key signal here is candidate 2: `InternalNodeMapper.java` with commits=1, age_days=1, and commit_freq=1.0000. This is a brand new file (age 1 day, only 1 commit) which strongly suggests it was introduced as part of the fix commit. New files created in fix commits are highly likely to be defective files.\n\nThe other candidates are older, established files. Among them, `TreeTraversingParser.java` (candidate 3) has relatively high activity and could be involved in a fix related to node traversal/parsing. `JsonNodeFactory.java` (candidate 7) and `ContainerNode.java` (candidate 6) are also moderately active.\n\n{\"ranking\": [2, 3, 7, 6, 4, 5, 1], \"confidence\": {\"1\": 0.05, \"2\": 0.88, \"3\": 0.20, \"4\": 0.08, \"5\": 0.05, \"6\": 0.10, \"7\": 0.12}}",
+ "n_attempts": 1
+}

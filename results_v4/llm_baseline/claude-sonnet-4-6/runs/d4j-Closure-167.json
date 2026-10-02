@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-167",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/rhino/jstype/ProxyObjectType.java",
+  "src/com/google/javascript/jscomp/type/SemanticReverseAbstractInterpreter.java",
+  "src/com/google/javascript/rhino/jstype/EnumElementType.java",
+  "src/com/google/javascript/rhino/jstype/FunctionParamBuilder.java",
+  "src/com/google/javascript/rhino/jstype/NamedType.java",
+  "src/com/google/javascript/rhino/jstype/JSType.java",
+  "src/com/google/javascript/rhino/jstype/FunctionBuilder.java"
+ ],
+ "timestamp": "2026-10-02T14:57:33",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  1,
+  5,
+  2,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "3": 0.35,
+  "1": 0.25,
+  "5": 0.2,
+  "2": 0.12,
+  "4": 0.06,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.45,
+  0.35,
+  0.05,
+  0.2,
+  0.06,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  1,
+  6,
+  3,
+  5,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1020,
+  "output_tokens": 541
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-167, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a type-checking or type inference issue\n- The test is in the Closure compiler project\n- The change topology flag indicates app code was changed\n\nLet me analyze the candidates:\n\n1. **JSType.java** (file 6) - Very high commit frequency (0.44), most commits (63), most churn (1934). Core type system file, highly active. Very likely to contain bugs.\n\n2. **NamedType.java** (file 5) - High commits (36), significant churn (792), high commit frequency (0.27). Named types are complex and often involved in type resolution bugs.\n\n3. **ProxyObjectType.java** (file 1) - High commits (44), significant churn (646), high commit frequency (0.31). Proxy types delegate to other types and can have subtle bugs.\n\n4. **EnumElementType.java** (file 3) - Moderate commits (29), churn (440), commit frequency (0.25). Enum element types can be involved in type inference issues.\n\n5. **SemanticReverseAbstractInterpreter.java** (file 2) - Moderate commits (20), churn (765). This handles type narrowing/inference which could cause AssertionErrors.\n\n6. **FunctionParamBuilder.java** (file 4) - Low commits (10), low churn (167). Less likely.\n\n7. **FunctionBuilder.java** (file 7) - Lowest commits (7), lowest churn (177). Least likely.\n\nFor Closure-167 specifically, this is related to type system behavior. The most likely candidates are JSType.java and EnumElementType.java, as enum-related type issues are common in this bug class. ProxyObjectType.java is also a strong candidate as it wraps other types.\n\n{\"ranking\": [6, 3, 1, 5, 2, 4, 7], \"confidence\": {\"6\": 0.45, \"3\": 0.35, \"1\": 0.25, \"5\": 0.20, \"2\": 0.12, \"4\": 0.06, \"7\": 0.05}}",
+ "n_attempts": 1
+}

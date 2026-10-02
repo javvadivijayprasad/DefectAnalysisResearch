@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Mockito-11",
+ "repo": "defects4j:Mockito",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/org/mockito/internal/creation/MethodInterceptorFilter.java",
+  "src/org/mockito/internal/creation/AcrossJVMSerializationFeature.java",
+  "src/org/mockito/internal/creation/MockSettingsImpl.java",
+  "src/org/mockito/internal/creation/DelegatingMethod.java",
+  "src/org/mockito/internal/creation/CglibMockMaker.java",
+  "src/org/mockito/internal/creation/AbstractMockitoMethodProxy.java",
+  "src/org/mockito/internal/creation/SerializableMockitoMethodProxy.java",
+  "src/org/mockito/internal/creation/MockitoMethodProxy.java"
+ ],
+ "timestamp": "2026-10-02T15:50:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  5,
+  4,
+  6,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "3": 0.3,
+  "1": 0.15,
+  "5": 0.1,
+  "4": 0.05,
+  "6": 0.025,
+  "7": 0.025,
+  "8": 0.025
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.1,
+  0.15,
+  0.025,
+  0.025,
+  0.025,
+  0.3,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  2,
+  5,
+  7,
+  6,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 872,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[2,3,1,5,4,6,7,8],\"confidence\":{\"2\":0.35,\"3\":0.30,\"1\":0.15,\"5\":0.10,\"4\":0.05,\"6\":0.025,\"7\":0.025,\"8\":0.025}}",
+ "n_attempts": 1
+}

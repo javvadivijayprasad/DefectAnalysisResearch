@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Mockito-2",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/org/mockito/exceptions/Reporter.java",
+  "src/org/mockito/exceptions/PrintableInvocation.java",
+  "src/org/mockito/internal/util/Timer.java",
+  "src/org/mockito/exceptions/Discrepancy.java",
+  "src/org/mockito/internal/util/Decamelizer.java",
+  "src/org/mockito/internal/util/Primitives.java",
+  "src/org/mockito/internal/util/MockUtil.java"
+ ],
+ "timestamp": "2026-10-02T15:19:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  7,
+  4,
+  6,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "1": 0.35,
+  "7": 0.2,
+  "4": 0.08,
+  "6": 0.06,
+  "2": 0.05,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.55,
+  0.03,
+  0.2,
+  0.08,
+  0.05,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  6,
+  2,
+  3,
+  5,
+  4
+ ],
+ "usage": {
+  "input_tokens": 989,
+  "output_tokens": 397
+ },
+ "raw_response": "Looking at this failing test in Mockito with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n1. `Timer.java` (candidate 3) is very new (age_days=65) with a high commit_freq=0.4308 relative to its age, suggesting it was recently added/modified and may have bugs\n2. `Reporter.java` (candidate 1) has very high activity (190 commits, churn=3116) and is a core exception reporting class - frequently modified files tend to have more bugs\n3. `MockUtil.java` (candidate 7) also has high activity (93 commits, churn=1024)\n4. The test failure is an AssertionError, which in Mockito context often relates to verification failures or incorrect reporting\n\nThe `Timer.java` file stands out as particularly suspicious:\n- Very recently created (65 days old)\n- High commit frequency for its age\n- New utility classes often contain bugs that surface in tests\n\n`Reporter.java` is also suspicious given its high churn and central role in exception handling.\n\n`MockUtil.java` with its high commit count and churn is another candidate.\n\nThe other files (PrintableInvocation, Discrepancy, Decamelizer, Primitives) have lower activity and seem less likely to be the source of the defect.\n\n{\"ranking\": [3, 1, 7, 4, 6, 2, 5], \"confidence\": {\"3\": 0.55, \"1\": 0.35, \"7\": 0.20, \"4\": 0.08, \"6\": 0.06, \"2\": 0.05, \"5\": 0.03}}",
+ "n_attempts": 1
+}

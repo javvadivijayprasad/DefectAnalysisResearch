@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-95",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/MapType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeModifier.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ArrayType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionLikeType.java"
+ ],
+ "timestamp": "2026-10-02T15:08:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  4,
+  1,
+  7,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.65,
+  "3": 0.35,
+  "4": 0.2,
+  "1": 0.12,
+  "7": 0.1,
+  "2": 0.08,
+  "6": 0.07
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.08,
+  0.35,
+  0.07,
+  0.2,
+  0.1,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  1,
+  6,
+  2,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1056,
+  "output_tokens": 435
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind related to types, I need to identify which files are most likely defective.\n\nKey observations:\n1. The test involves type handling (all candidates are in the `type` package)\n2. `TypeFactory.java` (candidate 5) is by far the most active file - 81 commits, 5 devs, highest churn (4478), and highest commit frequency (0.2667). This is the central factory for type creation and is most likely to contain bugs related to type handling.\n3. `TypeBindings.java` (candidate 4) has high activity (26 commits, churn=1225) and is closely related to type resolution.\n4. `MapType.java` (candidate 1) has moderate activity and is relevant to type mapping.\n5. `TypeModifier.java` (candidate 3) is very recently modified (age_days=22) with extremely high commit_freq (0.9545), suggesting it was recently changed - possibly the source of the bug.\n6. `TypeParser.java` (candidate 2) has moderate activity.\n7. `CollectionLikeType.java` (candidate 7) and `ArrayType.java` (candidate 6) have moderate activity.\n\nThe combination of `TypeFactory.java` (most active, central to type system) and `TypeModifier.java` (very recently modified, high commit frequency suggesting active development) are the top candidates. The recent modification of `TypeModifier.java` is particularly suspicious for introducing a bug.\n\n{\"ranking\": [5, 3, 4, 1, 7, 2, 6], \"confidence\": {\"5\": 0.65, \"3\": 0.35, \"4\": 0.20, \"1\": 0.12, \"7\": 0.10, \"2\": 0.08, \"6\": 0.07}}",
+ "n_attempts": 1
+}

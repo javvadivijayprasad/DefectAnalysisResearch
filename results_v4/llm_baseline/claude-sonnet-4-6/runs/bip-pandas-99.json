@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-pandas-99",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "pandas/core/tools/datetimes.py",
+  "pandas/core/tools/numeric.py",
+  "pandas/core/tools/timedeltas.py"
+ ],
+ "timestamp": "2026-10-02T15:31:05",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.7,
+  "3": 0.2,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.7,
+  0.05,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 752,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [1, 3, 2], \"confidence\": {\"1\": 0.70, \"3\": 0.20, \"2\": 0.05}}",
+ "n_attempts": 1
+}

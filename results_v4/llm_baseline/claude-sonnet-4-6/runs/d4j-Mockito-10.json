@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Mockito-10",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsEmptyValues.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsSmartNulls.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ForwardsInvocations.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsMocks.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/Answers.java",
+  "src/org/mockito/internal/stubbing/defaultanswers/ReturnsMoreEmptyValues.java"
+ ],
+ "timestamp": "2026-10-02T15:19:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  1,
+  2,
+  4,
+  7,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.65,
+  "5": 0.45,
+  "1": 0.25,
+  "2": 0.2,
+  "4": 0.1,
+  "7": 0.08,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.05,
+  0.2,
+  0.65,
+  0.1,
+  0.25,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  6,
+  3,
+  0,
+  4,
+  2,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1053,
+  "output_tokens": 422
+ },
+ "raw_response": "Looking at this failing test in Mockito, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an `AssertionError` in Mockito's default answers package\n- `app_code_changed` flag is set, indicating application code was modified\n- File 3 (`ForwardsInvocations.java`) is extremely new (age_days=23) with very high commit frequency (0.6087) and only 2 commits - this strongly suggests it's a recently added/modified file related to the fix\n- File 5 (`ReturnsDeepStubs.java`) has many devs (7) and high churn (550), suggesting it's complex and bug-prone\n- File 1 (`ReturnsEmptyValues.java`) has high commit frequency and significant churn\n- File 2 (`ReturnsSmartNulls.java`) also has high commit frequency\n\nThe `ForwardsInvocations.java` file being only 23 days old with very high commit frequency strongly suggests it was recently introduced as part of a fix or feature that may have caused or been part of the fix for this test failure.\n\n`ReturnsDeepStubs.java` is also a likely candidate given its complexity (7 devs, high churn) and the nature of deep stub testing which often involves complex return value logic.\n\n`ReturnsEmptyValues.java` is also frequently modified and could be involved.\n\n{\"ranking\": [3, 5, 1, 2, 4, 7, 6], \"confidence\": {\"3\": 0.65, \"5\": 0.45, \"1\": 0.25, \"2\": 0.20, \"4\": 0.10, \"7\": 0.08, \"6\": 0.05}}",
+ "n_attempts": 1
+}

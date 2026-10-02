@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-thefuck-26",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "thefuck/rules/fix_file.py",
+  "thefuck/rules/git_add.py",
+  "thefuck/rules/quotation_marks.py",
+  "thefuck/rules/git_stash.py",
+  "thefuck/rules/git_push.py",
+  "thefuck/rules/vagrant_up.py",
+  "thefuck/rules/systemctl.py"
+ ],
+ "timestamp": "2026-10-02T15:35:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  7,
+  1,
+  4,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.2,
+  "2": 0.08,
+  "3": 0.05,
+  "4": 0.1,
+  "5": 0.07,
+  "6": 0.45,
+  "7": 0.35
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.1,
+  0.2,
+  0.08,
+  0.35,
+  0.07,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  2,
+  4,
+  1,
+  5,
+  6
+ ],
+ "usage": {
+  "input_tokens": 949,
+  "output_tokens": 471
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in a Python project (thefuck)\n- The `app_code_changed` flag is set, indicating application code was modified\n- I need to look at commit frequency and recency as signals\n\nAnalysis:\n- File 6 (`vagrant_up.py`): age_days=1, commit_freq=2.0 - very recently created/modified\n- File 7 (`systemctl.py`): age_days=2, commit_freq=2.0 - very recently created/modified\n- File 1 (`fix_file.py`): age_days=18, commit_freq=1.9444 - recently active with high churn (115)\n- Files 2, 3, 4, 5: older files with lower commit frequency\n\nThe files with age_days=1 and age_days=2 are the most recently touched, suggesting they're the newest additions that might have introduced bugs. File 6 (`vagrant_up.py`) with age_days=1 is the newest.\n\nFile 1 (`fix_file.py`) has the highest churn (115) and high commit frequency, suggesting active development that could introduce bugs.\n\nFile 7 (`systemctl.py`) is also very new (age_days=2) with relatively high churn.\n\nGiven the test name pattern \"bip-thefuck-26\" and the nature of thefuck rules, the most recently added/modified files are most suspect. Files 6 and 7 are the newest, with file 1 also being recently active.\n\n{\"ranking\": [6, 7, 1, 4, 2, 5, 3], \"confidence\": {\"1\": 0.20, \"2\": 0.08, \"3\": 0.05, \"4\": 0.10, \"5\": 0.07, \"6\": 0.45, \"7\": 0.35}}",
+ "n_attempts": 1
+}

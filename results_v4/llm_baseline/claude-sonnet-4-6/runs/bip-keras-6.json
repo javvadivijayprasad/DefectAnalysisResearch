@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-keras-6",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "keras/engine/network.py",
+  "keras/engine/sequential.py",
+  "keras/engine/saving.py",
+  "keras/engine/topology.py",
+  "keras/engine/base_layer.py",
+  "keras/engine/training_utils.py"
+ ],
+ "timestamp": "2026-10-02T15:23:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2,
+  5,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.4,
+  "3": 0.3,
+  "2": 0.15,
+  "5": 0.08,
+  "4": 0.05,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.03,
+  0.05,
+  0.4,
+  0.15,
+  0.3,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  4,
+  0,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 449
+ },
+ "raw_response": "Looking at this failing test with AssertionError in keras, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, which often occurs in model building/validation code\n- The `app_code_changed` flag indicates application code was modified\n- This is in the keras engine module\n\nAnalysis of candidates:\n1. `network.py` - Core network building code, relatively new file (229 days), moderate commit frequency. AssertionErrors in network construction are common here.\n2. `sequential.py` - Sequential model implementation, very high churn and commit frequency, long history. Frequently modified.\n3. `saving.py` - Model saving/loading, newer file (208 days), moderate activity. AssertionErrors can occur during save/load validation.\n4. `topology.py` - Legacy topology file, very high churn, older. Often a source of bugs.\n5. `base_layer.py` - Very new file (85 days), low commits but large addition. New code often has bugs.\n6. `training_utils.py` - Training utilities, newer, lower activity.\n\nFor keras bug bip-keras-6, AssertionErrors often relate to model architecture or layer compatibility issues. The `network.py` file is relatively new with significant changes and is central to model building. `saving.py` is also a candidate as it validates model structure. `sequential.py` has very high churn suggesting frequent fixes.\n\nGiven the AssertionError and the nature of keras bugs, `network.py` and `saving.py` are the most likely candidates, with `sequential.py` also being plausible.\n\n{\"ranking\": [1, 3, 2, 5, 4, 6], \"confidence\": {\"1\": 0.40, \"3\": 0.30, \"2\": 0.15, \"5\": 0.08, \"4\": 0.05, \"6\": 0.03}}",
+ "n_attempts": 1
+}

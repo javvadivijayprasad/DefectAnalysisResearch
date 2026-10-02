@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-47",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/BeanDescription.java",
+  "src/main/java/com/fasterxml/jackson/databind/KeyDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/DatabindContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/AnnotationIntrospector.java",
+  "src/main/java/com/fasterxml/jackson/databind/DeserializationContext.java"
+ ],
+ "timestamp": "2026-10-02T15:06:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  4,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.65,
+  "5": 0.35,
+  "4": 0.25,
+  "3": 0.15,
+  "1": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.15,
+  0.1,
+  0.65,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  4,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 931,
+  "output_tokens": 460
+ },
+ "raw_response": "Looking at this failing test for JacksonDatabind-47, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError, suggesting a test assertion failed\n- The `app_code_changed` flag is set\n- This is about deserialization in Jackson\n\nAnalyzing candidates:\n\n1. **BeanDescription.java** - Moderate activity, describes bean structure. Could be involved in deserialization issues.\n\n2. **KeyDeserializer.java** - Very recent file (age_days=30) with very high commit frequency (0.7000). This is extremely suspicious - a recently added/modified file with high churn relative to its age. Key deserialization is a specific area that could have bugs.\n\n3. **DatabindContext.java** - Moderate activity, context for databinding operations.\n\n4. **AnnotationIntrospector.java** - Very high activity (88 commits, churn=4562). Annotation introspection is frequently modified and could affect deserialization behavior.\n\n5. **DeserializationContext.java** - High activity (79 commits, churn=2654). Directly related to deserialization.\n\nThe defect number 47 in JacksonDatabind relates to key deserializer issues. The `KeyDeserializer.java` file stands out dramatically with its very recent age (30 days) and extremely high commit frequency (0.7 commits/day), suggesting it was recently added or heavily modified - likely as part of the fix or the source of the bug.\n\n`DeserializationContext.java` and `AnnotationIntrospector.java` are also strong candidates given their high activity and direct relevance to deserialization.\n\n{\"ranking\": [2, 5, 4, 3, 1], \"confidence\": {\"2\": 0.65, \"5\": 0.35, \"4\": 0.25, \"3\": 0.15, \"1\": 0.10}}",
+ "n_attempts": 1
+}

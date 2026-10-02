@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-22",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/options.py",
+  "youtube_dl/__init__.py",
+  "youtube_dl/cache.py",
+  "youtube_dl/aes.py",
+  "youtube_dl/update.py",
+  "youtube_dl/version.py",
+  "youtube_dl/utils.py"
+ ],
+ "timestamp": "2026-10-02T15:37:28",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  7,
+  4,
+  2,
+  1,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "7": 0.25,
+  "4": 0.12,
+  "2": 0.08,
+  "1": 0.06,
+  "5": 0.05,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.08,
+  0.06,
+  0.02,
+  0.45,
+  0.05,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  4,
+  6,
+  0,
+  5,
+  2
+ ],
+ "usage": {
+  "input_tokens": 937,
+  "output_tokens": 465
+ },
+ "raw_response": "Looking at this failing test with AssertionError in youtube-dl, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError (not a network/HTTP error)\n- `app_code_changed` flag is set\n- This is bug #22 in the bugsinpy dataset for youtube-dl\n\nLet me analyze the candidates:\n\n1. `options.py` - Very high activity, handles CLI options\n2. `__init__.py` - Very high activity, main entry point\n3. `cache.py` - Very low activity, recently added (76 days old), very few commits\n4. `aes.py` - Low activity, encryption utilities\n5. `update.py` - Low activity, update mechanism\n6. `version.py` - Extremely high commit frequency (version bumps), but mostly mechanical changes\n7. `utils.py` - High activity, utility functions\n\nThe `cache.py` file stands out as suspicious:\n- Only 5 commits, 3 devs\n- Very recently added (76 days old)\n- High commit frequency relative to age (0.46/day)\n- New files often have bugs\n- AssertionError could come from cache validation logic\n\n`utils.py` is also a common source of bugs given its high activity and broad scope.\n\n`aes.py` with its mathematical operations could produce AssertionError from assertion statements in crypto code.\n\nFor youtube-dl bug #22, based on the characteristics, `cache.py` being very new and having recent activity makes it the most likely candidate for a bug fix. `utils.py` is also commonly involved in fixes.\n\n{\"ranking\": [3, 7, 4, 2, 1, 5, 6], \"confidence\": {\"3\": 0.45, \"7\": 0.25, \"4\": 0.12, \"2\": 0.08, \"1\": 0.06, \"5\": 0.05, \"6\": 0.02}}",
+ "n_attempts": 1
+}

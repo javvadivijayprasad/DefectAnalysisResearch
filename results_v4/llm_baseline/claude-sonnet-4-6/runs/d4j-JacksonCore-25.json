@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonCore-25",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java",
+  "src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java",
+  "src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java",
+  "src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java",
+  "src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java",
+  "src/main/java/com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java",
+  "src/main/java/com/fasterxml/jackson/core/json/package-info.java",
+  "src/main/java/com/fasterxml/jackson/core/json/ByteSourceJsonBootstrapper.java"
+ ],
+ "timestamp": "2026-10-02T15:04:19",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  3,
+  1,
+  6,
+  2,
+  8,
+  7
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "5": 0.3,
+  "3": 0.25,
+  "1": 0.2,
+  "6": 0.15,
+  "2": 0.08,
+  "8": 0.05,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.3,
+  0.45,
+  0.05,
+  0.01,
+  0.08,
+  0.15,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  0,
+  6,
+  7,
+  5,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1130,
+  "output_tokens": 489
+ },
+ "raw_response": "Looking at this failing test in JacksonCore, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError, suggesting a logic/output mismatch\n- The `app_code_changed` flag is set\n- This is in the `json` package\n\nLet me analyze the candidates:\n\n1. **ReaderBasedJsonParser.java** - High activity (96 commits, high churn), core parsing file\n2. **JsonGeneratorImpl.java** - Low activity, base generator implementation\n3. **UTF8JsonGenerator.java** - High activity (57 commits), UTF8 generator\n4. **JsonWriteContext.java** - Moderate activity, write context tracking\n5. **WriterBasedJsonGenerator.java** - High activity (40 commits), writer-based generator\n6. **UTF8DataInputJsonParser.java** - Highest activity (128 commits, highest churn), parser\n7. **package-info.java** - Trivial file, essentially impossible to be defective\n8. **ByteSourceJsonBootstrapper.java** - Moderate activity, bootstrapper\n\nFor JacksonCore defect #25, this is likely related to a JSON generation or parsing issue. The `JsonWriteContext` is a critical state-tracking class that manages write context (field names, values, etc.) and bugs there can cause AssertionErrors. The high-activity generator files (UTF8JsonGenerator, WriterBasedJsonGenerator) are also strong candidates.\n\nGiven the AssertionError pattern and the nature of JacksonCore bugs, `JsonWriteContext` is a prime suspect as it tracks state and can cause assertion failures. The generator files are also likely candidates.\n\n{\"ranking\": [4, 5, 3, 1, 6, 2, 8, 7], \"confidence\": {\"4\": 0.45, \"5\": 0.30, \"3\": 0.25, \"1\": 0.20, \"6\": 0.15, \"2\": 0.08, \"8\": 0.05, \"7\": 0.01}}",
+ "n_attempts": 1
+}

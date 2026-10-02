@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-78",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/UnsupportedMimeTypeException.java",
+  "src/main/java/org/jsoup/helper/StringUtil.java",
+  "src/main/java/org/jsoup/Jsoup.java",
+  "src/main/java/org/jsoup/SerializationException.java",
+  "src/main/java/org/jsoup/Connection.java",
+  "src/main/java/org/jsoup/UncheckedIOException.java"
+ ],
+ "timestamp": "2026-10-02T15:12:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  7,
+  5,
+  1,
+  4,
+  6,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.85,
+  "3": 0.1,
+  "4": 0.3,
+  "5": 0.75,
+  "6": 0.35,
+  "7": 0.8
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.8,
+  0.55,
+  0.1,
+  0.75,
+  0.85,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  1,
+  3,
+  6,
+  2,
+  0,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1004,
+  "output_tokens": 398
+ },
+ "raw_response": "Looking at the failing test event for defects4j:Jsoup-78, I need to identify which files were changed in the fix commit.\n\nKey observations:\n- The flags indicate `app_code_changed` and `validator_changed`\n- Files 2, 5, and 7 all have `commits=1, devs=1, age_days=1, commit_freq=1.0000` - these are brand new files added in a single commit, making them very likely part of the fix commit\n- `UnsupportedMimeTypeException.java` (2), `SerializationException.java` (5), and `UncheckedIOException.java` (7) are all new exception classes\n- The `validator_changed` flag suggests changes to validation logic, possibly in `Connection.java` or `DataUtil.java`\n- `DataUtil.java` (1) has high commit frequency and handles data parsing/loading - likely involved\n- `Jsoup.java` (4) is the main entry point and could be involved with new exception types\n\nThe three new files (2, 5, 7) were almost certainly added as part of the fix. The `UnsupportedMimeTypeException` is particularly relevant to HTTP/connection validation. `DataUtil.java` likely throws these new exceptions. `Connection.java` with `validator_changed` flag is also suspect.\n\n{\"ranking\": [2, 7, 5, 1, 4, 6, 3], \"confidence\": {\"1\": 0.55, \"2\": 0.85, \"3\": 0.10, \"4\": 0.30, \"5\": 0.75, \"6\": 0.35, \"7\": 0.80}}",
+ "n_attempts": 1
+}

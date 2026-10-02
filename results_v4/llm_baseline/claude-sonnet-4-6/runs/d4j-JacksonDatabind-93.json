@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-93",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DataFormatReaders.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/TypeNameIdResolver.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerModifier.java",
+  "src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java"
+ ],
+ "timestamp": "2026-10-02T15:08:17",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  1,
+  4,
+  5,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.92,
+  "3": 0.15,
+  "1": 0.08,
+  "4": 0.07,
+  "5": 0.04,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.92,
+  0.15,
+  0.04,
+  0.02,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  1,
+  4,
+  5,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1020,
+  "output_tokens": 154
+ },
+ "raw_response": "The key signal here is candidate 6: `SubTypeValidator.java` has an age of just 1 day and a commit frequency of 2.0 \u2014 this is almost certainly a newly created or heavily modified file that was part of the fix commit. This pattern (very recent file, very high commit frequency) strongly indicates it's the defective/fixed file.\n\n{\"ranking\": [6, 3, 1, 4, 5, 2], \"confidence\": {\"6\": 0.92, \"3\": 0.15, \"1\": 0.08, \"4\": 0.07, \"5\": 0.04, \"2\": 0.02}}",
+ "n_attempts": 1
+}

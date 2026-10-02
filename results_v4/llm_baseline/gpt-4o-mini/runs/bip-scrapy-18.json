@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-scrapy-18",
+ "repo": "bugsinpy:scrapy",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "scrapy/_monkeypatches.py",
+  "scrapy/responsetypes.py",
+  "scrapy/statscol.py",
+  "scrapy/resolver.py",
+  "scrapy/log.py",
+  "scrapy/shell.py",
+  "scrapy/extension.py"
+ ],
+ "timestamp": "2026-10-02T15:54:34",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  2,
+  3,
+  1,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.15,
+  "3": 0.1,
+  "4": 0.05,
+  "5": 0.2,
+  "6": 0.4,
+  "7": 0.0
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.1,
+  0.2,
+  0.05,
+  0.0,
+  0.05,
+  0.4
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  1,
+  4,
+  6,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 776,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [6, 5, 2, 3, 1, 4, 7], \"confidence\": {\"1\": 0.05, \"2\": 0.15, \"3\": 0.1, \"4\": 0.05, \"5\": 0.2, \"6\": 0.4, \"7\": 0.0}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-91",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/ChangeNotifyingArrayList.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/UncheckedIOException.java",
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Tag.java"
+ ],
+ "timestamp": "2026-10-02T15:12:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  7,
+  3,
+  2,
+  5,
+  8,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.85,
+  "6": 0.55,
+  "7": 0.45,
+  "3": 0.4,
+  "2": 0.25,
+  "5": 0.2,
+  "8": 0.15,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.2,
+  0.25,
+  0.15,
+  0.85,
+  0.4,
+  0.55,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  5,
+  4,
+  6,
+  0,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1071,
+  "output_tokens": 473
+ },
+ "raw_response": "Looking at this failing test event for defects4j:Jsoup-91, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n1. The `app_code_changed` and `validator_changed` flags are set, suggesting both application logic and validation/checking code changed.\n2. Files 1 and 3 have `age_days=1` and `commit_freq=1.0000`, meaning they were newly created (or very recently created) - these are strong candidates as they were added as part of the fix.\n3. `ChangeNotifyingArrayList.java` (file 1) is a new file with 82 lines added - this looks like new functionality added as part of a fix.\n4. `package-info.java` (file 3) is also new - often added alongside new classes.\n5. `CharacterReader.java` (file 2) has high activity and is a core parser component - could be involved.\n6. `HtmlTreeBuilder.java` (file 6) and `TreeBuilder.java` (file 7) are heavily modified files that could be part of the fix.\n7. `DataUtil.java` (file 5) handles data utilities and has high commit frequency.\n\nThe `ChangeNotifyingArrayList` being brand new strongly suggests it's part of the fix - it's a new utility class. The `package-info.java` being new also fits. For Jsoup-91, which relates to DOM mutation tracking/notification, `ChangeNotifyingArrayList` is very relevant. `HtmlTreeBuilder` or `TreeBuilder` likely needed modification to use this new class.\n\n{\"ranking\": [1, 6, 7, 3, 2, 5, 8, 4], \"confidence\": {\"1\": 0.85, \"6\": 0.55, \"7\": 0.45, \"3\": 0.40, \"2\": 0.25, \"5\": 0.20, \"8\": 0.15, \"4\": 0.05}}",
+ "n_attempts": 1
+}

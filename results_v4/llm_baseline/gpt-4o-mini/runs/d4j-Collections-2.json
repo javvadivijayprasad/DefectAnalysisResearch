@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Collections-2",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/java/org/apache/commons/collections/BufferOverflowException.java",
+  "src/java/org/apache/commons/collections/ExtendedProperties.java",
+  "src/java/org/apache/commons/collections/FunctorException.java"
+ ],
+ "timestamp": "2026-10-02T15:45:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.3,
+  "2": 0.55,
+  "3": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.15,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 654,
+  "output_tokens": 39
+ },
+ "raw_response": "{\"ranking\": [2, 1, 3], \"confidence\": {\"1\": 0.30, \"2\": 0.55, \"3\": 0.15}}",
+ "n_attempts": 1
+}

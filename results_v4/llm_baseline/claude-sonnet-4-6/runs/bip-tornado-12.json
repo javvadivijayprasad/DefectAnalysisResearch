@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-tornado-12",
+ "repo": "bugsinpy:tornado",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "tornado/log.py",
+  "tornado/tcpserver.py",
+  "tornado/http1connection.py",
+  "tornado/autoreload.py",
+  "tornado/wsgi.py",
+  "tornado/auth.py"
+ ],
+ "timestamp": "2026-10-02T15:36:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  5,
+  6,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "2": 0.2,
+  "5": 0.1,
+  "6": 0.08,
+  "4": 0.04,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.03,
+  0.55,
+  0.2,
+  0.1,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  5,
+  0,
+  1,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 877,
+  "output_tokens": 425
+ },
+ "raw_response": "Looking at the failing test event for tornado with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The test involves an AssertionError (likely a test assertion failure, not a code assertion)\n- `app_code_changed` flag is set\n- The failure is in tornado project\n\nAnalyzing candidates:\n- `http1connection.py` (3): Very high commit frequency (1.2/day), youngest file (350 days), most churn (1924), only 2 devs - this suggests active development with potential instability. HTTP connection handling is core functionality that could cause many test failures.\n- `tcpserver.py` (2): Moderate activity, related to HTTP connection handling\n- `wsgi.py` (5): High commit count (88), many devs (15), significant churn - WSGI interface could affect HTTP behavior\n- `auth.py` (6): Highest commits and churn, but auth-specific failures might not cause generic AssertionErrors\n- `autoreload.py` (4): Moderate activity\n- `log.py` (1): Moderate activity, logging changes rarely cause AssertionErrors in HTTP tests\n\nThe `http1connection.py` stands out significantly with its extremely high commit frequency and recent age, suggesting it was actively being modified around the time of this bug. HTTP/1 connection handling is fundamental and could cause AssertionErrors in many test scenarios.\n\n`tcpserver.py` is also plausible as it works closely with HTTP connections.\n\n{\"ranking\": [3, 2, 5, 6, 4, 1], \"confidence\": {\"3\": 0.55, \"2\": 0.20, \"5\": 0.10, \"6\": 0.08, \"4\": 0.04, \"1\": 0.03}}",
+ "n_attempts": 1
+}

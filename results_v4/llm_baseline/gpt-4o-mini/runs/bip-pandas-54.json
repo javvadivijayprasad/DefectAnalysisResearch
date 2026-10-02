@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-pandas-54",
+ "repo": "bugsinpy:pandas",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "pandas/core/dtypes/__init__.py",
+  "pandas/core/dtypes/dtypes.py",
+  "pandas/core/dtypes/inference.py",
+  "pandas/core/dtypes/generic.py",
+  "pandas/core/dtypes/missing.py"
+ ],
+ "timestamp": "2026-10-02T15:53:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  3,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.02,
+  "2": 0.55,
+  "3": 0.15,
+  "4": 0.1,
+  "5": 0.18
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.1,
+  0.02,
+  0.15,
+  0.18
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 716,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [2, 5, 3, 4, 1], \"confidence\": {\"1\": 0.02, \"2\": 0.55, \"3\": 0.15, \"4\": 0.10, \"5\": 0.18}}",
+ "n_attempts": 1
+}

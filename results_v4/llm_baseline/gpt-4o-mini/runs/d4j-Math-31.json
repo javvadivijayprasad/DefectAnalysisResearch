@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-31",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/util/ContinuedFraction.java",
+  "src/main/java/org/apache/commons/math3/util/MathArrays.java",
+  "src/main/java/org/apache/commons/math3/util/Precision.java",
+  "src/main/java/org/apache/commons/math3/util/Pair.java",
+  "src/main/java/org/apache/commons/math3/util/FastMathLiteralArrays.java",
+  "src/main/java/org/apache/commons/math3/util/Decimal64.java",
+  "src/main/java/org/apache/commons/math3/util/TransformerMap.java"
+ ],
+ "timestamp": "2026-10-02T15:49:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  5,
+  1,
+  4,
+  7,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.12,
+  "2": 0.25,
+  "3": 0.2,
+  "4": 0.1,
+  "5": 0.18,
+  "6": 0.05,
+  "7": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.25,
+  0.1,
+  0.1,
+  0.05,
+  0.2,
+  0.18
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  4,
+  5,
+  6,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 844,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [2, 3, 5, 1, 4, 7, 6], \"confidence\": {\"1\": 0.12, \"2\": 0.25, \"3\": 0.20, \"4\": 0.10, \"5\": 0.18, \"6\": 0.05, \"7\": 0.10}}",
+ "n_attempts": 1
+}

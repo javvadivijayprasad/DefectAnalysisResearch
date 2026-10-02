@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-spacy-10",
+ "repo": "bugsinpy:spacy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "spacy/about.py",
+  "spacy/lookups.py",
+  "spacy/language.py",
+  "spacy/errors.py",
+  "spacy/_ml.py",
+  "spacy/util.py",
+  "spacy/__main__.py"
+ ],
+ "timestamp": "2026-10-02T15:34:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  6,
+  5,
+  4,
+  7,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.55,
+  "3": 0.35,
+  "6": 0.2,
+  "5": 0.15,
+  "4": 0.1,
+  "7": 0.05,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.2,
+  0.15,
+  0.03,
+  0.55,
+  0.05,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  2,
+  3,
+  6,
+  0,
+  5,
+  1
+ ],
+ "usage": {
+  "input_tokens": 924,
+  "output_tokens": 416
+ },
+ "raw_response": "Looking at this failing test event for spacy with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- `spacy/lookups.py` is very new (age_days=27) with high commit frequency (2.3333) - this is a recently added/modified file that's actively being changed, making it a prime candidate for bugs\n- `spacy/language.py` has very high activity (321 commits, 27 devs, high churn) - central file that's frequently modified\n- `spacy/util.py` also has high activity and is a utility file that many things depend on\n- `spacy/_ml.py` has high churn and activity\n- `spacy/errors.py` could be involved if new error messages were added/changed\n- `spacy/about.py` is mostly version info, less likely\n- `spacy/__main__.py` is CLI, less likely for an AssertionError in tests\n\nThe `lookups.py` file stands out as extremely new (27 days old) with very high commit frequency - this suggests it's a newly introduced feature that likely has bugs. The `language.py` file is the core language class and frequently modified. An AssertionError in tests often points to core functionality issues.\n\nGiven the `lookups.py` is brand new and being actively developed, combined with `language.py` being the central orchestration file, these are the most likely candidates.\n\n{\"ranking\": [2, 3, 6, 5, 4, 7, 1], \"confidence\": {\"2\": 0.55, \"3\": 0.35, \"6\": 0.20, \"5\": 0.15, \"4\": 0.10, \"7\": 0.05, \"1\": 0.03}}",
+ "n_attempts": 1
+}

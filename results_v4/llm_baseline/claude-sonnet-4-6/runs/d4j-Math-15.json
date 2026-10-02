@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-15",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/util/Incrementor.java",
+  "src/main/java/org/apache/commons/math3/util/MathArrays.java",
+  "src/main/java/org/apache/commons/math3/util/FastMath.java",
+  "src/main/java/org/apache/commons/math3/util/IterationEvent.java",
+  "src/main/java/org/apache/commons/math3/util/CompositeFormat.java"
+ ],
+ "timestamp": "2026-10-02T15:16:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.92,
+  "2": 0.05,
+  "1": 0.02,
+  "5": 0.01,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.05,
+  0.01,
+  0.02,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 913,
+  "output_tokens": 189
+ },
+ "raw_response": "The failing test is in defects4j:Math-15. This bug is known to be related to `FastMath.pow()` returning incorrect results (specifically, `FastMath.pow(-0.0, x)` or similar edge cases). FastMath.java is the most likely defective file given:\n- It has by far the most commits (88) and highest churn (32226)\n- It's the core mathematical utility that would cause AssertionError in math tests\n- Math-15 is specifically about `FastMath.pow` behavior\n\n{\"ranking\": [3, 2, 1, 5, 4], \"confidence\": {\"3\": 0.92, \"2\": 0.05, \"1\": 0.02, \"5\": 0.01, \"4\": 0.01}}",
+ "n_attempts": 1
+}

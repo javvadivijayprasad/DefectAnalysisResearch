@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-91",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerCache.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ResolvableDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ValueInstantiators.java"
+ ],
+ "timestamp": "2026-10-02T15:08:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  3,
+  4,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.72,
+  "2": 0.25,
+  "3": 0.18,
+  "4": 0.15,
+  "1": 0.1,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.15,
+  0.1,
+  0.05,
+  0.18,
+  0.72
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  4,
+  5,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1017,
+  "output_tokens": 402
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test involves deserialization (all files are in the `deser` package)\n- `ResolvableDeserializer.java` (candidate 5) stands out dramatically: age_days=32 (very recently created/modified), commit_freq=1.75 (extremely high - nearly 2 commits per day), with relatively small churn (75). This strongly suggests it's a recently introduced or heavily modified file that may contain the defect.\n- `DeserializerCache.java` (candidate 2) has very high commit frequency (0.2323) and high churn, making it a secondary candidate\n- `DefaultDeserializationContext.java` (candidate 3) has moderate activity\n- `BuilderBasedDeserializer.java` (candidate 4) has high churn and moderate frequency\n- `DeserializerFactory.java` (candidate 1) is moderately active\n- `ValueInstantiators.java` (candidate 6) has low activity\n\nThe extremely recent age and very high commit frequency of `ResolvableDeserializer.java` is the strongest signal - it was likely recently added or significantly changed as part of a refactoring that introduced the bug. The fix likely touches this file and possibly `DeserializerCache.java` which coordinates deserialization resolution.\n\n{\"ranking\": [5, 2, 3, 4, 1, 6], \"confidence\": {\"5\": 0.72, \"2\": 0.25, \"3\": 0.18, \"4\": 0.15, \"1\": 0.10, \"6\": 0.05}}",
+ "n_attempts": 1
+}

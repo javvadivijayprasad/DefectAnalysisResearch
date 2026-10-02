@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-1",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CrossModuleCodeMotion.java",
+  "src/com/google/javascript/jscomp/JsMessageExtractor.java",
+  "src/com/google/javascript/jscomp/RemoveUnusedVars.java",
+  "src/com/google/javascript/jscomp/JoinOp.java",
+  "src/com/google/javascript/jscomp/NameAnonymousFunctions.java",
+  "src/com/google/javascript/jscomp/GoogleJsMessageIdGenerator.java"
+ ],
+ "timestamp": "2026-10-02T15:43:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  5,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.2,
+  "3": 0.4,
+  "4": 0.05,
+  "5": 0.07,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.05,
+  0.03,
+  0.07,
+  0.25,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  5,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 776,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [3, 1, 2, 5, 4, 6], \"confidence\": {\"1\": 0.25, \"2\": 0.20, \"3\": 0.40, \"4\": 0.05, \"5\": 0.07, \"6\": 0.03}}",
+ "n_attempts": 1
+}

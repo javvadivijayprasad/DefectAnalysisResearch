@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Lang-50",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/time/DurationFormatUtils.java",
+  "src/java/org/apache/commons/lang/time/DateUtils.java",
+  "src/java/org/apache/commons/lang/time/StopWatch.java",
+  "src/java/org/apache/commons/lang/time/DateFormatUtils.java",
+  "src/java/org/apache/commons/lang/time/FastDateFormat.java"
+ ],
+ "timestamp": "2026-10-02T15:15:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "5": 0.72,
+  "4": 0.18,
+  "1": 0.06,
+  "2": 0.04,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.72,
+  0.04,
+  0.02,
+  0.06,
+  0.18
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 902,
+  "output_tokens": 167
+ },
+ "raw_response": "The failing test is in defects4j:Lang-50. Based on the project's known defects, Lang-50 is related to `FastDateFormat` - specifically issues with locale/timezone handling or formatting patterns. `FastDateFormat.java` has the highest churn (5475), most developers (7), and significant activity, making it the most likely defective file. `DateFormatUtils.java` is also a candidate as it wraps FastDateFormat functionality.\n\n{\"ranking\": [5, 4, 1, 2, 3], \"confidence\": {\"5\": 0.72, \"4\": 0.18, \"1\": 0.06, \"2\": 0.04, \"3\": 0.02}}",
+ "n_attempts": 1
+}

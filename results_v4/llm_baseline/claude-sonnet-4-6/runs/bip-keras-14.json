@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-keras-14",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "keras/regularizers.py",
+  "keras/optimizers.py",
+  "keras/constraints.py",
+  "keras/metrics.py",
+  "keras/__init__.py",
+  "keras/initializers.py",
+  "keras/objectives.py"
+ ],
+ "timestamp": "2026-10-02T15:23:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  6,
+  2,
+  7,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "3": 0.3,
+  "6": 0.25,
+  "2": 0.2,
+  "7": 0.15,
+  "4": 0.1,
+  "5": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.08,
+  0.15,
+  0.35,
+  0.25,
+  0.3,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  6,
+  4,
+  0,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 911,
+  "output_tokens": 472
+ },
+ "raw_response": "Looking at this failing test in keras, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in keras\n- The `app_code_changed` flag is set\n- This is bug bip-keras-14\n\nLet me analyze the candidates:\n\n1. **keras/regularizers.py** - moderate activity, 42 commits\n2. **keras/optimizers.py** - very high activity (111 commits, 34 devs), most active file\n3. **keras/constraints.py** - lower activity, 36 commits\n4. **keras/metrics.py** - moderate activity, 32 commits\n5. **keras/__init__.py** - moderate commits, low churn (150) - often changed for imports/exports\n6. **keras/initializers.py** - relatively new file (581 days), low commits but high additions\n7. **keras/objectives.py** - moderate activity, 51 commits\n\nFor keras bug #14, this is likely related to a serialization/deserialization issue or a get/from_config issue. The `__init__.py` file often needs updates when new modules are added or when serialization functions need to be exposed. The `initializers.py` is relatively new (581 days old) with many additions but few commits, suggesting it might have had bugs introduced.\n\nThe `optimizers.py` has the highest activity and is most likely to have bugs. The `regularizers.py` and `constraints.py` are similar in nature to initializers and often have parallel bugs.\n\nGiven the pattern of keras bugs often involving serialization across regularizers, constraints, and initializers, and considering the file statistics:\n\n{\"ranking\": [1, 3, 6, 2, 7, 4, 5], \"confidence\": {\"1\": 0.35, \"3\": 0.30, \"6\": 0.25, \"2\": 0.20, \"7\": 0.15, \"4\": 0.10, \"5\": 0.08}}",
+ "n_attempts": 1
+}

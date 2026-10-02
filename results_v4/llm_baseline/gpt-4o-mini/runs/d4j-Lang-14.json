@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-14",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/StringUtils.java",
+  "src/main/java/org/apache/commons/lang3/SerializationUtils.java",
+  "src/main/java/org/apache/commons/lang3/CharEncoding.java",
+  "src/main/java/org/apache/commons/lang3/Validate.java",
+  "src/main/java/org/apache/commons/lang3/EnumUtils.java",
+  "src/main/java/org/apache/commons/lang3/AnnotationUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:48:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  6,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.25,
+  "6": 0.15,
+  "2": 0.1,
+  "5": 0.04,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.1,
+  0.01,
+  0.04,
+  0.15,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  5,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 792,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 4, 6, 2, 5, 3], \"confidence\": {\"1\": 0.45, \"4\": 0.25, \"6\": 0.15, \"2\": 0.10, \"5\": 0.04, \"3\": 0.01}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-luigi-28",
+ "repo": "bugsinpy:luigi",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "luigi/contrib/pyspark_runner.py",
+  "luigi/contrib/target.py",
+  "luigi/contrib/hive.py",
+  "luigi/contrib/ssh.py",
+  "luigi/contrib/redshift.py",
+  "luigi/contrib/rdbms.py",
+  "luigi/contrib/webhdfs.py"
+ ],
+ "timestamp": "2026-10-02T15:52:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  7,
+  5,
+  2,
+  4,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "7": 0.25,
+  "5": 0.15,
+  "2": 0.08,
+  "4": 0.04,
+  "3": 0.02,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.02,
+  0.01,
+  0.15,
+  0.25,
+  0.45,
+  0.08,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  6,
+  2,
+  1,
+  0,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 790,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [1, 7, 5, 2, 4, 3, 6], \"confidence\": {\"1\": 0.45, \"7\": 0.25, \"5\": 0.15, \"2\": 0.08, \"4\": 0.04, \"3\": 0.02, \"6\": 0.01}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-49",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CheckDebuggerStatement.java",
+  "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+  "src/com/google/javascript/jscomp/EmptyMessageBundle.java",
+  "src/com/google/javascript/jscomp/PeepholeFoldWithTypes.java",
+  "src/com/google/javascript/jscomp/GlobalVarReferenceMap.java",
+  "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "src/com/google/javascript/jscomp/CompilerInput.java"
+ ],
+ "timestamp": "2026-10-02T14:52:05",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  7,
+  5,
+  4,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "6": 0.55,
+  "2": 0.2,
+  "7": 0.1,
+  "5": 0.07,
+  "4": 0.05,
+  "1": 0.02,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.1,
+  0.07,
+  0.02,
+  0.01,
+  0.55,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  3,
+  5,
+  6,
+  0,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1015,
+  "output_tokens": 511
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-49, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure compiler bug #49\n\nLet me analyze the candidates:\n\n1. **TypedScopeCreator.java** (index 6) - Very high commit frequency (0.7613), massive churn (5708), 77 commits, 9 devs. This is a complex, frequently-modified file that handles scope creation and type analysis. Scope-related bugs are common in Closure.\n\n2. **MakeDeclaredNamesUnique.java** (index 2) - 14 commits, significant churn (917), handles variable renaming/uniquification which can cause assertion errors.\n\n3. **CompilerInput.java** (index 7) - 21 commits, 10 devs, moderate churn. Handles compiler input processing.\n\n4. **GlobalVarReferenceMap.java** (index 5) - High commit frequency (0.2941) but newer file (119 days), fewer commits.\n\n5. **PeepholeFoldWithTypes.java** (index 4) - Moderate activity, handles type-based peephole optimizations.\n\n6. **CheckDebuggerStatement.java** (index 1) - Lower activity, simpler checker.\n\n7. **EmptyMessageBundle.java** (index 3) - Low activity, simple utility.\n\nFor Closure-49, which involves an AssertionError, `TypedScopeCreator.java` is the most likely candidate given its extremely high activity and complexity. `MakeDeclaredNamesUnique.java` is also plausible as variable naming issues can cause assertion failures.\n\n{\"ranking\": [6, 2, 7, 5, 4, 1, 3], \"confidence\": {\"6\": 0.55, \"2\": 0.20, \"7\": 0.10, \"5\": 0.07, \"4\": 0.05, \"1\": 0.02, \"3\": 0.01}}",
+ "n_attempts": 1
+}

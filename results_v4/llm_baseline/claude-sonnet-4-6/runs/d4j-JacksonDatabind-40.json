@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-40",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/DelegatingDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/StdValueInstantiator.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/NumberDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/ObjectArrayDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/EnumDeserializer.java"
+ ],
+ "timestamp": "2026-10-02T15:06:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  7,
+  4,
+  5,
+  6,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.35,
+  "3": 0.02,
+  "4": 0.12,
+  "5": 0.1,
+  "6": 0.08,
+  "7": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.15,
+  0.08,
+  0.35,
+  0.1,
+  0.02,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  5,
+  0,
+  4,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1094,
+  "output_tokens": 544
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in JacksonDatabind\n- The `app_code_changed` flag is set\n- This is defect #40 in JacksonDatabind\n\nLet me analyze the candidates:\n\n1. **DelegatingDeserializer.java** - Relatively recent activity (968 days old), moderate commits. DelegatingDeserializer is often involved in complex deserialization bugs.\n\n2. **StdValueInstantiator.java** - High activity, many commits/devs. Value instantiation is a common source of bugs.\n\n3. **package-info.java** - Very recent (30 days old), very few commits. Unlikely to be the defective file.\n\n4. **NumberDeserializers.java** - High activity, many commits. Number deserialization bugs are common.\n\n5. **JsonNodeDeserializer.java** - High activity, many commits/devs.\n\n6. **ObjectArrayDeserializer.java** - Moderate activity.\n\n7. **EnumDeserializer.java** - Highest commit count (32), many devs. Enum deserialization is a frequent source of bugs in Jackson.\n\nFor JacksonDatabind issue #40, based on the pattern of defects in this project, this is likely related to `StdValueInstantiator` or `DelegatingDeserializer`. The `DelegatingDeserializer` has relatively recent activity and is known to have subtle bugs with delegation patterns. `StdValueInstantiator` is also a strong candidate given its high churn.\n\nThe `package-info.java` is almost certainly not defective (it's just documentation).\n\nGiven the defect numbering and typical Jackson issues around this era, `StdValueInstantiator` and `DelegatingDeserializer` seem most likely.\n\n{\"ranking\": [2, 1, 7, 4, 5, 6, 3], \"confidence\": {\"1\": 0.25, \"2\": 0.35, \"3\": 0.02, \"4\": 0.12, \"5\": 0.10, \"6\": 0.08, \"7\": 0.15}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-44",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/ode/ExpandableStatefulODE.java",
+  "src/main/java/org/apache/commons/math/ode/AbstractIntegrator.java",
+  "src/main/java/org/apache/commons/math/ode/SecondOrderDifferentialEquations.java",
+  "src/main/java/org/apache/commons/math/ode/ParameterizedWrapper.java",
+  "src/main/java/org/apache/commons/math/ode/AbstractParameterizable.java",
+  "src/main/java/org/apache/commons/math/ode/SecondOrderIntegrator.java"
+ ],
+ "timestamp": "2026-10-02T15:49:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  5,
+  2,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.25,
+  "5": 0.15,
+  "2": 0.1,
+  "3": 0.03,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.25,
+  0.15,
+  0.02,
+  0.03,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  2,
+  5,
+  4,
+  0
+ ],
+ "usage": {
+  "input_tokens": 800,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\":[1,4,5,2,3,6],\"confidence\":{\"1\":0.45,\"4\":0.25,\"5\":0.15,\"2\":0.10,\"3\":0.03,\"6\":0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-57",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/AmbiguateProperties.java",
+  "src/com/google/javascript/jscomp/SymbolTable.java",
+  "src/com/google/javascript/jscomp/CheckRegExp.java",
+  "src/com/google/javascript/jscomp/ClosureCodingConvention.java",
+  "src/com/google/javascript/jscomp/PassFactory.java",
+  "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+  "src/com/google/javascript/jscomp/DefinitionSite.java"
+ ],
+ "timestamp": "2026-10-02T14:52:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  6,
+  2,
+  3,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.4,
+  "4": 0.25,
+  "6": 0.18,
+  "2": 0.1,
+  "3": 0.05,
+  "5": 0.04,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.4,
+  0.04,
+  0.05,
+  0.1,
+  0.18,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  5,
+  4,
+  3,
+  2,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1006,
+  "output_tokens": 470
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-57, I need to reason about which files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError\n- The flag `app_code_changed` is set, indicating application code was modified\n\nLet me analyze the candidates:\n\n1. **AmbiguateProperties.java** - High commit frequency (0.2773), moderate age, significant churn. Property ambiguation is a complex optimization pass prone to bugs.\n\n2. **SymbolTable.java** - Moderate commits, high churn (1101), relatively recent. Symbol table management is complex.\n\n3. **CheckRegExp.java** - Low churn (99), fewer commits. Simple checker, less likely to be defective.\n\n4. **ClosureCodingConvention.java** - Highest commit frequency (0.3129), significant activity. Coding conventions affect many passes.\n\n5. **PassFactory.java** - Very few commits (6), low churn. Simple factory class, less likely.\n\n6. **ControlFlowAnalysis.java** - High churn (1158), good commit frequency. CFA is complex and bug-prone.\n\n7. **DefinitionSite.java** - Very few commits (8), minimal churn. Simple data class, unlikely.\n\nFor Closure-57 specifically, this is related to property ambiguation or a related optimization. AmbiguateProperties.java has characteristics consistent with being the defective file - high activity, complex logic. ClosureCodingConvention.java also has high activity. ControlFlowAnalysis.java is another strong candidate given its complexity and churn.\n\n{\"ranking\": [1, 4, 6, 2, 3, 5, 7], \"confidence\": {\"1\": 0.40, \"4\": 0.25, \"6\": 0.18, \"2\": 0.10, \"3\": 0.05, \"5\": 0.04, \"7\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-54",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/rhino/jstype/PrototypeObjectType.java",
+  "src/com/google/javascript/jscomp/GroupVariableDeclarations.java",
+  "src/com/google/javascript/rhino/jstype/JSTypeRegistry.java",
+  "src/com/google/javascript/rhino/jstype/StringType.java",
+  "src/com/google/javascript/rhino/jstype/FunctionType.java",
+  "src/com/google/javascript/jscomp/TypedScopeCreator.java"
+ ],
+ "timestamp": "2026-10-02T14:52:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  3,
+  1,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.04,
+  "3": 0.25,
+  "4": 0.06,
+  "5": 0.35,
+  "6": 0.55
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.35,
+  0.25,
+  0.15,
+  0.06,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 959,
+  "output_tokens": 457
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-54, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError (likely a test assertion failure, not a crash)\n- The `app_code_changed` flag is set\n- This is in the Closure compiler project\n\nLet me analyze the candidates:\n\n1. **PrototypeObjectType.java** - Core type system file, moderate activity\n2. **GroupVariableDeclarations.java** - Variable declaration grouping, less related to type issues\n3. **JSTypeRegistry.java** - Type registry, very active file, central to type system\n4. **StringType.java** - String type implementation, less active\n5. **FunctionType.java** - Function type, very active, central to type system\n6. **TypedScopeCreator.java** - Typed scope creation, most active file, creates typed scopes\n\nClosure-54 is related to a bug in how the compiler handles certain JavaScript constructs. The most active files with the highest commit frequency are TypedScopeCreator.java and FunctionType.java. \n\nFor Closure-54 specifically, this bug involves issues with prototype/function type handling. TypedScopeCreator is the most likely candidate given its high churn and commit frequency - it's responsible for creating typed scopes and is often the source of type-related bugs. FunctionType.java is also highly active and central to type handling.\n\nJSTypeRegistry.java is also a strong candidate as it manages type registration and lookup.\n\nGroupVariableDeclarations.java and StringType.java seem less likely given the nature of the failure.\n\n{\"ranking\": [6, 5, 3, 1, 4, 2], \"confidence\": {\"1\": 0.15, \"2\": 0.04, \"3\": 0.25, \"4\": 0.06, \"5\": 0.35, \"6\": 0.55}}",
+ "n_attempts": 1
+}

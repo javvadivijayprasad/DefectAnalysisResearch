@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-9",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/CardanEulerSingularityException.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Plane.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/OutlineExtractor.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/package-info.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/NotARotationMatrixException.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Vector3D.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java"
+ ],
+ "timestamp": "2026-10-02T15:49:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  2,
+  3,
+  4,
+  1,
+  6,
+  5,
+  7
+ ],
+ "llm_confidence_presented": {
+  "8": 0.45,
+  "2": 0.15,
+  "3": 0.12,
+  "4": 0.1,
+  "1": 0.08,
+  "6": 0.05,
+  "5": 0.03,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.05,
+  0.45,
+  0.03,
+  0.08,
+  0.02,
+  0.15,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  5,
+  0,
+  6,
+  4,
+  7,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 938,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[8,2,3,4,1,6,5,7],\"confidence\":{\"8\":0.45,\"2\":0.15,\"3\":0.12,\"4\":0.10,\"1\":0.08,\"6\":0.05,\"5\":0.03,\"7\":0.02}}",
+ "n_attempts": 1
+}

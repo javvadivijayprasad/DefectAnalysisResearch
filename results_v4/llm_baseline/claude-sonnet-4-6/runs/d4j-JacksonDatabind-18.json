@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-18",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/RuntimeJsonMappingException.java",
+  "src/main/java/com/fasterxml/jackson/databind/DeserializationConfig.java",
+  "src/main/java/com/fasterxml/jackson/databind/ObjectMapper.java",
+  "src/main/java/com/fasterxml/jackson/databind/MappingIterator.java",
+  "src/main/java/com/fasterxml/jackson/databind/JavaType.java"
+ ],
+ "timestamp": "2026-10-02T15:05:18",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.95,
+  "4": 0.8,
+  "3": 0.35,
+  "2": 0.1,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.8,
+  0.05,
+  0.35,
+  0.95,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  2,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 928,
+  "output_tokens": 354
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n1. File 1 (`RuntimeJsonMappingException.java`) has `commits=1, age_days=1, commit_freq=1.0000` - this is a brand new file created in what appears to be the fix commit itself. This is a very strong signal.\n2. File 4 (`MappingIterator.java`) - `MappingIterator` is closely related to `RuntimeJsonMappingException` (which is typically thrown when iterating through mapped values). This file likely needed modification to use the new exception class.\n3. File 3 (`ObjectMapper.java`) - highly active file, could be involved in the fix.\n4. File 2 (`DeserializationConfig.java`) - moderately active, less likely.\n5. File 5 (`JavaType.java`) - less likely to be related to a mapping exception fix.\n\nThe `RuntimeJsonMappingException` being brand new (age_days=1, commits=1) strongly suggests it was created as part of the fix. `MappingIterator` would logically use this new exception class. `ObjectMapper` is also a candidate as it's the central class and frequently modified.\n\n{\"ranking\": [1, 4, 3, 2, 5], \"confidence\": {\"1\": 0.95, \"4\": 0.80, \"3\": 0.35, \"2\": 0.10, \"5\": 0.05}}",
+ "n_attempts": 1
+}

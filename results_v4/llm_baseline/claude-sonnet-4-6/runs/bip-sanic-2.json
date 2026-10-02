@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-sanic-2",
+ "repo": "bugsinpy:sanic",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "sanic/server.py",
+  "sanic/handlers.py",
+  "sanic/errorpages.py",
+  "sanic/config.py",
+  "sanic/constants.py"
+ ],
+ "timestamp": "2026-10-02T15:33:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.85,
+  "2": 0.55,
+  "1": 0.25,
+  "4": 0.1,
+  "5": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.1,
+  0.55,
+  0.04,
+  0.85
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  1,
+  4,
+  0
+ ],
+ "usage": {
+  "input_tokens": 831,
+  "output_tokens": 354
+ },
+ "raw_response": "Looking at the candidates:\n\n- `sanic/errorpages.py` (index 3) stands out dramatically: commits=1, devs=1, +117/-0, age_days=1, commit_freq=1.0. This is a brand new file added in essentially one commit very recently. This strongly suggests it was introduced as part of a fix commit.\n\n- `sanic/handlers.py` (index 2) handles error handling in Sanic, which would likely need to be updated to use a new `errorpages.py` module. It has moderate activity and could be part of the same fix.\n\n- `sanic/server.py` (index 1) is the most heavily modified file overall, very active, and could be involved in the fix.\n\n- `sanic/config.py` (index 4) is moderately active but less likely related to an AssertionError in HTTP handling.\n\n- `sanic/constants.py` (index 5) has minimal changes and is unlikely to be the defective file.\n\nThe `errorpages.py` being brand new (age_days=1, single commit) is the strongest signal \u2014 it was almost certainly introduced in the fix commit. `handlers.py` likely references it. `server.py` is possible but less certain.\n\n{\"ranking\": [3, 2, 1, 4, 5], \"confidence\": {\"3\": 0.85, \"2\": 0.55, \"1\": 0.25, \"4\": 0.10, \"5\": 0.04}}",
+ "n_attempts": 1
+}

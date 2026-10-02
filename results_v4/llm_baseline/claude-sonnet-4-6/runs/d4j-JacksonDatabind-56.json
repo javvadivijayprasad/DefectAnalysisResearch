@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-56",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/EnumDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/EnumMapDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/StdNodeBasedDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/FromStringDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/StdKeyDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/std/StdDeserializer.java"
+ ],
+ "timestamp": "2026-10-02T15:07:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  6,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.82,
+  "1": 0.45,
+  "2": 0.35,
+  "6": 0.2,
+  "5": 0.12,
+  "4": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.12,
+  0.2,
+  0.35,
+  0.82,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  4,
+  3,
+  2,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1033,
+  "output_tokens": 397
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files are most likely defective based on the failing test and file statistics.\n\nKey observations:\n1. The test is about Jackson Databind deserialization (AssertionError)\n2. Candidate 3 (StdNodeBasedDeserializer.java) has extremely unusual statistics: age_days=1, commit_freq=2.0000, only 2 commits, 1 developer - this strongly suggests it's a newly created file added as part of a fix\n3. The test involves enum deserialization based on the other candidates\n4. EnumDeserializer.java (1) and EnumMapDeserializer.java (2) are highly relevant to enum-related deserialization bugs\n5. StdDeserializer.java (6) has the most commits and churn, making it a common source of changes\n6. StdKeyDeserializer.java (5) handles key deserialization which could relate to enum map keys\n\nThe extremely fresh file (candidate 3, age_days=1) is almost certainly part of the fix commit - newly created files are strong signals. For enum-related deserialization issues, EnumDeserializer.java (1) is the most directly relevant existing file that might have been modified alongside the new file.\n\nEnumMapDeserializer.java (2) is also relevant if the test involves EnumMap deserialization.\n\n{\"ranking\": [3, 1, 2, 6, 5, 4], \"confidence\": {\"3\": 0.82, \"1\": 0.45, \"2\": 0.35, \"6\": 0.20, \"5\": 0.12, \"4\": 0.06}}",
+ "n_attempts": 1
+}

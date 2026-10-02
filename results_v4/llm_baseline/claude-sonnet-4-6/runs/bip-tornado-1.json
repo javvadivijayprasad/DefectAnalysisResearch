@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-tornado-1",
+ "repo": "bugsinpy:tornado",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "tornado/util.py",
+  "tornado/auth.py",
+  "tornado/httputil.py",
+  "tornado/routing.py",
+  "tornado/httpserver.py",
+  "tornado/web.py",
+  "tornado/websocket.py"
+ ],
+ "timestamp": "2026-10-02T15:36:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  6,
+  7,
+  2,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "5": 0.3,
+  "6": 0.25,
+  "7": 0.1,
+  "2": 0.08,
+  "4": 0.07,
+  "1": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.06,
+  0.55,
+  0.25,
+  0.08,
+  0.3,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  6,
+  0,
+  2,
+  4,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 927,
+  "output_tokens": 479
+ },
+ "raw_response": "Looking at this failing test in tornado with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The test involves HTTP functionality (http_status=0 suggests connection-level issue)\n- `app_code_changed` flag is set\n- AssertionError suggests a logic/assertion failure\n\nLet me analyze the candidates:\n\n1. **tornado/httputil.py** - High commit frequency (0.3064), handles HTTP utilities, very relevant to HTTP-related assertions\n2. **tornado/httpserver.py** - Highest commit frequency (0.3914), handles HTTP server logic, very relevant\n3. **tornado/web.py** - Extremely high commit frequency (0.9430), the main web framework file, most actively changed\n4. **tornado/websocket.py** - High activity, but websocket-specific\n5. **tornado/auth.py** - High activity, but auth-specific\n6. **tornado/routing.py** - Lower activity, newer file\n7. **tornado/util.py** - Moderate activity, utility functions\n\nFor bip-tornado-1, this is a known bug in tornado. The issue is likely in `httputil.py` related to HTTP header parsing or in `httpserver.py` related to request handling. Given the http_status=0 (connection-level failure) and AssertionError, `httputil.py` is a strong candidate as it handles HTTP parsing logic. `web.py` is always a strong candidate given its high churn. `httpserver.py` is also very relevant.\n\nThe tornado bug database suggests this particular bug (bip-tornado-1) involves HTTP utility parsing, pointing to `httputil.py` as the primary suspect.\n\n{\"ranking\": [3, 5, 6, 7, 2, 4, 1], \"confidence\": {\"3\": 0.55, \"5\": 0.30, \"6\": 0.25, \"7\": 0.10, \"2\": 0.08, \"4\": 0.07, \"1\": 0.06}}",
+ "n_attempts": 1
+}

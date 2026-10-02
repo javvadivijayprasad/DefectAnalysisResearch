@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-138",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CheckMissingGetCssName.java",
+  "src/com/google/javascript/jscomp/SimpleDefinitionFinder.java",
+  "src/com/google/javascript/jscomp/ClosureReverseAbstractInterpreter.java",
+  "src/com/google/javascript/jscomp/ChainableReverseAbstractInterpreter.java",
+  "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "src/com/google/javascript/jscomp/TypeInference.java"
+ ],
+ "timestamp": "2026-10-02T14:56:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  2,
+  3,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "5": 0.35,
+  "2": 0.2,
+  "3": 0.12,
+  "1": 0.08,
+  "4": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.12,
+  0.45,
+  0.2,
+  0.35,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  3,
+  0,
+  2,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 966,
+  "output_tokens": 601
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-138, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The flag `app_code_changed` is set\n- The test is labeled Closure-138\n\nLet me analyze the candidates:\n\n1. `CheckMissingGetCssName.java` - commits=1, age_days=1, commit_freq=1.0 - Very new file, single commit. Could be newly added.\n\n2. `SimpleDefinitionFinder.java` - commits=2, age_days=34, moderate activity.\n\n3. `ClosureReverseAbstractInterpreter.java` - commits=3, devs=2, age_days=76 - Moderate history.\n\n4. `ChainableReverseAbstractInterpreter.java` - commits=1, age_days=1, commit_freq=1.0 - Very new file, single commit. Could be newly added.\n\n5. `ProcessClosurePrimitives.java` - commits=10, devs=2, high churn=1637, age_days=114, commit_freq=0.6140 - Very active file with lots of changes.\n\n6. `TypeInference.java` - commits=11, devs=2, churn=1330, age_days=99, commit_freq=0.7778 - Very active file.\n\nFor Closure-138, the test likely involves type inference or closure primitives. Files 5 and 6 have the highest activity and churn, suggesting they're actively being modified and more likely to contain bugs. `TypeInference.java` has the highest commit frequency and significant churn. `ProcessClosurePrimitives.java` has the highest total churn.\n\nFiles 1 and 4 with age_days=1 and commit_freq=1.0 are brand new files - they could be newly introduced files that are part of the fix or the bug introduction.\n\nGiven the test name pattern for Closure-138 and the nature of AssertionError failures, `TypeInference.java` and `ProcessClosurePrimitives.java` seem most likely, with `SimpleDefinitionFinder.java` also being a candidate.\n\n{\"ranking\": [6, 5, 2, 3, 1, 4], \"confidence\": {\"6\": 0.45, \"5\": 0.35, \"2\": 0.20, \"3\": 0.12, \"1\": 0.08, \"4\": 0.06}}",
+ "n_attempts": 1
+}

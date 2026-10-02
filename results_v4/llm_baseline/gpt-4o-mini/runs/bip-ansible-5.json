@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-ansible-5",
+ "repo": "bugsinpy:ansible",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "lib/ansible/module_utils/common/_collections_compat.py",
+  "lib/ansible/module_utils/common/sys_info.py",
+  "lib/ansible/module_utils/common/removed.py",
+  "lib/ansible/module_utils/common/_utils.py",
+  "lib/ansible/module_utils/common/file.py",
+  "lib/ansible/module_utils/common/validation.py",
+  "lib/ansible/module_utils/common/network.py"
+ ],
+ "timestamp": "2026-10-02T15:50:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  2,
+  1,
+  4,
+  3,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.15,
+  "3": 0.05,
+  "4": 0.12,
+  "5": 0.2,
+  "6": 0.25,
+  "7": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.08,
+  0.12,
+  0.1,
+  0.05,
+  0.15,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  4,
+  3,
+  5,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 809,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [6, 5, 2, 1, 4, 3, 7], \"confidence\": {\"1\": 0.10, \"2\": 0.15, \"3\": 0.05, \"4\": 0.12, \"5\": 0.20, \"6\": 0.25, \"7\": 0.08}}",
+ "n_attempts": 1
+}

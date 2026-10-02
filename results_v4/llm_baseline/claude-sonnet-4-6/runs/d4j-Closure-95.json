@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-95",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/ReplaceIdGenerators.java",
+  "src/com/google/javascript/jscomp/JsMessageDefinition.java",
+  "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "src/com/google/javascript/jscomp/NameAnonymousFunctionsMapped.java"
+ ],
+ "timestamp": "2026-10-02T14:54:10",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  4,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "1": 0.35,
+  "4": 0.15,
+  "2": 0.1,
+  "5": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.15,
+  0.08,
+  0.1,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 899,
+  "output_tokens": 443
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-95, I need to identify which files are likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The flag `app_code_changed` is set\n- This is Closure compiler issue #95\n\nLet me analyze the candidates:\n\n1. **NodeUtil.java** - Very active file (38 commits, 9 devs, high churn=2773). Core utility class that's frequently modified and central to many operations.\n\n2. **ReplaceIdGenerators.java** - Moderate activity (6 commits, 5 devs). Handles ID generator replacement.\n\n3. **JsMessageDefinition.java** - Extremely new file (age_days=1, 1 commit, 1 dev, +77/-0). This is a brand new file added very recently, which is highly suspicious as it could be the fix or the source of a new bug.\n\n4. **TypedScopeCreator.java** - Very active (25 commits, 4 devs, high churn=3709). Important but less likely to be the specific defect here.\n\n5. **NameAnonymousFunctionsMapped.java** - Moderate activity (6 commits, 5 devs). Similar profile to ReplaceIdGenerators.\n\nThe Closure-95 bug relates to JS message handling. `JsMessageDefinition.java` being brand new (age_days=1) is very suspicious - it was likely introduced as part of a fix or feature that caused the test failure. `NodeUtil.java` is always a strong candidate given its central role and high activity.\n\n{\"ranking\": [3, 1, 4, 2, 5], \"confidence\": {\"3\": 0.55, \"1\": 0.35, \"4\": 0.15, \"2\": 0.10, \"5\": 0.08}}",
+ "n_attempts": 1
+}

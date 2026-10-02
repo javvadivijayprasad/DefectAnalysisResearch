@@ -1,0 +1,16 @@
+{
+  "method": "llm_claude-sonnet-4-6",
+  "n_events": 1267,
+  "n_rows": 6716,
+  "p1_mean": 0.532,
+  "p3_mean": 0.356,
+  "r5_mean": 0.9642,
+  "mrr_mean": 0.709,
+  "triage_s_mean": 5.85,
+  "ece_10bin": 0.0651,
+  "n_unparsed_fallback": 0,
+  "n_ok_after_retry": 0,
+  "parse_failure_rate": 0.0,
+  "total_input_tokens": 1142698,
+  "total_output_tokens": 274943
+}

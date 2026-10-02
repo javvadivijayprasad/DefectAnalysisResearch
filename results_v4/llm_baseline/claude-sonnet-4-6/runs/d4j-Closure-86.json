@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-86",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/FlowScope.java",
+  "src/com/google/javascript/jscomp/CrossModuleCodeMotion.java",
+  "src/com/google/javascript/jscomp/GenerateExports.java",
+  "src/com/google/javascript/jscomp/TightenTypes.java",
+  "src/com/google/javascript/jscomp/TypedScopeCreator.java",
+  "src/com/google/javascript/jscomp/ErrorPass.java"
+ ],
+ "timestamp": "2026-10-02T14:53:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  1,
+  5,
+  3,
+  2,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "6": 0.52,
+  "1": 0.35,
+  "5": 0.12,
+  "3": 0.07,
+  "2": 0.06,
+  "4": 0.04,
+  "7": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.04,
+  0.03,
+  0.12,
+  0.52,
+  0.06,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  6,
+  2,
+  0,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1004,
+  "output_tokens": 464
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-86, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a logic error in the code\n- The `app_code_changed` flag indicates application code was modified\n- Closure-86 is related to type checking/scope issues based on typical Closure compiler bug patterns\n\nAnalyzing candidates:\n1. **NodeUtil.java** - Very high commit frequency (0.9975), many commits (58), large churn (3274). This is a utility class used throughout the compiler, highly active.\n2. **TypedScopeCreator.java** - High commit frequency (0.6395), many commits (37), very high churn (4003). This handles typed scope creation which is closely related to type checking bugs.\n3. **TightenTypes.java** - Moderate commits (11), very large additions (1442), related to type analysis.\n4. **CrossModuleCodeMotion.java** - Moderate activity, related to code motion optimization.\n5. **GenerateExports.java** - Lower activity, export generation.\n6. **FlowScope.java** - Low activity (4 commits), related to flow-sensitive type analysis.\n7. **ErrorPass.java** - Low activity, error handling.\n\nFor Closure-86 specifically, this bug is typically related to type checking or scope creation. The `TypedScopeCreator.java` with its very high churn and commit frequency is a strong candidate. `NodeUtil.java` is also highly active and central to many operations. These two are the most likely defective files.\n\n{\"ranking\": [6, 1, 5, 3, 2, 4, 7], \"confidence\": {\"6\": 0.52, \"1\": 0.35, \"5\": 0.12, \"3\": 0.07, \"2\": 0.06, \"4\": 0.04, \"7\": 0.03}}",
+ "n_attempts": 1
+}

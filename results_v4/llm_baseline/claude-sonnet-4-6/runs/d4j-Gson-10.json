@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Gson-10",
+ "repo": "defects4j:Gson",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "gson/src/main/java/com/google/gson/internal/Streams.java",
+  "gson/src/main/java/com/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper.java",
+  "gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java",
+  "gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java",
+  "gson/src/main/java/com/google/gson/internal/bind/ObjectTypeAdapter.java"
+ ],
+ "timestamp": "2026-10-02T15:02:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  5,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.72,
+  "4": 0.25,
+  "5": 0.12,
+  "1": 0.06,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.06,
+  0.25,
+  0.72,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 917,
+  "output_tokens": 431
+ },
+ "raw_response": "Looking at this failing test in defects4j:Gson-10, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is Gson-10, which is known to relate to type adapter issues\n\nAnalyzing the candidates:\n\n1. **TypeAdapterRuntimeTypeWrapper.java** (index 2): Very high commit frequency (0.4667), very recent (120 days old), relatively few commits (8) but high churn rate. This is suspicious - a recently active file with high commit frequency suggests it was being actively worked on, possibly to fix a bug.\n\n2. **ReflectiveTypeAdapterFactory.java** (index 4): High commit count (31), high churn (619), moderate commit frequency. This is a complex file that's been frequently modified.\n\n3. **ObjectTypeAdapter.java** (index 5): Moderate activity, handles object type adaptation which could relate to runtime type issues.\n\n4. **Streams.java** (index 1): Moderate activity, utility class.\n\n5. **DefaultDateTypeAdapter.java** (index 3): Low activity, very few commits (3), likely not the culprit.\n\nThe Gson-10 bug is related to type serialization with runtime types. The `TypeAdapterRuntimeTypeWrapper` is the most suspicious given its extremely high commit frequency and recent activity - it's clearly been the focus of recent development. The `ReflectiveTypeAdapterFactory` is also a strong candidate as it handles reflection-based type adaptation.\n\n{\"ranking\": [2, 4, 5, 1, 3], \"confidence\": {\"2\": 0.72, \"4\": 0.25, \"5\": 0.12, \"1\": 0.06, \"3\": 0.04}}",
+ "n_attempts": 1
+}

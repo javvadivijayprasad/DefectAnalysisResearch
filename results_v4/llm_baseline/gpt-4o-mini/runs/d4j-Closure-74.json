@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-74",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/PeepholeFoldConstants.java",
+  "src/com/google/javascript/jscomp/LoggerErrorManager.java",
+  "src/com/google/javascript/jscomp/ProcessClosurePrimitives.java",
+  "src/com/google/javascript/jscomp/VariableShadowDeclarationCheck.java",
+  "src/com/google/javascript/jscomp/UnfoldCompoundAssignments.java"
+ ],
+ "timestamp": "2026-10-02T15:44:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "3": 0.3,
+  "2": 0.15,
+  "4": 0.05,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.05,
+  0.3,
+  0.05,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  1,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 739,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 3, 2, 4, 5], \"confidence\": {\"1\": 0.45, \"3\": 0.30, \"2\": 0.15, \"4\": 0.05, \"5\": 0.05}}",
+ "n_attempts": 1
+}

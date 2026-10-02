@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-pandas-155",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "pandas/core/window/expanding.py",
+  "pandas/core/window/ewm.py",
+  "pandas/core/window/common.py",
+  "pandas/core/window/rolling.py",
+  "pandas/core/window/__init__.py"
+ ],
+ "timestamp": "2026-10-02T15:32:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  5,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.65,
+  "4": 0.45,
+  "5": 0.4,
+  "1": 0.25,
+  "2": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.65,
+  0.2,
+  0.4,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  4,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 841,
+  "output_tokens": 348
+ },
+ "raw_response": "Looking at the candidates:\n\n- Files 3 and 5 have age_days=1 and commit_freq=1.0, suggesting they were very recently created/modified (likely part of the fix or the bug introduction).\n- Files 1 and 2 have age_days=20 and commit_freq=0.7, recently added files.\n- File 4 is the main rolling.py with heavy history.\n\nThe test failure is an AssertionError in pandas window operations. The recently created files (age_days=1) are most suspicious as they represent the newest changes. File 3 (common.py) has substantial additions (+276/-0) suggesting new code was added. File 5 (__init__.py) has small changes (+3/-0) likely just exports.\n\nFile 4 (rolling.py) is the core implementation and heavily modified over time - bugs often live here. Files 1 and 2 (expanding.py, ewm.py) are also recently touched.\n\nThe combination of very new files (3, 5) with the core rolling.py (4) seems most likely to be the defective set. The common.py being brand new with 276 lines added is highly suspicious as a newly introduced file that might have bugs.\n\n{\"ranking\": [3, 4, 5, 1, 2], \"confidence\": {\"3\": 0.65, \"4\": 0.45, \"5\": 0.40, \"1\": 0.25, \"2\": 0.20}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-luigi-13",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "luigi/scheduler.py",
+  "luigi/task.py",
+  "luigi/execution_summary.py",
+  "luigi/mock.py",
+  "luigi/file.py",
+  "luigi/worker.py",
+  "luigi/hadoop.py"
+ ],
+ "timestamp": "2026-10-02T15:25:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  6,
+  1,
+  2,
+  7,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "6": 0.3,
+  "1": 0.2,
+  "2": 0.12,
+  "7": 0.06,
+  "5": 0.05,
+  "4": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.04,
+  0.2,
+  0.3,
+  0.06,
+  0.12,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  6,
+  2,
+  1,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 921,
+  "output_tokens": 381
+ },
+ "raw_response": "Looking at this failing test in luigi (Python) with an AssertionError, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test involves `execution_summary.py` (file 3) which is relatively new (167 days old) but has a high commit frequency (0.4192) for its age, suggesting active development and likely bug fixes\n- `worker.py` (file 6) has the highest commit frequency and is a core component that interacts with execution summary\n- `scheduler.py` (file 1) is also highly active\n- The `execution_summary.py` file is notably young (167 days) compared to others, suggesting it's a newer feature that may still have bugs\n- The test name `bip-luigi-13` and AssertionError suggest a logic error in execution reporting/summarization\n\nThe `execution_summary.py` file stands out as the most likely defective file given:\n1. It's very new (167 days) - newer code tends to have more bugs\n2. High commit frequency relative to age\n3. AssertionError failures often relate to summary/counting logic\n\n`worker.py` is also a strong candidate as it drives task execution and feeds into execution summaries.\n\n`scheduler.py` is another candidate as it tracks task states.\n\n{\"ranking\": [3, 6, 1, 2, 7, 5, 4], \"confidence\": {\"3\": 0.55, \"6\": 0.30, \"1\": 0.20, \"2\": 0.12, \"7\": 0.06, \"5\": 0.05, \"4\": 0.04}}",
+ "n_attempts": 1
+}

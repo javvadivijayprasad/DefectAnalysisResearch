@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-27",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/rhino/JSTypeExpression.java",
+  "src/com/google/javascript/rhino/Token.java",
+  "src/com/google/javascript/rhino/SourcePosition.java",
+  "src/com/google/javascript/rhino/ErrorReporter.java",
+  "src/com/google/javascript/rhino/Node.java",
+  "src/com/google/javascript/rhino/TokenStream.java",
+  "src/com/google/javascript/rhino/IR.java"
+ ],
+ "timestamp": "2026-10-02T14:51:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  5,
+  1,
+  2,
+  6,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "7": 0.45,
+  "5": 0.35,
+  "1": 0.15,
+  "2": 0.08,
+  "6": 0.07,
+  "4": 0.05,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.08,
+  0.35,
+  0.04,
+  0.05,
+  0.15,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  6,
+  5,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 983,
+  "output_tokens": 454
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-27, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError in the Closure compiler's rhino package\n- The test involves JavaScript type/node handling\n\nAnalysis of candidates:\n1. **IR.java** (index 7): Very young file (161 days), high commit frequency (0.1739), few commits (4) but large additions (+584). New files often have bugs. This is a utility class for building IR nodes.\n\n2. **Node.java** (index 5): Extremely high churn (7953), most commits (73), highest commit frequency (0.5659). This is the core AST node class - very frequently modified and complex.\n\n3. **JSTypeExpression.java** (index 1): Moderate activity, deals with type expressions which are relevant to type-related assertion errors.\n\n4. **Token.java** (index 2): High churn (711), many commits (19), deals with token definitions.\n\n5. **TokenStream.java** (index 6): High churn (3538), many commits (15).\n\n6. **ErrorReporter.java** (index 4): Lower activity.\n\n7. **SourcePosition.java** (index 3): Lower activity.\n\nFor Closure-27 specifically, this bug relates to handling of `@type` annotations and IR construction. The IR.java file is very new and likely introduced bugs in node construction. Node.java is also highly suspect given its complexity and churn. JSTypeExpression.java is relevant for type-related issues.\n\n{\"ranking\": [7, 5, 1, 2, 6, 4, 3], \"confidence\": {\"7\": 0.45, \"5\": 0.35, \"1\": 0.15, \"2\": 0.08, \"6\": 0.07, \"4\": 0.05, \"3\": 0.04}}",
+ "n_attempts": 1
+}

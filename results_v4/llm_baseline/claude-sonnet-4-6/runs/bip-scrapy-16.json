@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-scrapy-16",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "scrapy/utils/python.py",
+  "scrapy/utils/display.py",
+  "scrapy/utils/multipart.py",
+  "scrapy/utils/console.py",
+  "scrapy/utils/datatypes.py",
+  "scrapy/utils/gz.py",
+  "scrapy/utils/url.py",
+  "scrapy/utils/request.py"
+ ],
+ "timestamp": "2026-10-02T15:33:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  7,
+  5,
+  8,
+  3,
+  6,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "7": 0.25,
+  "5": 0.12,
+  "8": 0.08,
+  "3": 0.05,
+  "6": 0.03,
+  "4": 0.02,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.02,
+  0.02,
+  0.03,
+  0.08,
+  0.05,
+  0.45,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  6,
+  7,
+  5,
+  3,
+  4,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 981,
+  "output_tokens": 510
+ },
+ "raw_response": "Looking at this failing test in scrapy with an AssertionError, I need to identify which utility file is most likely defective.\n\nKey observations:\n- The failure is an AssertionError (likely a test assertion failing due to incorrect behavior)\n- `app_code_changed` flag is set\n- This is in the scrapy utils package\n\nAnalyzing candidates by likelihood:\n\n1. **scrapy/utils/python.py** - High commit frequency (0.1147), many commits (46), large churn (864). Core utility file that many things depend on.\n\n2. **scrapy/utils/url.py** - Highest commit frequency (0.1795), most commits (71), highest churn (933). URL handling is complex and frequently changed.\n\n3. **scrapy/utils/datatypes.py** - High churn (1124), many commits (23). Data structures are fundamental.\n\n4. **scrapy/utils/request.py** - Moderate activity, request utilities are central to scrapy.\n\n5. **scrapy/utils/gz.py** - Moderate activity.\n\n6. **scrapy/utils/console.py** - Lower activity.\n\n7. **scrapy/utils/display.py** - Lower activity.\n\n8. **scrapy/utils/multipart.py** - Very few commits (2), very young file (181 days), but high commit frequency relative to age (0.0773). The recency could indicate recent changes that introduced bugs.\n\nThe `scrapy/utils/python.py` and `scrapy/utils/url.py` are the most actively changed files. For bugsinpy:scrapy-16 specifically, based on the pattern of changes and the AssertionError, `scrapy/utils/python.py` is a strong candidate as it contains core Python utilities that many tests rely on.\n\n{\"ranking\": [1, 7, 5, 8, 3, 6, 4, 2], \"confidence\": {\"1\": 0.45, \"7\": 0.25, \"5\": 0.12, \"8\": 0.08, \"3\": 0.05, \"6\": 0.03, \"4\": 0.02, \"2\": 0.02}}",
+ "n_attempts": 1
+}

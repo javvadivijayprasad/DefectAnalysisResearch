@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-20",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/internal/creation/bytebuddy/MockBytecodeGenerator.java",
+  "src/org/mockito/internal/creation/bytebuddy/CachingMockBytecodeGenerator.java",
+  "src/org/mockito/internal/creation/bytebuddy/InterceptedInvocation.java",
+  "src/org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.java",
+  "src/org/mockito/internal/creation/bytebuddy/MockMethodInterceptor.java",
+  "src/org/mockito/internal/creation/bytebuddy/AcrossJVMSerializationFeature.java"
+ ],
+ "timestamp": "2026-10-02T15:20:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  5,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "2": 0.75,
+  "3": 0.15,
+  "4": 0.35,
+  "5": 0.12,
+  "6": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.65,
+  0.08,
+  0.15,
+  0.12,
+  0.75
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  5,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 990,
+  "output_tokens": 425
+ },
+ "raw_response": "Looking at the failing test event for Mockito-20, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n1. Files 1 and 2 are very new (age_days=2 and 1 respectively) with very high commit frequencies, suggesting they were recently introduced or heavily modified - likely part of the fix.\n2. File 2 (`CachingMockBytecodeGenerator.java`) has commits=1, meaning it was just created (age_days=1), which strongly suggests it's a new file introduced as part of the fix.\n3. File 1 (`MockBytecodeGenerator.java`) is also very new (age_days=2) with 4 commits, suggesting active development/fixing.\n4. File 4 (`ByteBuddyMockMaker.java`) has the highest churn (866) and many commits (15), indicating it's a heavily modified core file that could be involved.\n5. Files 3, 5, and 6 are older with lower commit frequencies, making them less likely to be the defective files.\n\nThe test failure is an AssertionError, which could relate to mock creation/caching logic. The `CachingMockBytecodeGenerator` (file 2) being brand new and `MockBytecodeGenerator` (file 1) being very recently modified strongly suggest these are the defective/fixed files. `ByteBuddyMockMaker` (file 4) as the main entry point may also be involved.\n\n{\"ranking\": [2, 1, 4, 5, 3, 6], \"confidence\": {\"1\": 0.65, \"2\": 0.75, \"3\": 0.15, \"4\": 0.35, \"5\": 0.12, \"6\": 0.08}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-21",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/compat.py",
+  "youtube_dl/update.py",
+  "youtube_dl/aes.py",
+  "youtube_dl/__main__.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/cache.py",
+  "youtube_dl/utils.py"
+ ],
+ "timestamp": "2026-10-02T15:37:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  1,
+  5,
+  3,
+  6,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "7": 0.45,
+  "1": 0.25,
+  "5": 0.15,
+  "3": 0.08,
+  "6": 0.05,
+  "2": 0.03,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.05,
+  0.03,
+  0.15,
+  0.08,
+  0.01,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  5,
+  2,
+  3,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 934,
+  "output_tokens": 415
+ },
+ "raw_response": "Looking at this failing test with AssertionError in youtube-dl, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError, which often relates to data processing or parsing logic\n- `app_code_changed` flag is set\n- `youtube_dl/utils.py` has by far the highest commit frequency (2.05/day) and churn (7956), making it the most actively changed file and most likely to contain bugs\n- `youtube_dl/compat.py` has high commit frequency (0.62/day) and significant churn (3404), making it second most likely\n- `youtube_dl/jsinterp.py` handles JavaScript interpretation which could cause AssertionErrors in parsing\n- `youtube_dl/aes.py` handles encryption/decryption which could cause AssertionErrors\n- `youtube_dl/cache.py` is relatively new (76 days) with high commit frequency for its age\n- `youtube_dl/update.py` and `youtube_dl/__main__.py` are less likely to cause AssertionErrors in typical test scenarios\n\nThe AssertionError pattern combined with the test being about youtube-dl functionality suggests it's likely in core utility code or JavaScript interpretation. `utils.py` is the most frequently modified and largest file, making it the prime candidate. `jsinterp.py` is also a strong candidate for AssertionErrors during parsing/interpretation.\n\n{\"ranking\": [7, 1, 5, 3, 6, 2, 4], \"confidence\": {\"7\": 0.45, \"1\": 0.25, \"5\": 0.15, \"3\": 0.08, \"6\": 0.05, \"2\": 0.03, \"4\": 0.01}}",
+ "n_attempts": 1
+}

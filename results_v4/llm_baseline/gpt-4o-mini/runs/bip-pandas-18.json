@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-pandas-18",
+ "repo": "bugsinpy:pandas",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "pandas/core/window/expanding.py",
+  "pandas/core/window/indexers.py",
+  "pandas/core/window/common.py",
+  "pandas/core/window/numba_.py",
+  "pandas/core/window/ewm.py",
+  "pandas/core/window/__init__.py",
+  "pandas/core/window/rolling.py"
+ ],
+ "timestamp": "2026-10-02T15:52:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  1,
+  4,
+  2,
+  7,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.05,
+  "3": 0.2,
+  "4": 0.1,
+  "5": 0.3,
+  "6": 0.02,
+  "7": 0.13
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.13,
+  0.02,
+  0.3,
+  0.15,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  6,
+  0,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 784,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [5, 3, 1, 4, 2, 7, 6], \"confidence\": {\"1\": 0.15, \"2\": 0.05, \"3\": 0.20, \"4\": 0.10, \"5\": 0.30, \"6\": 0.02, \"7\": 0.13}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Lang-9",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/time/DateParser.java",
+  "src/main/java/org/apache/commons/lang3/time/DateFormatUtils.java",
+  "src/main/java/org/apache/commons/lang3/time/FormatCache.java",
+  "src/main/java/org/apache/commons/lang3/time/FastDateParser.java"
+ ],
+ "timestamp": "2026-10-02T15:48:32",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.3,
+  "3": 0.15,
+  "2": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.15,
+  0.1,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 704,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [1, 4, 3, 2], \"confidence\": {\"1\": 0.45, \"4\": 0.30, \"3\": 0.15, \"2\": 0.10}}",
+ "n_attempts": 1
+}

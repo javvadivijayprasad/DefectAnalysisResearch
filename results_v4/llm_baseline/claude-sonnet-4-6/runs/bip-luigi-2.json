@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-luigi-2",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "luigi/contrib/beam_dataflow.py",
+  "luigi/contrib/s3.py",
+  "luigi/contrib/webhdfs.py",
+  "luigi/contrib/external_daily_snapshot.py"
+ ],
+ "timestamp": "2026-10-02T15:25:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "1": 0.3,
+  "2": 0.1,
+  "3": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.55,
+  0.08,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 794,
+  "output_tokens": 323
+ },
+ "raw_response": "Looking at the candidates:\n\n1. `beam_dataflow.py` - Very high commit frequency (2.4/day), young file (32 days), single developer, lots of churn. High activity suggests active development with potential bugs.\n\n2. `s3.py` - High churn overall but old file (1939 days), many devs, moderate commit frequency. Less likely to be the source of a new bug.\n\n3. `webhdfs.py` - Moderate stats, 386 days old, multiple devs.\n\n4. `external_daily_snapshot.py` - Only 1 commit, 1 dev, age_days=1, commit_freq=1.0. This is a brand new file (1 day old) with a single commit. Very suspicious - new files often introduce bugs, and the `app_code_changed` flag combined with a brand new file is a strong signal.\n\nThe `external_daily_snapshot.py` being 1 day old with exactly 1 commit and 1 developer strongly suggests it's newly introduced code that could be the defective file. The `beam_dataflow.py` with its very high commit frequency and young age is also suspicious.\n\n{\"ranking\": [4, 1, 2, 3], \"confidence\": {\"4\": 0.55, \"1\": 0.30, \"2\": 0.10, \"3\": 0.08}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-thefuck-14",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "thefuck/shells/__init__.py",
+  "thefuck/shells/zsh.py",
+  "thefuck/shells/bash.py",
+  "thefuck/shells/tcsh.py",
+  "thefuck/shells/fish.py"
+ ],
+ "timestamp": "2026-10-02T15:35:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  3,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.82,
+  "1": 0.65,
+  "3": 0.15,
+  "2": 0.12,
+  "5": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.12,
+  0.82,
+  0.65,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  0,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 842,
+  "output_tokens": 365
+ },
+ "raw_response": "Looking at this failing test event for thefuck (Python), I need to identify which shell files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError, suggesting a logic/implementation issue\n- `app_code_changed` flag is set, indicating application code was modified\n- File 4 (`tcsh.py`) stands out: age_days=1 (brand new file), commits=1, devs=1, churn=34 - this is a newly added file\n- File 1 (`__init__.py`) has the most activity with high churn (189) and many commits\n- Files 2, 3, 5 have moderate activity\n\nThe `tcsh.py` file being brand new (age_days=1) strongly suggests it was added as part of a fix or feature. When a new shell is added, the `__init__.py` typically needs to be updated to register/import it. This pattern (new shell file + updated __init__.py) is very common in thefuck's architecture.\n\nThe `__init__.py` has high churn and many commits, consistent with being updated frequently when new shells are added.\n\nThe other shell files (bash, zsh, fish) are less likely to be part of this specific fix since they're older and the bug seems related to tcsh addition.\n\n{\"ranking\": [4, 1, 3, 2, 5], \"confidence\": {\"4\": 0.82, \"1\": 0.65, \"3\": 0.15, \"2\": 0.12, \"5\": 0.10}}",
+ "n_attempts": 1
+}

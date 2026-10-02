@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Jsoup-88",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/Attribute.java",
+  "src/main/java/org/jsoup/nodes/DocumentType.java",
+  "src/main/java/org/jsoup/nodes/EntitiesData.java",
+  "src/main/java/org/jsoup/nodes/TextNode.java"
+ ],
+ "timestamp": "2026-10-02T15:12:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.75,
+  "1": 0.45,
+  "2": 0.2,
+  "4": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.75,
+  0.1,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 832,
+  "output_tokens": 123
+ },
+ "raw_response": "The extremely high commit_freq and age_days=1 for EntitiesData.java (candidate 3) strongly suggests it's a newly created file in the fix commit. The test failure involves HTML nodes/attributes, and Attribute.java has significant activity. DocumentType.java is also a possibility given the test context.\n\n{\"ranking\": [3, 1, 2, 4], \"confidence\": {\"3\": 0.75, \"1\": 0.45, \"2\": 0.20, \"4\": 0.10}}",
+ "n_attempts": 1
+}

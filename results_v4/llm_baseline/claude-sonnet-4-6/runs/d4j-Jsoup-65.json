@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-65",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/ParseSettings.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/ParseError.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java"
+ ],
+ "timestamp": "2026-10-02T15:11:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  1,
+  7,
+  2,
+  3,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.2,
+  "3": 0.18,
+  "4": 0.05,
+  "5": 0.1,
+  "6": 0.45,
+  "7": 0.25
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.45,
+  0.2,
+  0.1,
+  0.25,
+  0.18,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  5,
+  2,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1010,
+  "output_tokens": 492
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files were likely changed in the fix.\n\nKey observations:\n- The test is about HTML parsing (Jsoup-65)\n- The failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is in the parser package\n\nAnalyzing the candidates:\n\n1. **HtmlTreeBuilder.java** - High commit frequency (0.1061), significant churn (1201), core HTML parsing logic. Very likely to be involved in parsing bugs.\n\n2. **ParseSettings.java** - Very few commits (3), relatively new file (332 days), low churn. Less likely but possible if it's about case sensitivity settings.\n\n3. **Token.java** - Moderate commits (25), significant churn (851). Token handling is fundamental to parsing.\n\n4. **ParseError.java** - Few commits (5), new file (319 days), low churn. Unlikely to cause AssertionError in parsing logic.\n\n5. **XmlTreeBuilder.java** - Moderate commits (15), lower churn. Could be involved if the test relates to XML/HTML interaction.\n\n6. **HtmlTreeBuilderState.java** - Highest commits (35), most devs (7), highest churn (2369). This handles state transitions in HTML parsing and is very frequently modified.\n\n7. **TokeniserState.java** - High commits (30), highest churn (2498). Tokenization state machine, frequently modified.\n\nFor Jsoup-65, which typically involves parsing issues, the most likely candidates are HtmlTreeBuilderState (most active, highest churn), HtmlTreeBuilder, and TokeniserState. ParseSettings is relatively new and could be involved if the fix relates to case-sensitivity handling.\n\n{\"ranking\": [6, 1, 7, 2, 3, 5, 4], \"confidence\": {\"1\": 0.35, \"2\": 0.20, \"3\": 0.18, \"4\": 0.05, \"5\": 0.10, \"6\": 0.45, \"7\": 0.25}}",
+ "n_attempts": 1
+}

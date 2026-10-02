@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Compress-3",
+ "repo": "defects4j:Compress",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/tar/TarConstants.java",
+  "src/main/java/org/apache/commons/compress/archivers/ArchiveOutputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/tar/TarArchiveOutputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveOutputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/ar/ArArchiveEntry.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveOutputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java"
+ ],
+ "timestamp": "2026-10-02T15:45:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  7,
+  4,
+  5,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "6": 0.35,
+  "3": 0.25,
+  "7": 0.15,
+  "4": 0.1,
+  "5": 0.08,
+  "2": 0.05,
+  "1": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.1,
+  0.15,
+  0.25,
+  0.35,
+  0.02,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  3,
+  2,
+  1,
+  0,
+  6,
+  4
+ ],
+ "usage": {
+  "input_tokens": 874,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [6, 3, 7, 4, 5, 2, 1], \"confidence\": {\"6\": 0.35, \"3\": 0.25, \"7\": 0.15, \"4\": 0.10, \"5\": 0.08, \"2\": 0.05, \"1\": 0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-luigi-25",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "luigi/contrib/hadoop_jar.py",
+  "luigi/contrib/webhdfs.py",
+  "luigi/contrib/pyspark_runner.py",
+  "luigi/contrib/redshift.py"
+ ],
+ "timestamp": "2026-10-02T15:26:04",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "2": 0.25,
+  "4": 0.12,
+  "1": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.08,
+  0.25,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 790,
+  "output_tokens": 313
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- `pyspark_runner.py` (candidate 3) has very high commit frequency (1.1667/day) and is very young (12 days old) with only 2 commits - this suggests it's a recently added/actively modified file that may have introduced a bug\n- `webhdfs.py` (candidate 2) also has high commit frequency (0.7636/day) and is relatively young (110 days)\n- `redshift.py` (candidate 4) has moderate activity\n- `hadoop_jar.py` (candidate 1) has lower commit frequency\n\nThe `pyspark_runner.py` file stands out as extremely new (12 days) with very high commit frequency, suggesting it's under active development and likely contains the defect. The `webhdfs.py` also shows high recent activity.\n\nThe AssertionError with `app_code_changed` flag suggests a logic error in application code. The very recent `pyspark_runner.py` is the most suspicious given its age and activity pattern.\n\n{\"ranking\": [3, 2, 4, 1], \"confidence\": {\"3\": 0.55, \"2\": 0.25, \"4\": 0.12, \"1\": 0.08}}",
+ "n_attempts": 1
+}

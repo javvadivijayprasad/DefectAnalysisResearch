@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-youtube-dl-6",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "youtube_dl/aes.py",
+  "youtube_dl/__init__.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/YoutubeDL.py",
+  "youtube_dl/version.py",
+  "youtube_dl/__main__.py"
+ ],
+ "timestamp": "2026-10-02T15:36:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  1,
+  2,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "3": 0.35,
+  "1": 0.15,
+  "2": 0.08,
+  "6": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.08,
+  0.03,
+  0.45,
+  0.02,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  4,
+  0,
+  5,
+  2
+ ],
+ "usage": {
+  "input_tokens": 895,
+  "output_tokens": 412
+ },
+ "raw_response": "Looking at this failing test event for youtube-dl with an AssertionError:\n\nKey observations:\n- The failure is an AssertionError (likely from a test assertion failing)\n- `app_code_changed` flag is set\n- This is bug bip-youtube-dl-6\n\nAnalyzing candidates:\n- `version.py` (5): Very high commit frequency, mostly version bumps - unlikely to be the defective file for a functional bug\n- `__init__.py` (2): High churn but mostly CLI/option handling\n- `YoutubeDL.py` (4): Core downloader logic, very high activity, most likely place for functional bugs\n- `utils.py` (3): Utility functions, high activity, common source of bugs\n- `aes.py` (1): Encryption module, moderate activity\n- `__main__.py` (6): Entry point, very low activity\n\nFor youtube-dl bugs, the most common defective files are `YoutubeDL.py` and `utils.py` as they contain the core logic. `aes.py` could be relevant if the bug involves encryption/decryption. The AssertionError suggests a logic error in core processing code.\n\nGiven the bug index (6) and the nature of AssertionError, `utils.py` and `YoutubeDL.py` are the most likely candidates, with `aes.py` as a possibility given it's a more specialized module that could have assertion-based validation.\n\n{\"ranking\": [4, 3, 1, 2, 6, 5], \"confidence\": {\"4\": 0.45, \"3\": 0.35, \"1\": 0.15, \"2\": 0.08, \"6\": 0.03, \"5\": 0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Compress-10",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipConstants.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/NioZipEncoding.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipShort.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/AsiExtraField.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipFile.java"
+ ],
+ "timestamp": "2026-10-02T15:00:28",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  5,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "3": 0.35,
+  "5": 0.25,
+  "2": 0.15,
+  "4": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.35,
+  0.45,
+  0.08,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  0,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 930,
+  "output_tokens": 451
+ },
+ "raw_response": "Looking at this failing test in defects4j:Compress-10, I need to identify which files are likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a logic/computation error\n- The `app_code_changed` flag is set\n- This is in the ZIP archiver package\n\nAnalyzing candidates:\n\n1. **ZipConstants.java** - Very recent (10 days old), high commit frequency (4.2/day), small file with constants. Very recently active.\n\n2. **NioZipEncoding.java** - Recent (25 days old), moderate activity. Encoding-related.\n\n3. **ZipShort.java** - Older file, moderate churn. Handles short integer encoding for ZIP format.\n\n4. **AsiExtraField.java** - Older file, high churn. Handles extra fields in ZIP entries.\n\n5. **ZipFile.java** - Very high activity (48 commits), large file, significant churn. Core ZIP file reading functionality.\n\nFor Compress-10 specifically, this bug relates to ZIP encoding/decoding. The very recent activity on ZipConstants.java (age=10 days, freq=4.2) is suspicious - it was being actively modified right around when the bug was introduced. ZipShort.java handles byte-level encoding which could cause AssertionErrors in tests. ZipFile.java is the most complex and frequently changed file.\n\nThe combination of ZipConstants.java being extremely recently modified (10 days, very high commit frequency) and ZipShort.java being involved in byte-level operations that could cause assertion failures makes these top candidates. ZipFile.java's high activity also makes it suspect.\n\n{\"ranking\": [1, 3, 5, 2, 4], \"confidence\": {\"1\": 0.45, \"3\": 0.35, \"5\": 0.25, \"2\": 0.15, \"4\": 0.08}}",
+ "n_attempts": 1
+}

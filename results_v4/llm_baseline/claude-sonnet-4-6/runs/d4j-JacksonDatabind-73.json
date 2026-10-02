@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-JacksonDatabind-73",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/introspect/BeanPropertyDefinition.java",
+  "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertiesCollector.java",
+  "src/main/java/com/fasterxml/jackson/databind/introspect/POJOPropertyBuilder.java"
+ ],
+ "timestamp": "2026-10-02T15:07:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "2": 0.45,
+  "1": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.55,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 821,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [3, 2, 1], \"confidence\": {\"3\": 0.55, \"2\": 0.45, \"1\": 0.15}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonXml-4",
+ "repo": "defects4j:JacksonXml",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanPropertyWriter.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializerBase.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/UnwrappingXmlBeanSerializer.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanSerializerModifier.java",
+  "src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProvider.java"
+ ],
+ "timestamp": "2026-10-02T15:09:19",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  5,
+  4,
+  6,
+  7,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.08,
+  "3": 0.42,
+  "4": 0.2,
+  "5": 0.28,
+  "6": 0.15,
+  "7": 0.12
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.15,
+  0.2,
+  0.35,
+  0.08,
+  0.28,
+  0.42
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  4,
+  3,
+  1,
+  6,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1095,
+  "output_tokens": 453
+ },
+ "raw_response": "Looking at this failing test in JacksonXml, I need to identify which serialization files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError in XML serialization\n- The `app_code_changed` flag indicates application code was modified\n- I need to consider commit frequency, churn, and recency\n\nAnalysis:\n- `XmlBeanSerializerBase.java` (3): Highest commit frequency (0.1253), high churn (754), many devs (5) - base class changes often introduce bugs\n- `XmlBeanSerializer.java` (1): High commit frequency (0.1181), high churn (937), frequently modified\n- `UnwrappingXmlBeanSerializer.java` (5): High churn (998), high commit frequency (0.1145) - unwrapping logic is complex and error-prone\n- `ToXmlGenerator.java` (4): Highest churn (1528), but lower commit frequency (0.1042)\n- `XmlBeanSerializerModifier.java` (6): Moderate stats, relatively newer (age 1398 days), decent commit frequency\n- `XmlSerializerProvider.java` (7): Moderate stats\n- `XmlBeanPropertyWriter.java` (2): Lowest commit frequency and churn\n\nThe base serializer class and the main serializer are most likely candidates for a bug fix. The unwrapping serializer is also a common source of issues in XML serialization. `XmlBeanSerializerBase` with the highest commit frequency and multiple developers is particularly suspect.\n\n{\"ranking\": [3, 1, 5, 4, 6, 7, 2], \"confidence\": {\"1\": 0.35, \"2\": 0.08, \"3\": 0.42, \"4\": 0.20, \"5\": 0.28, \"6\": 0.15, \"7\": 0.12}}",
+ "n_attempts": 1
+}

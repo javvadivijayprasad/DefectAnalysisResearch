@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-102",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CheckGlobalNames.java",
+  "src/com/google/javascript/jscomp/FunctionToBlockMutator.java",
+  "src/com/google/javascript/jscomp/AbstractCompilerRunner.java",
+  "src/com/google/javascript/jscomp/InlineVariables.java",
+  "src/com/google/javascript/jscomp/SyntacticScopeCreator.java",
+  "src/com/google/javascript/jscomp/Normalize.java"
+ ],
+ "timestamp": "2026-10-02T14:54:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  6,
+  5,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.45,
+  "6": 0.35,
+  "5": 0.25,
+  "1": 0.15,
+  "2": 0.1,
+  "3": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.25,
+  0.1,
+  0.45,
+  0.15,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  0,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 949,
+  "output_tokens": 478
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-102, I need to identify which files are most likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The flag `app_code_changed` is set\n- I need to consider which files are most likely related to the bug\n\nAnalysis of candidates:\n1. **CheckGlobalNames.java** - Low commits (2), relatively new (105 days), low churn. Could be related to name checking issues.\n2. **FunctionToBlockMutator.java** - Very new file (44 days), low commits (2), high churn ratio. Recently added files often have bugs.\n3. **AbstractCompilerRunner.java** - High commits (17), high churn (1331), very high commit frequency. Active development often introduces bugs.\n4. **InlineVariables.java** - Moderate commits (7), high churn (941), moderate frequency. Variable inlining is complex and bug-prone.\n5. **SyntacticScopeCreator.java** - Very new (15 days), very high commit frequency (0.9333), recently added. New files with high activity are suspicious.\n6. **Normalize.java** - Moderate commits (7), high churn (715), very high frequency. Normalization passes are complex.\n\nFor Closure-102 specifically, this bug relates to variable inlining and scope handling. The `InlineVariables.java` and `SyntacticScopeCreator.java` are strong candidates given the nature of inlining bugs. `Normalize.java` is also frequently involved in such issues. `SyntacticScopeCreator.java` being very new (15 days) with high commit frequency is particularly suspicious.\n\n{\"ranking\": [4, 6, 5, 1, 2, 3], \"confidence\": {\"4\": 0.45, \"6\": 0.35, \"5\": 0.25, \"1\": 0.15, \"2\": 0.10, \"3\": 0.08}}",
+ "n_attempts": 1
+}

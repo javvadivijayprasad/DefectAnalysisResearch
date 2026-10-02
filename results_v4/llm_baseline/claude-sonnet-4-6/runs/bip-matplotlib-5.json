@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-matplotlib-5",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "lib/matplotlib/axes/_subplots.py",
+  "lib/matplotlib/axes/_secondary_axes.py",
+  "lib/matplotlib/axes/_base.py",
+  "lib/matplotlib/axes/_axes.py",
+  "lib/matplotlib/axes/__init__.py"
+ ],
+ "timestamp": "2026-10-02T15:26:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  4,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.55,
+  "3": 0.3,
+  "4": 0.15,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.55,
+  0.02,
+  0.1,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  4,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 851,
+  "output_tokens": 319
+ },
+ "raw_response": "Looking at this failing test for matplotlib bug bip-matplotlib-5 with an AssertionError:\n\nKey observations:\n1. The test involves matplotlib axes functionality\n2. `_secondary_axes.py` is relatively new (586 days old) with high commit frequency (0.2986) relative to its age, suggesting active development and potential bugs\n3. `_base.py` has very high activity but is mature\n4. `_axes.py` is the most active file overall\n5. The bug involves an AssertionError which could come from assertion checks in axis setup code\n\nThe `_secondary_axes.py` file stands out as:\n- Relatively new file (youngest at 586 days)\n- High commit frequency suggesting it's been actively modified/fixed\n- Secondary axes is a feature that could easily have assertion-related bugs\n- The ratio of changes to age suggests it's still being stabilized\n\n`_base.py` is also a strong candidate given its massive churn and central role in axes functionality.\n\n`_axes.py` has enormous churn but is very mature, making it slightly less likely to be the source of a specific bug.\n\n{\"ranking\": [2, 3, 4, 1, 5], \"confidence\": {\"1\": 0.10, \"2\": 0.55, \"3\": 0.30, \"4\": 0.15, \"5\": 0.02}}",
+ "n_attempts": 1
+}

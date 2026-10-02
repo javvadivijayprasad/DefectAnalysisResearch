@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-19",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/text/translate/EntityArrays.java",
+  "src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java",
+  "src/main/java/org/apache/commons/lang3/text/translate/UnicodeEscaper.java",
+  "src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java",
+  "src/main/java/org/apache/commons/lang3/text/translate/NumericEntityEscaper.java",
+  "src/main/java/org/apache/commons/lang3/text/translate/OctalUnescaper.java"
+ ],
+ "timestamp": "2026-10-02T15:48:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  3,
+  2,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "5": 0.3,
+  "3": 0.15,
+  "2": 0.1,
+  "4": 0.05,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.3,
+  0.05,
+  0.35,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  5,
+  0,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 811,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [1, 5, 3, 2, 4, 6], \"confidence\": {\"1\": 0.35, \"5\": 0.30, \"3\": 0.15, \"2\": 0.10, \"4\": 0.05, \"6\": 0.05}}",
+ "n_attempts": 1
+}

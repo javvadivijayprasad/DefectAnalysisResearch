@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Cli-14",
+ "repo": "defects4j:Cli",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/java/org/apache/commons/cli2/option/GroupImpl.java",
+  "src/java/org/apache/commons/cli2/option/HelpLineImpl.java",
+  "src/java/org/apache/commons/cli2/option/OptionImpl.java",
+  "src/java/org/apache/commons/cli2/option/SourceDestArgument.java",
+  "src/java/org/apache/commons/cli2/option/ParentImpl.java",
+  "src/java/org/apache/commons/cli2/option/ArgumentImpl.java",
+  "src/java/org/apache/commons/cli2/option/PropertyOption.java",
+  "src/java/org/apache/commons/cli2/option/Command.java"
+ ],
+ "timestamp": "2026-10-02T15:43:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  1,
+  5,
+  3,
+  4,
+  2,
+  8,
+  7
+ ],
+ "llm_confidence_presented": {
+  "6": 0.35,
+  "1": 0.25,
+  "5": 0.15,
+  "3": 0.1,
+  "4": 0.08,
+  "2": 0.03,
+  "8": 0.02,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.02,
+  0.08,
+  0.35,
+  0.02,
+  0.03,
+  0.1,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  7,
+  4,
+  0,
+  6,
+  5,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 899,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[6,1,5,3,4,2,8,7],\"confidence\":{\"6\":0.35,\"1\":0.25,\"5\":0.15,\"3\":0.10,\"4\":0.08,\"2\":0.03,\"8\":0.02,\"7\":0.02}}",
+ "n_attempts": 1
+}

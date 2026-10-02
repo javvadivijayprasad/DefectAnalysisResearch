@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Compress-20",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStream.java",
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveEntry.java",
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioConstants.java",
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioUtil.java",
+  "src/main/java/org/apache/commons/compress/archivers/cpio/CpioArchiveInputStream.java"
+ ],
+ "timestamp": "2026-10-02T15:00:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  5,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.5,
+  "3": 0.05,
+  "4": 0.1,
+  "5": 0.25
+ },
+ "confidence_by_corpus_row": [
+  0.5,
+  0.25,
+  0.1,
+  0.35,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 945,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [2, 1, 5, 4, 3], \"confidence\": {\"1\": 0.35, \"2\": 0.50, \"3\": 0.05, \"4\": 0.10, \"5\": 0.25}}",
+ "n_attempts": 1
+}

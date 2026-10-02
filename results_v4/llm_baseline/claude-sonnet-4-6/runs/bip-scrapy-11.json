@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-scrapy-11",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "scrapy/utils/decorators.py",
+  "scrapy/utils/python.py",
+  "scrapy/utils/decorator.py",
+  "scrapy/utils/gz.py",
+  "scrapy/utils/display.py",
+  "scrapy/utils/console.py",
+  "scrapy/utils/conf.py",
+  "scrapy/utils/trackref.py"
+ ],
+ "timestamp": "2026-10-02T15:33:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  8,
+  7,
+  4,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "2": 0.45,
+  "3": 0.2,
+  "1": 0.15,
+  "8": 0.08,
+  "7": 0.06,
+  "4": 0.04,
+  "6": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.15,
+  0.03,
+  0.08,
+  0.06,
+  0.2,
+  0.02,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  6,
+  3,
+  4,
+  1,
+  7,
+  0
+ ],
+ "usage": {
+  "input_tokens": 981,
+  "output_tokens": 357
+ },
+ "raw_response": "Looking at this failing test in scrapy with an AssertionError, I need to identify which utility file was likely changed in the fix commit.\n\nKey observations:\n- The test involves an AssertionError (likely a test assertion failing due to unexpected behavior)\n- `app_code_changed` flag is set\n- Looking at the candidates, `scrapy/utils/python.py` stands out significantly with much higher commit frequency (0.1147), more developers (15), and much higher churn (864) - indicating it's the most actively modified file\n- `scrapy/utils/decorators.py` and `scrapy/utils/decorator.py` are interesting - having two similarly named files (one possibly a newer version) suggests a refactoring or migration that could introduce bugs\n- The `decorator.py` file has higher churn relative to its size compared to `decorators.py`\n\nThe high activity in `scrapy/utils/python.py` makes it the most likely candidate for a defect. The decorator files are also suspicious given the naming overlap. `scrapy/utils/trackref.py` has moderate activity and could be involved in reference tracking issues that cause assertion errors.\n\n{\"ranking\": [2, 3, 1, 8, 7, 4, 6, 5], \"confidence\": {\"2\": 0.45, \"3\": 0.20, \"1\": 0.15, \"8\": 0.08, \"7\": 0.06, \"4\": 0.04, \"6\": 0.03, \"5\": 0.02}}",
+ "n_attempts": 1
+}

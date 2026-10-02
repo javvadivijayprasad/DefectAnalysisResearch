@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-32",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/internal/configuration/DefaultAnnotationEngine.java",
+  "src/org/mockito/internal/configuration/GlobalConfiguration.java",
+  "src/org/mockito/internal/configuration/SpyAnnotationEngine.java",
+  "src/org/mockito/internal/configuration/InjectingAnnotationEngine.java",
+  "src/org/mockito/internal/configuration/DefaultInjectionEngine.java",
+  "src/org/mockito/internal/configuration/ClassPathLoader.java"
+ ],
+ "timestamp": "2026-10-02T15:20:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  4,
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "6": 0.65,
+  "5": 0.45,
+  "4": 0.35,
+  "2": 0.25,
+  "3": 0.2,
+  "1": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.35,
+  0.65,
+  0.25,
+  0.15,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  2,
+  0,
+  3,
+  5,
+  1
+ ],
+ "usage": {
+  "input_tokens": 936,
+  "output_tokens": 379
+ },
+ "raw_response": "Looking at the failing test event for defects4j:Mockito-32 with `config_changed` flag set, I need to identify which configuration files are most likely defective.\n\nKey observations:\n- The `config_changed` flag is set, pointing to configuration-related files\n- The failure is an `AssertionError` \n- Files 5 and 6 are very recently modified (15 and 9 days old) with very high commit frequencies\n- File 6 (ClassPathLoader) has an extremely high commit frequency (7.0/day) and is only 9 days old\n- File 5 (DefaultInjectionEngine) is 15 days old with high frequency (1.87/day)\n- Files 3 and 4 are relatively new (84 days) with moderate-high frequencies\n- Files 1 and 2 are older with lower frequencies\n\nThe `config_changed` flag combined with the very recent activity on ClassPathLoader and DefaultInjectionEngine makes them prime suspects. ClassPathLoader is particularly suspicious given its extreme recency and commit frequency. GlobalConfiguration is also relevant as it's a central configuration file.\n\nThe Mockito-32 defect is known to relate to configuration/annotation processing issues. The InjectingAnnotationEngine and ClassPathLoader are likely involved in how annotations are processed and loaded.\n\n{\"ranking\": [6, 5, 4, 2, 3, 1], \"confidence\": {\"6\": 0.65, \"5\": 0.45, \"4\": 0.35, \"2\": 0.25, \"3\": 0.20, \"1\": 0.15}}",
+ "n_attempts": 1
+}

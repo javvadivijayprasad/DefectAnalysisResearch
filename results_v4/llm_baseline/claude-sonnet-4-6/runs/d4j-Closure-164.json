@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-164",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/AmbiguateProperties.java",
+  "src/com/google/javascript/jscomp/ExtractPrototypeMemberDeclarations.java",
+  "src/com/google/javascript/jscomp/InferJSDocInfo.java",
+  "src/com/google/javascript/jscomp/TypeValidator.java",
+  "src/com/google/javascript/rhino/jstype/ArrowType.java",
+  "src/com/google/javascript/jscomp/ChainCalls.java",
+  "src/com/google/javascript/jscomp/OptimizeCalls.java"
+ ],
+ "timestamp": "2026-10-02T14:57:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  7,
+  5,
+  1,
+  3,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.35,
+  "7": 0.3,
+  "5": 0.2,
+  "1": 0.12,
+  "3": 0.1,
+  "2": 0.07,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.2,
+  0.3,
+  0.1,
+  0.05,
+  0.07,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  4,
+  6,
+  5,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1008,
+  "output_tokens": 502
+ },
+ "raw_response": "Looking at this failing test for Closure-164, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is a Closure compiler issue\n\nLet me analyze the candidates:\n\n1. **AmbiguateProperties.java** - High activity (30 commits, 9 devs), significant churn (1013)\n2. **ExtractPrototypeMemberDeclarations.java** - Moderate activity (20 commits, 10 devs)\n3. **InferJSDocInfo.java** - Moderate activity (20 commits, 7 devs)\n4. **TypeValidator.java** - Highest activity (32 commits, 8 devs), highest churn (1211) - type validation issues often cause AssertionErrors\n5. **ArrowType.java** - Lower activity (14 commits), in rhino/jstype package\n6. **ChainCalls.java** - Lower activity (11 commits)\n7. **OptimizeCalls.java** - Very recent file (153 days old), very high commit frequency (0.3203), few commits (7) but very active recently - new files often have bugs\n\nThe test name \"Closure-164\" and AssertionError suggest a type-checking or optimization issue. OptimizeCalls.java is very new (153 days) with high commit frequency, suggesting active development and potential bugs. TypeValidator.java has the highest churn and commit count. ArrowType.java in the type system could cause assertion errors in type checking.\n\nGiven the pattern of defects4j Closure bugs, TypeValidator and ArrowType are common sources of type-related assertion errors. OptimizeCalls being very new with high frequency is also suspicious.\n\n{\"ranking\": [4, 7, 5, 1, 3, 2, 6], \"confidence\": {\"4\": 0.35, \"7\": 0.30, \"5\": 0.20, \"1\": 0.12, \"3\": 0.10, \"2\": 0.07, \"6\": 0.05}}",
+ "n_attempts": 1
+}

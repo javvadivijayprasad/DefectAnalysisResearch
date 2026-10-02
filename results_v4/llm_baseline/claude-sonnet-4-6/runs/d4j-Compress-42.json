@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Compress-42",
+ "repo": "defects4j:Compress",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/compress/archivers/zip/UnixStat.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntryRequest.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/AsiExtraField.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/UnicodeCommentExtraField.java",
+  "src/main/java/org/apache/commons/compress/archivers/zip/X0015_CertificateIdForFile.java"
+ ],
+ "timestamp": "2026-10-02T15:01:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  3,
+  6,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.55,
+  "2": 0.3,
+  "3": 0.2,
+  "6": 0.1,
+  "1": 0.08,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.55,
+  0.2,
+  0.3,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  0,
+  2,
+  1,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1012,
+  "output_tokens": 475
+ },
+ "raw_response": "Looking at this failing test in defects4j:Compress-42, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError in the Compress project's zip package\n- The `app_code_changed` flag is set, indicating application code was modified\n\nAnalyzing the candidates:\n\n1. **ZipArchiveEntry.java** (index 4) - Highest commit frequency (0.1702), most commits (75), most churn (2326). This is the core zip entry class and is frequently modified. Very likely to be involved in bug fixes.\n\n2. **ZipArchiveEntryRequest.java** (index 2) - Relatively new file (age_days=451) with high commit frequency (0.0621) for its age. Being newer, it may have introduced bugs.\n\n3. **AsiExtraField.java** (index 3) - High churn (931), 16 commits, deals with Unix extra fields which relate to file permissions/stats. Could be related to AssertionError in zip handling.\n\n4. **X0015_CertificateIdForFile.java** (index 6) - High churn (641), 17 commits, relatively active file.\n\n5. **UnixStat.java** (index 1) - Lower activity but related to Unix file attributes.\n\n6. **UnicodeCommentExtraField.java** (index 5) - Moderate activity, less likely to be the source.\n\nThe most likely defective files are ZipArchiveEntry.java (core class, highest activity) and possibly ZipArchiveEntryRequest.java (newer, could have introduced a bug). AsiExtraField.java is also a candidate given its churn.\n\n{\"ranking\": [4, 2, 3, 6, 1, 5], \"confidence\": {\"4\": 0.55, \"2\": 0.30, \"3\": 0.20, \"6\": 0.10, \"1\": 0.08, \"5\": 0.05}}",
+ "n_attempts": 1
+}

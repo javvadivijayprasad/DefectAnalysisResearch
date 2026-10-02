@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-JacksonCore-3",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/JsonPointer.java",
+  "src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java",
+  "src/main/java/com/fasterxml/jackson/core/JsonParseException.java"
+ ],
+ "timestamp": "2026-10-02T15:03:21",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.8,
+  "2": 0.25,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.8,
+  0.25,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 793,
+  "output_tokens": 42
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3], \"confidence\": {\"1\": 0.80, \"2\": 0.25, \"3\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-ansible-11",
+ "repo": "bugsinpy:ansible",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "lib/ansible/modules/network/ios/ios_lldp_global.py",
+  "lib/ansible/modules/network/ios/ios_lacp_interfaces.py",
+  "lib/ansible/modules/network/ios/ios_banner.py",
+  "lib/ansible/modules/network/ios/_ios_interface.py"
+ ],
+ "timestamp": "2026-10-02T15:50:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.3,
+  "4": 0.15,
+  "3": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.3,
+  0.45,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 698,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [1, 2, 4, 3], \"confidence\": {\"1\": 0.45, \"2\": 0.30, \"4\": 0.15, \"3\": 0.10}}",
+ "n_attempts": 1
+}

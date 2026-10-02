@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-44",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/ParseErrorList.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java"
+ ],
+ "timestamp": "2026-10-02T15:10:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.95,
+  "3": 0.5,
+  "4": 0.15,
+  "5": 0.3
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.3,
+  0.15,
+  0.5,
+  0.95
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  4,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 898,
+  "output_tokens": 409
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- `ParseErrorList.java` (candidate 2) has extremely unusual statistics: commits=1, age_days=1, commit_freq=1.0000. This strongly suggests it's a newly created file added as part of the fix commit. A brand new file with only 1 commit and 1 day old is almost certainly part of the fix.\n- The test failure involves an `AssertionError`, which could relate to parse error handling.\n- `ParseErrorList` being new suggests the fix introduced a new class for tracking parse errors.\n- `TreeBuilder.java` (candidate 1) and `HtmlTreeBuilder.java` (candidate 3) are likely candidates for modification alongside the new `ParseErrorList` class, as they would need to use the new error list.\n- `Tokeniser.java` (candidate 5) might also interact with parse errors.\n- `HtmlTreeBuilderState.java` (candidate 4) is less likely to be directly involved.\n\nThe fix likely involved:\n1. Creating `ParseErrorList.java` (new file - very high confidence)\n2. Modifying `TreeBuilder.java` or `HtmlTreeBuilder.java` to use the new error list\n3. Possibly `Tokeniser.java` for error tracking\n\nGiven that `ParseErrorList` is clearly new, and the fix likely touched `TreeBuilder` or `HtmlTreeBuilder` to integrate it:\n\n{\"ranking\": [2, 1, 3, 5, 4], \"confidence\": {\"1\": 0.55, \"2\": 0.95, \"3\": 0.50, \"4\": 0.15, \"5\": 0.30}}",
+ "n_attempts": 1
+}

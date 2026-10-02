@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-keras-20",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "keras/backend/theano_backend.py",
+  "keras/backend/cntk_backend.py",
+  "keras/backend/tensorflow_backend.py",
+  "keras/layers/pooling.py",
+  "keras/layers/convolutional.py",
+  "keras/utils/conv_utils.py"
+ ],
+ "timestamp": "2026-10-02T15:24:16",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  3,
+  4,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "5": 0.3,
+  "3": 0.15,
+  "4": 0.12,
+  "1": 0.08,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.15,
+  0.08,
+  0.3,
+  0.45,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  4,
+  1,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 901,
+  "output_tokens": 426
+ },
+ "raw_response": "Looking at this failing test in keras with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The test involves keras backend operations (likely convolution/pooling related given the candidates)\n- AssertionError suggests a shape mismatch or validation failure\n- The candidates include backend files and layer files\n\nAnalysis:\n- `conv_utils.py` (6): Small utility file for convolution utilities, low commit frequency but focused functionality. Shape/padding calculations often cause AssertionErrors.\n- `convolutional.py` (5): High churn, many commits - frequently modified, likely source of bugs\n- `tensorflow_backend.py` (3): Most active file, highest commit frequency\n- `pooling.py` (4): Moderate activity\n- `theano_backend.py` (1): High activity\n- `cntk_backend.py` (2): Moderate activity\n\nThe AssertionError in keras tests related to convolution often stems from utility functions computing incorrect output shapes. `conv_utils.py` is a small, focused file that handles convolution utility calculations - bugs here would cause AssertionErrors across many tests. `convolutional.py` is also highly likely given its high churn and the nature of the test.\n\nThe `conv_utils.py` file has relatively few commits but is critical for shape calculations. Given the test name pattern (bip-keras-20) and the AssertionError, this looks like a shape computation issue that could be in conv_utils or the convolutional layers.\n\n{\"ranking\": [6, 5, 3, 4, 1, 2], \"confidence\": {\"6\": 0.45, \"5\": 0.30, \"3\": 0.15, \"4\": 0.12, \"1\": 0.08, \"2\": 0.05}}",
+ "n_attempts": 1
+}

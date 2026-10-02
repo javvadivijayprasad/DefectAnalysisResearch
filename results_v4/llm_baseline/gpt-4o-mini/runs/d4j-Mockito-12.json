@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Mockito-12",
+ "repo": "defects4j:Mockito",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/org/mockito/internal/util/reflection/LenientCopyTool.java",
+  "src/org/mockito/internal/util/reflection/FieldCopier.java",
+  "src/org/mockito/internal/util/reflection/FieldSetter.java",
+  "src/org/mockito/internal/util/reflection/AccessibilityChanger.java",
+  "src/org/mockito/internal/util/reflection/GenericMaster.java",
+  "src/org/mockito/internal/util/reflection/FieldReader.java",
+  "src/org/mockito/internal/util/reflection/Whitebox.java"
+ ],
+ "timestamp": "2026-10-02T15:50:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  7,
+  3,
+  2,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "6": 0.3,
+  "5": 0.25,
+  "7": 0.2,
+  "3": 0.1,
+  "2": 0.08,
+  "4": 0.05,
+  "1": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.05,
+  0.08,
+  0.1,
+  0.2,
+  0.3,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  4,
+  3,
+  2,
+  0,
+  6
+ ],
+ "usage": {
+  "input_tokens": 824,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[6,5,7,3,2,4,1],\"confidence\":{\"6\":0.30,\"5\":0.25,\"7\":0.20,\"3\":0.10,\"2\":0.08,\"4\":0.05,\"1\":0.02}}",
+ "n_attempts": 1
+}

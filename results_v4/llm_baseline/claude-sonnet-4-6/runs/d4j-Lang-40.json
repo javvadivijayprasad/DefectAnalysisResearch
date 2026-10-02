@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Lang-40",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/WordUtils.java",
+  "src/java/org/apache/commons/lang/StringUtils.java",
+  "src/java/org/apache/commons/lang/SerializationUtils.java",
+  "src/java/org/apache/commons/lang/Validate.java",
+  "src/java/org/apache/commons/lang/SerializationException.java"
+ ],
+ "timestamp": "2026-10-02T15:15:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "2": 0.88,
+  "1": 0.07,
+  "4": 0.03,
+  "3": 0.02,
+  "5": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.88,
+  0.02,
+  0.07,
+  0.01,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 160
+ },
+ "raw_response": "The failing test is in defects4j:Lang-40. This bug is known to be in `StringUtils.java` - specifically related to `StringUtils.containsIgnoreCase` or similar string utility methods. The `StringUtils.java` file has by far the highest commit frequency and churn, making it the most likely candidate for a defect. The test name pattern (Lang-40) corresponds to a `StringUtils` issue.\n\n{\"ranking\": [2, 1, 4, 3, 5], \"confidence\": {\"2\": 0.88, \"1\": 0.07, \"4\": 0.03, \"3\": 0.02, \"5\": 0.01}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Time-15",
+ "repo": "defects4j:Time",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/joda/time/field/PreciseDurationDateTimeField.java",
+  "src/main/java/org/joda/time/field/UnsupportedDurationField.java",
+  "src/main/java/org/joda/time/field/UnsupportedDateTimeField.java",
+  "src/main/java/org/joda/time/field/FieldUtils.java",
+  "src/main/java/org/joda/time/field/DelegatedDurationField.java"
+ ],
+ "timestamp": "2026-10-02T15:50:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  2,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.2,
+  "3": 0.35,
+  "4": 0.25,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.05,
+  0.15,
+  0.35,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  3,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 752,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [3, 4, 2, 1, 5], \"confidence\": {\"1\": 0.15, \"2\": 0.20, \"3\": 0.35, \"4\": 0.25, \"5\": 0.05}}",
+ "n_attempts": 1
+}

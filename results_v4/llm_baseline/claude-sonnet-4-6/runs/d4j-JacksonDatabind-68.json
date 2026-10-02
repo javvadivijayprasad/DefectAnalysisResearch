@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-68",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBase.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/KeyDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DataFormatReaders.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/CreatorProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBuilder.java"
+ ],
+ "timestamp": "2026-10-02T15:07:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  4,
+  8,
+  6,
+  2,
+  3,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "5": 0.4,
+  "4": 0.2,
+  "8": 0.15,
+  "6": 0.1,
+  "2": 0.05,
+  "3": 0.03,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.03,
+  0.1,
+  0.01,
+  0.05,
+  0.2,
+  0.15,
+  0.4
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  4,
+  7,
+  5,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1145,
+  "output_tokens": 97
+ },
+ "raw_response": "{\"ranking\": [1, 5, 4, 8, 6, 2, 3, 7], \"confidence\": {\"1\": 0.55, \"5\": 0.40, \"4\": 0.20, \"8\": 0.15, \"6\": 0.10, \"2\": 0.05, \"3\": 0.03, \"7\": 0.01}}",
+ "n_attempts": 1
+}

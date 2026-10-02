@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-thefuck-28",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "thefuck/rules/cd_parent.py",
+  "thefuck/rules/tmux.py",
+  "thefuck/rules/git_pull.py",
+  "thefuck/rules/fix_file.py",
+  "thefuck/rules/mercurial.py",
+  "thefuck/rules/rm_root.py"
+ ],
+ "timestamp": "2026-10-02T15:35:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  4,
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "6": 0.45,
+  "5": 0.3,
+  "4": 0.2,
+  "2": 0.1,
+  "3": 0.07,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.3,
+  0.1,
+  0.45,
+  0.03,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  3,
+  0,
+  5,
+  4
+ ],
+ "usage": {
+  "input_tokens": 898,
+  "output_tokens": 519
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey signals:\n- `app_code_changed` flag is set, meaning application code was modified\n- The failure is an `AssertionError` in tests\n\nLet me analyze the candidates by their statistics:\n\n1. **cd_parent.py**: Low activity (2 commits, 2 devs), older file (121 days), low frequency\n2. **tmux.py**: Moderate activity (4 commits), very recent (27 days), high frequency (1.037/day)\n3. **git_pull.py**: Moderate activity (4 commits), 62 days old, moderate frequency\n4. **fix_file.py**: Active (4 commits, 1 dev), very recent (18 days), high frequency (1.556/day)\n5. **mercurial.py**: Very recent (3 days), high churn (43), high frequency (2.0/day)\n6. **rm_root.py**: Most commits (6), very recent (3 days), highest frequency (6.0/day), multiple devs\n\nThe files with the highest commit frequency and most recent activity are most likely to be the ones being actively fixed:\n- **rm_root.py** (6 commits, 3 days old, 6.0 freq) - highest activity\n- **mercurial.py** (2 commits, 3 days old, 2.0 freq) - very recent\n- **fix_file.py** (4 commits, 18 days old, 1.556 freq) - recent and active\n\nThe very high commit frequency on rm_root.py (6.0/day) combined with being only 3 days old strongly suggests active bug fixing. mercurial.py also shows similar recency. fix_file.py has high churn (89) with only 1 developer, suggesting rapid iteration.\n\n{\"ranking\": [6, 5, 4, 2, 3, 1], \"confidence\": {\"6\": 0.45, \"5\": 0.30, \"4\": 0.20, \"2\": 0.10, \"3\": 0.07, \"1\": 0.03}}",
+ "n_attempts": 1
+}

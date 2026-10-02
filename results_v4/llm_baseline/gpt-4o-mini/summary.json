@@ -1,0 +1,16 @@
+{
+  "method": "llm_gpt-4o-mini",
+  "n_events": 1267,
+  "n_rows": 6716,
+  "p1_mean": 0.4609,
+  "p3_mean": 0.3391,
+  "r5_mean": 0.9343,
+  "mrr_mean": 0.6619,
+  "triage_s_mean": 6.45,
+  "ece_10bin": 0.0652,
+  "n_unparsed_fallback": 0,
+  "n_ok_after_retry": 0,
+  "parse_failure_rate": 0.0,
+  "total_input_tokens": 949802,
+  "total_output_tokens": 76585
+}

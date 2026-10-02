@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-matplotlib-3",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "lib/matplotlib/pylab.py",
+  "lib/matplotlib/markers.py",
+  "lib/matplotlib/_constrained_layout.py"
+ ],
+ "timestamp": "2026-10-02T15:26:36",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.6,
+  "2": 0.3,
+  "1": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.1,
+  0.6
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 750,
+  "output_tokens": 221
+ },
+ "raw_response": "Looking at the failing test for matplotlib bug bip-matplotlib-3 with an AssertionError:\n\n- `pylab.py` is a high-level namespace aggregator with very high churn but mostly re-exports - less likely to have logic bugs causing AssertionError\n- `markers.py` handles marker rendering logic - moderate activity, could have assertion issues\n- `_constrained_layout.py` is a newer file (youngest at 921 days) with high commit frequency and significant churn, dealing with complex layout calculations that often involve assertions\n\nThe `_constrained_layout.py` file is the youngest, has the highest commit frequency relative to age, and constrained layout is a complex feature area prone to assertion errors. The `markers.py` file is also plausible given it has substantial development activity.\n\n{\"ranking\": [3, 2, 1], \"confidence\": {\"3\": 0.60, \"2\": 0.30, \"1\": 0.10}}",
+ "n_attempts": 1
+}

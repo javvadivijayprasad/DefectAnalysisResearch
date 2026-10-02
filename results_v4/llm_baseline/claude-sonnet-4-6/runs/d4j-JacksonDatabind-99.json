@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-99",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeParser.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeModifier.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ReferenceType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeBindings.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ClassStack.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/package-info.java"
+ ],
+ "timestamp": "2026-10-02T15:08:34",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  2,
+  3,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.65,
+  "4": 0.45,
+  "2": 0.35,
+  "3": 0.25,
+  "1": 0.15,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.15,
+  0.03,
+  0.65,
+  0.45,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  5,
+  0,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 987,
+  "output_tokens": 473
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files are most likely to be defective based on the failing test and file statistics.\n\nKey observations:\n- The test failure is an `AssertionError` in `JacksonDatabind`\n- The `app_code_changed` flag is set\n- `ClassStack.java` (candidate 5) is extremely new (age_days=4) with a very high commit frequency (2.0/day), suggesting it was recently added - possibly as part of a fix or new feature that introduced a bug\n- `TypeModifier.java` (candidate 2) is also very new (age_days=22) with high commit frequency (0.9545/day)\n- `package-info.java` (candidate 6) is new (age_days=20) but unlikely to cause test failures\n- `TypeBindings.java` (candidate 4) has high churn (1225) and many commits (26), suggesting active development\n- `ReferenceType.java` (candidate 3) has significant churn (472) and 16 commits\n- `TypeParser.java` (candidate 1) is older but has moderate activity\n\nThe very new `ClassStack.java` (4 days old, 2 commits/day) is suspicious - it's a brand new file that was likely introduced as part of a refactoring. `TypeBindings.java` with its high churn is also a strong candidate as it's a core type-binding class that could affect type resolution. `TypeModifier.java` being very new is also suspicious.\n\nGiven the type-system nature of the failure and the recency of `ClassStack.java` and `TypeModifier.java`, these seem most likely to be involved in the fix/defect.\n\n{\"ranking\": [5, 4, 2, 3, 1, 6], \"confidence\": {\"5\": 0.65, \"4\": 0.45, \"2\": 0.35, \"3\": 0.25, \"1\": 0.15, \"6\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-luigi-11",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "luigi/postgres.py",
+  "luigi/task_history.py",
+  "luigi/six.py",
+  "luigi/s3.py",
+  "luigi/scheduler.py",
+  "luigi/lock.py"
+ ],
+ "timestamp": "2026-10-02T15:25:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  4,
+  1,
+  6,
+  3
+ ],
+ "llm_confidence_presented": {
+  "5": 0.55,
+  "2": 0.2,
+  "4": 0.1,
+  "1": 0.08,
+  "6": 0.05,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.1,
+  0.2,
+  0.05,
+  0.08,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 871,
+  "output_tokens": 420
+ },
+ "raw_response": "Looking at this failing test event for luigi with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError (likely a test assertion failing due to unexpected behavior)\n- `app_code_changed` flag is set\n- The project is luigi (Python workflow management)\n\nAnalyzing candidates:\n1. **luigi/scheduler.py** - Highest commit frequency (0.7782), most commits (187), most churn (4293). The scheduler is central to luigi's operation and frequently modified. High likelihood of containing bugs.\n\n2. **luigi/task_history.py** - Moderate activity, deals with task history tracking which could affect assertions about task states.\n\n3. **luigi/s3.py** - High commit count (57) and churn (1669), frequently modified. S3 integration could have issues.\n\n4. **luigi/postgres.py** - Moderate activity, database integration.\n\n5. **luigi/lock.py** - Moderate commits, deals with locking mechanisms which could cause assertion failures.\n\n6. **luigi/six.py** - Very few commits (2), mostly a compatibility shim. Less likely to be the source of a bug.\n\nThe scheduler.py stands out significantly due to its extremely high commit frequency and churn - it's the most actively developed file and central to luigi's functionality. An AssertionError in tests often relates to core scheduling logic. task_history.py is also plausible as it tracks state that tests might assert on.\n\n{\"ranking\": [5, 2, 4, 1, 6, 3], \"confidence\": {\"5\": 0.55, \"2\": 0.20, \"4\": 0.10, \"1\": 0.08, \"6\": 0.05, \"3\": 0.02}}",
+ "n_attempts": 1
+}

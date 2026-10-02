@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-25",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/exception/util/LocalizedFormats.java",
+  "src/main/java/org/apache/commons/math3/optimization/fitting/WeightedObservedPoint.java",
+  "src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java",
+  "src/main/java/org/apache/commons/math3/exception/util/DummyLocalizable.java",
+  "src/main/java/org/apache/commons/math3/optimization/fitting/GaussianFitter.java"
+ ],
+ "timestamp": "2026-10-02T15:16:44",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  1,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.82,
+  "5": 0.1,
+  "1": 0.04,
+  "2": 0.02,
+  "4": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.82,
+  0.1,
+  0.02,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  1,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 927,
+  "output_tokens": 150
+ },
+ "raw_response": "The failing test is in Math-25, which is related to fitting. The test name suggests it's about `HarmonicFitter` (Math-25 in defects4j is known to be about HarmonicFitter's parameter guessing). The `HarmonicFitter.java` file has high commits and churn, and is directly related to harmonic fitting functionality.\n\n{\"ranking\": [3, 5, 1, 2, 4], \"confidence\": {\"3\": 0.82, \"5\": 0.10, \"1\": 0.04, \"2\": 0.02, \"4\": 0.02}}",
+ "n_attempts": 1
+}

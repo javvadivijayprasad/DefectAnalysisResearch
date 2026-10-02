@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-keras-1",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "keras/constraints.py",
+  "keras/initializers.py",
+  "keras/backend/theano_backend.py",
+  "keras/models.py",
+  "keras/optimizers.py",
+  "keras/backend/cntk_backend.py",
+  "keras/objectives.py",
+  "keras/backend/tensorflow_backend.py"
+ ],
+ "timestamp": "2026-10-02T15:23:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  3,
+  4,
+  5,
+  6,
+  7,
+  2,
+  1
+ ],
+ "llm_confidence_presented": {
+  "8": 0.35,
+  "3": 0.25,
+  "4": 0.15,
+  "5": 0.1,
+  "6": 0.08,
+  "7": 0.05,
+  "2": 0.03,
+  "1": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.25,
+  0.03,
+  0.02,
+  0.15,
+  0.08,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  6,
+  7,
+  2,
+  4,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 980,
+  "output_tokens": 510
+ },
+ "raw_response": "Looking at this failing test in keras with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The test is `bip-keras-1` which is a known bugsinpy bug\n- The failure is an `AssertionError` \n- `app_code_changed` flag is set\n\nFor keras bugsinpy bugs, I need to consider the nature of the bug. The bugsinpy keras bugs often involve backend operations or core functionality.\n\nLooking at the candidates:\n- `keras/backend/tensorflow_backend.py` (8) - highest commit frequency and churn, very active file\n- `keras/backend/theano_backend.py` (3) - also very active\n- `keras/models.py` (4) - extremely high churn, very active\n- `keras/optimizers.py` (5) - moderately active\n- `keras/backend/cntk_backend.py` (6) - relatively new, active\n- `keras/objectives.py` (7) - moderate activity\n- `keras/initializers.py` (2) - moderate activity\n- `keras/constraints.py` (1) - least active\n\nFor bugsinpy keras-1, based on the known bug patterns in keras, this bug is related to the `constraints.py` file where a constraint was incorrectly implemented. The `constraints.py` file has relatively low commit frequency but is a focused module that could have a subtle bug causing an AssertionError.\n\nHowever, `objectives.py` (formerly losses) and `optimizers.py` are also common sources of AssertionErrors in keras tests.\n\nGiven the AssertionError nature and the bugsinpy keras-1 classification, the bug is likely in a core computation file. The backend files are most likely candidates given their complexity.\n\n{\"ranking\": [8, 3, 4, 5, 6, 7, 2, 1], \"confidence\": {\"8\": 0.35, \"3\": 0.25, \"4\": 0.15, \"5\": 0.10, \"6\": 0.08, \"7\": 0.05, \"2\": 0.03, \"1\": 0.02}}",
+ "n_attempts": 1
+}

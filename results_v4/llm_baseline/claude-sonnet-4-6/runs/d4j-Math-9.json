@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-9",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/CardanEulerSingularityException.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Plane.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/OutlineExtractor.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/package-info.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/NotARotationMatrixException.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Vector3D.java",
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SphericalCoordinates.java"
+ ],
+ "timestamp": "2026-10-02T15:16:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  7,
+  3,
+  8,
+  5,
+  6,
+  1
+ ],
+ "llm_confidence_presented": {
+  "4": 0.82,
+  "2": 0.1,
+  "7": 0.06,
+  "3": 0.03,
+  "8": 0.02,
+  "5": 0.01,
+  "6": 0.01,
+  "1": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.01,
+  0.02,
+  0.01,
+  0.01,
+  0.06,
+  0.1,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  4,
+  5,
+  7,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1158,
+  "output_tokens": 161
+ },
+ "raw_response": "The failing test is in Math-9, which is about the `Line` class in 3D geometry (specifically the `revert()` method). The `Line.java` file is the most likely defective file given the test name and the nature of the bug (Line revert direction issue).\n\n{\"ranking\": [4, 2, 7, 3, 8, 5, 6, 1], \"confidence\": {\"4\": 0.82, \"2\": 0.10, \"7\": 0.06, \"3\": 0.03, \"8\": 0.02, \"5\": 0.01, \"6\": 0.01, \"1\": 0.01}}",
+ "n_attempts": 1
+}

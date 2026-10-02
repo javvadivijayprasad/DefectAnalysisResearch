@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonCore-23",
+ "repo": "defects4j:JacksonCore",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java",
+  "src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java",
+  "src/main/java/com/fasterxml/jackson/core/util/DefaultIndenter.java",
+  "src/main/java/com/fasterxml/jackson/core/util/Separators.java",
+  "src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java"
+ ],
+ "timestamp": "2026-10-02T15:04:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  5,
+  3,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "4": 0.9,
+  "5": 0.75,
+  "3": 0.55,
+  "1": 0.05,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.9,
+  0.05,
+  0.05,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 926,
+  "output_tokens": 313
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files are most likely defective.\n\nKey observations:\n- File 4 (Separators.java): age_days=1, commits=1, commit_freq=1.0 \u2014 this is a brand new file, very likely part of the fix commit\n- File 3 (DefaultIndenter.java): age_days=130, commit_freq=0.2154 \u2014 relatively recent and active\n- File 5 (DefaultPrettyPrinter.java): high churn (1019), many commits (24), very active file \u2014 likely modified alongside Separators.java if it's about pretty printing\n- The test failure involves AssertionError, and the files relate to pretty printing/formatting (Separators, DefaultPrettyPrinter, DefaultIndenter)\n\nThe Separators.java file being brand new (age_days=1) strongly suggests it was introduced in the fix commit. DefaultPrettyPrinter.java would likely be modified to use the new Separators class. DefaultIndenter.java is also recent and related to pretty printing.\n\n{\"ranking\": [4, 5, 3, 1, 2], \"confidence\": {\"4\": 0.90, \"5\": 0.75, \"3\": 0.55, \"1\": 0.05, \"2\": 0.05}}",
+ "n_attempts": 1
+}

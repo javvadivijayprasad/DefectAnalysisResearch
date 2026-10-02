@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-matplotlib-30",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "lib/matplotlib/docstring.py",
+  "lib/matplotlib/animation.py",
+  "lib/matplotlib/cm.py",
+  "lib/matplotlib/offsetbox.py",
+  "lib/matplotlib/tight_layout.py",
+  "lib/matplotlib/colors.py",
+  "lib/matplotlib/category.py"
+ ],
+ "timestamp": "2026-10-02T15:27:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  2,
+  7,
+  4,
+  5,
+  1
+ ],
+ "llm_confidence_presented": {
+  "6": 0.4,
+  "3": 0.25,
+  "2": 0.15,
+  "7": 0.1,
+  "4": 0.06,
+  "5": 0.04,
+  "1": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.25,
+  0.1,
+  0.02,
+  0.15,
+  0.06,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  6,
+  2,
+  4,
+  5
+ ],
+ "usage": {
+  "input_tokens": 938,
+  "output_tokens": 492
+ },
+ "raw_response": "Looking at this failing test in matplotlib with an AssertionError, I need to consider which files are most likely to have been fixed.\n\nKey observations:\n- The test failure is an AssertionError (likely a test checking some value/behavior)\n- `app_code_changed` flag is set\n- This is bug #30 in the matplotlib bugsinpy dataset\n\nLet me analyze the candidates:\n\n1. **colors.py** - Very high activity (337 commits, 58 devs, churn=9888), core file that's frequently modified\n2. **animation.py** - High activity (219 commits, 45 devs, churn=5409), complex functionality\n3. **cm.py** - Moderate activity (143 commits, 28 devs), colormap-related, closely related to colors.py\n4. **offsetbox.py** - Moderate activity (121 commits, 25 devs)\n5. **tight_layout.py** - Lower activity (47 commits, 16 devs)\n6. **category.py** - Relatively new file (955 days), moderate activity - newer files often have bugs\n7. **docstring.py** - Low activity (15 commits, 9 devs), utility file\n\nFor matplotlib bug #30, considering the nature of AssertionError failures and the file characteristics:\n- `colors.py` is the most frequently changed and complex file\n- `cm.py` (colormaps) is closely related and often changed together with colors.py\n- `category.py` being newer could have bugs\n- `animation.py` is highly active and complex\n\nThe bugsinpy matplotlib bug #30 is likely related to colors/colormaps based on the file set, with colors.py and cm.py being prime candidates.\n\n{\"ranking\": [6, 3, 2, 7, 4, 5, 1], \"confidence\": {\"6\": 0.40, \"3\": 0.25, \"2\": 0.15, \"7\": 0.10, \"4\": 0.06, \"5\": 0.04, \"1\": 0.02}}",
+ "n_attempts": 1
+}

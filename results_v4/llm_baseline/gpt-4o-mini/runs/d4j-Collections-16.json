@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Collections-16",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/collections/list/AbstractListDecorator.java",
+  "src/java/org/apache/commons/collections/list/SetUniqueList.java",
+  "src/java/org/apache/commons/collections/list/TreeList.java",
+  "src/java/org/apache/commons/collections/list/AbstractSerializableListDecorator.java",
+  "src/java/org/apache/commons/collections/list/LazyList.java",
+  "src/java/org/apache/commons/collections/list/TypedList.java"
+ ],
+ "timestamp": "2026-10-02T15:45:14",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  6,
+  2,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "1": 0.25,
+  "6": 0.2,
+  "2": 0.15,
+  "5": 0.04,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.01,
+  0.2,
+  0.04,
+  0.35,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  5,
+  2,
+  4,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 795,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\":[3,1,6,2,5,4],\"confidence\":{\"3\":0.35,\"1\":0.25,\"6\":0.20,\"2\":0.15,\"5\":0.04,\"4\":0.01}}",
+ "n_attempts": 1
+}

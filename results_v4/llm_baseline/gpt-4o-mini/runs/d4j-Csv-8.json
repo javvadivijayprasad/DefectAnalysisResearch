@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Csv-8",
+ "repo": "defects4j:Csv",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/csv/CSVRecord.java",
+  "src/main/java/org/apache/commons/csv/ExtendedBufferedReader.java",
+  "src/main/java/org/apache/commons/csv/CSVFormat.java",
+  "src/main/java/org/apache/commons/csv/Constants.java",
+  "src/main/java/org/apache/commons/csv/CSVParser.java",
+  "src/main/java/org/apache/commons/csv/Token.java",
+  "src/main/java/org/apache/commons/csv/Quote.java",
+  "src/main/java/org/apache/commons/csv/Lexer.java"
+ ],
+ "timestamp": "2026-10-02T15:45:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  1,
+  8,
+  2,
+  4,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "5": 0.35,
+  "3": 0.25,
+  "1": 0.15,
+  "8": 0.1,
+  "2": 0.08,
+  "4": 0.04,
+  "6": 0.02,
+  "7": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.35,
+  0.1,
+  0.08,
+  0.01,
+  0.02,
+  0.04,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  4,
+  7,
+  6,
+  5,
+  2
+ ],
+ "usage": {
+  "input_tokens": 883,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [5, 3, 1, 8, 2, 4, 6, 7], \"confidence\": {\"5\": 0.35, \"3\": 0.25, \"1\": 0.15, \"8\": 0.10, \"2\": 0.08, \"4\": 0.04, \"6\": 0.02, \"7\": 0.01}}",
+ "n_attempts": 1
+}

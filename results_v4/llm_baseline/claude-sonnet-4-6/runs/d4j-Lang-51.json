@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Lang-51",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/NullArgumentException.java",
+  "src/java/org/apache/commons/lang/BooleanUtils.java",
+  "src/java/org/apache/commons/lang/ArrayUtils.java",
+  "src/java/org/apache/commons/lang/NumberRange.java",
+  "src/java/org/apache/commons/lang/NumberUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:15:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  3,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.9,
+  "5": 0.05,
+  "3": 0.03,
+  "1": 0.01,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.9,
+  0.01,
+  0.01,
+  0.03,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 158
+ },
+ "raw_response": "The failing test is d4j-Lang-51. In defects4j, Lang-51 is known to be related to `BooleanUtils` (specifically the `toBooleanObject(String)` method). The test failure involves an `AssertionError` in Boolean utility methods.\n\n`BooleanUtils.java` has high commit frequency and churn, and matches the known defect location for Lang-51.\n\n{\"ranking\": [2, 5, 3, 1, 4], \"confidence\": {\"2\": 0.90, \"5\": 0.05, \"3\": 0.03, \"1\": 0.01, \"4\": 0.01}}",
+ "n_attempts": 1
+}

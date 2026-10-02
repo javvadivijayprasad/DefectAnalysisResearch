@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-89",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CompilationLevel.java",
+  "src/com/google/javascript/jscomp/RenameProperties.java",
+  "src/com/google/javascript/jscomp/CodingConvention.java",
+  "src/com/google/javascript/jscomp/CollapseProperties.java",
+  "src/com/google/javascript/jscomp/GlobalNamespace.java",
+  "src/com/google/javascript/jscomp/MemoizedScopeCreator.java",
+  "src/com/google/javascript/jscomp/Region.java",
+  "src/com/google/javascript/jscomp/OptimizeParameters.java"
+ ],
+ "timestamp": "2026-10-02T14:53:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  8,
+  3,
+  2,
+  1,
+  7,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "4": 0.4,
+  "8": 0.15,
+  "3": 0.1,
+  "2": 0.08,
+  "1": 0.06,
+  "7": 0.04,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.45,
+  0.1,
+  0.03,
+  0.15,
+  0.06,
+  0.08,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  3,
+  7,
+  2,
+  5,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1057,
+  "output_tokens": 446
+ },
+ "raw_response": "Looking at this failing test for Closure-89, I need to identify which files are likely defective.\n\nThe test failure is an AssertionError, and the flag indicates `app_code_changed`. Let me analyze the candidates:\n\n- **CollapseProperties.java** (candidate 4): High churn (984), many commits (16), large additions. CollapseProperties is a complex optimization pass that deals with global namespace collapsing - closely related to GlobalNamespace.\n- **GlobalNamespace.java** (candidate 5): Highest churn (1142), significant additions (1109). GlobalNamespace works directly with CollapseProperties and is a common source of bugs in property collapsing.\n- **OptimizeParameters.java** (candidate 8): High churn (802), many commits (11), significant additions/deletions.\n- **CodingConvention.java** (candidate 3): Moderate churn, many commits.\n- **CompilationLevel.java** (candidate 1): Moderate activity.\n- **RenameProperties.java** (candidate 2): Moderate activity.\n- **MemoizedScopeCreator.java** (candidate 6): Low activity, few commits.\n- **Region.java** (candidate 7): Low activity.\n\nClosure-89 is related to CollapseProperties behavior with global namespaces. The test likely involves property collapsing, making GlobalNamespace and CollapseProperties the prime suspects. These two files have the highest churn and are tightly coupled in functionality.\n\n{\"ranking\": [5, 4, 8, 3, 2, 1, 7, 6], \"confidence\": {\"5\": 0.45, \"4\": 0.40, \"8\": 0.15, \"3\": 0.10, \"2\": 0.08, \"1\": 0.06, \"7\": 0.04, \"6\": 0.03}}",
+ "n_attempts": 1
+}

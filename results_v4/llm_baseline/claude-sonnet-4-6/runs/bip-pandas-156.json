@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-pandas-156",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "pandas/core/sparse/series.py",
+  "pandas/core/sparse/frame.py",
+  "pandas/core/sparse/__init__.py",
+  "pandas/core/sparse/scipy_sparse.py",
+  "pandas/core/sparse/api.py"
+ ],
+ "timestamp": "2026-10-02T15:32:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.45,
+  "3": 0.02,
+  "4": 0.12,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.12,
+  0.35,
+  0.05,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 848,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [2, 1, 4, 5, 3], \"confidence\": {\"1\": 0.35, \"2\": 0.45, \"3\": 0.02, \"4\": 0.12, \"5\": 0.05}}",
+ "n_attempts": 1
+}

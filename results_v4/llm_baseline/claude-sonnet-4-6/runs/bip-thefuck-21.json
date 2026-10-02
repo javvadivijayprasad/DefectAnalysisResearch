@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-thefuck-21",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "thefuck/rules/git_fix_stash.py",
+  "thefuck/rules/tsuru_login.py",
+  "thefuck/rules/git_push_force.py",
+  "thefuck/rules/cp_omitting_directory.py",
+  "thefuck/rules/python_command.py",
+  "thefuck/rules/cd_mkdir.py",
+  "thefuck/rules/lein_not_task.py"
+ ],
+ "timestamp": "2026-10-02T15:35:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  7,
+  4,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "1": 0.3,
+  "2": 0.2,
+  "7": 0.1,
+  "4": 0.08,
+  "5": 0.07,
+  "6": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.2,
+  0.45,
+  0.08,
+  0.07,
+  0.06,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  4,
+  5,
+  6,
+  3
+ ],
+ "usage": {
+  "input_tokens": 960,
+  "output_tokens": 402
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError in thefuck (Python)\n- The flag `app_code_changed` is set\n- I need to look at commit frequency, recency, and churn patterns\n\nAnalysis:\n- File 3 (`git_push_force.py`): Highest commit frequency (1.1667), 8 commits, 2 devs, relatively young (48 days) - very active file, high likelihood of recent changes\n- File 1 (`git_fix_stash.py`): High commit frequency (0.6087), 4 commits, young (46 days) - also very active\n- File 2 (`tsuru_login.py`): Second highest frequency (0.4884), 3 commits, youngest file (43 days)\n- Files 4-7: Older files (136-151 days) with lower commit frequencies\n\nThe files with highest commit frequencies and youngest ages are most likely to be the defective ones. File 3 stands out with the highest commit frequency (1.1667 commits/day) and 8 commits. File 1 and File 2 also show high activity.\n\nThe combination of high commit frequency + young age + multiple commits suggests active development where bugs are more likely to be introduced.\n\n{\"ranking\": [3, 1, 2, 7, 4, 5, 6], \"confidence\": {\"3\": 0.45, \"1\": 0.30, \"2\": 0.20, \"7\": 0.10, \"4\": 0.08, \"5\": 0.07, \"6\": 0.06}}",
+ "n_attempts": 1
+}

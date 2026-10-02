@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-pandas-85",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "pandas/core/indexes/range.py",
+  "pandas/core/indexes/frozen.py",
+  "pandas/core/indexes/period.py",
+  "pandas/core/indexes/timedeltas.py",
+  "pandas/core/indexes/datetimes.py",
+  "pandas/core/indexes/category.py",
+  "pandas/core/indexes/multi.py",
+  "pandas/core/indexes/extension.py"
+ ],
+ "timestamp": "2026-10-02T15:30:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  8,
+  1,
+  7,
+  6,
+  5,
+  3,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "8": 0.72,
+  "1": 0.12,
+  "7": 0.08,
+  "6": 0.06,
+  "5": 0.05,
+  "3": 0.04,
+  "4": 0.04,
+  "2": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.04,
+  0.04,
+  0.06,
+  0.02,
+  0.05,
+  0.72,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  6,
+  5,
+  3,
+  7,
+  4,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1004,
+  "output_tokens": 192
+ },
+ "raw_response": "The file `pandas/core/indexes/extension.py` stands out dramatically: it's only 17 days old with an extremely high commit frequency (4.5294), very few commits (11) and authors (2), and minimal deletions (only 6 lines deleted vs 251 added). This profile is characteristic of a newly introduced file that likely contains a bug that was quickly fixed. The other files are much older and more mature.\n\n{\"ranking\": [8, 1, 7, 6, 5, 3, 4, 2], \"confidence\": {\"8\": 0.72, \"1\": 0.12, \"7\": 0.08, \"6\": 0.06, \"5\": 0.05, \"3\": 0.04, \"4\": 0.04, \"2\": 0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Time-19",
+ "repo": "defects4j:Time",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/joda/time/DateTimeZone.java",
+  "src/main/java/org/joda/time/LocalDate.java",
+  "src/main/java/org/joda/time/Years.java",
+  "src/main/java/org/joda/time/ReadWritableDateTime.java",
+  "src/main/java/org/joda/time/YearMonth.java",
+  "src/main/java/org/joda/time/Seconds.java"
+ ],
+ "timestamp": "2026-10-02T15:50:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  2,
+  4,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.12,
+  "3": 0.05,
+  "4": 0.08,
+  "5": 0.4,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.4,
+  0.12,
+  0.05,
+  0.08,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2,
+  4,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 784,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [5, 1, 2, 4, 3, 6], \"confidence\": {\"1\": 0.15, \"2\": 0.12, \"3\": 0.05, \"4\": 0.08, \"5\": 0.40, \"6\": 0.05}}",
+ "n_attempts": 1
+}

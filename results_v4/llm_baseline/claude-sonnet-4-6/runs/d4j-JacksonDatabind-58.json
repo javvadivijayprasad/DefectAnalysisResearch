@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-58",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/util/ClassUtil.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ViewMatcher.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ContextualDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/BeanUtil.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/NameTransformer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ByteBufferBackedOutputStream.java"
+ ],
+ "timestamp": "2026-10-02T15:07:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  1,
+  3,
+  5,
+  4,
+  2,
+  6,
+  8
+ ],
+ "llm_confidence_presented": {
+  "7": 0.55,
+  "1": 0.25,
+  "3": 0.2,
+  "5": 0.15,
+  "4": 0.08,
+  "2": 0.05,
+  "6": 0.03,
+  "8": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.25,
+  0.08,
+  0.05,
+  0.15,
+  0.03,
+  0.02,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  5,
+  3,
+  6,
+  7,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1137,
+  "output_tokens": 536
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a logic/behavior issue\n- The `app_code_changed` flag indicates application code was modified\n- This is defects4j bug #58 in JacksonDatabind\n\nLet me analyze the candidates:\n\n1. **BeanDeserializerFactory.java** (index 7) - Very high commit frequency (0.3826), massive churn (4080), many commits (94). This is a core factory class that's frequently modified and central to deserialization logic.\n\n2. **ClassUtil.java** (index 1) - High commits (32), significant churn (1954), utility class used throughout. Frequently modified.\n\n3. **DeserializerFactory.java** (index 5) - 21 commits, decent churn (750), interface/abstract class for deserialization.\n\n4. **ContextualDeserializer.java** (index 3) - Very recent file (age_days=38) with extremely high commit_freq (0.9211), suggesting it was recently added/modified. This is suspicious - a very recently active file.\n\n5. **BeanUtil.java** (index 4) - 11 commits, moderate churn.\n\n6. **ViewMatcher.java** (index 2) - Low activity.\n\n7. **NameTransformer.java** (index 6) - Very low activity.\n\n8. **ByteBufferBackedOutputStream.java** (index 8) - Unlikely related to deserialization bugs.\n\nThe most likely candidates for a deserialization-related AssertionError are BeanDeserializerFactory (core deserialization logic, very active) and possibly ClassUtil (heavily used utility). ContextualDeserializer's extreme recency and commit frequency is also notable.\n\n{\"ranking\": [7, 1, 3, 5, 4, 2, 6, 8], \"confidence\": {\"7\": 0.55, \"1\": 0.25, \"3\": 0.20, \"5\": 0.15, \"4\": 0.08, \"2\": 0.05, \"6\": 0.03, \"8\": 0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-ansible-12",
+ "repo": "bugsinpy:ansible",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "lib/ansible/plugins/lookup/onepassword_raw.py",
+  "lib/ansible/plugins/lookup/nios.py",
+  "lib/ansible/plugins/lookup/avi.py",
+  "lib/ansible/plugins/lookup/env.py",
+  "lib/ansible/plugins/lookup/first_found.py"
+ ],
+ "timestamp": "2026-10-02T15:50:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.2,
+  "3": 0.4,
+  "4": 0.1,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.2,
+  0.4,
+  0.25,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  2,
+  0,
+  1,
+  4
+ ],
+ "usage": {
+  "input_tokens": 728,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [3, 1, 2, 4, 5], \"confidence\": {\"1\": 0.25, \"2\": 0.20, \"3\": 0.40, \"4\": 0.10, \"5\": 0.05}}",
+ "n_attempts": 1
+}

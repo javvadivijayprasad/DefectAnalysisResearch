@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-JacksonDatabind-15",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/ser/std/StdSerializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/MapperFeature.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/JavaType.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/std/StdDelegatingSerializer.java"
+ ],
+ "timestamp": "2026-10-02T15:05:14",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  6,
+  1,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.08,
+  "3": 0.55,
+  "4": 0.4,
+  "5": 0.06,
+  "6": 0.25
+ },
+ "confidence_by_corpus_row": [
+  0.06,
+  0.4,
+  0.55,
+  0.25,
+  0.15,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  1,
+  0,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 1005,
+  "output_tokens": 75
+ },
+ "raw_response": "{\"ranking\": [3, 4, 6, 1, 2, 5], \"confidence\": {\"1\": 0.15, \"2\": 0.08, \"3\": 0.55, \"4\": 0.40, \"5\": 0.06, \"6\": 0.25}}",
+ "n_attempts": 1
+}

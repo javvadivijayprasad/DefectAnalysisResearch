@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-keras-23",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "keras/engine/network.py",
+  "keras/engine/training_utils.py",
+  "keras/engine/topology.py",
+  "keras/engine/sequential.py",
+  "keras/engine/training_generator.py",
+  "keras/engine/training.py"
+ ],
+ "timestamp": "2026-10-02T15:24:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  6,
+  5,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.55,
+  "3": 0.05,
+  "4": 0.08,
+  "5": 0.15,
+  "6": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.05,
+  0.45,
+  0.15,
+  0.2,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  5,
+  1,
+  3,
+  2,
+  0
+ ],
+ "usage": {
+  "input_tokens": 887,
+  "output_tokens": 393
+ },
+ "raw_response": "Looking at this failing test in keras with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError in keras engine code\n- `app_code_changed` flag is set\n- Files 1 (network.py) and 2 (training_utils.py) are very new files (73 and 8 days old respectively)\n- File 2 (training_utils.py) has extremely high commit frequency (1.75/day) for a very new file (8 days old), suggesting active development/bug fixing\n- File 1 (network.py) is also new (73 days) with high commit frequency\n- Files 3, 4, 6 are older, heavily churned files that have been stable longer\n- File 5 (training_generator.py) is new but has lower commit frequency\n\nThe very new age of training_utils.py (8 days) combined with high commit frequency strongly suggests it's a recently introduced file that may contain bugs. network.py being 73 days old and recently active is also suspicious.\n\nAssertionError in training context often points to training_utils.py or training.py. The training_utils.py being brand new (8 days) with significant additions (+602) makes it a prime candidate for introducing bugs.\n\nnetwork.py being new and heavily modified is also a strong candidate.\n\n{\"ranking\": [2, 1, 6, 5, 4, 3], \"confidence\": {\"1\": 0.45, \"2\": 0.55, \"3\": 0.05, \"4\": 0.08, \"5\": 0.15, \"6\": 0.20}}",
+ "n_attempts": 1
+}

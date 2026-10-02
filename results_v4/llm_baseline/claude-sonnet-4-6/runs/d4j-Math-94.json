@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-94",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/math/util/NumberTransformer.java",
+  "src/java/org/apache/commons/math/util/MathUtils.java",
+  "src/java/org/apache/commons/math/util/ContinuedFraction.java",
+  "src/java/org/apache/commons/math/util/OpenIntToDoubleHashMap.java",
+  "src/java/org/apache/commons/math/util/DefaultTransformer.java"
+ ],
+ "timestamp": "2026-10-02T15:19:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  5,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.92,
+  "3": 0.05,
+  "5": 0.02,
+  "1": 0.01,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.02,
+  0.01,
+  0.01,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 905,
+  "output_tokens": 122
+ },
+ "raw_response": "The failing test is d4j-Math-94. In defects4j, Math-94 is known to be a bug in `MathUtils.gcd()` method. The fix involves correcting the GCD computation in `MathUtils.java`.\n\n{\"ranking\": [2, 3, 5, 1, 4], \"confidence\": {\"2\": 0.92, \"3\": 0.05, \"5\": 0.02, \"1\": 0.01, \"4\": 0.01}}",
+ "n_attempts": 1
+}

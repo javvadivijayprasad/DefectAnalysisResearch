@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-keras-40",
+ "repo": "bugsinpy:keras",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "keras/layers/recurrent.py",
+  "keras/layers/cudnn_recurrent.py",
+  "keras/layers/merge.py",
+  "keras/layers/convolutional_recurrent.py",
+  "keras/layers/core.py",
+  "keras/layers/embeddings.py",
+  "keras/layers/local.py"
+ ],
+ "timestamp": "2026-10-02T15:51:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  2,
+  4,
+  3,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.12,
+  "3": 0.08,
+  "4": 0.1,
+  "5": 0.35,
+  "6": 0.07,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.35,
+  0.07,
+  0.12,
+  0.05,
+  0.1,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  5,
+  2,
+  6,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 790,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [5, 1, 2, 4, 3, 6, 7], \"confidence\": {\"1\": 0.15, \"2\": 0.12, \"3\": 0.08, \"4\": 0.10, \"5\": 0.35, \"6\": 0.07, \"7\": 0.05}}",
+ "n_attempts": 1
+}

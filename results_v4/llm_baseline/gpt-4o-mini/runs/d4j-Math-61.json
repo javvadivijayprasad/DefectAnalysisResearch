@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-61",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/distribution/ContinuousDistribution.java",
+  "src/main/java/org/apache/commons/math/distribution/CauchyDistribution.java",
+  "src/main/java/org/apache/commons/math/distribution/HasDensity.java",
+  "src/main/java/org/apache/commons/math/distribution/PoissonDistribution.java",
+  "src/main/java/org/apache/commons/math/distribution/GammaDistribution.java",
+  "src/main/java/org/apache/commons/math/distribution/ExponentialDistribution.java",
+  "src/main/java/org/apache/commons/math/distribution/BinomialDistributionImpl.java",
+  "src/main/java/org/apache/commons/math/distribution/PoissonDistributionImpl.java"
+ ],
+ "timestamp": "2026-10-02T15:49:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  3,
+  1,
+  5,
+  6,
+  2,
+  8,
+  4
+ ],
+ "llm_confidence_presented": {
+  "7": 0.35,
+  "3": 0.25,
+  "1": 0.15,
+  "5": 0.1,
+  "6": 0.08,
+  "2": 0.04,
+  "8": 0.02,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.01,
+  0.02,
+  0.35,
+  0.08,
+  0.1,
+  0.15,
+  0.25,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  6,
+  0,
+  4,
+  3,
+  2,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 895,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[7,3,1,5,6,2,8,4],\"confidence\":{\"7\":0.35,\"3\":0.25,\"1\":0.15,\"5\":0.10,\"6\":0.08,\"2\":0.04,\"8\":0.02,\"4\":0.01}}",
+ "n_attempts": 1
+}

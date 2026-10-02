@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-thefuck-5",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "thefuck/rules/git_add_force.py",
+  "thefuck/rules/git_push.py",
+  "thefuck/rules/git_merge.py",
+  "thefuck/rules/gradle_wrapper.py",
+  "thefuck/rules/git_rm_local_modifications.py",
+  "thefuck/rules/git_branch_list.py",
+  "thefuck/rules/rm_dir.py",
+  "thefuck/rules/has_exists_script.py"
+ ],
+ "timestamp": "2026-10-02T15:34:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  6,
+  2,
+  1,
+  5,
+  4,
+  8,
+  7
+ ],
+ "llm_confidence_presented": {
+  "3": 0.85,
+  "6": 0.08,
+  "2": 0.07,
+  "1": 0.05,
+  "5": 0.04,
+  "4": 0.03,
+  "8": 0.03,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.07,
+  0.03,
+  0.08,
+  0.02,
+  0.85,
+  0.03,
+  0.04,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  5,
+  1,
+  7,
+  0,
+  6,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 1008,
+  "output_tokens": 150
+ },
+ "raw_response": "The strongest signal here is candidate 3 (`git_merge.py`): age_days=1 and commit_freq=1.0000 means it was just created/modified in a single commit \u2014 almost certainly the fix commit itself.\n\n{\"ranking\": [3, 6, 2, 1, 5, 4, 8, 7], \"confidence\": {\"3\": 0.85, \"6\": 0.08, \"2\": 0.07, \"1\": 0.05, \"5\": 0.04, \"4\": 0.03, \"8\": 0.03, \"7\": 0.02}}",
+ "n_attempts": 1
+}

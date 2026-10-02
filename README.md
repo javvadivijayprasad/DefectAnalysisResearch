@@ -1,128 +1,72 @@
-# Paper F Reproducibility Bundle v2.0.0
+# Trust, Augment, or Replace? Cross-project defect attribution on 1,267 real defects — reproducibility bundle v4.0.0
 
-**Post-Execution Defect Attribution on Real-World Defects: An Empirical Comparison of Four Methods on Defects4J and BugsInPy**
+## Title
 
-This archive is the reproducibility bundle for the companion paper (submitted
-to the *Journal of Systems and Software*, Elsevier). It ships every artifact
-needed to reproduce the empirical results: the 1,323-defect event corpus
-assembled from Defects4J v2.0.1 and BugsInPy, the leave-one-project-out (LOPO)
-experiment harness, the four attribution methods evaluated (`pre_only`,
-`fail_only`, `fused_rule`, `fused_ml`), the generated figures, and the compiled
-manuscript.
+Trust, Augment, or Replace? What a Cross-Project Defect Predictor Is Worth on 1,267 Real Defects from Defects4J and BugsInPy.
+Vijay Prasad Javvadi, Independent Researcher, Plainsboro, NJ, USA. ORCID 0009-0004-1192-6906. Submitted to PeerJ Computer Science (CS-2026:09:149817), AI Application article type.
 
-**This is v2.0.0**, a major real-data rebuild of the v1.0.0 synthetic-only
-release. See [`CHANGELOG.md`](CHANGELOG.md) for a full diff.
+## Description
 
-## Citation
+This bundle contains everything needed to rebuild the evaluation corpus, rerun the leave-one-project-out experiment, rerun the two LLM baselines, and regenerate every number, table and figure in the manuscript. The study asks whether a file-level defect predictor trained on other projects can be trusted (calibration), whether adding failure-time signals helps (fusion), and whether a prompted frontier LLM given the same information replaces it. Version 4.0.0 is a corrected corpus construction; see CHANGELOG.md for what changed from 3.0.0 and why the earlier numbers are superseded.
 
-If you use this bundle please cite both the archived artifact and the paper:
+## Dataset information
 
-```bibtex
-@dataset{javvadi2026paperF_bundle,
-  author       = {Javvadi, Vijay Prasad},
-  title        = {{Post-Execution Defect Attribution on Real-World
-                   Defects — Reproducibility Bundle v2.0.0}},
-  year         = {2026},
-  publisher    = {Zenodo},
-  version      = {v2.0.0},
-  doi          = {[ZENODO-DOI-HERE]},
-  url          = {https://doi.org/[ZENODO-DOI-HERE]}
-}
+The corpus is derived from two public real-defect benchmarks, which are not redistributed here:
 
-@article{javvadi2026paperF,
-  author  = {Javvadi, Vijay Prasad},
-  title   = {Post-Execution Defect Attribution on Real-World Defects: An
-             Empirical Comparison of Four Methods on Defects4J and BugsInPy},
-  journal = {Journal of Systems and Software},
-  year    = {2026},
-  doi     = {[PAPER-DOI-HERE]}
-}
-```
+- Defects4J v2.0.1, https://github.com/rjust/defects4j (tag `v2.0.1`), licence as stated in that repository. Pre-fix and fix revisions come from each project's `active-bugs.csv` (`revision.id.buggy`, `revision.id.fixed`).
+- BugsInPy, https://github.com/soarsmu/BugsInPy (default branch, snapshot of 2 October 2026), MIT licence. Pre-fix and fix revisions and the upstream repository URL come from each bug's `bug.info` and `project.info`.
 
-The concept DOI (all versions) is `10.5281/zenodo.20723929`; the version DOI
-for v2.0.0 is assigned upon publication and replaces `[ZENODO-DOI-HERE]` above.
+Derived data in this bundle:
 
-## Directory tree
+- `datasets/real_events_v4.parquet` — 6,716 rows (one per candidate file), 1,267 events, 33 projects (774 Defects4J events in 16 projects, 493 BugsInPy events in 17). Columns: `event_id`, `repo`, `file_name`, `real_defect` (label), nine failure-side columns (`exception_type`, `exception_idx`, `http_status`, `locator_healed`, `historical_flake_rate`, `app_code_changed`, `validator_changed`, `schema_changed`, `fixture_changed`, `config_changed`), and seven process-metric features (`commit_count`, `unique_developers`, `lines_added`, `lines_deleted`, `code_churn`, `file_age_days`, `commit_frequency`) computed at the pre-fix revision.
+- `datasets/real_events_v4.parquet.build_log.csv` — one row per bug attempted (1,355), with status and skip reason (88 skipped).
+- `results_v4/` — `per_row_scores_real.csv` (scores of the four internal methods per row), `per_event_metrics_real.csv`, `summary_real.json`, `distractor_sensitivity.csv`, `paper_numbers_v4.json` (every manuscript number), LLM outputs (`llm_baseline/<model>/runs/*.json`, one per event with prompt and raw response; `*__summary.json`, `*__per_event_metrics.csv`, `*__per_project.csv`).
+- `figures_v4/` — the four manuscript figures (PDF and PNG).
 
-```
-zenodo_bundle_v2.0.0/
-├── README.md                    (this file)
-├── LICENSE                      (CC-BY-4.0)
-├── CITATION.cff                 (Zenodo citation metadata)
-├── CHANGELOG.md
-├── requirements.txt
-├── paper/
-│   ├── paperF_JSS.pdf
-│   ├── paperF_JSS.tex
-│   ├── paperF_references.bib
-│   ├── cover_letter_JSS.pdf
-│   └── highlights.txt
-├── scripts/
-│   ├── build_real_events.py
-│   ├── run_real_experiment.py
-│   └── generate_real_figures.py
-├── datasets/
-│   ├── README.md                (schema documentation)
-│   ├── real_events.parquet      (1,323 events, 6,988 rows)
-│   ├── real_events_d4j.parquet  (824 Defects4J events)
-│   ├── real_events_bip.parquet  (499 BugsInPy events)
-│   └── real_events_smoke.parquet (smoke-test sample)
-├── results/
-│   ├── summary_real.json
-│   ├── per_event_metrics_real.csv
-│   ├── per_row_scores_real.csv
-│   └── figures/                 (fig_headline_bars, fig_ece_bars,
-│                                 fig_reliability, fig_per_repo_precision)
-└── docs/
-    ├── REPRODUCIBILITY.md
-    ├── SETUP.md
-    ├── SCHEMA.md
-    ├── QC_JSS_AUDIT.md
-    └── FINALIZE_BUNDLE.md
-```
+## Code information
 
-## Quick reproduction
+All scripts are Python 3 and live in `scripts/`:
+
+- `build_real_events_v4.py` — corpus construction (checkout of the pre-fix revision, fix-file extraction, same-directory sibling distractors, git process metrics; writes the parquet and the build log).
+- `run_real_experiment.py` — leave-one-project-out experiment for the four internal methods (cross-project predictor, flat prior, rule fusion, learned fusion), metric implementation (Precision@k, Recall@5, MRR, triage seconds, 10-bin ECE; random tie-break, seed 42).
+- `llm_baseline.py` — the two LLM attribution baselines under information parity (one prompt per event, temperature 0, strict JSON, deterministic per-event candidate shuffle).
+- `distractor_sensitivity.py` — rescoring at candidate-set sizes k ∈ {2, 3, 4, all}.
+- `analysis_v4.py` — computes every number in the manuscript from the result files and writes `results_v4/paper_numbers_v4.json` (pooled and per-corpus metrics, paired event-level bootstrap with 10,000 resamples, per-project wins/ties/losses, reliability bins and threshold precision, the Lang/Math/Time split).
+- `make_figures_v4.py` — the four figures from the JSON and CSVs.
+
+## Usage
 
 ```bash
-git clone https://github.com/javvadivijayprasad/DefectAnalysisResearch.git
-cd DefectAnalysisResearch
-git checkout paperF-jss-v1.0
-python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python3 scripts/run_real_experiment.py    # ~5 min with cached parquet
-python3 scripts/generate_real_figures.py
+# 1. corpus (needs Defects4J and BugsInPy installed; ~3 h, ~10 GB of clones)
+python scripts/build_real_events_v4.py --out datasets/real_events_v4.parquet
+# 2. LOPO experiment and sensitivity (no API, a few minutes)
+python scripts/run_real_experiment.py --events datasets/real_events_v4.parquet --out-dir results_v4
+python scripts/distractor_sensitivity.py
+# 3. LLM baselines (keys in the environment only; Claude run US$7.55; GPT-4o-mini run incurred no charge)
+export ANTHROPIC_API_KEY=...   # never into a file
+python scripts/llm_baseline.py --events datasets/real_events_v4.parquet --backend anthropic --model claude-sonnet-4-6 --out-root results_v4/llm_baseline
+export OPENAI_API_KEY=...
+python scripts/llm_baseline.py --events datasets/real_events_v4.parquet --backend openai --model gpt-4o-mini --out-root results_v4/llm_baseline
+# 4. numbers and figures
+python scripts/analysis_v4.py
+python scripts/make_figures_v4.py
 ```
 
-This reproduces the four figures and `results/summary_real.json` from the
-cached parquet corpus in ~15 minutes. To re-build the corpus from source
-(Defects4J v2.0.1 + BugsInPy) takes ~2 hours.
+Steps 2 and 4 reproduce every manuscript number from the shipped parquet without rebuilding the corpus or calling any API; the shipped LLM run logs are what step 4 reads for the LLM rows.
 
-## Detailed reproduction
+## Requirements
 
-See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) for step-by-step
-instructions, expected checksum-style outputs, and the fresh-install path.
+Corpus build: Linux (tested on WSL2 Ubuntu 22.04 on a Windows 11 laptop, Intel Core i7-12700H, 40 GB RAM), git, OpenJDK 11 and the Defects4J framework on PATH, a BugsInPy checkout, Python 3.10 or later. Experiment and analysis: Python 3.10 or later with pandas ≥ 2.0, numpy, scikit-learn ≥ 1.4, pyarrow, matplotlib (`requirements.txt`). No GPU. LLM baselines: network access to the Anthropic and OpenAI HTTP APIs and the corresponding keys in environment variables.
 
-## Headline results (real data, 1,323 events, LOPO CV)
+## Methodology
 
-| Method       | p@1    | p@3    | r@5    | MRR    | ECE (10-bin) |
-|--------------|--------|--------|--------|--------|--------------|
-| pre_only     | 0.7770 | 0.3627 | 0.9696 | 0.8556 | 0.0209       |
-| fail_only    | 0.2494 | 0.2654 | 0.8872 | 0.4978 | 0.7689       |
-| fused_rule   | 0.7800 | 0.3624 | 0.9691 | 0.8571 | 0.0626       |
-| fused_ml     | 0.7475 | —      | —      | —      | 0.0330       |
+Each bug becomes one failure event. Its candidate set is the non-test source files changed by the fix (at most five) plus source files from the same directories at the pre-fix revision, drawn with a per-bug MD5 seed so that the set has between 3 and 8 files; bugs with no sibling, no non-test source fix file, or a failed checkout are skipped and logged. Seven process metrics are computed per candidate from `git log --follow` in the ancestry of the pre-fix revision, identically for Java and Python. Four internal methods are evaluated under leave-one-project-out over 33 projects (train on 32, score the held-out one; no post-hoc recalibration). Two LLMs are prompted once per event with exactly the fused model's inputs (project name, event-level columns, per-candidate path and seven metrics) and scored by the same code. Metrics are Precision@1/@3, Recall@5, MRR, triage seconds and 10-bin expected calibration error; uncertainty is a paired event-level bootstrap (10,000 resamples, seed 42). Full detail is in the manuscript, Section 2.
 
-**Ablation**: fused_ml retrained on pre-execution features only recovers
-p@1 = 0.7627 (≈half the fused_ml deficit), confirming that the failure-side
-features actively hurt on real data.
+## Citations
 
-## License
+If you use this bundle, cite the artifact (version 4.0.0 DOI 10.5281/zenodo.23111801; concept DOI 10.5281/zenodo.20723929) and the manuscript once published. Cite Defects4J (Just, Jalali and Ernst, ISSTA 2014) and BugsInPy (Widyasari et al., FSE 2020) for the underlying benchmarks. `CITATION.cff` carries the machine-readable form.
 
-Creative Commons Attribution 4.0 International (CC-BY-4.0) — see
-[`LICENSE`](LICENSE). Same license as v1.0.0.
+## Licence
 
-## Contact
-
-Vijay Prasad Javvadi
-Independent Researcher, Plainsboro, NJ, USA
-ORCID: <https://orcid.org/0009-0004-1192-6906>
-Email: <vijay@vijayjavvadiresearch.ai>
+Code: MIT. Derived data, results, run logs and figures: CC BY 4.0. Defects4J and BugsInPy remain under their own licences and are not included.

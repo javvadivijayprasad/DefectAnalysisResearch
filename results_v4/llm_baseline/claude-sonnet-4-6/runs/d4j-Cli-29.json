@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Cli-29",
+ "repo": "defects4j:Cli",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/cli/GnuParser.java",
+  "src/java/org/apache/commons/cli/ParseException.java",
+  "src/java/org/apache/commons/cli/MissingOptionException.java",
+  "src/java/org/apache/commons/cli/Util.java",
+  "src/java/org/apache/commons/cli/AmbiguousOptionException.java"
+ ],
+ "timestamp": "2026-10-02T14:49:39",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  5,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "2": 0.05,
+  "3": 0.45,
+  "4": 0.1,
+  "5": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.35,
+  0.05,
+  0.45,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  1,
+  4,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 890,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [3, 1, 5, 4, 2], \"confidence\": {\"1\": 0.35, \"2\": 0.05, \"3\": 0.45, \"4\": 0.10, \"5\": 0.20}}",
+ "n_attempts": 1
+}

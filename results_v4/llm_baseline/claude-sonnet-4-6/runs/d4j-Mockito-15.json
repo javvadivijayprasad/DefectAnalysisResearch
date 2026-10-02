@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-15",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/internal/configuration/GlobalConfiguration.java",
+  "src/org/mockito/internal/configuration/injection/FinalMockCandidateFilter.java",
+  "src/org/mockito/internal/configuration/injection/Injecter.java",
+  "src/org/mockito/internal/configuration/injection/MockCandidateFilter.java",
+  "src/org/mockito/internal/configuration/DefaultInjectionEngine.java",
+  "src/org/mockito/internal/configuration/injection/NameBasedCandidateFilter.java"
+ ],
+ "timestamp": "2026-10-02T15:19:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  6,
+  3,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.45,
+  "3": 0.3,
+  "4": 0.3,
+  "5": 0.55,
+  "6": 0.4
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.45,
+  0.3,
+  0.3,
+  0.4,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  3,
+  4,
+  2,
+  5
+ ],
+ "usage": {
+  "input_tokens": 954,
+  "output_tokens": 439
+ },
+ "raw_response": "Looking at this failing test, I need to identify which files are likely defective.\n\nKey observations:\n1. Files 2, 3, 4, and 6 all have `commits=1`, `age_days=1`, and `commit_freq=1.0000` - these are brand new files, likely introduced in the same commit\n2. The `config_changed` flag is set, suggesting configuration-related changes\n3. The test failure is an `AssertionError`\n4. Files 2, 3, 4, 6 are all in the `injection` package and appear to be newly created together\n5. File 5 (`DefaultInjectionEngine.java`) has moderate activity and is in the configuration package - it likely interacts with the new injection classes\n6. File 1 (`GlobalConfiguration.java`) has more history but could be involved\n\nThe new injection files (2, 3, 4, 6) were all created at the same time (age_days=1, commits=1) and form a cohesive set of injection-related classes. The `DefaultInjectionEngine.java` (file 5) likely needed to be updated to work with these new injection classes, making it a prime candidate for the defect.\n\nThe `FinalMockCandidateFilter` (file 2) and `NameBasedCandidateFilter` (file 6) are the most complex new files (more lines added) and could contain bugs. The `DefaultInjectionEngine` (file 5) that orchestrates injection is also highly suspect as it would need to integrate with these new classes.\n\n{\"ranking\": [5, 2, 6, 3, 4, 1], \"confidence\": {\"1\": 0.10, \"2\": 0.45, \"3\": 0.30, \"4\": 0.30, \"5\": 0.55, \"6\": 0.40}}",
+ "n_attempts": 1
+}

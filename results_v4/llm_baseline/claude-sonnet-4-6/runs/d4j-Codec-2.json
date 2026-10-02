@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Codec-2",
+ "repo": "defects4j:Codec",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/codec/binary/Base64InputStream.java",
+  "src/java/org/apache/commons/codec/binary/Base64.java",
+  "src/java/org/apache/commons/codec/binary/Base64OutputStream.java",
+  "src/java/org/apache/commons/codec/binary/BinaryCodec.java",
+  "src/java/org/apache/commons/codec/binary/Hex.java"
+ ],
+ "timestamp": "2026-10-02T14:58:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.65,
+  "3": 0.15,
+  "4": 0.05,
+  "5": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.04,
+  0.15,
+  0.25,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 900,
+  "output_tokens": 64
+ },
+ "raw_response": "{\"ranking\": [2, 1, 3, 4, 5], \"confidence\": {\"1\": 0.25, \"2\": 0.65, \"3\": 0.15, \"4\": 0.05, \"5\": 0.04}}",
+ "n_attempts": 1
+}

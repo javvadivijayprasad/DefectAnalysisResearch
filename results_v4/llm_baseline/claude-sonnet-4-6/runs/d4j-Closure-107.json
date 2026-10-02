@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-107",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/NodeNameExtractor.java",
+  "src/com/google/javascript/jscomp/CheckUnreachableCode.java",
+  "src/com/google/javascript/jscomp/NameReferenceGraph.java",
+  "src/com/google/javascript/jscomp/ExpressionDecomposer.java",
+  "src/com/google/javascript/jscomp/DefaultPassConfig.java",
+  "src/com/google/javascript/jscomp/JsMessageVisitor.java",
+  "src/com/google/javascript/jscomp/CommandLineRunner.java",
+  "src/com/google/javascript/jscomp/InlineFunctions.java"
+ ],
+ "timestamp": "2026-10-02T14:54:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  8,
+  4,
+  7,
+  2,
+  3,
+  6,
+  1
+ ],
+ "llm_confidence_presented": {
+  "5": 0.55,
+  "8": 0.4,
+  "4": 0.25,
+  "7": 0.15,
+  "2": 0.1,
+  "3": 0.08,
+  "6": 0.06,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.55,
+  0.06,
+  0.03,
+  0.1,
+  0.08,
+  0.25,
+  0.4
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  6,
+  7,
+  4,
+  5,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 1080,
+  "output_tokens": 500
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-107, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError\n- Flags indicate `app_code_changed` and `config_changed`\n- This is Closure compiler issue #107\n\nLet me analyze the candidates:\n\n1. **DefaultPassConfig.java** (index 5) - Very high commit frequency (0.9871), massive churn (5009), many devs. This is the configuration file for compiler passes, and `config_changed` flag is set. Very likely involved.\n\n2. **InlineFunctions.java** (index 8) - High commits (43), significant churn (1498). Function inlining is a common source of bugs in Closure compiler.\n\n3. **ExpressionDecomposer.java** (index 4) - High commits (25), highest churn among non-config files (1299). Often works with InlineFunctions.\n\n4. **CommandLineRunner.java** (index 7) - High commits (91), significant churn (2126). Could be related to config changes.\n\n5. **CheckUnreachableCode.java** (index 2) - Moderate activity, could be related to code analysis bugs.\n\n6. **NameReferenceGraph.java** (index 3) - Moderate activity.\n\n7. **JsMessageVisitor.java** (index 6) - Moderate activity.\n\n8. **NodeNameExtractor.java** (index 1) - Low activity, least likely.\n\nGiven the `config_changed` flag and the nature of Closure-107 (which typically involves function inlining issues), DefaultPassConfig and InlineFunctions are the most likely candidates.\n\n{\"ranking\": [5, 8, 4, 7, 2, 3, 6, 1], \"confidence\": {\"5\": 0.55, \"8\": 0.40, \"4\": 0.25, \"7\": 0.15, \"2\": 0.10, \"3\": 0.08, \"6\": 0.06, \"1\": 0.03}}",
+ "n_attempts": 1
+}

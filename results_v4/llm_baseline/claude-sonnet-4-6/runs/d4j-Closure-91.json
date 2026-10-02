@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Closure-91",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CollapseAnonymousFunctions.java",
+  "src/com/google/javascript/jscomp/ClosureCodeRemoval.java",
+  "src/com/google/javascript/jscomp/ErrorFormat.java",
+  "src/com/google/javascript/jscomp/ObjectPropertyStringPreprocess.java",
+  "src/com/google/javascript/jscomp/DiagnosticGroup.java",
+  "src/com/google/javascript/jscomp/CheckGlobalThis.java",
+  "src/com/google/javascript/jscomp/AliasExternals.java",
+  "src/com/google/javascript/jscomp/Region.java"
+ ],
+ "timestamp": "2026-10-02T14:54:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  7,
+  1,
+  2,
+  4,
+  5,
+  3,
+  8
+ ],
+ "llm_confidence_presented": {
+  "6": 0.55,
+  "7": 0.2,
+  "1": 0.15,
+  "2": 0.12,
+  "4": 0.08,
+  "5": 0.07,
+  "3": 0.06,
+  "8": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.06,
+  0.03,
+  0.07,
+  0.12,
+  0.08,
+  0.2,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  6,
+  7,
+  5,
+  3,
+  4,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1062,
+  "output_tokens": 492
+ },
+ "raw_response": "Looking at this failing test for defects4j:Closure-91, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure involves an `AssertionError` \n- Flags indicate `app_code_changed` and `validator_changed`\n- The `validator_changed` flag suggests something related to validation/checking logic changed\n\nLet me analyze the candidates:\n\n1. **CheckGlobalThis.java** - Has the most commits (12), most developers (6), highest commit frequency (0.2414), and is a \"Check\" class which aligns with `validator_changed`. This is a strong candidate.\n\n2. **AliasExternals.java** - High churn (864), many commits (9), high commit frequency (0.2013). Large file with significant changes.\n\n3. **ClosureCodeRemoval.java** - Moderate commits (6), significant additions (248), relatively recent (287 days).\n\n4. **CollapseAnonymousFunctions.java** - 7 commits, moderate activity.\n\n5. **ObjectPropertyStringPreprocess.java** - 6 commits, moderate activity.\n\n6. **DiagnosticGroup.java** - Only 2 commits but very recent (128 days), could relate to diagnostic/error handling changes.\n\n7. **ErrorFormat.java** - 3 commits, recent (135 days), related to error formatting.\n\n8. **Region.java** - Fewest changes, lowest churn.\n\nThe `validator_changed` flag strongly points to `CheckGlobalThis.java`. The `app_code_changed` flag could point to several files, but `AliasExternals.java` with its high churn is notable.\n\n{\"ranking\": [6, 7, 1, 2, 4, 5, 3, 8], \"confidence\": {\"6\": 0.55, \"7\": 0.20, \"1\": 0.15, \"2\": 0.12, \"4\": 0.08, \"5\": 0.07, \"3\": 0.06, \"8\": 0.03}}",
+ "n_attempts": 1
+}

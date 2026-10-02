@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Jsoup-16",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/DocumentType.java",
+  "src/main/java/org/jsoup/nodes/TextNode.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/nodes/Node.java",
+  "src/main/java/org/jsoup/nodes/Comment.java",
+  "src/main/java/org/jsoup/nodes/Document.java"
+ ],
+ "timestamp": "2026-10-02T15:09:47",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  6,
+  3,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "4": 0.35,
+  "6": 0.15,
+  "3": 0.1,
+  "2": 0.08,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.08,
+  0.05,
+  0.35,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  5,
+  1,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 936,
+  "output_tokens": 451
+ },
+ "raw_response": "Looking at this failing test in Jsoup (d4j-Jsoup-16), I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError, suggesting a value comparison failure\n- The `app_code_changed` flag is set\n- This is in the `nodes` package\n\nAnalyzing the candidates:\n\n1. **DocumentType.java** - Very young file (33 days), very few commits (2), high commit frequency for its age. This suggests it's a recently added/modified file that may have introduced a bug. The low commit count with high churn ratio is suspicious.\n\n2. **Node.java** - Most commits (47), highest churn (827), oldest file (538 days), highest commit frequency (0.6115). This is a core class that many things depend on, frequently modified.\n\n3. **Entities.java** - Highest churn by far (2490), significant additions (+2398), relatively young (281 days). Large changes often introduce bugs.\n\n4. **Document.java** - Many commits (28), significant churn (492), old file (504 days).\n\n5. **TextNode.java** - 26 commits, moderate churn (291).\n\n6. **Comment.java** - 14 commits, low churn (86).\n\nFor Jsoup-16 specifically, this bug is related to DocumentType node output/handling. The DocumentType.java file is extremely young (33 days old) with only 2 commits, suggesting it was recently added and likely contains the defect. Node.java is also a strong candidate as it's the base class with high activity.\n\n{\"ranking\": [1, 4, 6, 3, 2, 5], \"confidence\": {\"1\": 0.65, \"4\": 0.35, \"6\": 0.15, \"3\": 0.10, \"2\": 0.08, \"5\": 0.05}}",
+ "n_attempts": 1
+}

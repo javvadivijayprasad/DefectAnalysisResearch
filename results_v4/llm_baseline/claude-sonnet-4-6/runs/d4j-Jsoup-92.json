@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-92",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/ParseSettings.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Parser.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/nodes/Node.java"
+ ],
+ "timestamp": "2026-10-02T15:13:02",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  3,
+  6,
+  4,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "2": 0.45,
+  "5": 0.25,
+  "3": 0.2,
+  "6": 0.15,
+  "4": 0.1,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.2,
+  0.65,
+  0.45,
+  0.25,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  3,
+  0,
+  1,
+  2,
+  6,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1004,
+  "output_tokens": 448
+ },
+ "raw_response": "Looking at this failing test in Jsoup (d4j-Jsoup-92), I need to reason about which files are likely defective.\n\nThe test failure is an AssertionError, and the change topology indicates app code was changed. This is Jsoup issue 92, which relates to parsing settings and case sensitivity handling.\n\nKey considerations:\n- `ParseSettings.java` (file 1) is relatively new (age_days=869) with few commits (5) but has had recent activity. ParseSettings handles case normalization for tag/attribute names, which is a common source of bugs in HTML parsing.\n- `Token.java` (file 2) handles tokenization and interacts with ParseSettings for normalizing tag/attribute names during parsing.\n- `HtmlTreeBuilder.java` (file 3) is the main HTML tree building logic with high commit frequency.\n- `Attributes.java` (file 6) handles attribute storage and could be involved in case-sensitivity issues.\n- `TreeBuilder.java` (file 5) has high churn relative to its commits, suggesting significant refactoring.\n\nFor Jsoup bug 92, the issue is likely related to ParseSettings being applied correctly during parsing. The fix likely involves `ParseSettings.java` and possibly `Token.java` (which uses ParseSettings to normalize names) or `TreeBuilder.java`/`HtmlTreeBuilder.java`.\n\nGiven that ParseSettings is relatively new and has had recent changes, and Token.java interacts directly with ParseSettings for name normalization, these are the most likely candidates. The high churn in TreeBuilder.java also makes it suspicious.\n\n{\"ranking\": [1, 2, 5, 3, 6, 4, 7], \"confidence\": {\"1\": 0.65, \"2\": 0.45, \"5\": 0.25, \"3\": 0.20, \"6\": 0.15, \"4\": 0.10, \"7\": 0.05}}",
+ "n_attempts": 1
+}

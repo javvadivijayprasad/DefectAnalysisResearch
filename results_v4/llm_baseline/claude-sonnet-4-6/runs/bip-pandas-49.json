@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-pandas-49",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "pandas/core/strings.py",
+  "pandas/core/apply.py",
+  "pandas/core/base.py",
+  "pandas/core/accessor.py",
+  "pandas/core/index.py"
+ ],
+ "timestamp": "2026-10-02T15:29:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "3": 0.2,
+  "2": 0.08,
+  "4": 0.1,
+  "5": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.08,
+  0.03,
+  0.1,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 839,
+  "output_tokens": 289
+ },
+ "raw_response": "The failing test is in pandas with an AssertionError related to strings functionality. Let me analyze the candidates:\n\n- `pandas/core/strings.py` - High activity file, directly related to string operations in pandas. The test name \"bip-pandas-49\" with string-related failure makes this highly suspect.\n- `pandas/core/apply.py` - Relatively newer file, moderate activity\n- `pandas/core/base.py` - Very high activity, foundational file\n- `pandas/core/accessor.py` - Lower activity, accessor pattern implementation\n- `pandas/core/index.py` - Extremely high churn, but mostly legacy redirects\n\nFor pandas bug #49 in bugsinpy, this is likely related to string accessor operations. The `strings.py` file is the most likely candidate given the test context. The `accessor.py` could also be involved as it handles the `.str` accessor pattern. `base.py` is a common dependency but less likely to be the specific fix target.\n\n{\"ranking\": [1, 3, 2, 4, 5], \"confidence\": {\"1\": 0.65, \"3\": 0.20, \"2\": 0.08, \"4\": 0.10, \"5\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-81",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/linear/InvalidMatrixException.java",
+  "src/main/java/org/apache/commons/math/linear/AbstractFieldMatrix.java",
+  "src/main/java/org/apache/commons/math/linear/AnyMatrix.java",
+  "src/main/java/org/apache/commons/math/linear/RealMatrix.java",
+  "src/main/java/org/apache/commons/math/linear/CholeskyDecompositionImpl.java",
+  "src/main/java/org/apache/commons/math/linear/FieldLUDecomposition.java",
+  "src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java"
+ ],
+ "timestamp": "2026-10-02T15:49:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  7,
+  4,
+  5,
+  6,
+  1,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "7": 0.3,
+  "4": 0.15,
+  "5": 0.1,
+  "6": 0.05,
+  "1": 0.03,
+  "3": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.1,
+  0.05,
+  0.15,
+  0.03,
+  0.35,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  3,
+  4,
+  2,
+  5,
+  0,
+  6
+ ],
+ "usage": {
+  "input_tokens": 853,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\":[2,7,4,5,6,1,3],\"confidence\":{\"2\":0.35,\"7\":0.30,\"4\":0.15,\"5\":0.10,\"6\":0.05,\"1\":0.03,\"3\":0.02}}",
+ "n_attempts": 1
+}

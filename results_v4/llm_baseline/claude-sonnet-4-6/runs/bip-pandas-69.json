@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-pandas-69",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "pandas/core/apply.py",
+  "pandas/core/algorithms.py",
+  "pandas/core/indexers.py",
+  "pandas/core/indexing.py",
+  "pandas/core/config_init.py",
+  "pandas/core/missing.py"
+ ],
+ "timestamp": "2026-10-02T15:29:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  1,
+  6,
+  2,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.15,
+  "3": 0.4,
+  "4": 0.35,
+  "5": 0.05,
+  "6": 0.12
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.05,
+  0.4,
+  0.25,
+  0.12,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  0,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 890,
+  "output_tokens": 442
+ },
+ "raw_response": "Looking at this failing test event for pandas with an AssertionError, I need to consider which files are most likely to have been modified in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError (likely a data correctness issue)\n- `app_code_changed` flag is set\n- This is bip-pandas-69\n\nLet me analyze the candidates:\n\n1. **pandas/core/apply.py** - Relatively young file (774 days), moderate activity, deals with apply operations which commonly cause AssertionErrors in tests\n2. **pandas/core/algorithms.py** - Very active file, core algorithms\n3. **pandas/core/indexers.py** - Very young file (203 days, newest), low commits but high churn ratio, deals with indexing validation - new files often contain bugs\n4. **pandas/core/indexing.py** - Most active file, very high commit frequency, indexing logic is complex and bug-prone\n5. **pandas/core/config_init.py** - Configuration initialization, less likely to cause AssertionErrors in data operations\n6. **pandas/core/missing.py** - Missing data handling, moderate activity\n\nThe `indexers.py` file is notably young (203 days) with very few commits (9) but relatively high churn for its size - this suggests it's a newer addition that may still have bugs. `indexing.py` is the most actively changed file and is a common source of bugs. `apply.py` is also relatively young and active.\n\n`config_init.py` seems least likely to cause an AssertionError in typical data operations.\n\n{\"ranking\": [3, 4, 1, 6, 2, 5], \"confidence\": {\"1\": 0.25, \"2\": 0.15, \"3\": 0.40, \"4\": 0.35, \"5\": 0.05, \"6\": 0.12}}",
+ "n_attempts": 1
+}

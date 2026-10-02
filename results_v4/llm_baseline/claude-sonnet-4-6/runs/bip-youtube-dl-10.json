@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-10",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/aes.py",
+  "youtube_dl/version.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/jsinterp.py",
+  "youtube_dl/YoutubeDL.py",
+  "youtube_dl/update.py",
+  "youtube_dl/__main__.py"
+ ],
+ "timestamp": "2026-10-02T15:37:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  5,
+  3,
+  6,
+  2,
+  7
+ ],
+ "llm_confidence_presented": {
+  "4": 0.4,
+  "1": 0.3,
+  "5": 0.2,
+  "3": 0.15,
+  "6": 0.05,
+  "2": 0.03,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.05,
+  0.2,
+  0.3,
+  0.02,
+  0.4,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  2,
+  1,
+  6,
+  0,
+  5
+ ],
+ "usage": {
+  "input_tokens": 936,
+  "output_tokens": 492
+ },
+ "raw_response": "Looking at this failing test with AssertionError in youtube-dl, I need to consider which files are most likely to have been changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError (likely a test assertion failing due to incorrect behavior)\n- `app_code_changed` flag is set\n- The test name suggests it's related to YouTube downloading functionality\n\nAnalysis of candidates:\n1. `aes.py` - Encryption/decryption, moderate activity, could be related to YouTube's signature decryption\n2. `version.py` - Very high commit frequency (version bumps), but rarely the actual fix\n3. `utils.py` - High activity, utility functions used everywhere\n4. `jsinterp.py` - JavaScript interpreter, relatively recent file, used for YouTube signature decryption - very relevant for YouTube-specific issues\n5. `YoutubeDL.py` - Core downloader, very high activity, central to most functionality\n6. `update.py` - Update mechanism, less likely for a test failure\n7. `__main__.py` - Entry point, very rarely changed\n\nFor YouTube-dl bugs, `jsinterp.py` is frequently involved in signature decryption issues. `aes.py` is also relevant for encryption-related bugs. `YoutubeDL.py` and `utils.py` are always candidates due to their central role.\n\nThe `jsinterp.py` file is relatively young (325 days) with moderate commits, suggesting active development and bug-fixing. `aes.py` also has moderate activity. Given the AssertionError pattern and YouTube-specific nature, `jsinterp.py` and `aes.py` seem most likely, with `utils.py` and `YoutubeDL.py` as secondary candidates.\n\n{\"ranking\": [4, 1, 5, 3, 6, 2, 7], \"confidence\": {\"4\": 0.40, \"1\": 0.30, \"5\": 0.20, \"3\": 0.15, \"6\": 0.05, \"2\": 0.03, \"7\": 0.02}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-scrapy-13",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "scrapy/pipelines/images.py",
+  "scrapy/pipelines/files.py",
+  "scrapy/pipelines/__init__.py",
+  "scrapy/pipelines/media.py"
+ ],
+ "timestamp": "2026-10-02T15:33:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.75,
+  "2": 0.75,
+  "4": 0.65,
+  "3": 0.25
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.65,
+  0.25,
+  0.75
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 794,
+  "output_tokens": 243
+ },
+ "raw_response": "Looking at this failing test in scrapy's pipelines module:\n\n- Files 1 and 2 (images.py, files.py) show 0 commits, 0 devs, 0 churn - these appear to be new files added in the fix commit (not yet in history), which is a strong signal they are part of the fix\n- File 4 (media.py) has very high commit frequency and churn, suggesting it's actively developed and likely involved in the fix\n- File 3 (__init__.py) has moderate activity but is less likely to be the core defective file\n\nThe zero-history files (1 and 2) are likely newly created files in the fix commit. The high-activity media.py is likely the source of the bug being fixed. The __init__.py may have been updated to reference new files.\n\n{\"ranking\": [1, 2, 4, 3], \"confidence\": {\"1\": 0.75, \"2\": 0.75, \"4\": 0.65, \"3\": 0.25}}",
+ "n_attempts": 1
+}

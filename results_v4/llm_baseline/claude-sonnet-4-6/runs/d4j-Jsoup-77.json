@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-77",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/ParseSettings.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/ParseErrorList.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java"
+ ],
+ "timestamp": "2026-10-02T15:12:15",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  4,
+  1,
+  3,
+  5,
+  6,
+  8,
+  7
+ ],
+ "llm_confidence_presented": {
+  "2": 0.72,
+  "4": 0.65,
+  "1": 0.45,
+  "3": 0.2,
+  "5": 0.12,
+  "6": 0.12,
+  "8": 0.1,
+  "7": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.45,
+  0.2,
+  0.12,
+  0.12,
+  0.05,
+  0.65,
+  0.72
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  2,
+  3,
+  4,
+  5,
+  7,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1060,
+  "output_tokens": 441
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in Jsoup's parser\n- `app_code_changed` flag is set\n- `ParseSettings.java` (candidate 4) is notably young (332 days) and has very few commits (3) with a relatively high commit frequency (0.0633) - suggesting it's a recently added file that may have been part of a recent fix\n- `package-info.java` (candidate 2) has age_days=1, meaning it was just created - this is highly suspicious as it was likely added in the fix commit\n- `Tag.java` (candidate 1) has high churn and many commits, making it a common target for fixes\n- `ParseSettings.java` is a settings class that could affect parsing behavior related to case sensitivity or other settings\n\nThe `package-info.java` with age_days=1 strongly suggests it was added in the fix commit. `ParseSettings.java` with age_days=332 and only 3 commits also looks like a recently introduced file that could be part of the fix. `Tag.java` with high activity is also a candidate.\n\nThe combination of `ParseSettings.java` (new settings class) and `Tag.java` (core tag handling) seems most likely for a fix involving parsing behavior. The `package-info.java` being brand new (age=1) is almost certainly part of the fix commit.\n\n{\"ranking\": [2, 4, 1, 3, 5, 6, 8, 7], \"confidence\": {\"2\": 0.72, \"4\": 0.65, \"1\": 0.45, \"3\": 0.20, \"5\": 0.12, \"6\": 0.12, \"8\": 0.10, \"7\": 0.05}}",
+ "n_attempts": 1
+}

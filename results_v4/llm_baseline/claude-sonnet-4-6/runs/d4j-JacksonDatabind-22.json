@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-22",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/ser/PropertyWriter.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/ResolvableSerializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/SerializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/DefaultSerializerProvider.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/VirtualBeanPropertyWriter.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java"
+ ],
+ "timestamp": "2026-10-02T15:05:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  1,
+  5,
+  8,
+  7,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "6": 0.65,
+  "2": 0.3,
+  "1": 0.2,
+  "5": 0.15,
+  "8": 0.12,
+  "7": 0.1,
+  "4": 0.08,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.12,
+  0.1,
+  0.04,
+  0.2,
+  0.3,
+  0.65,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  4,
+  5,
+  7,
+  2,
+  1,
+  0,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1133,
+  "output_tokens": 439
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files are most likely defective.\n\nKey observations:\n- The test involves serialization (all files are in the `ser` package)\n- `VirtualBeanPropertyWriter` (file 6) has an extremely high commit frequency (4.6667) and is very recently created (age_days=12), suggesting active development/bug fixing\n- `ResolvableSerializer` (file 2) is also very recent (age_days=23) with high commit frequency (0.9130)\n- `PropertyWriter` (file 1) is relatively recent (age_days=310) with some activity\n- `BasicSerializerFactory` (file 5) and `BeanSerializerFactory` (file 8) are heavily modified files with high commit counts\n- `BeanPropertyWriter` (file 7) is also heavily modified\n\nThe `VirtualBeanPropertyWriter` stands out dramatically - it's only 12 days old with a commit frequency of 4.6667 (nearly 5 commits per day), indicating it's a very new feature that's likely still being debugged. This is a strong signal.\n\n`ResolvableSerializer` at 23 days old with high frequency is also suspicious.\n\n`PropertyWriter` at 310 days with relatively low churn but some recent activity could be related.\n\nThe high-churn files like `BasicSerializerFactory` and `BeanSerializerFactory` are always candidates for serialization bugs.\n\n{\"ranking\": [6, 2, 1, 5, 8, 7, 4, 3], \"confidence\": {\"6\": 0.65, \"2\": 0.30, \"1\": 0.20, \"5\": 0.15, \"8\": 0.12, \"7\": 0.10, \"4\": 0.08, \"3\": 0.04}}",
+ "n_attempts": 1
+}

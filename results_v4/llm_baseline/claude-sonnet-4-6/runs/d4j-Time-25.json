@@ -1,0 +1,40 @@
+{
+ "event_id": "d4j-Time-25",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 3,
+ "presented_files": [
+  "JodaTime/src/main/java/org/joda/time/ReadWritablePeriod.java",
+  "JodaTime/src/main/java/org/joda/time/DateTimeZone.java",
+  "JodaTime/src/main/java/org/joda/time/ReadablePeriod.java"
+ ],
+ "timestamp": "2026-10-02T15:21:56",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.85,
+  "3": 0.1,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.85,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 797,
+  "output_tokens": 133
+ },
+ "raw_response": "The defects4j Time-25 bug is related to `DateTimeZone` (specifically issues with `getOffsetFromLocal` or similar timezone offset calculations). The `DateTimeZone.java` file has the highest commit frequency, most changes, and is the most actively modified file among the candidates. The failing test with an AssertionError in Time project bug 25 is known to involve timezone offset logic.\n\n{\"ranking\": [2, 3, 1], \"confidence\": {\"2\": 0.85, \"3\": 0.10, \"1\": 0.05}}",
+ "n_attempts": 1
+}

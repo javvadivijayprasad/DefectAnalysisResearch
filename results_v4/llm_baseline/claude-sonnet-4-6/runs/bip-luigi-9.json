@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-luigi-9",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "luigi/notifications.py",
+  "luigi/target.py",
+  "luigi/execution_summary.py",
+  "luigi/interface.py",
+  "luigi/task.py",
+  "luigi/webhdfs.py",
+  "luigi/hadoop.py",
+  "luigi/rpc.py"
+ ],
+ "timestamp": "2026-10-02T15:25:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  4,
+  5,
+  1,
+  8,
+  7,
+  2,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.45,
+  "4": 0.35,
+  "5": 0.25,
+  "1": 0.12,
+  "8": 0.08,
+  "7": 0.07,
+  "2": 0.05,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.07,
+  0.25,
+  0.35,
+  0.05,
+  0.03,
+  0.08,
+  0.12
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  2,
+  1,
+  6,
+  7,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 966,
+  "output_tokens": 405
+ },
+ "raw_response": "Looking at this failing test in luigi (Python) with an AssertionError, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The test failure involves an AssertionError (likely a test assertion failing due to unexpected behavior)\n- `app_code_changed` flag is set\n- `execution_summary.py` is relatively young (361 days) but has high commit frequency (0.2715) - suggesting active development with potential bugs\n- `interface.py` has very high commit frequency (0.6120) and high churn (3237) - very actively modified\n- `task.py` has high commit frequency (0.5744) and high churn (2631)\n- `execution_summary.py` deals with summarizing execution results, which is often where assertion-related bugs appear in test suites\n\nThe `execution_summary.py` file stands out as:\n1. Relatively new (361 days) - more likely to have bugs\n2. High commit frequency for its age\n3. Deals with execution summary logic which is commonly tested\n\n`interface.py` is also a strong candidate given its very high churn and commit frequency - it's the main entry point and frequently modified.\n\n`task.py` is another strong candidate given its high activity.\n\n`notifications.py` has moderate activity and could be involved in test assertions about notification behavior.\n\n{\"ranking\": [3, 4, 5, 1, 8, 7, 2, 6], \"confidence\": {\"3\": 0.45, \"4\": 0.35, \"5\": 0.25, \"1\": 0.12, \"8\": 0.08, \"7\": 0.07, \"2\": 0.05, \"6\": 0.03}}",
+ "n_attempts": 1
+}

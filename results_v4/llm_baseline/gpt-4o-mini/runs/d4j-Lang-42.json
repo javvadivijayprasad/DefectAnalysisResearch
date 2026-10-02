@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Lang-42",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/Entities.java",
+  "src/java/org/apache/commons/lang/CharSet.java",
+  "src/java/org/apache/commons/lang/ArrayUtils.java",
+  "src/java/org/apache/commons/lang/IntHashMap.java",
+  "src/java/org/apache/commons/lang/ObjectUtils.java",
+  "src/java/org/apache/commons/lang/RandomStringUtils.java",
+  "src/java/org/apache/commons/lang/ClassUtils.java",
+  "src/java/org/apache/commons/lang/BooleanUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:48:50",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  5,
+  2,
+  6,
+  7,
+  4,
+  8
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "1": 0.25,
+  "5": 0.15,
+  "2": 0.1,
+  "6": 0.08,
+  "7": 0.04,
+  "4": 0.02,
+  "8": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.02,
+  0.35,
+  0.15,
+  0.04,
+  0.1,
+  0.08,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  6,
+  0,
+  2,
+  5,
+  3,
+  4,
+  7
+ ],
+ "usage": {
+  "input_tokens": 872,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[3,1,5,2,6,7,4,8],\"confidence\":{\"3\":0.35,\"1\":0.25,\"5\":0.15,\"2\":0.10,\"6\":0.08,\"7\":0.04,\"4\":0.02,\"8\":0.01}}",
+ "n_attempts": 1
+}

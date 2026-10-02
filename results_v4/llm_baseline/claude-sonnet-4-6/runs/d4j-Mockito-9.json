@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Mockito-9",
+ "repo": "defects4j:Mockito",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/org/mockito/internal/stubbing/answers/ReturnsElementsOf.java",
+  "src/org/mockito/internal/stubbing/answers/ThrowsException.java",
+  "src/org/mockito/internal/stubbing/answers/AnswerReturnValuesAdapter.java",
+  "src/org/mockito/internal/stubbing/answers/CallsRealMethods.java",
+  "src/org/mockito/internal/stubbing/answers/ReturnsArgumentAt.java",
+  "src/org/mockito/internal/stubbing/answers/MethodInfo.java"
+ ],
+ "timestamp": "2026-10-02T15:19:29",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  6,
+  4,
+  1,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "5": 0.72,
+  "6": 0.35,
+  "4": 0.12,
+  "1": 0.08,
+  "2": 0.06,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.05,
+  0.06,
+  0.08,
+  0.72,
+  0.35
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  5,
+  4,
+  3,
+  0,
+  1
+ ],
+ "usage": {
+  "input_tokens": 964,
+  "output_tokens": 75
+ },
+ "raw_response": "{\"ranking\": [5, 6, 4, 1, 2, 3], \"confidence\": {\"5\": 0.72, \"6\": 0.35, \"4\": 0.12, \"1\": 0.08, \"2\": 0.06, \"3\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-JxPath-11",
+ "repo": "defects4j:JxPath",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java",
+  "src/java/org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java",
+  "src/java/org/apache/commons/jxpath/ri/model/dom/DOMNodePointer.java",
+  "src/java/org/apache/commons/jxpath/ri/model/jdom/JDOMNamespacePointer.java"
+ ],
+ "timestamp": "2026-10-02T15:13:25",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "2": 0.25,
+  "1": 0.15,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.15,
+  0.05,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 881,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [3, 2, 1, 4], \"confidence\": {\"3\": 0.55, \"2\": 0.25, \"1\": 0.15, \"4\": 0.05}}",
+ "n_attempts": 1
+}

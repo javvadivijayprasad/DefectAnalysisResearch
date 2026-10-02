@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-tornado-16",
+ "repo": "bugsinpy:tornado",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "tornado/concurrent.py",
+  "tornado/queues.py",
+  "tornado/log.py",
+  "tornado/autoreload.py",
+  "tornado/httpclient.py",
+  "tornado/gen.py"
+ ],
+ "timestamp": "2026-10-02T15:36:33",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  6,
+  1,
+  5,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.72,
+  "6": 0.25,
+  "1": 0.2,
+  "5": 0.08,
+  "4": 0.04,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.03,
+  0.04,
+  0.72,
+  0.2,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  5,
+  4,
+  0,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 873,
+  "output_tokens": 294
+ },
+ "raw_response": "Looking at the failing test event for tornado (Python) with an AssertionError:\n\nKey observations:\n- `tornado/queues.py` has extremely high commit frequency (2.15/day) and very young age (26 days), suggesting it's a recently added/heavily modified file - likely the source of a new bug\n- `tornado/concurrent.py` has moderate activity and is related to async/concurrent operations\n- `tornado/gen.py` is heavily modified and deals with generators/coroutines\n- The test involves async operations (tornado is an async framework)\n\nThe `queues.py` file stands out dramatically - it's only 26 days old with a commit frequency of 2.15 commits/day, indicating it was very recently added and actively being worked on. This is a strong signal for a defective file.\n\n`tornado/concurrent.py` and `tornado/gen.py` are also candidates as they deal with futures/coroutines which interact closely with queues.\n\n{\"ranking\": [2, 6, 1, 5, 4, 3], \"confidence\": {\"2\": 0.72, \"6\": 0.25, \"1\": 0.20, \"5\": 0.08, \"4\": 0.04, \"3\": 0.03}}",
+ "n_attempts": 1
+}

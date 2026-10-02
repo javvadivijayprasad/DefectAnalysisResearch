@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-2",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/distribution/UniformIntegerDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/PascalDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/FDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/IntegerDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/ChiSquaredDistribution.java"
+ ],
+ "timestamp": "2026-10-02T15:15:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  2,
+  5,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "3": 0.82,
+  "1": 0.1,
+  "2": 0.05,
+  "5": 0.04,
+  "4": 0.02,
+  "6": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.04,
+  0.02,
+  0.02,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  5,
+  4,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 988,
+  "output_tokens": 158
+ },
+ "raw_response": "The test is `d4j-Math-2`, which is known to be related to `HypergeometricDistribution` - specifically a bug in the `upperCumulativeProbability` or `cumulativeProbability` calculation. The `HypergeometricDistribution` file has significant churn and is the most likely candidate for this defect.\n\n{\"ranking\": [3, 1, 2, 5, 4, 6], \"confidence\": {\"3\": 0.82, \"1\": 0.10, \"2\": 0.05, \"5\": 0.04, \"4\": 0.02, \"6\": 0.02}}",
+ "n_attempts": 1
+}

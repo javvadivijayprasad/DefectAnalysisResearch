@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JacksonDatabind-78",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/DataFormatReaders.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/KeyDeserializers.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/ContextualKeyDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/Deserializers.java"
+ ],
+ "timestamp": "2026-10-02T15:07:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  2,
+  5,
+  1
+ ],
+ "llm_confidence_presented": {
+  "4": 0.65,
+  "3": 0.45,
+  "2": 0.2,
+  "5": 0.08,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.05,
+  0.65,
+  0.08,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  0,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 947,
+  "output_tokens": 405
+ },
+ "raw_response": "Looking at the failing test event for JacksonDatabind-78, I need to identify which files are likely defective.\n\nKey observations:\n- The failure is an AssertionError, suggesting a logic/behavior issue\n- `app_code_changed` flag is set\n- Candidate 4 (`ContextualKeyDeserializer.java`) is very recently created (age_days=32) with a very high commit frequency (0.875), suggesting it's a new file that may have introduced or is related to the bug\n- Candidate 2 (`KeyDeserializers.java`) has moderate activity and relates to key deserialization\n- Candidate 3 (`BeanDeserializerFactory.java`) is the most heavily modified file with very high churn, and is central to deserialization logic\n- The \"Contextual\" pattern in Jackson relates to context-aware deserialization, which is a common source of bugs\n\nThe `ContextualKeyDeserializer` being brand new (32 days old) with very high commit frequency strongly suggests it's part of a recent change that introduced the bug. `BeanDeserializerFactory` is also a prime candidate given its central role and high activity. `KeyDeserializers` could be involved as the interface/base for key deserialization.\n\nThe combination of `ContextualKeyDeserializer` (new file, high churn) and `BeanDeserializerFactory` (central deserialization factory) seems most likely to be the defective pair.\n\n{\"ranking\": [4, 3, 2, 5, 1], \"confidence\": {\"4\": 0.65, \"3\": 0.45, \"2\": 0.20, \"5\": 0.08, \"1\": 0.05}}",
+ "n_attempts": 1
+}

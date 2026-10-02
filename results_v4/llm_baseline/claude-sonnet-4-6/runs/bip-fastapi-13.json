@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-fastapi-13",
+ "repo": "bugsinpy:fastapi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "fastapi/__init__.py",
+  "fastapi/datastructures.py",
+  "fastapi/applications.py",
+  "fastapi/routing.py",
+  "fastapi/encoders.py"
+ ],
+ "timestamp": "2026-10-02T15:23:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "2": 0.82,
+  "1": 0.55,
+  "4": 0.3,
+  "3": 0.2,
+  "5": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.08,
+  0.82,
+  0.2,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  4,
+  0,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 831,
+  "output_tokens": 284
+ },
+ "raw_response": "Looking at the candidates:\n\n- `fastapi/datastructures.py` has commits=1, devs=1, age_days=1, commit_freq=1.0 \u2014 this is a brand new file with only 1 commit, strongly suggesting it was just introduced as part of a fix.\n- `fastapi/routing.py` has the highest churn and commit frequency, making it a likely place for bugs.\n- `fastapi/applications.py` also has high churn and multiple devs.\n- `fastapi/__init__.py` frequently updated, might expose new datastructures.\n- `fastapi/encoders.py` less likely but possible.\n\nThe `datastructures.py` file being brand new (age_days=1, commits=1) is a very strong signal it was introduced in the fix commit. The `__init__.py` likely needed updating to export the new datastructures. `routing.py` could also be involved given its high activity.\n\n{\"ranking\": [2, 1, 4, 3, 5], \"confidence\": {\"2\": 0.82, \"1\": 0.55, \"4\": 0.30, \"3\": 0.20, \"5\": 0.08}}",
+ "n_attempts": 1
+}

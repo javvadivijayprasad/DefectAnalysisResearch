@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Lang-59",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/text/StrLookup.java",
+  "src/java/org/apache/commons/lang/text/StrMatcher.java",
+  "src/java/org/apache/commons/lang/text/StrTokenizer.java",
+  "src/java/org/apache/commons/lang/text/StrBuilder.java",
+  "src/java/org/apache/commons/lang/text/CompositeFormat.java"
+ ],
+ "timestamp": "2026-10-02T15:15:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  2,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.82,
+  "3": 0.08,
+  "2": 0.04,
+  "1": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.04,
+  0.02,
+  0.03,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 899,
+  "output_tokens": 149
+ },
+ "raw_response": "The failing test is in defects4j:Lang-59. This is a known defect related to `StrBuilder` - specifically the `appendFixedWidthPadRight` method having an off-by-one or buffer issue. The `StrBuilder` class is the most heavily modified file with high churn and many commits, making it the most likely candidate for the defect.\n\n{\"ranking\": [4, 3, 2, 1, 5], \"confidence\": {\"4\": 0.82, \"3\": 0.08, \"2\": 0.04, \"1\": 0.03, \"5\": 0.02}}",
+ "n_attempts": 1
+}

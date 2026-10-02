@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-thefuck-13",
+ "repo": "bugsinpy:thefuck",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "thefuck/rules/dirty_untar.py",
+  "thefuck/rules/ls_lah.py",
+  "thefuck/rules/java.py",
+  "thefuck/rules/git_branch_exists.py",
+  "thefuck/rules/history.py",
+  "thefuck/rules/apt_get.py",
+  "thefuck/rules/sudo.py"
+ ],
+ "timestamp": "2026-10-02T15:55:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  2,
+  3,
+  5,
+  6,
+  7
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.2,
+  "3": 0.15,
+  "4": 0.3,
+  "5": 0.05,
+  "6": 0.03,
+  "7": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.03,
+  0.25,
+  0.2,
+  0.02,
+  0.05,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  5,
+  1,
+  2,
+  6,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 788,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [4, 1, 2, 3, 5, 6, 7], \"confidence\": {\"1\": 0.25, \"2\": 0.20, \"3\": 0.15, \"4\": 0.30, \"5\": 0.05, \"6\": 0.03, \"7\": 0.02}}",
+ "n_attempts": 1
+}

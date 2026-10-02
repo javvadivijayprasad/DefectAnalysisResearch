@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-luigi-15",
+ "repo": "bugsinpy:luigi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "luigi/hive.py",
+  "luigi/cmdline_parser.py",
+  "luigi/task_register.py",
+  "luigi/six.py",
+  "luigi/target.py",
+  "luigi/hadoop.py",
+  "luigi/execution_summary.py",
+  "luigi/scheduler.py"
+ ],
+ "timestamp": "2026-10-02T15:25:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  2,
+  7,
+  8,
+  5,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.65,
+  "3": 0.45,
+  "2": 0.35,
+  "7": 0.15,
+  "8": 0.12,
+  "5": 0.05,
+  "1": 0.04,
+  "6": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.12,
+  0.45,
+  0.04,
+  0.35,
+  0.03,
+  0.15,
+  0.05,
+  0.65
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  6,
+  2,
+  7,
+  3,
+  5,
+  0
+ ],
+ "usage": {
+  "input_tokens": 962,
+  "output_tokens": 420
+ },
+ "raw_response": "Looking at the failing test event for bugsinpy:luigi with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- `luigi/six.py` (candidate 4) has age_days=1, meaning it was just added/created. This is highly suspicious as a newly added file that could introduce issues.\n- `luigi/task_register.py` (candidate 3) has relatively recent activity (age_days=128) with high commit frequency and significant additions (+267/-29), suggesting active development where bugs could be introduced.\n- `luigi/cmdline_parser.py` (candidate 2) is also very recent (age_days=73) with high commit frequency.\n\nThe `luigi/six.py` file being brand new (age_days=1, single commit, single dev, +843/-0) strongly suggests it was added as part of a fix or change that might be related to the bug. The `six` library is commonly used for Python 2/3 compatibility, and adding it as a local module could affect task registration and command-line parsing.\n\n`luigi/task_register.py` with recent high activity and `luigi/cmdline_parser.py` are also strong candidates as they deal with task registration and command-line parsing which could trigger AssertionErrors.\n\nThe `luigi/scheduler.py` has very high commit frequency and is a core component, but its age suggests it's been stable longer.\n\n{\"ranking\": [4, 3, 2, 7, 8, 5, 1, 6], \"confidence\": {\"4\": 0.65, \"3\": 0.45, \"2\": 0.35, \"7\": 0.15, \"8\": 0.12, \"5\": 0.05, \"1\": 0.04, \"6\": 0.03}}",
+ "n_attempts": 1
+}

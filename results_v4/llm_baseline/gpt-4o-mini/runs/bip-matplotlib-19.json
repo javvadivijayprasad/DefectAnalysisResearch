@@ -1,0 +1,40 @@
+{
+ "event_id": "bip-matplotlib-19",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 3,
+ "presented_files": [
+  "lib/matplotlib/projections/polar.py",
+  "lib/matplotlib/projections/__init__.py",
+  "lib/matplotlib/projections/geo.py"
+ ],
+ "timestamp": "2026-10-02T15:52:28",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "3": 0.3,
+  "2": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.15,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 648,
+  "output_tokens": 39
+ },
+ "raw_response": "{\"ranking\": [1, 3, 2], \"confidence\": {\"1\": 0.55, \"3\": 0.30, \"2\": 0.15}}",
+ "n_attempts": 1
+}

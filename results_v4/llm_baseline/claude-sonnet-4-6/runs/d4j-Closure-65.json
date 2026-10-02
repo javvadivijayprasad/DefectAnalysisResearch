@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-65",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/CodeGenerator.java",
+  "src/com/google/javascript/jscomp/AliasStrings.java",
+  "src/com/google/javascript/jscomp/GroupVariableDeclarations.java",
+  "src/com/google/javascript/jscomp/ErrorPass.java",
+  "src/com/google/javascript/jscomp/GlobalNamespace.java",
+  "src/com/google/javascript/jscomp/ComposeWarningsGuard.java"
+ ],
+ "timestamp": "2026-10-02T14:52:41",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  2,
+  3,
+  6,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "5": 0.08,
+  "2": 0.05,
+  "3": 0.04,
+  "6": 0.03,
+  "4": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.03,
+  0.08,
+  0.05,
+  0.02,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  1,
+  2,
+  5,
+  3
+ ],
+ "usage": {
+  "input_tokens": 945,
+  "output_tokens": 182
+ },
+ "raw_response": "The failing test is in Closure's code generation area. The test name \"d4j-Closure-65\" and the `AssertionError` signal point to a code generation issue. `CodeGenerator.java` is by far the most active file (52 commits, highest churn at 1742, highest commit frequency at 0.6523), making it the most likely candidate for a defect fix. The other files are much less active and less related to typical code generation assertion failures.\n\n{\"ranking\": [1, 5, 2, 3, 6, 4], \"confidence\": {\"1\": 0.82, \"5\": 0.08, \"2\": 0.05, \"3\": 0.04, \"6\": 0.03, \"4\": 0.02}}",
+ "n_attempts": 1
+}

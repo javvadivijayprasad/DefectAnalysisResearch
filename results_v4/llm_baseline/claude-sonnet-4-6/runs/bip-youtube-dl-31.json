@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-youtube-dl-31",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "youtube_dl/extractor/xminus.py",
+  "youtube_dl/extractor/extremetube.py",
+  "youtube_dl/extractor/vgtv.py",
+  "youtube_dl/extractor/audiomack.py",
+  "youtube_dl/extractor/minhateca.py",
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/vube.py"
+ ],
+ "timestamp": "2026-10-02T15:37:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  4,
+  6,
+  3,
+  7,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.05,
+  "3": 0.1,
+  "4": 0.2,
+  "5": 0.35,
+  "6": 0.15,
+  "7": 0.07
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.15,
+  0.05,
+  0.25,
+  0.07,
+  0.2,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  6,
+  1,
+  5,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 952,
+  "output_tokens": 547
+ },
+ "raw_response": "Looking at this failing test with AssertionError in youtube-dl, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError (likely from a test assertion about extracted data)\n- `app_code_changed` flag is set\n- I need to consider file activity patterns and likelihood of being the defective file\n\nAnalysis:\n1. **xminus.py** - Very recent file (5 days old), high commit frequency (3.0/day), small file with recent changes. Very active recently.\n2. **extremetube.py** - Moderate activity, older file\n3. **vgtv.py** - Relatively recent (89 days), moderate-high activity\n4. **audiomack.py** - Recent file (41 days), high commit frequency (1.7/day)\n5. **minhateca.py** - Brand new file (1 day old), only 1 commit, new addition\n6. **utils.py** - Core utility file, very high activity, many commits\n7. **vube.py** - Moderate activity\n\nThe test name is `bip-youtube-dl-31`. AssertionError in youtube-dl tests typically means an extractor failed to extract expected data.\n\n- **minhateca.py** (age=1 day, 1 commit) - brand new file, likely just added\n- **xminus.py** (age=5 days, high freq) - very recently active\n- **audiomack.py** (age=41 days, high freq) - recently active\n- **utils.py** - core file that's frequently modified and could affect many extractors\n\nThe combination of a very new file (minhateca.py) and a recently active extractor (xminus.py or audiomack.py) seems most likely. For bug fixes, the defective file is often one that was recently introduced or heavily modified. The brand-new minhateca.py and very active xminus.py stand out most.\n\n{\"ranking\": [5, 1, 4, 6, 3, 7, 2], \"confidence\": {\"1\": 0.25, \"2\": 0.05, \"3\": 0.10, \"4\": 0.20, \"5\": 0.35, \"6\": 0.15, \"7\": 0.07}}",
+ "n_attempts": 1
+}

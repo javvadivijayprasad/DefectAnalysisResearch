@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Lang-13",
+ "repo": "defects4j:Lang",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/lang3/SerializationUtils.java",
+  "src/main/java/org/apache/commons/lang3/JavaVersion.java",
+  "src/main/java/org/apache/commons/lang3/CharEncoding.java",
+  "src/main/java/org/apache/commons/lang3/EnumUtils.java",
+  "src/main/java/org/apache/commons/lang3/CharUtils.java",
+  "src/main/java/org/apache/commons/lang3/ClassUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:14:17",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  6,
+  4,
+  5,
+  3,
+  2
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "6": 0.08,
+  "4": 0.04,
+  "5": 0.03,
+  "3": 0.02,
+  "2": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.04,
+  0.02,
+  0.01,
+  0.08,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  5,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 958,
+  "output_tokens": 149
+ },
+ "raw_response": "The failing test is d4j-Lang-13. In defects4j, Lang-13 is related to `SerializationUtils` - specifically a bug in the `clone()` method that fails with an `AssertionError`. The `SerializationUtils.java` file has significant churn and is the most likely candidate.\n\n{\"ranking\": [1, 6, 4, 5, 3, 2], \"confidence\": {\"1\": 0.82, \"6\": 0.08, \"4\": 0.04, \"5\": 0.03, \"3\": 0.02, \"2\": 0.01}}",
+ "n_attempts": 1
+}

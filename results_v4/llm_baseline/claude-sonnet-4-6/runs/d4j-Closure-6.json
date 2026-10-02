@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-6",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/DiagnosticGroupWarningsGuard.java",
+  "src/com/google/javascript/rhino/jstype/ValueType.java",
+  "src/com/google/javascript/jscomp/JSError.java",
+  "src/com/google/javascript/rhino/jstype/FunctionType.java",
+  "src/com/google/javascript/jscomp/ReplaceMessages.java",
+  "src/com/google/javascript/jscomp/AbstractCompiler.java",
+  "src/com/google/javascript/jscomp/TypeValidator.java"
+ ],
+ "timestamp": "2026-10-02T14:50:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  4,
+  6,
+  3,
+  5,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "7": 0.55,
+  "4": 0.35,
+  "6": 0.12,
+  "3": 0.08,
+  "5": 0.06,
+  "1": 0.05,
+  "2": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.35,
+  0.06,
+  0.05,
+  0.12,
+  0.08,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  5,
+  2,
+  3,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1006,
+  "output_tokens": 469
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-6, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is Closure-6, which relates to type checking/validation issues\n\nLet me analyze the candidates:\n\n1. **TypeValidator.java** (index 7) - High commit frequency, many devs, large churn. TypeValidator is central to type checking in Closure compiler and AssertionErrors often come from type validation logic.\n\n2. **FunctionType.java** (index 4) - Extremely high commit frequency (0.5674), very large churn (2994). FunctionType is a complex, frequently-modified file that's often involved in type-related bugs.\n\n3. **AbstractCompiler.java** (index 6) - High commit frequency, significant changes. Core compiler infrastructure.\n\n4. **ReplaceMessages.java** (index 5) - Moderate activity, but less likely related to type assertion errors.\n\n5. **JSError.java** (index 3) - Moderate activity, error handling related.\n\n6. **DiagnosticGroupWarningsGuard.java** (index 1) - Lower activity, warnings-related.\n\n7. **ValueType.java** (index 2) - Lower commit frequency, rhino type system.\n\nFor Closure-6 specifically, the bug involves type checking where an assertion fails. The most likely culprits are TypeValidator and FunctionType, as they handle type validation logic. Looking at the defects4j Closure-6 bug, it's related to type checking of function types.\n\n{\"ranking\": [7, 4, 6, 3, 5, 1, 2], \"confidence\": {\"7\": 0.55, \"4\": 0.35, \"6\": 0.12, \"3\": 0.08, \"5\": 0.06, \"1\": 0.05, \"2\": 0.04}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Jsoup-80",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/Parser.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Token.java",
+  "src/main/java/org/jsoup/parser/package-info.java",
+  "src/main/java/org/jsoup/parser/ParseSettings.java"
+ ],
+ "timestamp": "2026-10-02T15:12:28",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  8,
+  2,
+  4,
+  1,
+  3,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "7": 0.82,
+  "8": 0.55,
+  "2": 0.3,
+  "4": 0.2,
+  "1": 0.15,
+  "3": 0.12,
+  "6": 0.1,
+  "5": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.55,
+  0.2,
+  0.12,
+  0.15,
+  0.3,
+  0.1,
+  0.82
+ ],
+ "rankpos_by_corpus_row": [
+  7,
+  1,
+  3,
+  5,
+  4,
+  2,
+  6,
+  0
+ ],
+ "usage": {
+  "input_tokens": 1060,
+  "output_tokens": 405
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError in the parser package\n- `app_code_changed` flag is set\n- File 7 (`package-info.java`) has `age_days=1` and `commit_freq=1.0000` - this is a brand new file, almost certainly part of the fix commit\n- File 8 (`ParseSettings.java`) is relatively new (332 days) with low commits (3) - could be involved\n- File 2 (`CharacterReader.java`) has moderate activity and is a common source of parsing bugs\n- File 4 (`TokeniserState.java`) has high churn and many commits, suggesting active development\n\nThe `package-info.java` with age_days=1 is almost certainly part of the fix commit (it was just created). For the actual bug fix, `CharacterReader.java` is a common source of parsing issues, and `ParseSettings.java` is relatively new and could have been modified alongside the package-info.\n\nThe combination of a new `package-info.java` (likely added as part of a refactor/fix) along with `ParseSettings.java` (new file with few commits) and possibly `CharacterReader.java` seems most likely.\n\n{\"ranking\": [7, 8, 2, 4, 1, 3, 6, 5], \"confidence\": {\"7\": 0.82, \"8\": 0.55, \"2\": 0.30, \"4\": 0.20, \"1\": 0.15, \"3\": 0.12, \"6\": 0.10, \"5\": 0.08}}",
+ "n_attempts": 1
+}

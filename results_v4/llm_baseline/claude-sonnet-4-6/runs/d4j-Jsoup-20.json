@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-20",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/StringUtil.java",
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/helper/HttpConnection.java",
+  "src/main/java/org/jsoup/helper/DescendableLinkedList.java",
+  "src/main/java/org/jsoup/helper/Validate.java"
+ ],
+ "timestamp": "2026-10-02T15:09:53",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  3,
+  2,
+  1,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.85,
+  "3": 0.35,
+  "2": 0.2,
+  "1": 0.08,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.08,
+  0.35,
+  0.05,
+  0.85
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  1,
+  4,
+  0
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 321
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- `DescendableLinkedList.java` has `age_days=1` and `commit_freq=2.0000` - this is an extremely new file with very high commit frequency, strongly suggesting it was recently created/modified as part of a fix\n- `HttpConnection.java` has high commit activity (28 commits, high churn) suggesting active development\n- `DataUtil.java` has moderate activity\n- The test failure is an AssertionError in Jsoup\n\nThe `DescendableLinkedList.java` file stands out dramatically - age of 1 day and commit frequency of 2.0 means it was essentially just created. This is a very strong signal that it's part of the fix commit. It's likely a new utility class introduced to fix a bug.\n\n`HttpConnection.java` also has high activity and could be involved, as it might use the new `DescendableLinkedList`.\n\n`DataUtil.java` is also plausible as it handles data parsing which could relate to the fix.\n\n{\"ranking\": [4, 3, 2, 1, 5], \"confidence\": {\"4\": 0.85, \"3\": 0.35, \"2\": 0.20, \"1\": 0.08, \"5\": 0.05}}",
+ "n_attempts": 1
+}

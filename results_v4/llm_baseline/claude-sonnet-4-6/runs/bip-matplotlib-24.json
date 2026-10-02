@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-matplotlib-24",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "lib/matplotlib/backend_bases.py",
+  "lib/matplotlib/table.py",
+  "lib/matplotlib/hatch.py",
+  "lib/matplotlib/axis.py",
+  "lib/matplotlib/streamplot.py"
+ ],
+ "timestamp": "2026-10-02T15:27:33",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  5,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.35,
+  "4": 0.28,
+  "2": 0.2,
+  "5": 0.1,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.28,
+  0.35,
+  0.2,
+  0.1,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 845,
+  "output_tokens": 435
+ },
+ "raw_response": "Looking at this failing test in matplotlib with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The test failure is an AssertionError (likely from a test assertion failing due to incorrect behavior)\n- `app_code_changed` flag is set, indicating application code was modified\n\nLet me analyze the candidates:\n\n1. **backend_bases.py** - Very high commit frequency (0.8989), massive churn (19024), many devs. Core backend file that's frequently modified and complex.\n\n2. **table.py** - Moderate activity, relatively focused functionality. Tables in matplotlib have had various bugs.\n\n3. **hatch.py** - Low activity, low churn. Less likely to be the source.\n\n4. **axis.py** - High commit frequency (0.4536), significant churn (10327). Axis handling is complex and frequently buggy.\n\n5. **streamplot.py** - Moderate activity. Streamplot is a specialized feature.\n\nFor bugsinpy:matplotlib bug #24, I need to reason about which component is most likely involved. The AssertionError in matplotlib tests often relates to rendering or data processing. `backend_bases.py` and `axis.py` are the most frequently modified files with high complexity. `table.py` has had notable bugs related to rendering and positioning.\n\nGiven the bug index (24) and the nature of AssertionError failures in matplotlib, `table.py` is a reasonable candidate as table rendering has had specific bugs. However, `backend_bases.py` and `axis.py` are also strong candidates due to their complexity and change frequency.\n\n{\"ranking\": [1, 4, 2, 5, 3], \"confidence\": {\"1\": 0.35, \"4\": 0.28, \"2\": 0.20, \"5\": 0.10, \"3\": 0.05}}",
+ "n_attempts": 1
+}

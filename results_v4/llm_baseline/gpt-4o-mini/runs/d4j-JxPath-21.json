@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-JxPath-21",
+ "repo": "defects4j:JxPath",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/jxpath/ri/model/beans/BeanPointer.java",
+  "src/java/org/apache/commons/jxpath/ri/model/beans/BeanPropertyPointer.java",
+  "src/java/org/apache/commons/jxpath/ri/model/beans/PropertyPointer.java",
+  "src/java/org/apache/commons/jxpath/ri/model/beans/BeanAttributeIterator.java",
+  "src/java/org/apache/commons/jxpath/ri/model/beans/CollectionPointerFactory.java"
+ ],
+ "timestamp": "2026-10-02T15:48:27",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.35,
+  "3": 0.2,
+  "4": 0.15,
+  "5": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.2,
+  0.15,
+  0.05,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 771,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [2, 1, 3, 4, 5], \"confidence\": {\"1\": 0.25, \"2\": 0.35, \"3\": 0.20, \"4\": 0.15, \"5\": 0.05}}",
+ "n_attempts": 1
+}

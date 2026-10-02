@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-72",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ManagedReferenceProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/InnerClassProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/BeanAsArrayDeserializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/PropertyValue.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/UnwrappedPropertyHandler.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ReadableObjectId.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/package-info.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/SetterlessProperty.java"
+ ],
+ "timestamp": "2026-10-02T15:46:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  7,
+  1,
+  3,
+  6,
+  2,
+  5,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.15,
+  "2": 0.05,
+  "3": 0.12,
+  "4": 0.35,
+  "5": 0.07,
+  "6": 0.1,
+  "7": 0.25,
+  "8": 0.06
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.1,
+  0.15,
+  0.06,
+  0.12,
+  0.35,
+  0.07,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  4,
+  2,
+  7,
+  3,
+  0,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 937,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [4, 7, 1, 3, 6, 2, 5, 8], \"confidence\": {\"1\": 0.15, \"2\": 0.05, \"3\": 0.12, \"4\": 0.35, \"5\": 0.07, \"6\": 0.1, \"7\": 0.25, \"8\": 0.06}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Collections-13",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/collections/ClosureUtils.java",
+  "src/java/org/apache/commons/collections/MapUtils.java",
+  "src/java/org/apache/commons/collections/ExtendedProperties.java",
+  "src/java/org/apache/commons/collections/BufferUnderflowException.java",
+  "src/java/org/apache/commons/collections/ListUtils.java",
+  "src/java/org/apache/commons/collections/IteratorUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:45:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  5,
+  6,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.35,
+  "3": 0.25,
+  "5": 0.15,
+  "6": 0.12,
+  "1": 0.08,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.35,
+  0.08,
+  0.15,
+  0.12,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  4,
+  2,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 795,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\":[2,3,5,6,1,4],\"confidence\":{\"2\":0.35,\"3\":0.25,\"5\":0.15,\"6\":0.12,\"1\":0.08,\"4\":0.05}}",
+ "n_attempts": 1
+}

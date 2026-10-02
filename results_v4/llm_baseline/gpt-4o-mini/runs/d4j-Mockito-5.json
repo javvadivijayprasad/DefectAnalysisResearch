@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Mockito-5",
+ "repo": "defects4j:Mockito",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/org/mockito/internal/verification/VerificationModeFactory.java",
+  "src/org/mockito/internal/verification/InOrderWrapper.java",
+  "src/org/mockito/internal/verification/Only.java",
+  "src/org/mockito/internal/verification/VerificationOverTimeImpl.java",
+  "src/org/mockito/internal/verification/SingleRegisteredInvocation.java",
+  "src/org/mockito/internal/verification/VerificationDataImpl.java",
+  "src/org/mockito/internal/verification/AtLeast.java",
+  "src/org/mockito/internal/verification/InOrderContextImpl.java"
+ ],
+ "timestamp": "2026-10-02T15:50:12",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  4,
+  7,
+  1,
+  2,
+  3,
+  8,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "4": 0.2,
+  "7": 0.15,
+  "1": 0.08,
+  "2": 0.05,
+  "3": 0.04,
+  "8": 0.02,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.2,
+  0.02,
+  0.15,
+  0.45,
+  0.05,
+  0.01,
+  0.08,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  6,
+  2,
+  0,
+  4,
+  7,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 865,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [5, 4, 7, 1, 2, 3, 8, 6], \"confidence\": {\"5\": 0.45, \"4\": 0.20, \"7\": 0.15, \"1\": 0.08, \"2\": 0.05, \"3\": 0.04, \"8\": 0.02, \"6\": 0.01}}",
+ "n_attempts": 1
+}

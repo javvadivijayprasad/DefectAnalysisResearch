@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this bundle, please cite both the archived artifact and the companion paper."
-title: "Post-Execution Defect Attribution on Real-World Defects — Reproducibility Bundle v2.0.0"
+title: "Trust, Augment, or Replace? Cross-Project Defect Attribution — Reproducibility Bundle v4.0.0: Corrected LOPO Corpus, Executed LLM Parity Baselines, and Calibration Sensitivity Analysis (1,267 Real Defects from Defects4J and BugsInPy)"
 type: dataset
 authors:
   - family-names: Javvadi
@@ -8,8 +8,8 @@ authors:
     orcid: "https://orcid.org/0009-0004-1192-6906"
     affiliation: "Independent Researcher, Plainsboro, NJ, USA"
     email: "vijay@vijayjavvadiresearch.ai"
-version: 2.0.0
-date-released: 2026-08-09
+version: 4.0.0
+date-released: 2026-10-02
 license: CC-BY-4.0
 repository-code: "https://github.com/javvadivijayprasad/DefectAnalysisResearch"
 keywords:
@@ -33,7 +33,7 @@ preferred-citation:
       given-names: Vijay Prasad
       orcid: "https://orcid.org/0009-0004-1192-6906"
       affiliation: "Independent Researcher, Plainsboro, NJ, USA"
-  title: "Post-Execution Defect Attribution on Real-World Defects: An Empirical Comparison of Four Methods on Defects4J and BugsInPy"
-  journal: "Journal of Systems and Software"
+  title: "Trust, Augment, or Replace? What a Cross-Project Defect Predictor Is Worth on 1,267 Real Defects from Defects4J and BugsInPy"
+  journal: "PeerJ Computer Science"
   year: 2026
   doi: "[PAPER-DOI-HERE]"

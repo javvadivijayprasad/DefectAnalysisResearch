@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Time-4",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/joda/time/Partial.java",
+  "src/main/java/org/joda/time/MutableInterval.java",
+  "src/main/java/org/joda/time/ReadableDuration.java",
+  "src/main/java/org/joda/time/Chronology.java"
+ ],
+ "timestamp": "2026-10-02T15:21:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.82,
+  "4": 0.08,
+  "2": 0.06,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.06,
+  0.08,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  3
+ ],
+ "usage": {
+  "input_tokens": 836,
+  "output_tokens": 126
+ },
+ "raw_response": "The test is \"Time-4\" which in defects4j corresponds to a bug in `Partial.java` related to the `with` method or constructor validation. The `Partial` class is the most likely candidate given the test name and the fact that it's the only one with relatively recent changes and lower commit frequency suggesting targeted fixes.\n\n{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.82, \"4\": 0.08, \"2\": 0.06, \"3\": 0.04}}",
+ "n_attempts": 1
+}

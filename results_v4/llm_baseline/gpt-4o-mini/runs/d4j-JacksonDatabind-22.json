@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-JacksonDatabind-22",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/ser/PropertyWriter.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/ResolvableSerializer.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/SerializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/DefaultSerializerProvider.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/BasicSerializerFactory.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/VirtualBeanPropertyWriter.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/BeanPropertyWriter.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java"
+ ],
+ "timestamp": "2026-10-02T15:46:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  2,
+  1,
+  4,
+  5,
+  7,
+  8,
+  3
+ ],
+ "llm_confidence_presented": {
+  "6": 0.35,
+  "2": 0.25,
+  "1": 0.15,
+  "4": 0.1,
+  "5": 0.08,
+  "7": 0.04,
+  "8": 0.02,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.02,
+  0.04,
+  0.01,
+  0.15,
+  0.25,
+  0.35,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  6,
+  5,
+  7,
+  2,
+  1,
+  0,
+  3
+ ],
+ "usage": {
+  "input_tokens": 927,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[6,2,1,4,5,7,8,3],\"confidence\":{\"6\":0.35,\"2\":0.25,\"1\":0.15,\"4\":0.10,\"5\":0.08,\"7\":0.04,\"8\":0.02,\"3\":0.01}}",
+ "n_attempts": 1
+}

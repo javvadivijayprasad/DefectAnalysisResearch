@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-matplotlib-10",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "lib/matplotlib/fontconfig_pattern.py",
+  "lib/matplotlib/tight_layout.py",
+  "lib/matplotlib/backend_tools.py",
+  "lib/matplotlib/units.py",
+  "lib/matplotlib/patheffects.py",
+  "lib/matplotlib/contour.py",
+  "lib/matplotlib/axis.py"
+ ],
+ "timestamp": "2026-10-02T15:26:52",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  6,
+  3,
+  2,
+  4,
+  5,
+  1
+ ],
+ "llm_confidence_presented": {
+  "7": 0.35,
+  "6": 0.25,
+  "3": 0.15,
+  "2": 0.1,
+  "4": 0.08,
+  "5": 0.04,
+  "1": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.25,
+  0.15,
+  0.04,
+  0.1,
+  0.08,
+  0.03
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  5,
+  3,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 946,
+  "output_tokens": 437
+ },
+ "raw_response": "Looking at this failing test with AssertionError in matplotlib, I need to consider which files are most likely to contain the defect.\n\nKey observations:\n- The failure is an AssertionError, which could come from many places\n- `app_code_changed` flag suggests application code was modified\n- I need to consider file activity, complexity, and relevance to common matplotlib bugs\n\nAnalysis of candidates:\n- **axis.py** (7): Highest commit frequency and churn - very active file, frequently modified, likely to have bugs\n- **contour.py** (6): Second highest activity, very large file with lots of changes\n- **backend_tools.py** (3): High commit frequency, relatively newer file (2241 days)\n- **tight_layout.py** (2): Moderate activity\n- **units.py** (4): Moderate activity, older file\n- **patheffects.py** (5): Lower activity\n- **fontconfig_pattern.py** (1): Lowest activity\n\nFor bugsinpy matplotlib bug #10, considering the nature of AssertionError failures and the typical bugs in matplotlib:\n- `axis.py` is the most frequently modified and complex file\n- `contour.py` is also very active and complex\n- `units.py` handles unit conversions which can cause assertion errors\n- `tight_layout.py` deals with layout calculations\n\nGiven the high churn and commit frequency of axis.py and contour.py, and that AssertionError often relates to data validation in core rendering/axis code, I'll rank accordingly.\n\n{\"ranking\": [7, 6, 3, 2, 4, 5, 1], \"confidence\": {\"7\": 0.35, \"6\": 0.25, \"3\": 0.15, \"2\": 0.10, \"4\": 0.08, \"5\": 0.04, \"1\": 0.03}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,55 @@
+{
+ "event_id": "bip-pandas-163",
+ "repo": "bugsinpy:pandas",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "pandas/core/base.py",
+  "pandas/core/series.py",
+  "pandas/core/window.py",
+  "pandas/core/frame.py",
+  "pandas/core/indexers.py",
+  "pandas/core/index.py"
+ ],
+ "timestamp": "2026-10-02T15:32:55",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  3,
+  2,
+  1,
+  4,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.72,
+  "3": 0.35,
+  "2": 0.12,
+  "1": 0.08,
+  "4": 0.06,
+  "6": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.12,
+  0.72,
+  0.04,
+  0.06,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  0,
+  5,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 894,
+  "output_tokens": 163
+ },
+ "raw_response": "The key signal here is candidate 5 (pandas/core/indexers.py): age_days=1 and commits=2, meaning this file was essentially just created. A brand-new file with very few commits is a strong indicator it was introduced as part of a fix commit. The window.py file (candidate 3) is also plausible as rolling/window operations often involve indexer logic.\n\n{\"ranking\": [5, 3, 2, 1, 4, 6], \"confidence\": {\"5\": 0.72, \"3\": 0.35, \"2\": 0.12, \"1\": 0.08, \"4\": 0.06, \"6\": 0.04}}",
+ "n_attempts": 1
+}

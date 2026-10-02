@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-47",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/JsAst.java",
+  "src/com/google/javascript/jscomp/CompilationLevel.java",
+  "src/com/google/javascript/jscomp/AliasStrings.java",
+  "src/com/google/javascript/jscomp/SourceMap.java",
+  "src/com/google/debugging/sourcemap/SourceMapConsumerV3.java",
+  "src/com/google/debugging/sourcemap/FilePosition.java",
+  "src/com/google/javascript/jscomp/DisambiguateProperties.java"
+ ],
+ "timestamp": "2026-10-02T15:43:46",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  7,
+  2,
+  1,
+  3,
+  5,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.3,
+  "7": 0.25,
+  "2": 0.15,
+  "1": 0.1,
+  "3": 0.1,
+  "5": 0.05,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.05,
+  0.3,
+  0.15,
+  0.25,
+  0.1,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  6,
+  5,
+  0,
+  2,
+  1,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 819,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [4, 7, 2, 1, 3, 5, 6], \"confidence\": {\"4\": 0.30, \"7\": 0.25, \"2\": 0.15, \"1\": 0.10, \"3\": 0.10, \"5\": 0.05, \"6\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-13",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/ser/impl/ReadOnlyClassToSerializerMap.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/impl/PropertyBasedObjectIdGenerator.java",
+  "src/main/java/com/fasterxml/jackson/databind/ser/impl/ObjectIdWriter.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/DefaultDeserializationContext.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/BeanDeserializerBuilder.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/ObjectIdValueProperty.java",
+  "src/main/java/com/fasterxml/jackson/databind/deser/impl/PropertyBasedObjectIdGenerator.java"
+ ],
+ "timestamp": "2026-10-02T15:05:06",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  2,
+  6,
+  3,
+  5,
+  4,
+  1
+ ],
+ "llm_confidence_presented": {
+  "7": 0.55,
+  "2": 0.45,
+  "6": 0.3,
+  "3": 0.25,
+  "5": 0.2,
+  "4": 0.15,
+  "1": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.3,
+  0.55,
+  0.45,
+  0.25,
+  0.2,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  2,
+  0,
+  1,
+  3,
+  4,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1084,
+  "output_tokens": 432
+ },
+ "raw_response": "Looking at this failing test in JacksonDatabind, I need to identify which files are likely defective.\n\nKey observations:\n- The test involves an `AssertionError` \n- The `app_code_changed` flag is set\n- The candidates include both serializer and deserializer related files\n- Files 2 and 7 are both named `PropertyBasedObjectIdGenerator` - one in `ser/impl` and one in `deser/impl`\n- File 7 (`deser/impl/PropertyBasedObjectIdGenerator`) has very low commits (2) and is relatively new (281 days), suggesting it was recently added\n- File 2 (`ser/impl/PropertyBasedObjectIdGenerator`) also has low commits (5) and is relatively new (290 days)\n\nThe test is likely related to Object ID handling. The `deser/impl/PropertyBasedObjectIdGenerator` (file 7) with only 2 commits and 37 lines added (no deletions) looks like a newly added file that might have a bug. Similarly, file 2 in the serializer side.\n\nFile 6 (`ObjectIdValueProperty`) has high commit frequency and churn, suggesting active development in this area.\n\nFile 5 (`BeanDeserializerBuilder`) has the highest commit frequency among candidates, suggesting it's heavily modified.\n\nFile 3 (`ObjectIdWriter`) has significant churn (269) and is related to Object ID handling.\n\nGiven the Object ID theme across multiple files and the test failure pattern:\n\n{\"ranking\": [7, 2, 6, 3, 5, 4, 1], \"confidence\": {\"7\": 0.55, \"2\": 0.45, \"6\": 0.30, \"3\": 0.25, \"5\": 0.20, \"4\": 0.15, \"1\": 0.05}}",
+ "n_attempts": 1
+}

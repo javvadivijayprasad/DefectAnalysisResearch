@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-scrapy-23",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "scrapy/downloadermiddlewares/redirect.py",
+  "scrapy/downloadermiddlewares/httpcache.py",
+  "scrapy/downloadermiddlewares/ajaxcrawl.py",
+  "scrapy/downloadermiddlewares/useragent.py",
+  "scrapy/downloadermiddlewares/downloadtimeout.py",
+  "scrapy/downloadermiddlewares/httpproxy.py",
+  "scrapy/downloadermiddlewares/retry.py"
+ ],
+ "timestamp": "2026-10-02T15:33:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  7,
+  2,
+  6,
+  3,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "7": 0.25,
+  "2": 0.15,
+  "6": 0.08,
+  "3": 0.05,
+  "4": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.03,
+  0.02,
+  0.25,
+  0.05,
+  0.45,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  5,
+  6,
+  1,
+  4,
+  0,
+  2
+ ],
+ "usage": {
+  "input_tokens": 973,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [1, 7, 2, 6, 3, 4, 5], \"confidence\": {\"1\": 0.45, \"7\": 0.25, \"2\": 0.15, \"6\": 0.08, \"3\": 0.05, \"4\": 0.03, \"5\": 0.02}}",
+ "n_attempts": 1
+}

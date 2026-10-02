@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-matplotlib-26",
+ "repo": "bugsinpy:matplotlib",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "lib/matplotlib/fontconfig_pattern.py",
+  "lib/matplotlib/table.py",
+  "lib/matplotlib/axis.py",
+  "lib/matplotlib/sankey.py",
+  "lib/matplotlib/texmanager.py",
+  "lib/matplotlib/spines.py",
+  "lib/matplotlib/tight_bbox.py",
+  "lib/matplotlib/cm.py"
+ ],
+ "timestamp": "2026-10-02T15:27:35",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  8,
+  2,
+  4,
+  6,
+  7,
+  1
+ ],
+ "llm_confidence_presented": {
+  "3": 0.35,
+  "5": 0.2,
+  "8": 0.15,
+  "2": 0.12,
+  "4": 0.08,
+  "6": 0.06,
+  "7": 0.05,
+  "1": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.15,
+  0.08,
+  0.2,
+  0.05,
+  0.12,
+  0.04,
+  0.06
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  4,
+  1,
+  6,
+  3,
+  7,
+  5
+ ],
+ "usage": {
+  "input_tokens": 993,
+  "output_tokens": 523
+ },
+ "raw_response": "Looking at this failing test in matplotlib with an AssertionError, I need to consider which files are most likely to contain the defect.\n\nKey considerations:\n- The failure is an AssertionError, which could come from many places\n- `app_code_changed` flag suggests application code was modified\n- I need to assess which files are most likely to have been changed in a fix commit\n\nLet me analyze the candidates:\n\n1. **axis.py** - Very high commit frequency (0.4959), most commits (382), most developers (61) - this is a core, heavily modified file that's frequently changed. High probability of being involved.\n\n2. **cm.py** - High commits (149), significant churn (2972) - colormap management, frequently modified.\n\n3. **texmanager.py** - High commits (177), significant churn (4278) - TeX rendering, frequently modified.\n\n4. **table.py** - High commits (112), significant churn (2230) - table rendering.\n\n5. **sankey.py** - Moderate commits (68), high churn (3650) relative to commits.\n\n6. **spines.py** - Moderate commits (61), moderate churn.\n\n7. **fontconfig_pattern.py** - Lower commits (35), lower churn.\n\n8. **tight_bbox.py** - Lowest commits (21), lowest churn - but sometimes small utility files contain subtle bugs.\n\nGiven the AssertionError and the nature of matplotlib bugs, `axis.py` is the most frequently modified and complex file. `texmanager.py` and `cm.py` are also strong candidates. `tight_bbox.py` despite low activity could be involved in layout-related assertion failures.\n\nFor matplotlib bug #26 specifically, considering the pattern of changes and that tight_bbox relates to bounding box calculations which often trigger AssertionErrors in layout code:\n\n{\"ranking\": [3, 5, 8, 2, 4, 6, 7, 1], \"confidence\": {\"3\": 0.35, \"5\": 0.20, \"8\": 0.15, \"2\": 0.12, \"4\": 0.08, \"6\": 0.06, \"7\": 0.05, \"1\": 0.04}}",
+ "n_attempts": 1
+}

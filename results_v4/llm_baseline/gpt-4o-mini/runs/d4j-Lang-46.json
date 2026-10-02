@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Lang-46",
+ "repo": "defects4j:Lang",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/lang/StringEscapeUtils.java",
+  "src/java/org/apache/commons/lang/NumberRange.java",
+  "src/java/org/apache/commons/lang/SystemUtils.java",
+  "src/java/org/apache/commons/lang/CharRange.java",
+  "src/java/org/apache/commons/lang/BitField.java"
+ ],
+ "timestamp": "2026-10-02T15:48:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  3,
+  2,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "3": 0.3,
+  "2": 0.15,
+  "5": 0.07,
+  "4": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.3,
+  0.03,
+  0.07,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  3,
+  2
+ ],
+ "usage": {
+  "input_tokens": 738,
+  "output_tokens": 61
+ },
+ "raw_response": "{\"ranking\": [1, 3, 2, 5, 4], \"confidence\": {\"1\": 0.45, \"3\": 0.30, \"2\": 0.15, \"5\": 0.07, \"4\": 0.03}}",
+ "n_attempts": 1
+}

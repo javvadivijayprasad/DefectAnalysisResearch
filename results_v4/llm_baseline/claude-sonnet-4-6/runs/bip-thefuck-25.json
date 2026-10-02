@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-thefuck-25",
+ "repo": "bugsinpy:thefuck",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "thefuck/rules/git_branch_list.py",
+  "thefuck/rules/history.py",
+  "thefuck/rules/sl_ls.py",
+  "thefuck/rules/ls_lah.py",
+  "thefuck/rules/brew_upgrade.py",
+  "thefuck/rules/mkdir_p.py",
+  "thefuck/rules/docker_not_command.py"
+ ],
+ "timestamp": "2026-10-02T15:35:37",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  3,
+  7,
+  2,
+  1,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "6": 0.35,
+  "3": 0.3,
+  "7": 0.2,
+  "2": 0.15,
+  "1": 0.08,
+  "5": 0.05,
+  "4": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.3,
+  0.05,
+  0.2,
+  0.04,
+  0.15,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  5,
+  2,
+  6,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 951,
+  "output_tokens": 518
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in a Python project (thefuck)\n- The `app_code_changed` flag is set, indicating application code was modified\n- I need to look at commit statistics to identify likely defective files\n\nAnalysis:\n- **File 3 (sl_ls.py)**: Very new file (age_days=1), only 1 commit, 1 developer. Brand new files often introduce bugs.\n- **File 6 (mkdir_p.py)**: Also very new (age_days=1), 2 commits, commit_freq=2.0 (very high). New files are prime candidates.\n- **File 7 (docker_not_command.py)**: Recent file (age_days=24), relatively high commit frequency (1.1667), 4 commits - active development suggests recent changes/fixes.\n- **File 2 (history.py)**: Recent (age_days=37), 5 commits, high commit_freq=0.9459 - actively modified.\n- **File 1 (git_branch_list.py)**: age_days=49, 3 commits, moderate activity.\n- **File 5 (brew_upgrade.py)**: age_days=76, low commit_freq.\n- **File 4 (ls_lah.py)**: Oldest file (age_days=115), moderate activity.\n\nThe very new files (sl_ls.py and mkdir_p.py) with age_days=1 are most suspicious as they were just created and likely introduced bugs. The high commit frequency of mkdir_p.py (2.0) suggests it was modified multiple times quickly, possibly fixing issues. docker_not_command.py and history.py are also recent with active development.\n\n{\"ranking\": [6, 3, 7, 2, 1, 5, 4], \"confidence\": {\"6\": 0.35, \"3\": 0.30, \"7\": 0.20, \"2\": 0.15, \"1\": 0.08, \"5\": 0.05, \"4\": 0.04}}",
+ "n_attempts": 1
+}

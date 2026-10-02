@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-scrapy-15",
+ "repo": "bugsinpy:scrapy",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "scrapy/utils/url.py",
+  "scrapy/utils/signal.py",
+  "scrapy/utils/sitemap.py",
+  "scrapy/utils/ftp.py",
+  "scrapy/utils/engine.py",
+  "scrapy/utils/defer.py",
+  "scrapy/utils/datatypes.py",
+  "scrapy/utils/deprecate.py"
+ ],
+ "timestamp": "2026-10-02T15:33:45",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  1,
+  7,
+  6,
+  5,
+  8,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "4": 0.82,
+  "1": 0.08,
+  "7": 0.05,
+  "6": 0.04,
+  "5": 0.03,
+  "8": 0.03,
+  "2": 0.02,
+  "3": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.03,
+  0.82,
+  0.03,
+  0.04,
+  0.05,
+  0.02,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  4,
+  0,
+  5,
+  3,
+  2,
+  6,
+  7
+ ],
+ "usage": {
+  "input_tokens": 984,
+  "output_tokens": 167
+ },
+ "raw_response": "The standout signal here is candidate 4 (`scrapy/utils/ftp.py`) with `age_days=1` and `commit_freq=1.0000` \u2014 this file was essentially just created/modified in a single commit very recently, which strongly suggests it's the file introduced by the fix commit.\n\n{\"ranking\": [4, 1, 7, 6, 5, 8, 2, 3], \"confidence\": {\"4\": 0.82, \"1\": 0.08, \"7\": 0.05, \"6\": 0.04, \"5\": 0.03, \"8\": 0.03, \"2\": 0.02, \"3\": 0.01}}",
+ "n_attempts": 1
+}

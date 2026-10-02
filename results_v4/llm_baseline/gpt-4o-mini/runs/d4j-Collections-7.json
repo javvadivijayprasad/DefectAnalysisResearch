@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Collections-7",
+ "repo": "defects4j:Collections",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/java/org/apache/commons/collections/FactoryUtils.java",
+  "src/java/org/apache/commons/collections/Unmodifiable.java",
+  "src/java/org/apache/commons/collections/BoundedFifoBuffer.java",
+  "src/java/org/apache/commons/collections/DefaultMapEntry.java",
+  "src/java/org/apache/commons/collections/ExtendedProperties.java",
+  "src/java/org/apache/commons/collections/BufferOverflowException.java"
+ ],
+ "timestamp": "2026-10-02T15:45:09",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  2,
+  4,
+  3,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "5": 0.45,
+  "2": 0.25,
+  "4": 0.15,
+  "3": 0.1,
+  "1": 0.04,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.25,
+  0.04,
+  0.01,
+  0.15,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  5,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 792,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [5, 2, 4, 3, 1, 6], \"confidence\": {\"5\": 0.45, \"2\": 0.25, \"4\": 0.15, \"3\": 0.10, \"1\": 0.04, \"6\": 0.01}}",
+ "n_attempts": 1
+}

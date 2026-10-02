@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-7",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/util/TokenBuffer.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ISO8601Utils.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ByteBufferBackedInputStream.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/ViewMatcher.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/Annotations.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/NameTransformer.java",
+  "src/main/java/com/fasterxml/jackson/databind/util/SimpleBeanPropertyDefinition.java"
+ ],
+ "timestamp": "2026-10-02T15:46:23",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  7,
+  6,
+  4,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.25,
+  "7": 0.15,
+  "6": 0.1,
+  "4": 0.03,
+  "3": 0.01,
+  "5": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.45,
+  0.03,
+  0.25,
+  0.1,
+  0.01,
+  0.01,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  1,
+  3,
+  5,
+  6,
+  2
+ ],
+ "usage": {
+  "input_tokens": 862,
+  "output_tokens": 83
+ },
+ "raw_response": "{\"ranking\": [1, 2, 7, 6, 4, 3, 5], \"confidence\": {\"1\": 0.45, \"2\": 0.25, \"7\": 0.15, \"6\": 0.10, \"4\": 0.03, \"3\": 0.01, \"5\": 0.01}}",
+ "n_attempts": 1
+}

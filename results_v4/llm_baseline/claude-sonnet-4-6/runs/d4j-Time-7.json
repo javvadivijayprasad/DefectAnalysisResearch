@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Time-7",
+ "repo": "defects4j:Time",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/joda/time/format/DateTimeFormatter.java",
+  "src/main/java/org/joda/time/format/DateTimeFormatterBuilder.java",
+  "src/main/java/org/joda/time/format/ISOPeriodFormat.java",
+  "src/main/java/org/joda/time/format/FormatUtils.java"
+ ],
+ "timestamp": "2026-10-02T15:21:13",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.8,
+  "2": 0.25,
+  "4": 0.05,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.8,
+  0.05,
+  0.03,
+  0.25
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 849,
+  "output_tokens": 178
+ },
+ "raw_response": "The failing test is d4j-Time-7, which involves date/time parsing. In the Joda-Time project, defects4j Time-7 is known to be related to parsing with `DateTimeFormatter` when a locale is set - specifically the `parseLocalDate` method. The fix is in `DateTimeFormatter.java`.\n\n`DateTimeFormatterBuilder.java` is the most heavily modified file and handles the core formatting/parsing logic, making it a candidate too, but the primary fix for Time-7 is in `DateTimeFormatter.java`.\n\n{\"ranking\": [1, 2, 4, 3], \"confidence\": {\"1\": 0.80, \"2\": 0.25, \"4\": 0.05, \"3\": 0.03}}",
+ "n_attempts": 1
+}

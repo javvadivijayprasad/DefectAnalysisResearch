@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-29",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/linear/OpenMapRealVector.java",
+  "src/main/java/org/apache/commons/math3/linear/SymmLQ.java",
+  "src/main/java/org/apache/commons/math3/linear/DecompositionSolver.java",
+  "src/main/java/org/apache/commons/math3/linear/FieldLUDecomposition.java",
+  "src/main/java/org/apache/commons/math3/linear/SchurTransformer.java",
+  "src/main/java/org/apache/commons/math3/linear/FieldMatrixPreservingVisitor.java"
+ ],
+ "timestamp": "2026-10-02T15:16:57",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  4,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.92,
+  "2": 0.05,
+  "5": 0.03,
+  "4": 0.02,
+  "3": 0.02,
+  "6": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.92,
+  0.02,
+  0.02,
+  0.01,
+  0.03,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  4,
+  5,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 993,
+  "output_tokens": 196
+ },
+ "raw_response": "The failing test is d4j-Math-29, which is known to be related to `OpenMapRealVector` - specifically issues with iterator behavior when entries are zero (the sparse vector implementation has bugs with concurrent modification or incorrect iteration over entries).\n\n`OpenMapRealVector` is the most likely defective file given:\n- It's directly named in the defect ID (Math-29 is about OpenMapRealVector)\n- High commit frequency and churn indicating active development/bug fixing\n- The other files are distractors from the linear package\n\n{\"ranking\": [1, 2, 5, 4, 3, 6], \"confidence\": {\"1\": 0.92, \"2\": 0.05, \"5\": 0.03, \"4\": 0.02, \"3\": 0.02, \"6\": 0.01}}",
+ "n_attempts": 1
+}

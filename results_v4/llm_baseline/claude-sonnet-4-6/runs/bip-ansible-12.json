@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-ansible-12",
+ "repo": "bugsinpy:ansible",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "lib/ansible/plugins/lookup/onepassword_raw.py",
+  "lib/ansible/plugins/lookup/nios.py",
+  "lib/ansible/plugins/lookup/avi.py",
+  "lib/ansible/plugins/lookup/env.py",
+  "lib/ansible/plugins/lookup/first_found.py"
+ ],
+ "timestamp": "2026-10-02T15:22:22",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  1,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "2": 0.25,
+  "1": 0.12,
+  "5": 0.05,
+  "4": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.04,
+  0.25,
+  0.55,
+  0.12,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  4,
+  1,
+  0,
+  2,
+  3
+ ],
+ "usage": {
+  "input_tokens": 856,
+  "output_tokens": 500
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The failure is an AssertionError in an ansible lookup plugin\n- `app_code_changed` flag is set\n\nAnalyzing the candidates:\n\n1. **onepassword_raw.py** - 5 commits, 4 devs, moderate activity, age 476 days\n2. **nios.py** - 11 commits, 7 devs, high commit frequency (0.4375), relatively new (176 days)\n3. **avi.py** - 1 commit, 1 dev, age 1 day, commit_freq=1.0 - This is brand new, just added. Very suspicious as it could be a newly introduced file with bugs.\n4. **env.py** - 43 commits, 16 devs, very old (2132 days), high churn - mature file, less likely to be the defective one\n5. **first_found.py** - 42 commits, 17 devs, very old (2350 days), high churn - mature file\n\nThe `avi.py` file stands out dramatically - age of 1 day, 1 commit, 1 developer, commit_freq=1.0. This strongly suggests it was just introduced and is the new/defective file. However, brand new files sometimes are the fix themselves.\n\n`nios.py` has a very high commit frequency (0.4375) and is relatively new (176 days), suggesting active development and potential instability.\n\n`onepassword_raw.py` has moderate stats but nothing particularly alarming.\n\nGiven that `avi.py` is brand new (age=1 day), it's most likely the file that was just added/modified in the fix commit. The `nios.py` with high commit frequency is also a candidate.\n\n{\"ranking\": [3, 2, 1, 5, 4], \"confidence\": {\"3\": 0.55, \"2\": 0.25, \"1\": 0.12, \"5\": 0.05, \"4\": 0.04}}",
+ "n_attempts": 1
+}

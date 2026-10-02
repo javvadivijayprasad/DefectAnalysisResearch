@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Jsoup-27",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/jsoup/helper/Validate.java",
+  "src/main/java/org/jsoup/helper/DescendableLinkedList.java",
+  "src/main/java/org/jsoup/helper/StringUtil.java",
+  "src/main/java/org/jsoup/helper/DataUtil.java",
+  "src/main/java/org/jsoup/helper/HttpConnection.java"
+ ],
+ "timestamp": "2026-10-02T15:10:01",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  4,
+  3,
+  1
+ ],
+ "llm_confidence_presented": {
+  "2": 0.82,
+  "5": 0.15,
+  "4": 0.08,
+  "3": 0.05,
+  "1": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.15,
+  0.82,
+  0.05,
+  0.04
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  1,
+  0,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 139
+ },
+ "raw_response": "The key signal here is candidate 2: `DescendableLinkedList.java` has an age of only 1 day and a commit frequency of 2.0 (essentially brand new), which strongly suggests it was just introduced as part of the fix commit. New files added in fix commits are classic indicators of defective/changed files.\n\n{\"ranking\": [2, 5, 4, 3, 1], \"confidence\": {\"2\": 0.82, \"5\": 0.15, \"4\": 0.08, \"3\": 0.05, \"1\": 0.04}}",
+ "n_attempts": 1
+}

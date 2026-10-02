@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-95",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/java/org/apache/commons/math/distribution/AbstractContinuousDistribution.java",
+  "src/java/org/apache/commons/math/distribution/FDistributionImpl.java",
+  "src/java/org/apache/commons/math/distribution/ExponentialDistribution.java",
+  "src/java/org/apache/commons/math/distribution/GammaDistribution.java",
+  "src/java/org/apache/commons/math/distribution/HypergeometricDistribution.java"
+ ],
+ "timestamp": "2026-10-02T15:19:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3,
+  5
+ ],
+ "llm_confidence_presented": {
+  "2": 0.75,
+  "1": 0.15,
+  "4": 0.05,
+  "3": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.15,
+  0.05,
+  0.03,
+  0.02
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "usage": {
+  "input_tokens": 910,
+  "output_tokens": 126
+ },
+ "raw_response": "The failing test is d4j-Math-95, which is known to be related to the FDistribution. The test name suggests it's testing FDistributionImpl. The FDistributionImpl.java file has high commit activity and is the most likely candidate for the defect.\n\n{\"ranking\": [2, 1, 4, 3, 5], \"confidence\": {\"2\": 0.75, \"1\": 0.15, \"4\": 0.05, \"3\": 0.03, \"5\": 0.02}}",
+ "n_attempts": 1
+}

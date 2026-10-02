@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-JacksonDatabind-86",
+ "repo": "defects4j:JacksonDatabind",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/com/fasterxml/jackson/databind/type/MapLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/MapType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ResolvedRecursiveType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/ClassStack.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/CollectionLikeType.java",
+  "src/main/java/com/fasterxml/jackson/databind/type/TypeFactory.java"
+ ],
+ "timestamp": "2026-10-02T15:08:03",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  7,
+  3,
+  1,
+  2,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "4": 0.9,
+  "7": 0.75,
+  "3": 0.35,
+  "1": 0.1,
+  "2": 0.1,
+  "6": 0.08,
+  "5": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.08,
+  0.9,
+  0.1,
+  0.1,
+  0.75,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  6,
+  0,
+  3,
+  4,
+  1,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1061,
+  "output_tokens": 375
+ },
+ "raw_response": "Looking at the candidates, I need to identify which files were likely changed in the fix commit.\n\nKey observations:\n1. `ClassStack.java` (candidate 4) has an age of only 4 days and a commit frequency of 2.0 - this is almost certainly a newly created file added as part of the fix.\n2. `TypeFactory.java` (candidate 7) has very high commit frequency (0.2914) and is the central type resolution class - likely modified to use the new ClassStack.\n3. `ResolvedRecursiveType.java` (candidate 3) has relatively recent activity (276 days) and higher commit frequency than the collection/map types - could be involved in recursive type resolution fixes.\n\nThe test failure involves an `AssertionError` in JacksonDatabind. The `ClassStack` file being brand new (4 days old, 2.0 commit frequency) strongly suggests it was introduced as part of this fix - likely to handle recursive type resolution (preventing stack overflow or infinite loops). `TypeFactory` would naturally be modified to use this new class. `ResolvedRecursiveType` might also be involved given its name relates to recursive types.\n\nThe map/collection types are older with lower commit frequencies and are less likely to be the defective files.\n\n{\"ranking\": [4, 7, 3, 1, 2, 6, 5], \"confidence\": {\"4\": 0.90, \"7\": 0.75, \"3\": 0.35, \"1\": 0.10, \"2\": 0.10, \"6\": 0.08, \"5\": 0.08}}",
+ "n_attempts": 1
+}

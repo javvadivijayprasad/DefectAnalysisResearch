@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-18",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/ParseError.java",
+  "src/main/java/org/jsoup/parser/TokeniserState.java",
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Tokeniser.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/Token.java"
+ ],
+ "timestamp": "2026-10-02T15:09:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  2,
+  4,
+  7,
+  5,
+  6,
+  1
+ ],
+ "llm_confidence_presented": {
+  "1": 0.05,
+  "2": 0.35,
+  "3": 0.45,
+  "4": 0.3,
+  "5": 0.15,
+  "6": 0.1,
+  "7": 0.2
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.05,
+  0.2,
+  0.15,
+  0.3,
+  0.35,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  5,
+  6,
+  3,
+  4,
+  2,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 996,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [3, 2, 4, 7, 5, 6, 1], \"confidence\": {\"1\": 0.05, \"2\": 0.35, \"3\": 0.45, \"4\": 0.30, \"5\": 0.15, \"6\": 0.10, \"7\": 0.20}}",
+ "n_attempts": 1
+}

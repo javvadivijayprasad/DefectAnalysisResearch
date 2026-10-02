@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-35",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilder.java",
+  "src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java",
+  "src/main/java/org/jsoup/parser/TreeBuilder.java",
+  "src/main/java/org/jsoup/parser/Parser.java",
+  "src/main/java/org/jsoup/parser/CharacterReader.java",
+  "src/main/java/org/jsoup/parser/Tag.java",
+  "src/main/java/org/jsoup/parser/Token.java"
+ ],
+ "timestamp": "2026-10-02T15:10:24",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  3,
+  4,
+  7,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.55,
+  "3": 0.3,
+  "4": 0.15,
+  "5": 0.05,
+  "6": 0.08,
+  "7": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.3,
+  0.15,
+  0.45,
+  0.1,
+  0.05,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1,
+  4,
+  6,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1004,
+  "output_tokens": 475
+ },
+ "raw_response": "Looking at this failing test in Jsoup's parser package, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure is an AssertionError in Jsoup's HTML parsing\n- The `app_code_changed` flag indicates application code was modified\n- This is in the parser package\n\nAnalyzing the candidates:\n\n1. **HtmlTreeBuilder.java** - Core HTML tree building logic, high commit frequency (0.1035), relatively recent activity. Very likely to contain parsing bugs.\n\n2. **HtmlTreeBuilderState.java** - State machine for HTML tree building, highest churn (1601), most commits (14), high commit frequency. This handles the complex state transitions during parsing and is a common source of bugs.\n\n3. **TreeBuilder.java** - Base tree builder, very high commit frequency (0.2229), high churn. Recently active (314 days old vs others at 879+).\n\n4. **Parser.java** - High commit frequency (0.3590), many commits (58), but more of a facade/entry point.\n\n5. **CharacterReader.java** - Lower activity, less likely for an AssertionError in tree building.\n\n6. **Tag.java** - Many commits (49), high churn, but Tag handling is less likely to cause AssertionErrors in parsing.\n\n7. **Token.java** - Moderate activity, tokenization layer.\n\nFor Jsoup issue 35, the bug is typically related to HTML tree building state handling. The HtmlTreeBuilderState and HtmlTreeBuilder are the most likely culprits for parsing-related AssertionErrors. TreeBuilder.java's very recent activity (314 days vs 879 for others) is suspicious.\n\n{\"ranking\": [2, 1, 3, 4, 7, 6, 5], \"confidence\": {\"1\": 0.45, \"2\": 0.55, \"3\": 0.30, \"4\": 0.15, \"5\": 0.05, \"6\": 0.08, \"7\": 0.10}}",
+ "n_attempts": 1
+}

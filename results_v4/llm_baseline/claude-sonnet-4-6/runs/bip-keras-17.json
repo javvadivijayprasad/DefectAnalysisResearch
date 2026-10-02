@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-keras-17",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "keras/callbacks.py",
+  "keras/activations.py",
+  "keras/initializers.py",
+  "keras/__init__.py",
+  "keras/losses.py",
+  "keras/metrics.py",
+  "keras/constraints.py",
+  "keras/objectives.py"
+ ],
+ "timestamp": "2026-10-02T15:24:05",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  6,
+  8,
+  7,
+  2,
+  3,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "5": 0.2,
+  "6": 0.15,
+  "8": 0.1,
+  "7": 0.05,
+  "2": 0.04,
+  "3": 0.03,
+  "4": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.15,
+  0.1,
+  0.04,
+  0.03,
+  0.45,
+  0.02,
+  0.05,
+  0.2
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  5,
+  6,
+  0,
+  7,
+  4,
+  1
+ ],
+ "usage": {
+  "input_tokens": 955,
+  "output_tokens": 493
+ },
+ "raw_response": "Looking at this failing test in keras, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test failure is an AssertionError in keras\n- The bug is labeled \"bip-keras-17\" which suggests it's a specific known bug\n- The `app_code_changed` flag indicates application code was modified\n\nAnalyzing the candidates:\n- `keras/callbacks.py` - Very high commit frequency (0.98), most active file, high churn\n- `keras/losses.py` - Moderately active, deals with loss functions\n- `keras/metrics.py` - Moderately active, deals with metrics\n- `keras/objectives.py` - Relatively high commit frequency for its age, deals with objectives (older API)\n- `keras/activations.py` - Less active\n- `keras/initializers.py` - Less active\n- `keras/constraints.py` - Less active\n- `keras/__init__.py` - Moderate activity\n\nFor keras bug #17 in bugsinpy, this is likely related to a specific functional issue. The `objectives.py` file is notable - it's an older file that wraps losses, and bugs there could cause AssertionErrors when testing loss/objective functions. The `losses.py` file is also a strong candidate given its activity level.\n\n`callbacks.py` has the highest commit frequency and churn, making it statistically likely to contain bugs. However, for an AssertionError specifically, `losses.py` or `metrics.py` seem more likely targets.\n\nGiven the historical pattern of keras bugs and the file statistics, `callbacks.py` with its extremely high activity is the most likely defective file, followed by `losses.py` and `metrics.py`.\n\n{\"ranking\": [1, 5, 6, 8, 7, 2, 3, 4], \"confidence\": {\"1\": 0.45, \"5\": 0.20, \"6\": 0.15, \"8\": 0.10, \"7\": 0.05, \"2\": 0.04, \"3\": 0.03, \"4\": 0.02}}",
+ "n_attempts": 1
+}

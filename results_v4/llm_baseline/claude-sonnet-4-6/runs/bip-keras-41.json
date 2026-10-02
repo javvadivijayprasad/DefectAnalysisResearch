@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-keras-41",
+ "repo": "bugsinpy:keras",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "keras/utils/np_utils.py",
+  "keras/utils/conv_utils.py",
+  "keras/utils/data_utils.py",
+  "keras/utils/generic_utils.py",
+  "keras/utils/io_utils.py",
+  "keras/utils/vis_utils.py",
+  "keras/utils/training_utils.py",
+  "keras/utils/__init__.py"
+ ],
+ "timestamp": "2026-10-02T15:24:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  2,
+  4,
+  3,
+  1,
+  6,
+  5,
+  8
+ ],
+ "llm_confidence_presented": {
+  "7": 0.45,
+  "2": 0.25,
+  "4": 0.15,
+  "3": 0.08,
+  "1": 0.05,
+  "6": 0.04,
+  "5": 0.03,
+  "8": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.08,
+  0.03,
+  0.25,
+  0.04,
+  0.45,
+  0.02,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  6,
+  1,
+  5,
+  0,
+  7,
+  2,
+  4
+ ],
+ "usage": {
+  "input_tokens": 978,
+  "output_tokens": 417
+ },
+ "raw_response": "Looking at the candidates, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The failure is an `AssertionError` in keras utils\n- `app_code_changed` flag is set\n- File 7 (`training_utils.py`) has the highest commit frequency (1.26) and is very young (50 days), suggesting active development/recent changes\n- File 2 (`conv_utils.py`) is also young (84 days) with high commit frequency (0.6667)\n- File 4 (`generic_utils.py`) has the most commits (72) and high churn, suggesting it's a core utility that gets frequently modified\n- File 3 (`data_utils.py`) has the most commits (56) and highest churn (1318)\n\nFor an `AssertionError` in keras utils:\n- `training_utils.py` is very recently active (age=50 days, freq=1.26) - likely a new file with bugs\n- `conv_utils.py` is also recent (age=84 days, freq=0.6667)\n- `generic_utils.py` is a central utility with many changes\n\nThe very high commit frequency of `training_utils.py` combined with its young age strongly suggests it's under active development and likely contains the bug. `conv_utils.py` is also suspicious for similar reasons.\n\n{\"ranking\": [7, 2, 4, 3, 1, 6, 5, 8], \"confidence\": {\"7\": 0.45, \"2\": 0.25, \"4\": 0.15, \"3\": 0.08, \"1\": 0.05, \"6\": 0.04, \"5\": 0.03, \"8\": 0.02}}",
+ "n_attempts": 1
+}

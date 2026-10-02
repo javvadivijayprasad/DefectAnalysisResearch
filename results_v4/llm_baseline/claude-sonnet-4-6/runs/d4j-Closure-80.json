@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Closure-80",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/CompilerInput.java",
+  "src/com/google/javascript/jscomp/CheckLevelLegacy.java",
+  "src/com/google/javascript/jscomp/LiveVariablesAnalysis.java",
+  "src/com/google/javascript/jscomp/ProcessTweaks.java"
+ ],
+ "timestamp": "2026-10-02T14:53:31",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  5,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "5": 0.4,
+  "4": 0.1,
+  "2": 0.07,
+  "3": 0.03
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.4,
+  0.1,
+  0.03,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 888,
+  "output_tokens": 330
+ },
+ "raw_response": "Looking at the candidates:\n\n- **NodeUtil.java**: High commit frequency, many changes, core utility class that's frequently modified to fix bugs. Very likely candidate.\n- **ProcessTweaks.java**: Very new file (6 days old), very high commit frequency (4.0/day), single developer, large addition. A brand new file being actively worked on is suspicious for bugs.\n- **LiveVariablesAnalysis.java**: Moderate activity, could be related to analysis bugs.\n- **CompilerInput.java**: Moderate activity.\n- **CheckLevelLegacy.java**: Low activity, small changes, unlikely.\n\nThe test is d4j-Closure-80. Given the failure is an AssertionError in the Closure compiler, and considering:\n- ProcessTweaks.java is extremely new (6 days) with a single developer making large changes - high likelihood of bugs\n- NodeUtil.java is the most frequently modified core utility - often the source of fixes\n- The combination of a new feature (ProcessTweaks) potentially interacting with NodeUtil utilities is a common pattern\n\nThe most likely defective files are NodeUtil.java and/or ProcessTweaks.java.\n\n{\"ranking\": [1, 5, 4, 2, 3], \"confidence\": {\"1\": 0.55, \"5\": 0.40, \"4\": 0.10, \"2\": 0.07, \"3\": 0.03}}",
+ "n_attempts": 1
+}

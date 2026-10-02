@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-fastapi-10",
+ "repo": "bugsinpy:fastapi",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 8,
+ "presented_files": [
+  "fastapi/params.py",
+  "fastapi/applications.py",
+  "fastapi/__init__.py",
+  "fastapi/routing.py",
+  "fastapi/exceptions.py",
+  "fastapi/encoders.py",
+  "fastapi/exception_handlers.py",
+  "fastapi/utils.py"
+ ],
+ "timestamp": "2026-10-02T15:23:20",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  7,
+  5,
+  4,
+  2,
+  1,
+  6,
+  8,
+  3
+ ],
+ "llm_confidence_presented": {
+  "7": 0.82,
+  "5": 0.55,
+  "4": 0.35,
+  "2": 0.2,
+  "1": 0.12,
+  "6": 0.08,
+  "8": 0.07,
+  "3": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.82,
+  0.04,
+  0.08,
+  0.12,
+  0.2,
+  0.07,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  0,
+  7,
+  5,
+  4,
+  3,
+  6,
+  1
+ ],
+ "usage": {
+  "input_tokens": 963,
+  "output_tokens": 393
+ },
+ "raw_response": "Looking at this failing test event for fastapi with an AssertionError, I need to identify which files are most likely defective.\n\nKey observations:\n- The failure involves an `AssertionError` which in FastAPI context often relates to routing, parameter handling, or request validation\n- `app_code_changed` flag is set\n- File 7 (`fastapi/exception_handlers.py`) stands out dramatically: age_days=1 (brand new file), commits=1, churn=23 - this is almost certainly a newly added file in the fix commit\n- File 5 (`fastapi/exceptions.py`) has very few commits (3) and low age (103 days), suggesting it's relatively new\n- File 4 (`fastapi/routing.py`) has the highest churn and many commits/devs, making it a frequent change target\n- File 2 (`fastapi/applications.py`) also has high churn\n\nThe combination of `exception_handlers.py` being 1 day old and `exceptions.py` being relatively new strongly suggests these two files were added/modified together as part of a fix related to exception handling. The AssertionError could be related to HTTP exception handling.\n\nFile 4 (routing.py) is also a strong candidate given its high activity and central role in FastAPI.\n\n{\"ranking\": [7, 5, 4, 2, 1, 6, 8, 3], \"confidence\": {\"7\": 0.82, \"5\": 0.55, \"4\": 0.35, \"2\": 0.20, \"1\": 0.12, \"6\": 0.08, \"8\": 0.07, \"3\": 0.04}}",
+ "n_attempts": 1
+}

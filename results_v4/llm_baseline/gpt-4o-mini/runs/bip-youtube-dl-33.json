@@ -1,0 +1,65 @@
+{
+ "event_id": "bip-youtube-dl-33",
+ "repo": "bugsinpy:youtube-dl",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "youtube_dl/utils.py",
+  "youtube_dl/extractor/pornhub.py",
+  "youtube_dl/extractor/drtv.py",
+  "youtube_dl/extractor/ruhd.py",
+  "youtube_dl/extractor/vh1.py",
+  "youtube_dl/extractor/trilulilu.py",
+  "youtube_dl/extractor/mofosex.py",
+  "youtube_dl/extractor/clubic.py"
+ ],
+ "timestamp": "2026-10-02T15:55:48",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  5,
+  3,
+  4,
+  6,
+  7,
+  8
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "2": 0.2,
+  "5": 0.15,
+  "3": 0.1,
+  "4": 0.05,
+  "6": 0.03,
+  "7": 0.01,
+  "8": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.1,
+  0.45,
+  0.03,
+  0.2,
+  0.01,
+  0.01,
+  0.05,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  5,
+  1,
+  7,
+  6,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 832,
+  "output_tokens": 94
+ },
+ "raw_response": "{\"ranking\": [1, 2, 5, 3, 4, 6, 7, 8], \"confidence\": {\"1\": 0.45, \"2\": 0.20, \"5\": 0.15, \"3\": 0.10, \"4\": 0.05, \"6\": 0.03, \"7\": 0.01, \"8\": 0.01}}",
+ "n_attempts": 1
+}

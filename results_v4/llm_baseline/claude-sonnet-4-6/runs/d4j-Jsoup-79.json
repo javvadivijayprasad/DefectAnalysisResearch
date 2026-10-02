@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Jsoup-79",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/FormElement.java",
+  "src/main/java/org/jsoup/nodes/LeafNode.java",
+  "src/main/java/org/jsoup/nodes/CDataNode.java",
+  "src/main/java/org/jsoup/nodes/package-info.java"
+ ],
+ "timestamp": "2026-10-02T15:12:26",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "2": 0.65,
+  "3": 0.45,
+  "1": 0.25,
+  "4": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.25,
+  0.05,
+  0.45
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  1
+ ],
+ "usage": {
+  "input_tokens": 831,
+  "output_tokens": 296
+ },
+ "raw_response": "Looking at the candidates:\n\n- Files 2, 3, 4 all have commits=1, age_days=1, commit_freq=1.0 \u2014 these are brand new files added in a single commit, likely part of a refactoring that introduced the bug.\n- File 1 (FormElement.java) has more history but could also be modified in the fix.\n\nThe failing test is an AssertionError in Jsoup. The new `LeafNode.java` (file 2) is the most substantial new file (95 lines) and likely represents a core refactoring of the node hierarchy. `CDataNode.java` (file 3) is also new and substantial. These new files are the most likely sources of defects since they were just introduced.\n\n`LeafNode.java` with 95 lines of new code is the most likely defective file \u2014 it's a new abstraction that could break existing behavior. `CDataNode.java` is also new and could be involved. `FormElement.java` might have been updated to work with the new node structure.\n\n{\"ranking\": [2, 3, 1, 4], \"confidence\": {\"2\": 0.65, \"3\": 0.45, \"1\": 0.25, \"4\": 0.05}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "bip-ansible-17",
+ "repo": "bugsinpy:ansible",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "lib/ansible/module_utils/facts/hardware/aix.py",
+  "lib/ansible/module_utils/facts/hardware/dragonfly.py",
+  "lib/ansible/module_utils/facts/hardware/openbsd.py",
+  "lib/ansible/module_utils/facts/hardware/freebsd.py",
+  "lib/ansible/module_utils/facts/hardware/linux.py"
+ ],
+ "timestamp": "2026-10-02T15:22:34",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  5,
+  4,
+  1,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.55,
+  "5": 0.25,
+  "4": 0.12,
+  "1": 0.06,
+  "2": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.25,
+  0.12,
+  0.04,
+  0.06,
+  0.55
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  2,
+  4,
+  3,
+  0
+ ],
+ "usage": {
+  "input_tokens": 874,
+  "output_tokens": 497
+ },
+ "raw_response": "Looking at this failing test in ansible's facts/hardware module, I need to identify which file(s) were likely changed in the fix commit.\n\nKey observations:\n- The test involves hardware facts collection\n- The exception is AssertionError, suggesting a logic/value error in fact gathering\n- `app_code_changed` flag is set\n\nAnalyzing candidates:\n1. **aix.py** - 5 commits, 5 devs, moderate churn (280), age 524 days, low commit freq\n2. **dragonfly.py** - 50 commits, 13 devs, high churn (920), old file (1924 days), moderate freq\n3. **openbsd.py** - Only 3 commits, 1 dev, low churn (192), very young (12 days!), extremely high commit_freq (1.75) - this is very recently created/modified\n4. **freebsd.py** - 4 commits, 3 devs, moderate churn (278), young file (313 days)\n5. **linux.py** - 22 commits, 15 devs, highest churn (946), moderate age (778 days), highest commit freq among stable files\n\nThe standout file is **openbsd.py** - it's only 12 days old with a commit frequency of 1.75 (meaning it was committed to very frequently in its short life), suggesting it was very recently created or heavily modified. This is a strong signal for a recently introduced bug.\n\n**linux.py** is also notable with the highest churn and many contributors, making it prone to bugs.\n\n**freebsd.py** is relatively young (313 days) with few commits.\n\nThe openbsd.py file's extreme recency (12 days) and high commit frequency strongly suggests it's the defective file. linux.py with its high activity is a secondary candidate.\n\n{\"ranking\": [3, 5, 4, 1, 2], \"confidence\": {\"3\": 0.55, \"5\": 0.25, \"4\": 0.12, \"1\": 0.06, \"2\": 0.04}}",
+ "n_attempts": 1
+}

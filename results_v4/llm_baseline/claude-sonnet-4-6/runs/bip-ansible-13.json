@@ -1,0 +1,60 @@
+{
+ "event_id": "bip-ansible-13",
+ "repo": "bugsinpy:ansible",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "lib/ansible/galaxy/login.py",
+  "lib/ansible/cli/galaxy.py",
+  "lib/ansible/cli/console.py",
+  "lib/ansible/cli/__init__.py",
+  "lib/ansible/galaxy/api.py",
+  "lib/ansible/cli/doc.py",
+  "lib/ansible/galaxy/collection.py"
+ ],
+ "timestamp": "2026-10-02T15:22:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  5,
+  4,
+  1,
+  7,
+  6,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.55,
+  "3": 0.05,
+  "4": 0.2,
+  "5": 0.35,
+  "6": 0.08,
+  "7": 0.15
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.15,
+  0.35,
+  0.2,
+  0.08,
+  0.25,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  1,
+  2,
+  5,
+  3,
+  6
+ ],
+ "usage": {
+  "input_tokens": 949,
+  "output_tokens": 86
+ },
+ "raw_response": "{\"ranking\": [2, 5, 4, 1, 7, 6, 3], \"confidence\": {\"1\": 0.25, \"2\": 0.55, \"3\": 0.05, \"4\": 0.20, \"5\": 0.35, \"6\": 0.08, \"7\": 0.15}}",
+ "n_attempts": 1
+}

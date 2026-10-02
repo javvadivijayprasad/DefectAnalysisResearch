@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Closure-60",
+ "repo": "defects4j:Closure",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/PeepholeRemoveDeadCode.java",
+  "src/com/google/javascript/jscomp/MemoizedScopeCreator.java",
+  "src/com/google/javascript/jscomp/ProcessTweaks.java",
+  "src/com/google/javascript/jscomp/ReverseAbstractInterpreter.java",
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/DevirtualizePrototypeMethods.java"
+ ],
+ "timestamp": "2026-10-02T15:43:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  5,
+  1,
+  3,
+  6,
+  2,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.25,
+  "2": 0.05,
+  "3": 0.15,
+  "4": 0.05,
+  "5": 0.4,
+  "6": 0.1
+ },
+ "confidence_by_corpus_row": [
+  0.4,
+  0.25,
+  0.05,
+  0.15,
+  0.05,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  5,
+  2,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 780,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [5, 1, 3, 6, 2, 4], \"confidence\": {\"1\": 0.25, \"2\": 0.05, \"3\": 0.15, \"4\": 0.05, \"5\": 0.4, \"6\": 0.1}}",
+ "n_attempts": 1
+}

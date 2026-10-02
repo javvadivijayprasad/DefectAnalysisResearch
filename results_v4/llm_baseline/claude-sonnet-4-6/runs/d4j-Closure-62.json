@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Closure-62",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/LightweightMessageFormatter.java",
+  "src/com/google/javascript/jscomp/GlobalNamespace.java",
+  "src/com/google/javascript/jscomp/InlineSimpleMethods.java",
+  "src/com/google/javascript/jscomp/NodeUtil.java"
+ ],
+ "timestamp": "2026-10-02T14:52:38",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "4": 0.25,
+  "2": 0.07,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.05,
+  0.25,
+  0.07
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 834,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.65, \"4\": 0.25, \"2\": 0.07, \"3\": 0.05}}",
+ "n_attempts": 1
+}

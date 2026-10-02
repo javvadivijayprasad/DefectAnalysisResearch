@@ -1,0 +1,45 @@
+{
+ "event_id": "bip-ansible-4",
+ "repo": "bugsinpy:ansible",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 4,
+ "presented_files": [
+  "lib/ansible/playbook/role_include.py",
+  "lib/ansible/playbook/base.py",
+  "lib/ansible/playbook/collectionsearch.py",
+  "lib/ansible/playbook/playbook_include.py"
+ ],
+ "timestamp": "2026-10-02T15:50:49",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  4,
+  2,
+  3
+ ],
+ "llm_confidence_presented": {
+  "1": 0.45,
+  "4": 0.3,
+  "2": 0.2,
+  "3": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.05,
+  0.45,
+  0.2,
+  0.3
+ ],
+ "rankpos_by_corpus_row": [
+  3,
+  0,
+  2,
+  1
+ ],
+ "usage": {
+  "input_tokens": 687,
+  "output_tokens": 50
+ },
+ "raw_response": "{\"ranking\": [1, 4, 2, 3], \"confidence\": {\"1\": 0.45, \"4\": 0.30, \"2\": 0.20, \"3\": 0.05}}",
+ "n_attempts": 1
+}

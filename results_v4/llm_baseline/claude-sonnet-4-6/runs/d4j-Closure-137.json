@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Closure-137",
+ "repo": "defects4j:Closure",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/com/google/javascript/jscomp/JSModule.java",
+  "src/com/google/javascript/jscomp/MakeDeclaredNamesUnique.java",
+  "src/com/google/javascript/jscomp/CompilerOptions.java",
+  "src/com/google/javascript/jscomp/CheckPathsBetweenNodes.java",
+  "src/com/google/javascript/jscomp/NodeUtil.java",
+  "src/com/google/javascript/jscomp/InlineGetters.java",
+  "src/com/google/javascript/jscomp/Normalize.java"
+ ],
+ "timestamp": "2026-10-02T14:55:54",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  7,
+  5,
+  4,
+  3,
+  1,
+  6
+ ],
+ "llm_confidence_presented": {
+  "1": 0.08,
+  "2": 0.55,
+  "3": 0.15,
+  "4": 0.2,
+  "5": 0.3,
+  "6": 0.05,
+  "7": 0.4
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.3,
+  0.4,
+  0.15,
+  0.05,
+  0.2,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  1,
+  4,
+  6,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 1001,
+  "output_tokens": 519
+ },
+ "raw_response": "Looking at this failing test in defects4j:Closure-137, I need to identify which files are likely defective.\n\nKey observations:\n- The test failure is an AssertionError\n- The `app_code_changed` flag is set\n- This is in the Closure compiler project\n\nLet me analyze the candidates:\n\n1. **JSModule.java** - Low commits (2), very recent (53 days), high churn relative to size\n2. **MakeDeclaredNamesUnique.java** - 6 commits, moderate activity, deals with variable renaming\n3. **CompilerOptions.java** - Very active (15 commits), high churn, central configuration file\n4. **CheckPathsBetweenNodes.java** - Only 1 commit, brand new file (1 day old!), very suspicious - newly added files often introduce bugs\n5. **NodeUtil.java** - Very active (10 commits), massive churn (2209), utility functions used everywhere\n6. **InlineGetters.java** - Low commits (2), moderate age\n7. **Normalize.java** - Active (10 commits), high churn, normalization passes often interact with other passes\n\nFor Closure-137, this is related to variable renaming/normalization. The `MakeDeclaredNamesUnique.java` and `Normalize.java` are strong candidates given the nature of Closure bugs in this range. `NodeUtil.java` with its massive churn is also suspect. `CheckPathsBetweenNodes.java` being brand new (1 day old) is very suspicious.\n\nThe combination of `MakeDeclaredNamesUnique.java` (deals with variable scoping/renaming) and `Normalize.java` (normalization pass) seems most likely for an AssertionError in Closure-137. `NodeUtil.java` with its high activity is also a strong candidate.\n\n{\"ranking\": [2, 7, 5, 4, 3, 1, 6], \"confidence\": {\"1\": 0.08, \"2\": 0.55, \"3\": 0.15, \"4\": 0.20, \"5\": 0.30, \"6\": 0.05, \"7\": 0.40}}",
+ "n_attempts": 1
+}

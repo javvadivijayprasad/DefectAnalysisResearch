@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Collections-28",
+ "repo": "defects4j:Collections",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie.java",
+  "src/main/java/org/apache/commons/collections4/trie/PatriciaTrie.java",
+  "src/main/java/org/apache/commons/collections4/trie/KeyAnalyzer.java",
+  "src/main/java/org/apache/commons/collections4/trie/AbstractBitwiseTrie.java",
+  "src/main/java/org/apache/commons/collections4/trie/package-info.java",
+  "src/main/java/org/apache/commons/collections4/trie/UnmodifiableTrie.java"
+ ],
+ "timestamp": "2026-10-02T14:59:51",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  3,
+  4,
+  6,
+  5
+ ],
+ "llm_confidence_presented": {
+  "1": 0.65,
+  "2": 0.35,
+  "3": 0.15,
+  "4": 0.1,
+  "6": 0.08,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.65,
+  0.35,
+  0.15,
+  0.02,
+  0.08,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  5,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 991,
+  "output_tokens": 75
+ },
+ "raw_response": "{\"ranking\": [1, 2, 3, 4, 6, 5], \"confidence\": {\"1\": 0.65, \"2\": 0.35, \"3\": 0.15, \"4\": 0.10, \"6\": 0.08, \"5\": 0.02}}",
+ "n_attempts": 1
+}

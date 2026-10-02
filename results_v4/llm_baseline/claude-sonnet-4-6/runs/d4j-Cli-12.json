@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Cli-12",
+ "repo": "defects4j:Cli",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/java/org/apache/commons/cli/UnrecognizedOptionException.java",
+  "src/java/org/apache/commons/cli/GnuParser.java",
+  "src/java/org/apache/commons/cli/CommandLine.java",
+  "src/java/org/apache/commons/cli/AlreadySelectedException.java"
+ ],
+ "timestamp": "2026-10-02T14:48:58",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  3,
+  1,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.1,
+  "2": 0.55,
+  "3": 0.25,
+  "4": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.55,
+  0.08,
+  0.25,
+  0.1
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  3,
+  1,
+  2
+ ],
+ "usage": {
+  "input_tokens": 836,
+  "output_tokens": 53
+ },
+ "raw_response": "{\"ranking\": [2, 3, 1, 4], \"confidence\": {\"1\": 0.10, \"2\": 0.55, \"3\": 0.25, \"4\": 0.08}}",
+ "n_attempts": 1
+}

@@ -1,0 +1,50 @@
+{
+ "event_id": "d4j-Math-8",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 5,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math3/distribution/AbstractIntegerDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/BetaDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java",
+  "src/main/java/org/apache/commons/math3/distribution/BinomialDistribution.java"
+ ],
+ "timestamp": "2026-10-02T15:16:05",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  3,
+  1,
+  5,
+  4,
+  2
+ ],
+ "llm_confidence_presented": {
+  "3": 0.82,
+  "1": 0.35,
+  "5": 0.1,
+  "4": 0.08,
+  "2": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.82,
+  0.35,
+  0.1,
+  0.05,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  2,
+  4,
+  3
+ ],
+ "usage": {
+  "input_tokens": 926,
+  "output_tokens": 196
+ },
+ "raw_response": "The key signal here is candidate 3: `DiscreteDistribution.java` has commits=1, devs=1, age_days=1, commit_freq=1.0000 \u2014 this is a brand new file added in essentially one commit, which strongly suggests it's part of the fix commit. The test failure (AssertionError) in Math-8 is known to relate to the `DiscreteDistribution` class sampling behavior.\n\n`AbstractIntegerDistribution` is also a likely co-change since it's the base class that would need updating when a new distribution type is introduced.\n\n{\"ranking\": [3, 1, 5, 4, 2], \"confidence\": {\"3\": 0.82, \"1\": 0.35, \"5\": 0.10, \"4\": 0.08, \"2\": 0.05}}",
+ "n_attempts": 1
+}

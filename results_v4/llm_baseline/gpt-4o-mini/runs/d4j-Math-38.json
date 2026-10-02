@@ -1,0 +1,55 @@
+{
+ "event_id": "d4j-Math-38",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 6,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/optimization/direct/AbstractSimplex.java",
+  "src/main/java/org/apache/commons/math/optimization/direct/CMAESOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/direct/BaseAbstractMultivariateVectorOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/direct/BOBYQAOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/direct/BaseAbstractMultivariateOptimizer.java",
+  "src/main/java/org/apache/commons/math/optimization/direct/SimplexOptimizer.java"
+ ],
+ "timestamp": "2026-10-02T15:49:30",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  4,
+  2,
+  5,
+  1,
+  3,
+  6
+ ],
+ "llm_confidence_presented": {
+  "4": 0.35,
+  "2": 0.25,
+  "5": 0.15,
+  "1": 0.12,
+  "3": 0.08,
+  "6": 0.05
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.08,
+  0.12,
+  0.25,
+  0.15,
+  0.05
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  4,
+  3,
+  1,
+  2,
+  5
+ ],
+ "usage": {
+  "input_tokens": 811,
+  "output_tokens": 72
+ },
+ "raw_response": "{\"ranking\": [4, 2, 5, 1, 3, 6], \"confidence\": {\"4\": 0.35, \"2\": 0.25, \"5\": 0.15, \"1\": 0.12, \"3\": 0.08, \"6\": 0.05}}",
+ "n_attempts": 1
+}

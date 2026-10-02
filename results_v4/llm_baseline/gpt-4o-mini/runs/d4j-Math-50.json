@@ -1,0 +1,65 @@
+{
+ "event_id": "d4j-Math-50",
+ "repo": "defects4j:Math",
+ "backend": "openai",
+ "model": "gpt-4o-mini",
+ "n_candidates": 8,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/analysis/solvers/BracketedUnivariateRealSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/AllowedSolution.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/BaseUnivariateRealSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/RiddersSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/AbstractPolynomialSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/BaseAbstractUnivariateRealSolver.java",
+  "src/main/java/org/apache/commons/math/analysis/solvers/RegulaFalsiSolver.java"
+ ],
+ "timestamp": "2026-10-02T15:49:40",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  1,
+  2,
+  8,
+  3,
+  7,
+  4,
+  5
+ ],
+ "llm_confidence_presented": {
+  "6": 0.3,
+  "1": 0.2,
+  "2": 0.15,
+  "8": 0.12,
+  "3": 0.1,
+  "7": 0.08,
+  "4": 0.03,
+  "5": 0.02
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.2,
+  0.1,
+  0.03,
+  0.15,
+  0.02,
+  0.12,
+  0.08
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  1,
+  4,
+  6,
+  2,
+  7,
+  3,
+  5
+ ],
+ "usage": {
+  "input_tokens": 919,
+  "output_tokens": 69
+ },
+ "raw_response": "{\"ranking\":[6,1,2,8,3,7,4,5],\"confidence\":{\"6\":0.30,\"1\":0.20,\"2\":0.15,\"8\":0.12,\"3\":0.10,\"7\":0.08,\"4\":0.03,\"5\":0.02}}",
+ "n_attempts": 1
+}

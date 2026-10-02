@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Jsoup-49",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/jsoup/nodes/XmlDeclaration.java",
+  "src/main/java/org/jsoup/nodes/Node.java",
+  "src/main/java/org/jsoup/nodes/Attributes.java",
+  "src/main/java/org/jsoup/nodes/DataNode.java",
+  "src/main/java/org/jsoup/nodes/Attribute.java",
+  "src/main/java/org/jsoup/nodes/Entities.java",
+  "src/main/java/org/jsoup/nodes/TextNode.java"
+ ],
+ "timestamp": "2026-10-02T15:11:11",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  1,
+  2,
+  6,
+  7,
+  3,
+  5,
+  4
+ ],
+ "llm_confidence_presented": {
+  "1": 0.55,
+  "2": 0.35,
+  "6": 0.15,
+  "7": 0.12,
+  "3": 0.08,
+  "5": 0.07,
+  "4": 0.04
+ },
+ "confidence_by_corpus_row": [
+  0.35,
+  0.55,
+  0.04,
+  0.07,
+  0.12,
+  0.08,
+  0.15
+ ],
+ "rankpos_by_corpus_row": [
+  1,
+  0,
+  6,
+  5,
+  3,
+  4,
+  2
+ ],
+ "usage": {
+  "input_tokens": 1005,
+  "output_tokens": 473
+ },
+ "raw_response": "Looking at this failing test in Jsoup (defects4j:Jsoup-49), I need to identify which files were likely changed in the fix commit.\n\nThe test failure is an AssertionError in Jsoup's nodes package. Let me analyze the candidates:\n\n- **XmlDeclaration.java** (1): Low commits, relatively stable\n- **Node.java** (2): Very high commit frequency (0.229), many commits (67), high churn - this is a core class frequently modified\n- **Attributes.java** (3): Moderate activity\n- **DataNode.java** (4): Low activity, stable\n- **Attribute.java** (5): Moderate activity\n- **Entities.java** (6): Very high churn (4944), significant add/delete activity suggesting major rewrites\n- **TextNode.java** (7): Moderate-high activity\n\nFor Jsoup issue 49, this is related to XML declaration handling or node output. The XmlDeclaration class is a specific, targeted file that could have a bug. However, looking at the statistics:\n\n- `Node.java` has the highest commit frequency and is the most actively modified - core bugs often live here\n- `XmlDeclaration.java` is specifically about XML declarations which could relate to parsing/output issues\n- `Entities.java` has massive churn suggesting it underwent significant changes\n\nGiven the \"app_code_changed\" flag and AssertionError, this likely involves output/serialization logic. XmlDeclaration and Node are the most likely candidates for this type of issue. The XmlDeclaration file, while having fewer commits, is specifically targeted at XML handling which is a common source of bugs in Jsoup.\n\n{\"ranking\": [1, 2, 6, 7, 3, 5, 4], \"confidence\": {\"1\": 0.55, \"2\": 0.35, \"6\": 0.15, \"7\": 0.12, \"3\": 0.08, \"5\": 0.07, \"4\": 0.04}}",
+ "n_attempts": 1
+}

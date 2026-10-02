@@ -1,0 +1,60 @@
+{
+ "event_id": "d4j-Math-36",
+ "repo": "defects4j:Math",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 7,
+ "presented_files": [
+  "src/main/java/org/apache/commons/math/fraction/ProperFractionFormat.java",
+  "src/main/java/org/apache/commons/math/fraction/Fraction.java",
+  "src/main/java/org/apache/commons/math/fraction/FractionFormat.java",
+  "src/main/java/org/apache/commons/math/fraction/package-info.java",
+  "src/main/java/org/apache/commons/math/fraction/BigFractionFormat.java",
+  "src/main/java/org/apache/commons/math/fraction/BigFraction.java",
+  "src/main/java/org/apache/commons/math/fraction/BigFractionField.java"
+ ],
+ "timestamp": "2026-10-02T15:17:07",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  6,
+  5,
+  2,
+  3,
+  1,
+  7,
+  4
+ ],
+ "llm_confidence_presented": {
+  "6": 0.75,
+  "5": 0.15,
+  "2": 0.08,
+  "3": 0.05,
+  "1": 0.03,
+  "7": 0.02,
+  "4": 0.01
+ },
+ "confidence_by_corpus_row": [
+  0.75,
+  0.08,
+  0.05,
+  0.03,
+  0.15,
+  0.02,
+  0.01
+ ],
+ "rankpos_by_corpus_row": [
+  0,
+  2,
+  3,
+  4,
+  1,
+  5,
+  6
+ ],
+ "usage": {
+  "input_tokens": 1032,
+  "output_tokens": 186
+ },
+ "raw_response": "The test is Math-36, which is a known defects4j bug. The \"BigFraction\" class is the most likely culprit for an AssertionError in the fraction package, particularly related to BigFraction's `doubleValue()` or similar conversion methods. The `BigFraction.java` file has high commit frequency and churn relative to its age, making it the primary suspect. `BigFractionFormat.java` is secondary.\n\n{\"ranking\": [6, 5, 2, 3, 1, 7, 4], \"confidence\": {\"6\": 0.75, \"5\": 0.15, \"2\": 0.08, \"3\": 0.05, \"1\": 0.03, \"7\": 0.02, \"4\": 0.01}}",
+ "n_attempts": 1
+}

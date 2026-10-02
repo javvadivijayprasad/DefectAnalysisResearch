@@ -1,0 +1,45 @@
+{
+ "event_id": "d4j-Jsoup-81",
+ "repo": "defects4j:Jsoup",
+ "backend": "anthropic",
+ "model": "claude-sonnet-4-6",
+ "n_candidates": 4,
+ "presented_files": [
+  "src/main/java/org/jsoup/parser/XmlTreeBuilder.java",
+  "src/main/java/org/jsoup/helper/ChangeNotifyingArrayList.java",
+  "src/main/java/org/jsoup/nodes/Comment.java",
+  "src/main/java/org/jsoup/helper/DataUtil.java"
+ ],
+ "timestamp": "2026-10-02T15:12:33",
+ "parse_status": "ok",
+ "llm_ranking_presented": [
+  2,
+  1,
+  4,
+  3
+ ],
+ "llm_confidence_presented": {
+  "2": 0.82,
+  "1": 0.45,
+  "4": 0.3,
+  "3": 0.08
+ },
+ "confidence_by_corpus_row": [
+  0.3,
+  0.08,
+  0.45,
+  0.82
+ ],
+ "rankpos_by_corpus_row": [
+  2,
+  3,
+  1,
+  0
+ ],
+ "usage": {
+  "input_tokens": 836,
+  "output_tokens": 309
+ },
+ "raw_response": "Looking at the candidates:\n\n1. **XmlTreeBuilder.java** - Frequently modified, single developer, moderate churn. XML parsing is a common source of bugs.\n\n2. **ChangeNotifyingArrayList.java** - Age of 1 day, commit_freq=1.0, only 1 commit. This is a brand new file added very recently, which strongly suggests it's part of the fix commit.\n\n3. **Comment.java** - Moderate history, less likely to be the defective file.\n\n4. **DataUtil.java** - High churn, many commits/devs, data utility parsing. Could be involved.\n\nThe key signal here is file #2 (ChangeNotifyingArrayList.java) with age_days=1 and commit_freq=1.0 - this is almost certainly a new file introduced in the fix commit. \n\nFor the test failure (AssertionError in Jsoup), the XmlTreeBuilder is also a strong candidate as it handles XML parsing and may have been modified alongside the new helper class.\n\nDataUtil.java handles data/encoding utilities and could be involved in parsing fixes.\n\n{\"ranking\": [2, 1, 4, 3], \"confidence\": {\"2\": 0.82, \"1\": 0.45, \"4\": 0.30, \"3\": 0.08}}",
+ "n_attempts": 1
+}
