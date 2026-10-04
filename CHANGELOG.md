@@ -3,6 +3,10 @@
 All notable changes to this reproducibility bundle are documented here.
 Versions follow semantic versioning; the version is bumped on each Zenodo
 
+## 4.0.1 — 2026-10-02 (analysis script only; no data or result change)
+
+`scripts/analysis_v4.py` now also computes the Lang/Math/Time contamination split with its paired event-level bootstrap (10,000 resamples, seed 42), so that every interval quoted in the manuscript's RQ3 section regenerates from the bundle. `results_v4/paper_numbers_v4.json` is regenerated with the additional `llm.contamination_split` block. Corpus, scores, LLM run logs and figures are byte-identical to 4.0.0.
+
 ## 4.0.0 — 2026-10-02 (corrected corpus; supersedes all 3.0.0 results)
 
 A code audit before resubmission found three construction faults in the 3.0.0 corpus (`scripts/build_real_events.py`). All three are fixed in `scripts/build_real_events_v4.py`, and every result was rerun.

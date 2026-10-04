@@ -146,6 +146,22 @@ for m in ["pre_only"] + list(LLMS):
     out["llm"][m + "_p1_d4j_LangMathTime"] = round(d[d.repo.isin(CLASSIC)].p1.mean(), 4)
     out["llm"][m + "_p1_d4j_other13"] = round(d[(d.repo.str.startswith("defects4j")) & (~d.repo.isin(CLASSIC))].p1.mean(), 4)
     out["llm"][m + "_n_LangMathTime"] = int(d.repo.isin(CLASSIC).sum())
+# paired event-level bootstrap (10,000, seed 42) of P@1 difference LLM minus predictor, inside and outside Lang/Math/Time
+out["llm"]["contamination_split"] = {}
+rep_all = pe["pre_only"].event_id.map(rows.groupby("event_id").repo.first())
+lmt_ids = pe["pre_only"].event_id[rep_all.isin(CLASSIC)]
+for l in LLMS:
+    dd = (pe[l].set_index("event_id").p1.reindex(base.index) - base)
+    rng = np.random.default_rng(42)
+    def bci(v):
+        v = np.asarray(v); idx = rng.integers(0, len(v), (10000, len(v))); ms = v[idx].mean(axis=1)
+        return round(v.mean(), 4), [round(np.percentile(ms, 2.5), 4), round(np.percentile(ms, 97.5), 4)]
+    inside = dd.reindex(lmt_ids).values; outside = dd.drop(lmt_ids).values
+    mi, ci_i = bci(inside); mo, ci_o = bci(outside)
+    li = pe[l].set_index("event_id").p1
+    out["llm"]["contamination_split"][l] = {
+        "n_events_excl": int(len(outside)), "llm_p1_excl": round(li.drop(lmt_ids).mean(), 4), "pre_p1_excl": round(base.drop(lmt_ids).mean(), 4), "diff": mo, "ci": ci_o,
+        "LMT": {"n": int(len(inside)), "llm_p1": round(li.reindex(lmt_ids).mean(), 4), "pre_p1": round(base.reindex(lmt_ids).mean(), 4), "diff": mi, "ci": ci_i}}
 json.dump(out, open(f"{R}/paper_numbers_v4.json", "w"), indent=1)
 print("\nLLM", json.dumps({k: v for k, v in out["llm"].items() if "columns" not in k}, indent=1))
 print("LLM per-corpus", {l: out["per_corpus"][l] for l in LLMS})

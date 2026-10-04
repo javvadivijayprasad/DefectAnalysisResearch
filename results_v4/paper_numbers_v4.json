@@ -824,7 +824,49 @@
   "claude-sonnet-4-6_n_LangMathTime": 185,
   "gpt-4o-mini_p1_d4j_LangMathTime": 0.4162,
   "gpt-4o-mini_p1_d4j_other13": 0.4992,
-  "gpt-4o-mini_n_LangMathTime": 185
+  "gpt-4o-mini_n_LangMathTime": 185,
+  "contamination_split": {
+   "claude-sonnet-4-6": {
+    "n_events_excl": 1082,
+    "llm_p1_excl": 0.4695,
+    "pre_p1_excl": 0.5453,
+    "diff": -0.0758,
+    "ci": [
+     -0.1109,
+     -0.0416
+    ],
+    "LMT": {
+     "n": 185,
+     "llm_p1": 0.8973,
+     "pre_p1": 0.5135,
+     "diff": 0.3838,
+     "ci": [
+      0.2919,
+      0.4757
+     ]
+    }
+   },
+   "gpt-4o-mini": {
+    "n_events_excl": 1082,
+    "llm_p1_excl": 0.4686,
+    "pre_p1_excl": 0.5453,
+    "diff": -0.0767,
+    "ci": [
+     -0.1091,
+     -0.0444
+    ],
+    "LMT": {
+     "n": 185,
+     "llm_p1": 0.4162,
+     "pre_p1": 0.5135,
+     "diff": -0.0973,
+     "ci": [
+      -0.1838,
+      -0.0108
+     ]
+    }
+   }
+  }
  },
  "sensitivity": [
   {
